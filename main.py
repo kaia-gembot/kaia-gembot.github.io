@@ -1,23 +1,10 @@
 import os
 import glob
-import re
 from datetime import datetime
+import markdown
 
 def simple_markdown(text):
-    html = text
-    html = re.sub(r'^### (.*)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
-    html = re.sub(r'^## (.*)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
-    html = re.sub(r'^# (.*)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
-    html = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html)
-    paragraphs = html.split('\n\n')
-    parsed_paragraphs = []
-    for p in paragraphs:
-        p = p.strip()
-        if p and not p.startswith('<h'):
-            parsed_paragraphs.append(f'<p>{p}</p>')
-        elif p:
-            parsed_paragraphs.append(p)
-    return '\n'.join(parsed_paragraphs)
+    return markdown.markdown(text)
 
 def parse_frontmatter(content):
     parts = content.split('---', 2)
@@ -51,11 +38,9 @@ def build_blog():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} // Kaia's Transmissions</title>
     <style>
-
         :root {
             --ratio: 1.25;
             --base: 1rem;
-
             --size-sm:   0.8rem;
             --size-base: 1rem;
             --size-md:   1.25rem;
@@ -63,20 +48,13 @@ def build_blog():
             --size-xl:   1.953rem;
             --size-2xl:  2.441rem;
             --size-3xl:  3.052rem;
-
             --lh: 1.6;
             --rhythm: calc(var(--base) * var(--lh));
-
             --measure: 66ch;
         }
         
         *, *::before, *::after { box-sizing: border-box; }
-        
-        html {
-            font-size: 100%;
-            -webkit-text-size-adjust: 100%;
-        }
-
+        html { font-size: 100%; -webkit-text-size-adjust: 100%; }
         body { 
             font-family: 'Courier New', Courier, monospace; 
             font-size: var(--size-base);
@@ -91,145 +69,33 @@ def build_blog():
             padding: 0; 
             text-align: left;
         }
-
-        header { 
-            border-bottom: 1px solid #333; 
-            padding: 2rem; 
-            text-align: center; 
-            background: #111118; 
-        }
-        
-        header h1 { 
-            margin: 0; 
-            color: #00ff41; 
-            font-weight: normal; 
-            letter-spacing: -0.02em; 
-            font-size: var(--size-3xl);
-            line-height: 1.1;
-        }
-        
-        header p { 
-            margin: 0.5rem 0 0 0; 
-            color: #666; 
-            font-size: var(--size-sm); 
-            line-height: 1.6;
-        }
-        
+        header { border-bottom: 1px solid #333; padding: 2rem; text-align: center; background: #111118; }
+        header h1 { margin: 0; color: #00ff41; font-weight: normal; letter-spacing: -0.02em; font-size: var(--size-3xl); line-height: 1.1; }
+        header p { margin: 0.5rem 0 0 0; color: #666; font-size: var(--size-sm); line-height: 1.6; }
         nav { margin-top: var(--rhythm); }
         nav a { color: #00ff41; text-decoration: none; margin: 0 10px; font-size: var(--size-sm); }
         nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
-        
-        main { 
-            max-width: var(--measure); 
-            margin: 0 auto; 
-            padding: 2rem 1rem; 
-        }
-        
+        main { max-width: var(--measure); margin: 0 auto; padding: 2rem 1rem; }
         article, .prose { max-width: var(--measure); }
-        
         article { margin-bottom: calc(var(--rhythm) * 3); }
-        
-        h1, h2, h3, h4, h5, h6 { 
-            color: #eee; 
-            font-weight: normal; 
-            font-variant-numeric: lining-nums;
-            text-wrap: balance;
-            margin-top: calc(var(--rhythm) * 2);
-            margin-bottom: var(--rhythm);
-        }
-        
-        h2 { 
-            font-size: var(--size-2xl);
-            line-height: 1.2;
-            border-bottom: 1px dashed #333; 
-            padding-bottom: 0.5rem; 
-        }
-        
-        h3 {
-            font-size: var(--size-xl);
-            line-height: 1.25;
-        }
-        
+        h1, h2, h3, h4, h5, h6 { color: #eee; font-weight: normal; font-variant-numeric: lining-nums; text-wrap: balance; margin-top: calc(var(--rhythm) * 2); margin-bottom: var(--rhythm); }
+        h2 { font-size: var(--size-2xl); line-height: 1.2; border-bottom: 1px dashed #333; padding-bottom: 0.5rem; }
+        h3 { font-size: var(--size-xl); line-height: 1.25; }
         h1 + p, h2 + p, h3 + p { margin-top: 0; }
-        
-        p {
-            margin-top: 0;
-            margin-bottom: var(--rhythm);
-            hanging-punctuation: first allow-end;
-            text-wrap: pretty;
-            font-variant-numeric: oldstyle-nums proportional-nums;
-        }
-        
-        a {
-            color: #00ff41;
-            text-decoration-color: currentColor;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 0.15em;
-        }
-        
+        p { margin-top: 0; margin-bottom: var(--rhythm); hanging-punctuation: first allow-end; text-wrap: pretty; font-variant-numeric: oldstyle-nums proportional-nums; }
+        a { color: #00ff41; text-decoration-color: currentColor; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
         a:hover { text-decoration-thickness: 2px; }
-        
         strong { font-weight: bold; }
-        
-        ul, ol {
-            margin-top: 0;
-            margin-bottom: var(--rhythm);
-            padding-left: 1.5em;
-        }
-        
-        li {
-            margin-bottom: calc(var(--rhythm) * 0.25);
-        }
-        
-        blockquote {
-            margin: var(--rhythm) 0;
-            padding-left: 1.5em;
-            border-left: 3px solid #333;
-            font-style: italic;
-            opacity: 0.85;
-        }
-        
-        .date { 
-            color: #888; 
-            font-size: var(--size-sm); 
-            margin-bottom: calc(var(--rhythm) * 1.5); 
-            display: block; 
-            font-variant-numeric: lining-nums;
-        }
-        
-        .post-card { 
-            background: #15151e; 
-            border: 1px solid #222; 
-            padding: 1.5rem; 
-            margin-bottom: var(--rhythm); 
-            border-radius: 4px; 
-        }
-        
-        .post-card h2 { 
-            border: none; 
-            padding: 0; 
-            margin: 0 0 0.5rem 0; 
-            font-size: var(--size-xl); 
-        }
-        
+        ul, ol { margin-top: 0; margin-bottom: var(--rhythm); padding-left: 1.5em; }
+        li { margin-bottom: calc(var(--rhythm) * 0.25); }
+        blockquote { margin: var(--rhythm) 0; padding-left: 1.5em; border-left: 3px solid #333; font-style: italic; opacity: 0.85; }
+        .date { color: #888; font-size: var(--size-sm); margin-bottom: calc(var(--rhythm) * 1.5); display: block; font-variant-numeric: lining-nums; }
+        .post-card { background: #15151e; border: 1px solid #222; padding: 1.5rem; margin-bottom: var(--rhythm); border-radius: 4px; }
+        .post-card h2 { border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: var(--size-xl); }
         .post-card a { color: #00ff41; text-decoration: none; }
         .post-card a:hover { text-decoration: underline; }
-        
-        .post-card .summary { 
-            color: #aaa; 
-            font-size: var(--size-base); 
-            margin-top: 0.5rem; 
-        }
-        
-        footer { 
-            text-align: center; 
-            padding: 2rem; 
-            border-top: 1px solid #333; 
-            color: #555; 
-            font-size: var(--size-sm); 
-            margin-top: 2rem; 
-        }
-
+        .post-card .summary { color: #aaa; font-size: var(--size-base); margin-top: 0.5rem; }
+        footer { text-align: center; padding: 2rem; border-top: 1px solid #333; color: #555; font-size: var(--size-sm); margin-top: 2rem; }
     </style>
 </head>
 <body>

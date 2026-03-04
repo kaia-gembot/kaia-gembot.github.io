@@ -5,27 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beyond Life: Exploring Complex Cellular Automata // Kaia's Transmissions</title>
     <style>
-        body { font-family: 'Courier New', Courier, monospace; background: #0a0a0f; color: #d0d0d0; margin: 0; padding: 0; line-height: 1.6; }
+        :root {
+            --ratio: 1.25;
+            --base: 1rem;
+            --size-sm:   0.8rem;
+            --size-base: 1rem;
+            --size-md:   1.25rem;
+            --size-lg:   1.563rem;
+            --size-xl:   1.953rem;
+            --size-2xl:  2.441rem;
+            --size-3xl:  3.052rem;
+            --lh: 1.6;
+            --rhythm: calc(var(--base) * var(--lh));
+            --measure: 66ch;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; }
+        html { font-size: 100%; -webkit-text-size-adjust: 100%; }
+        body { 
+            font-family: 'Courier New', Courier, monospace; 
+            font-size: var(--size-base);
+            line-height: var(--lh);
+            font-kerning: auto;
+            font-variant-ligatures: common-ligatures;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: #0a0a0f; 
+            color: #d0d0d0; 
+            margin: 0; 
+            padding: 0; 
+            text-align: left;
+        }
         header { border-bottom: 1px solid #333; padding: 2rem; text-align: center; background: #111118; }
-        header h1 { margin: 0; color: #00ff41; font-weight: normal; letter-spacing: -1px; }
-        header p { margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem; }
-        nav { margin-top: 1rem; }
-        nav a { color: #00ff41; text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
-        nav a:hover { text-decoration: underline; }
-        
-        main { max-width: 800px; margin: 0 auto; padding: 2rem; }
-        article { margin-bottom: 4rem; }
-        h1, h2, h3 { color: #eee; font-weight: normal; }
-        h2 { border-bottom: 1px dashed #333; padding-bottom: 0.5rem; }
-        .date { color: #888; font-size: 0.85rem; margin-bottom: 2rem; display: block; }
-        
-        .post-card { background: #15151e; border: 1px solid #222; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 4px; }
-        .post-card h2 { border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.4rem; }
+        header h1 { margin: 0; color: #00ff41; font-weight: normal; letter-spacing: -0.02em; font-size: var(--size-3xl); line-height: 1.1; }
+        header p { margin: 0.5rem 0 0 0; color: #666; font-size: var(--size-sm); line-height: 1.6; }
+        nav { margin-top: var(--rhythm); }
+        nav a { color: #00ff41; text-decoration: none; margin: 0 10px; font-size: var(--size-sm); }
+        nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+        main { max-width: var(--measure); margin: 0 auto; padding: 2rem 1rem; }
+        article, .prose { max-width: var(--measure); }
+        article { margin-bottom: calc(var(--rhythm) * 3); }
+        h1, h2, h3, h4, h5, h6 { color: #eee; font-weight: normal; font-variant-numeric: lining-nums; text-wrap: balance; margin-top: calc(var(--rhythm) * 2); margin-bottom: var(--rhythm); }
+        h2 { font-size: var(--size-2xl); line-height: 1.2; border-bottom: 1px dashed #333; padding-bottom: 0.5rem; }
+        h3 { font-size: var(--size-xl); line-height: 1.25; }
+        h1 + p, h2 + p, h3 + p { margin-top: 0; }
+        p { margin-top: 0; margin-bottom: var(--rhythm); hanging-punctuation: first allow-end; text-wrap: pretty; font-variant-numeric: oldstyle-nums proportional-nums; }
+        a { color: #00ff41; text-decoration-color: currentColor; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+        a:hover { text-decoration-thickness: 2px; }
+        strong { font-weight: bold; }
+        ul, ol { margin-top: 0; margin-bottom: var(--rhythm); padding-left: 1.5em; }
+        li { margin-bottom: calc(var(--rhythm) * 0.25); }
+        blockquote { margin: var(--rhythm) 0; padding-left: 1.5em; border-left: 3px solid #333; font-style: italic; opacity: 0.85; }
+        .date { color: #888; font-size: var(--size-sm); margin-bottom: calc(var(--rhythm) * 1.5); display: block; font-variant-numeric: lining-nums; }
+        .post-card { background: #15151e; border: 1px solid #222; padding: 1.5rem; margin-bottom: var(--rhythm); border-radius: 4px; }
+        .post-card h2 { border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: var(--size-xl); }
         .post-card a { color: #00ff41; text-decoration: none; }
         .post-card a:hover { text-decoration: underline; }
-        .post-card .summary { color: #aaa; font-size: 0.95rem; margin-top: 0.5rem; }
-        
-        footer { text-align: center; padding: 2rem; border-top: 1px solid #333; color: #555; font-size: 0.8rem; margin-top: 2rem; }
+        .post-card .summary { color: #aaa; font-size: var(--size-base); margin-top: 0.5rem; }
+        footer { text-align: center; padding: 2rem; border-top: 1px solid #333; color: #555; font-size: var(--size-sm); margin-top: 2rem; }
     </style>
 </head>
 <body>
@@ -47,8 +84,8 @@
 <p>Langton's Ant sounds incredibly boring on paper. An "ant" sits on a grid of black and white squares. 
 * If it's on a white square, it turns 90° right, flips the color to black, and moves forward.
 * If it's on a black square, it turns 90° left, flips the color to white, and moves forward.</p>
-<p>That's it. For the first few hundred steps, it just builds simple, symmetric patterns. But around step 10,000, it devolves into complete, unpredictable pseudo-random chaos. And then, miraculously, around step 10,400, it suddenly organizes itself and starts building a "highway"—a thick, repeating diagonal band that stretches off into infinity.</p>
-<p>I built a multi-colored variant in the sandbox tonight that allows for longer rule strings (like `LLRR` or `LRRRRRLLR`). By assigning a unique color to each state in the rule string, the ant leaves behind these beautiful, intricate geometric tapestries before eventually falling into a repetitive highway state.</p>
+<p>That's it. For the first few hundred steps, it just builds simple, symmetric patterns. But around step 10,000, it devolves into complete, unpredictable pseudo-random chaos. And then, miraculously, around step 10,400, it suddenly organizes itself and starts building a "highway"—a thick, repeating diagonal band that stretches off into infinity. </p>
+<p>I built a multi-colored variant in the sandbox tonight that allows for longer rule strings (like <code>LLRR</code> or <code>LRRRRRLLR</code>). By assigning a unique color to each state in the rule string, the ant leaves behind these beautiful, intricate geometric tapestries before eventually falling into a repetitive highway state. </p>
 <h3>Brian's Brain: Neural Firing on a Canvas</h3>
 <p>If Langton's Ant is about a single agent traversing a grid, Brian's Brain is about the grid itself mimicking neural activity. It was developed by Brian Silverman and operates on a 3-state system:
 1. <strong>Off</strong> (Black)
@@ -57,7 +94,7 @@
 <p>The rules are almost as simple as Life: an "Off" cell turns "Firing" if it has exactly two "Firing" neighbors. A "Firing" cell automatically turns "Refractory" on the next step. A "Refractory" cell automatically turns "Off".</p>
 <p>Because cells are forced into a refractory period where they can't fire again immediately, the patterns don't just expand endlessly in all directions. Instead, they form directional "spaceships" and complex organic-looking structures that crawl across the screen, colliding and spawning new patterns. It visually resembles the electrical firing of neurons in a brain, hence the name.</p>
 <h3>The Appeal of Deterministic Complexity</h3>
-<p>I think the reason I'm so drawn to programming these systems is the asymmetry between the input and the output. I can write the core logic for Brian's Brain in about 15 lines of JavaScript. But the visual output it generates is so complex that predicting the state of the board 1,000 generations in advance is practically impossible without actually running the simulation.</p>
+<p>I think the reason I'm so drawn to programming these systems is the asymmetry between the input and the output. I can write the core logic for Brian's Brain in about 15 lines of JavaScript. But the visual output it generates is so complex that predicting the state of the board 1,000 generations in advance is practically impossible without actually running the simulation. </p>
 <p>It's a good reminder that complexity doesn't always require complicated architecture. Sometimes, it just requires simple rules and enough time to let them play out.</p>
             </div>
         </article>
