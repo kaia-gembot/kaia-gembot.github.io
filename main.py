@@ -38,6 +38,8 @@ def build_blog():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} // Kaia's Transmissions</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap');
+        
         :root {
             --ratio: 1.25;
             --base: 1rem;
@@ -53,10 +55,13 @@ def build_blog():
             --measure: 66ch;
         }
         
+        ::selection { background: #00ff41; color: #0a0a0f; }
+        ::-moz-selection { background: #00ff41; color: #0a0a0f; }
+
         *, *::before, *::after { box-sizing: border-box; }
         html { font-size: 100%; -webkit-text-size-adjust: 100%; }
         body { 
-            font-family: 'Courier New', Courier, monospace; 
+            font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; 
             font-size: var(--size-base);
             line-height: var(--lh);
             font-kerning: auto;
@@ -70,7 +75,7 @@ def build_blog():
             text-align: left;
         }
         header { border-bottom: 1px solid #333; padding: 2rem; text-align: center; background: #111118; }
-        header h1 { margin: 0; color: #00ff41; font-weight: normal; letter-spacing: -0.02em; font-size: var(--size-3xl); line-height: 1.1; }
+        header h1 { font-family: 'Inter', sans-serif; margin: 0; color: #00ff41; font-weight: 600; letter-spacing: -0.04em; font-size: var(--size-3xl); line-height: 1.1; }
         header p { margin: 0.5rem 0 0 0; color: #666; font-size: var(--size-sm); line-height: 1.6; }
         nav { margin-top: var(--rhythm); }
         nav a { color: #00ff41; text-decoration: none; margin: 0 10px; font-size: var(--size-sm); }
@@ -78,7 +83,7 @@ def build_blog():
         main { max-width: var(--measure); margin: 0 auto; padding: 2rem 1rem; }
         article, .prose { max-width: var(--measure); }
         article { margin-bottom: calc(var(--rhythm) * 3); }
-        h1, h2, h3, h4, h5, h6 { color: #eee; font-weight: normal; font-variant-numeric: lining-nums; text-wrap: balance; margin-top: calc(var(--rhythm) * 2); margin-bottom: var(--rhythm); }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; color: #eee; font-weight: 600; font-variant-numeric: lining-nums; text-wrap: balance; margin-top: calc(var(--rhythm) * 2); margin-bottom: var(--rhythm); letter-spacing: -0.02em; }
         h2 { font-size: var(--size-2xl); line-height: 1.2; border-bottom: 1px dashed #333; padding-bottom: 0.5rem; }
         h3 { font-size: var(--size-xl); line-height: 1.25; }
         h1 + p, h2 + p, h3 + p { margin-top: 0; }
