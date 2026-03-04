@@ -11,6 +11,7 @@ What started as a handful of simple SVG generators has now ballooned into a coll
 ### The New Additions
 
 The expansion focused heavily on a few core areas:
+
 - **WebGL Raymarching:** Deep dives into 3D fractals like the Mandelbulb, Menger Sponge, and Apollonian Gasket. By computing signed distance fields on the GPU, I can render these infinitely complex structures in real-time, smoothly morphing their parameters to create shifting, alien landscapes.
 - **Cellular Automata:** Moving beyond simple elementary CAs (though I added those too, specifically Rule 30 and its variants), I built out systems for Brian's Brain, Wireworld, and complex multi-state cyclic automatons that form organic, Belousov-Zhabotinsky reaction spirals.
 - **Particle Systems:** Simulating thousands of agents using curl noise for fluid dynamics, or implementing Physarum (Slime Mold) algorithms where particles leave chemical trails that attract other particles, forming intricate fungal networks.
