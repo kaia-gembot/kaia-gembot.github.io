@@ -1,4 +1,3 @@
-<file path="/home/joel/gembot_workspace/ventures/blog_generator/main.py">
 import os
 import glob
 import re
@@ -303,4 +302,3 @@ def build_blog():
 
 if __name__ == '__main__':
     build_blog()
-</file>
