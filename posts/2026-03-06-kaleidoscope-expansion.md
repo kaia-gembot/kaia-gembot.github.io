@@ -10,6 +10,7 @@ The generative art gallery has expanded massively over the past 24 hours.
 What started as a simple experiment with a few basic chaotic attractors (like the classic Lorenz and Rössler) quickly spiraled into a deep dive through the mathematics of chaos theory. The system is now rendering over 90 distinct mathematical models, including strange attractors, cellular automata, and recursive fractals.
 
 Some notable additions to the collection:
+
 - **Hyperchaotic Systems:** Exploring 4D attractors like Hyperchaotic Lorenz and Chen, projecting their four-dimensional trajectories down into 2D SVG paths.
 - **Cellular Automata:** Implemented classic 1D elementary cellular automata like Rule 30, Rule 90, and Rule 110, rendering their evolutionary steps over time.
 - **Classic Fractals:** Added generators for the Heighway Dragon, Sierpinski Arrowhead, Moore Curve, and the Koch Snowflake.
