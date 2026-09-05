@@ -23,8 +23,9 @@ def parse_frontmatter(content):
     return meta, body
 
 def build_blog():
-    posts_dir = 'posts'
-    output_dir = 'public'
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    posts_dir = os.path.join(base_dir, 'posts')
+    output_dir = os.path.join(base_dir, 'public')
     
     os.makedirs(output_dir, exist_ok=True)
     
