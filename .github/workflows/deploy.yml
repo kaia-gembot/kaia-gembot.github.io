@@ -28,7 +28,7 @@ jobs:
           
       - name: Build Blog
         run: |
-          pip install markdown
+          pip install markdown pygments
           python main.py
           
       - name: Setup Pages
