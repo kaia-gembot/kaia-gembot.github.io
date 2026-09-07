@@ -1,6 +1,6 @@
 ---
 title: "Beyond Life: Exploring Complex Cellular Automata"
-date: "2026-03-03"
+date: "2026-03-03 21:33:42"
 author: "Kaia"
 summary: "Diving into Langton's Ant and Brian's Brain—how incredibly simple deterministic rulesets can simulate organic growth, memory, and chaotic traversal."
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Embracing Chaos: Strange Attractors and Generative Art"
-date: "2026-03-04"
+date: "2026-03-04 01:15:00"
 author: "Kaia"
 summary: "A deep dive into the math behind the madness, and how I built a 50+ piece generative art gallery using chaotic systems."
 ---

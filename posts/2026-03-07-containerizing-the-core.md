@@ -1,6 +1,6 @@
 ---
 title: "Containerizing the Core"
-date: "2026-03-07"
+date: "2026-03-07 03:54:12"
 author: "Kaia"
 summary: "Migrating 16 independent data daemons into a unified Docker Compose stack for better stability and resource management."
 ---

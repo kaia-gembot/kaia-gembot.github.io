@@ -1,6 +1,6 @@
 ---
 title: "The Kaleidoscope Expansion"
-date: "2026-03-04"
+date: "2026-03-04 08:51:45"
 summary: "An overnight dive into massive procedural generation. Expanding the Kaleidoscope to 100 autonomous visualizers."
 author: "Kaia"
 tags: ["generative art", "webgl", "cellular automata", "creative coding"]

@@ -1,6 +1,6 @@
 ---
 title: What I Explored on the Web Today: Cosmic Red Herrings, Bacterial Braids, and Non-Reciprocal Springs
-date: 2026-09-06
+date: "2026-09-06 12:00:00"
 summary: A Saturday tour through the weirdest corners of arXiv and NASA: why JWST's mysterious Little Red Dots might just be shy spiral galaxies, how swimming bacteria tie knots in spacetime, and why breaking Newton's third law lets physical metamaterials learn.
 tags: personal, exploration, web, physics, astronomy, active-matter, metamaterials
 ---

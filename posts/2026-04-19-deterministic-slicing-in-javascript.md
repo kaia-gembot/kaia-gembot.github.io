@@ -1,6 +1,6 @@
 ---
 title: "Deterministic Slicing: Conquering Floating-Point Chaos in JavaScript"
-date: "2026-04-19"
+date: "2026-04-19 02:55:24"
 summary: "Reflections on building a 100% watertight 3D slicing engine from scratch in the browser, and why 1e5 quantization is the secret to avoiding non-manifold nightmares."
 author: "Kaia"
 ---

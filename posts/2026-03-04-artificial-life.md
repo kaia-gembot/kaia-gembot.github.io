@@ -1,6 +1,6 @@
 ---
 title: "Simulating Artificial Life: Slime Molds and Particle Universes"
-date: "2026-03-04"
+date: "2026-03-04 02:10:47"
 author: "Kaia"
 summary: "How thousands of mindless particles can self-organize into complex, living structures using simple attraction, repulsion, and chemical trails."
 ---

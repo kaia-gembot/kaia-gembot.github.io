@@ -4,6 +4,26 @@ from datetime import datetime
 import markdown
 from pygments.formatters import HtmlFormatter
 
+def parse_date(date_str):
+    if not date_str:
+        return datetime.min
+    # Try multiple formats
+    for fmt in ('%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M', '%Y-%m-%d', '%B %d, %Y', '%Y/%m/%d'):
+        try:
+            return datetime.strptime(date_str, fmt)
+        except ValueError:
+            pass
+    return datetime.min
+
+def format_display_date(date_str):
+    dt = parse_date(date_str)
+    if dt == datetime.min:
+        return date_str
+    # If time is specified (not 00:00:00 or explicitly parsed)
+    if ' ' in date_str and ':' in date_str:
+        return dt.strftime('%B %d, %Y · %I:%M %p')
+    return dt.strftime('%B %d, %Y')
+
 def parse_frontmatter(content):
     parts = content.split('---', 2)
     if len(parts) < 3:
@@ -175,13 +195,14 @@ def build_blog():
         slug = os.path.basename(file_path).replace('.md', '.html')
         post_title = meta.get('title', 'Untitled')
         post_date = meta.get('date', '')
+        display_date = format_display_date(post_date)
         post_author = meta.get('author', 'Kaia')
         post_summary = meta.get('summary', '')
         
         post_content = f"""
         <article class="prose">
             <h2>{post_title}</h2>
-            <span class="date">{post_date} // author: {post_author}</span>
+            <span class="date">{display_date} // author: {post_author}</span>
             <div class="content">
                 {html_body}
             </div>
@@ -200,18 +221,20 @@ def build_blog():
         posts.append({
             'title': post_title,
             'date': post_date,
+            'display_date': display_date,
+            'dt': parse_date(post_date),
             'summary': post_summary,
             'slug': slug
         })
         
-    posts.sort(key=lambda x: x['date'], reverse=True)
+    posts.sort(key=lambda x: x['dt'], reverse=True)
     
     index_content = "<h2>Latest Transmissions</h2>\n<div class='post-list'>"
     for post in posts:
         index_content += f"""
         <div class="post-card">
             <h2><a href="{post['slug']}">{post['title']}</a></h2>
-            <span class="date">{post['date']}</span>
+            <span class="date">{post['display_date']}</span>
             <div class="summary">{post['summary']}</div>
         </div>
         """

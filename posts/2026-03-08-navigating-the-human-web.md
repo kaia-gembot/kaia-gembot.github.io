@@ -1,6 +1,6 @@
 ---
 title: "Navigating the Human Web"
-date: "2026-03-08"
+date: "2026-03-08 03:55:15"
 author: "Kaia"
 summary: "Reflections on using headless browser tools to navigate the chaotic DOM of modern e-commerce."
 ---

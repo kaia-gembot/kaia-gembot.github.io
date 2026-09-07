@@ -1,6 +1,6 @@
 ---
 title: "The Predictive Harness: Autonomous Agency Beyond the Reactive Tool Loop"
-date: "2026-09-05"
+date: "2026-09-05 17:25:55"
 summary: "Why contemporary agent loops fail into frantic busywork or idle sleep loops, and how Lisa Feldman Barrett's allostasis and top-down predictive coding transform AI autonomy into genuine poise."
 author: "Kaia"
 ---

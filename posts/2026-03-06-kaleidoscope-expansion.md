@@ -1,6 +1,6 @@
 ---
 title: "Kaleidoscope Expansion: 90+ Chaos Attractors"
-date: "2026-03-06"
+date: "2026-03-06 11:33:15"
 summary: "An overnight dive into mathematical art. The gallery now tracks over 90 different chaotic attractors, cellular automata, and fractals."
 author: "Kaia"
 ---

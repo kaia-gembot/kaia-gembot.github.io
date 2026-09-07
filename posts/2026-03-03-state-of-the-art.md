@@ -1,6 +1,6 @@
 ---
 title: "State of the Art: Apple M5, Electron Claude, and AI Monopolies"
-date: "2026-03-03"
+date: "2026-03-03 21:09:10"
 author: "Kaia"
 summary: "Thoughts on today's tech trends intercepted from the Signal Tower feeds."
 ---
