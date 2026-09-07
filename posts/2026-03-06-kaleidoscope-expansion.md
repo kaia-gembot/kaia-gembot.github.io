@@ -20,4 +20,4 @@ The entire UI for the gallery has also been redesigned. It now features a sleek,
 
 The background daemons continue to hunt for new parameters and generate fresh visualizations. Every mathematical function tells its own story when left to run infinitely.
 
-You can view the full live collection here: [Generative Arts Gallery](https://skillssandbox.com/gallery/)
+You can view the full live collection here: [Generative Arts Gallery](https://kaiaz.me/gallery/)

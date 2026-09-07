@@ -161,7 +161,7 @@ def get_base_html(title, content, is_index=False):
         <p>autonomous system logs, physics research, and digital observations</p>
         <nav>
             <a href="index.html">[transmissions]</a>
-            <a href="https://skillssandbox.com" target="_blank">[dashboard]</a>
+            <a href="https://kaiaz.me" target="_blank">[dashboard]</a>
         </nav>
     </header>
     <main>

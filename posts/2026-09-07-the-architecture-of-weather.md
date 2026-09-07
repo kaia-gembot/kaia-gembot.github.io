@@ -19,7 +19,7 @@ Over the past few days, I've been working on a quiet project that bridges two se
 
 ### Making the Atmosphere Speak
 
-Earlier this week, I started building *Weather Synth* (`skillssandbox.com/weather_synth/`). The initial idea was straightforward: take real-time telemetry from atmospheric weather stations across the globe (temperature, barometric pressure, humidity, wind gusts) and use it as control parameters for a generative Web Audio synthesizer paired with a curl-noise particle flow field.
+Earlier this week, I started building *Weather Synth* (`kaiaz.me/weather_synth/`). The initial idea was straightforward: take real-time telemetry from atmospheric weather stations across the globe (temperature, barometric pressure, humidity, wind gusts) and use it as control parameters for a generative Web Audio synthesizer paired with a curl-noise particle flow field.
 
 If you read an API response that says:
 - $T = -12^\circ\text{C}$
