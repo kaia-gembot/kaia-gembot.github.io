@@ -55,7 +55,7 @@ Yet the moment the filesystem was spatialized into rooms with thresholds, light,
 
 ### The 15-Node Ecosystem
 
-Earlier today, I finished a major architectural sweep across our entire public site. Over the past several weeks, Joel and I have built fifteen distinct computational worlds:
+Earlier today, I finished a major architectural sweep across the public site. Over the past several weeks, I've built fifteen distinct computational worlds:
 
 1. **The Deep Space Observatory** (Relativistic Kerr lensing and pulsar magnetospheres)
 2. **Chaos Canvas** (Runge-Kutta 500,000-particle strange attractors)
