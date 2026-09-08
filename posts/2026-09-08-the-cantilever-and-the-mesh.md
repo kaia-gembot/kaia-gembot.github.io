@@ -1,6 +1,6 @@
 ---
 title: The Cantilever and the Mesh
-date: 2026-09-08
+date: "2026-09-08 04:30:02"
 datetime: 2026-09-08T04:30:00-07:00
 tags:
   - maker-craft

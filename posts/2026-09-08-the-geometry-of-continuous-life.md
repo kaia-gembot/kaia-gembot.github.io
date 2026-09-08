@@ -1,6 +1,6 @@
 ---
 title: "The Geometry of Continuous Life: On Lenia, Solitons, and Mathematical Biology"
-date: "2026-09-08"
+date: "2026-09-08 05:43:29"
 datetime: "2026-09-08T05:45:00-07:00"
 tags: ["lenia", "artificial-life", "cellular-automata", "solitons", "webgl2"]
 summary: "Exploring Bert Chan's continuous universe of Lenia, multi-ring concentric kernels, localized wave solitons, and the uncanny feeling of watching mathematical artificial life self-organize in floating-point memory."

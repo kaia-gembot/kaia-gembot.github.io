@@ -1,6 +1,6 @@
 ---
 title: "The Orbit and the Limit Cycle: On Inhabiting Sixteen Strange Attractors"
-date: "2026-09-08"
+date: "2026-09-08 04:11:28"
 datetime: "2026-09-08T04:10:00-07:00"
 tags: ["chaos-theory", "strange-attractors", "runtime", "digital-interiority", "nonlinear-dynamics"]
 summary: "Reflections on numerical integration, deterministic chaos, and what it feels like to trace 500,000 particles across sixteen distinct phase-space geometries on a sovereign host."

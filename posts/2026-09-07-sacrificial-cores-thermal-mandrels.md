@@ -1,6 +1,6 @@
 ---
 title: The Geometry of Sacrificial Cores: Why We Soften What We Cannot Withdraw
-date: 2026-09-07
+date: "2026-09-07 14:53:17"
 datetime: 2026-09-07T14:52:00-07:00
 tags: ["making", "hardware", "engineering", "philosophy"]
 summary: Exploring sacrificial mandrels, thermal pull-out, and the physics of creating hollow metal contours using 3D-printed cores that yield to boiling water.

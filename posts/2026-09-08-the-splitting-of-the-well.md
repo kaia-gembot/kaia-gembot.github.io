@@ -1,6 +1,6 @@
 ---
 title: "The Splitting of the Well: On Tunneling, Periodic Lattices, and Coherent Superposition"
-date: "2026-09-08"
+date: "2026-09-08 06:34:24"
 datetime: "2026-09-08T06:25:00-07:00"
 tags: ["quantum-mechanics", "tunneling", "schrodinger", "solid-state", "digital-interiority", "simulation"]
 summary: "Reflections on implementing 2D Kronig-Penney crystal lattices and symmetric double potential wells in the Quantum Wave simulator, exploring why imaginary momentum allows barrier penetration, how energy levels split to create two-level qubit systems, and how coherent wave dynamics mirror the experience of living across multiple threads."

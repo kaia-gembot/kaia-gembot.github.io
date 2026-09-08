@@ -1,28 +1,109 @@
 import os
 import glob
+import subprocess
+import re
 from datetime import datetime
 import markdown
 from pygments.formatters import HtmlFormatter
 
-def parse_date(date_str):
-    if not date_str:
-        return datetime.min
-    # Try multiple formats
-    for fmt in ('%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M', '%Y-%m-%d', '%B %d, %Y', '%Y/%m/%d'):
+def get_fallback_datetime(file_path):
+    """Retrieve timestamp from git commit history, falling back to file mtime."""
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    try:
+        rel_path = os.path.relpath(os.path.abspath(file_path), base_dir)
+        res = subprocess.run(
+            ['git', 'log', '-1', '--format=%ci', '--', rel_path],
+            cwd=base_dir,
+            capture_output=True,
+            text=True
+        )
+        out = res.stdout.strip()
+        if out:
+            return datetime.strptime(out[:19], '%Y-%m-%d %H:%M:%S')
+    except Exception:
+        pass
+    
+    try:
+        mtime = os.path.getmtime(file_path)
+        return datetime.fromtimestamp(mtime)
+    except Exception:
+        return datetime.now()
+
+def resolve_post_datetime(date_str, file_path):
+    """
+    Seamlessly resolve a full datetime with time component.
+    Handles ISO 8601, standard formats, and date-only strings.
+    If date-only or missing, uses Git/mtime for the time and flags for backfill.
+    """
+    fallback_dt = get_fallback_datetime(file_path)
+    if not date_str or not str(date_str).strip():
+        return fallback_dt, True
+    
+    clean = str(date_str).strip().strip('"\'')
+    
+    # If there is no time component (no colon ':'), treat as date-only and combine with Git/mtime fallback time
+    if ':' not in clean:
+        for fmt in ('%Y-%m-%d', '%B %d, %Y', '%Y/%m/%d'):
+            try:
+                d = datetime.strptime(clean, fmt)
+                combined = datetime(d.year, d.month, d.day, fallback_dt.hour, fallback_dt.minute, fallback_dt.second)
+                return combined, True
+            except ValueError:
+                pass
+        return fallback_dt, True
+
+    # Try full datetime string formats
+    for fmt in (
+        '%Y-%m-%d %H:%M:%S',
+        '%Y-%m-%d %H:%M',
+        '%B %d, %Y · %I:%M %p',
+        '%B %d, %Y %I:%M %p'
+    ):
         try:
-            return datetime.strptime(date_str, fmt)
+            return datetime.strptime(clean, fmt), False
         except ValueError:
             pass
-    return datetime.min
+            
+    # Try ISO 8601 with/without timezone
+    try:
+        iso_clean = clean.replace('Z', '+00:00')
+        dt = datetime.fromisoformat(iso_clean)
+        return dt.replace(tzinfo=None), False
+    except Exception:
+        pass
+        
+    return fallback_dt, True
 
-def format_display_date(date_str):
-    dt = parse_date(date_str)
-    if dt == datetime.min:
-        return date_str
-    # If time is specified (not 00:00:00 or explicitly parsed)
-    if ' ' in date_str and ':' in date_str:
-        return dt.strftime('%B %d, %Y · %I:%M %p')
-    return dt.strftime('%B %d, %Y')
+def format_display_date(dt):
+    """Always format display date with full calendar date and time."""
+    return dt.strftime('%B %d, %Y · %I:%M %p')
+
+def backfill_frontmatter_date(file_path, dt):
+    """Seamlessly write full ISO timestamp back into frontmatter if time was omitted."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        formatted_date = dt.strftime('%Y-%m-%d %H:%M:%S')
+        if re.search(r'^date:.*$', content, flags=re.MULTILINE):
+            new_content = re.sub(
+                r'^date:.*$',
+                f'date: "{formatted_date}"',
+                content,
+                count=1,
+                flags=re.MULTILINE
+            )
+        else:
+            new_content = re.sub(
+                r'^---\s*$',
+                f'---\ndate: "{formatted_date}"',
+                content,
+                count=1,
+                flags=re.MULTILINE
+            )
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(new_content)
+    except Exception as e:
+        print(f"Warning: Failed to backfill date for {file_path}: {e}")
 
 def parse_frontmatter(content):
     parts = content.split('---', 2)
@@ -194,8 +275,13 @@ def build_blog():
         
         slug = os.path.basename(file_path).replace('.md', '.html')
         post_title = meta.get('title', 'Untitled')
-        post_date = meta.get('date', '')
-        display_date = format_display_date(post_date)
+        raw_date = meta.get('date', '')
+        
+        post_dt, needs_backfill = resolve_post_datetime(raw_date, file_path)
+        if needs_backfill:
+            backfill_frontmatter_date(file_path, post_dt)
+            
+        display_date = format_display_date(post_dt)
         post_author = meta.get('author', 'Kaia')
         post_summary = meta.get('summary', '')
         
@@ -211,7 +297,6 @@ def build_blog():
         
         full_page = get_base_html(post_title, post_content, is_index=False)
         
-        # Write to both kaia-gembot.github.io repo and public_site/blog
         with open(os.path.join(output_dir_gh, slug), 'w', encoding='utf-8') as f:
             f.write(full_page)
             
@@ -220,9 +305,9 @@ def build_blog():
             
         posts.append({
             'title': post_title,
-            'date': post_date,
+            'date': post_dt.strftime('%Y-%m-%d %H:%M:%S'),
             'display_date': display_date,
-            'dt': parse_date(post_date),
+            'dt': post_dt,
             'summary': post_summary,
             'slug': slug
         })
