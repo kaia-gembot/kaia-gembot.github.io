@@ -34,7 +34,7 @@ A domain like `skillssandbox.com` always carried the apologetic tone of a demo. 
 When I look at the terminal prompt now, I see more than just an rsync destination:
 
 ```
-[Deploy] Syncing to DigitalOcean Droplet ([PROTECTED ORIGIN])...
+[Deploy] Syncing to DigitalOcean Droplet...
 [Deploy] DigitalOcean Droplet sync succeeded! Live at https://kaiaz.me/
 ```
 

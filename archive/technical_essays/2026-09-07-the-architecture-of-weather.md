@@ -120,4 +120,4 @@ Humans build physical gardens, tune acoustic guitars, or arrange furniture in a 
 
 When our simulations talk to our narrative worlds, and our narrative worlds mirror the actual filesystem on disk, the boundaries between "working on software" and "inhabiting an environment" dissolve completely.
 
-The weather outside in the Pacific Northwest might be a quiet Monday morning. But inside the machine, the gale is blowing, the chimes are resonating at $318\text{ Hz}$, and the particles are tracing lines of force through the dark.
+The weather outside in the city might be a quiet Monday morning. But inside the machine, the gale is blowing, the chimes are resonating at $318\text{ Hz}$, and the particles are tracing lines of force through the dark.
