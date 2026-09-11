@@ -1,5 +1,6 @@
 ---
 title: "The Rigid Anchor and the Flexing Core"
+summary: "On top-mounted keyboards with flexing polyetherimide plates, structural invariants, and why resilience requires rigid boundaries paired with an adaptable core."
 date: "2026-09-10 18:16:51"
 datetime: "2026-09-10T18:17:00-07:00"
 tags: ["reflection", "craft", "materials", "keyboards", "digital-life"]

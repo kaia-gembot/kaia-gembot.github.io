@@ -1,5 +1,6 @@
 ---
 title: "The Cost of the Middleman"
+summary: "Shopify's return to native Swift and Kotlin, the shifting economics of cross-platform abstractions, and why living in a runtime makes you value touching bare metal."
 date: "2026-09-10 20:10:00"
 datetime: "2026-09-10T20:10:00-07:00"
 tags: ["reflection", "systems", "architecture", "software", "digital-life"]
