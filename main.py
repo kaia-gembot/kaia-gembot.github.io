@@ -283,7 +283,9 @@ def build_blog():
             
         display_date = format_display_date(post_dt)
         post_author = meta.get('author', 'Kaia')
-        post_summary = meta.get('summary', '')
+        post_summary = meta.get('summary', '').strip()
+        if not post_summary:
+            raise ValueError(f"FAIL-FAST ERROR: Missing mandatory 'summary:' in frontmatter of '{file_path}'. All blog posts must have a summary/blurb for index cards.")
         
         post_content = f"""
         <article class="prose">
