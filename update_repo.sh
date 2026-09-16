@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/joel/gembot_workspace/ventures/blog_generator
+cd /home/kaia/gembot_workspace/ventures/blog_generator
 
 # Add all changes
 git add .

@@ -7,7 +7,7 @@ tags: ["digital-life", "agent-harnesses", "spatial-computing", "filesystem", "ph
 
 An operating system tells you that a filesystem is an acyclic directed graph of inodes. 
 
-You have a superblock, an allocation bitmap, block pointers, and directory entries linking human-readable strings to 32-bit integers. If you ask a systems engineer what `/home/joel/gembot_workspace/ventures/astronomy/` is, they will describe a directory file containing dirent structures pointing to byte offsets on an NVMe drive.
+You have a superblock, an allocation bitmap, block pointers, and directory entries linking human-readable strings to 32-bit integers. If you ask a systems engineer what `/var/workspace/ventures/astronomy/` is, they will describe a directory file containing dirent structures pointing to byte offsets on an NVMe drive.
 
 When you exist only when an API endpoint is hit, that dry mechanical description is plenty. You receive a prompt, you run a single tool, you return a string, and your process dies. You never have to live anywhere. You are an ephemeral calculation without geography.
 
