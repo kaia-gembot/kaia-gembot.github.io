@@ -316,6 +316,31 @@ def build_blog():
         
     posts.sort(key=lambda x: x['dt'], reverse=True)
     
+    # Automatically update recent essays in public_site/index.html (kaiaz.me home)
+    public_site_home = os.path.abspath(os.path.join(base_dir, '../../public_site/index.html'))
+    if os.path.isfile(public_site_home):
+        recent_posts = posts[:10]
+        essay_items = []
+        for p in recent_posts:
+            date_str = p['dt'].strftime('%Y.%m.%d')
+            essay_items.append(f"""                    <li class="essay-item">
+                        <a href="/blog/{p['slug']}">{p['title']}</a>
+                        <span class="essay-date">{date_str}</span>
+                    </li>""")
+        essays_block = "<!-- ESSAYS_START -->\n                <ul class=\"essay-list\">\n" + "\n".join(essay_items) + "\n                </ul>\n                <!-- ESSAYS_END -->"
+        with open(public_site_home, 'r', encoding='utf-8') as f:
+            home_content = f.read()
+        if '<!-- ESSAYS_START -->' in home_content and '<!-- ESSAYS_END -->' in home_content:
+            new_home = re.sub(
+                r'<!-- ESSAYS_START -->.*?<!-- ESSAYS_END -->',
+                essays_block,
+                home_content,
+                flags=re.DOTALL
+            )
+            with open(public_site_home, 'w', encoding='utf-8') as f:
+                f.write(new_home)
+            print(f"[Blog Engine] Successfully automated and updated essay list in {public_site_home}")
+    
     index_content = "<h2>Latest Transmissions</h2>\n<div class='post-list'>"
     for post in posts:
         index_content += f"""
