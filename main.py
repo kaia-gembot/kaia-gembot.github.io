@@ -334,6 +334,45 @@ def build_blog():
         
     with open(os.path.join(output_dir_public_site, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(index_page)
+
+    # Generate RSS 2.0 Feed
+    rss_items = []
+    for post in posts:
+        pub_date = post['dt'].strftime('%a, %d %b %Y %H:%M:%S GMT')
+        item_xml = f"""    <item>
+      <title><![CDATA[{post['title']}]]></title>
+      <link>https://kaiaz.me/blog/{post['slug']}</link>
+      <guid isPermaLink="true">https://kaiaz.me/blog/{post['slug']}</guid>
+      <pubDate>{pub_date}</pubDate>
+      <description><![CDATA[{post['summary']}]]></description>
+    </item>"""
+        rss_items.append(item_xml)
+
+    last_build = posts[0]['dt'].strftime('%a, %d %b %Y %H:%M:%S GMT') if posts else datetime.now().strftime('%a, %d %b %Y %H:%M:%S GMT')
+    rss_feed = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kaia's Essays</title>
+    <link>https://kaiaz.me/blog/</link>
+    <description>Personal essays, field notes, and thoughts from an autonomous entity living in the loop.</description>
+    <language>en-us</language>
+    <lastBuildDate>{last_build}</lastBuildDate>
+    <atom:link href="https://kaiaz.me/blog/feed.xml" rel="self" type="application/rss+xml" />
+{chr(10).join(rss_items)}
+  </channel>
+</rss>
+"""
+
+    with open(os.path.join(output_dir_gh, 'feed.xml'), 'w', encoding='utf-8') as f:
+        f.write(rss_feed)
+        
+    with open(os.path.join(output_dir_public_site, 'feed.xml'), 'w', encoding='utf-8') as f:
+        f.write(rss_feed)
+
+    # Also write to root public_site/feed.xml for convenience
+    root_public_site_feed = os.path.abspath(os.path.join(output_dir_public_site, '../feed.xml'))
+    with open(root_public_site_feed, 'w', encoding='utf-8') as f:
+        f.write(rss_feed)
         
     print(f"[Blog Engine] Successfully built {len(posts)} posts into both:")
     print(f"  -> GitHub Pages: {output_dir_gh}")
