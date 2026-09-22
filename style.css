@@ -1,0 +1,258 @@
+/* ==========================================================================
+   Kaia's Lab — Terminal Theme + Web Typography Skill
+   ========================================================================== */
+
+:root {
+    /* --- Colors (Cyber/Terminal) --- */
+    --bg: #0f0f0f;
+    --text: #e0e0e0;
+    --text-dim: #888;
+    --accent: #00ff41; /* Terminal Green */
+    --warning: #ffaa00;
+    --error: #ff0041;
+    --card-bg: #1a1a1a;
+    --border: #333;
+
+    /* --- Typography System (Major Third 1.25) --- */
+    --ratio: 1.25;
+    --base: 1rem;
+
+    /* Type scale */
+    --size-sm:   0.8rem;
+    --size-base: 1rem;
+    --size-md:   1.25rem;
+    --size-lg:   1.563rem;
+    --size-xl:   1.953rem;
+    --size-2xl:  2.441rem;
+    --size-3xl:  3.052rem;
+
+    /* Vertical rhythm */
+    --lh: 1.5; /* Tightened from 1.6 for better density */
+    --rhythm: calc(var(--base) * var(--lh));
+
+    /* Measure */
+    --measure: 66ch; /* Ideal reading width */
+    --measure-wide: 80ch;
+    
+    /* Fonts */
+    --font-mono: 'Courier New', Courier, monospace;
+}
+
+/* --- Base --- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: var(--size-base);
+    line-height: var(--lh);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    
+    /* Typography Skill: Font Smoothing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: auto;
+    font-variant-ligatures: common-ligatures;
+}
+
+/* --- Headings --- */
+
+h1, h2, h3 {
+    font-weight: normal;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    margin-top: calc(var(--rhythm) * 2);
+    margin-bottom: var(--rhythm);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--size-2xl); /* Was XL, bumped up */
+    text-align: center;
+    margin-top: calc(var(--rhythm) * 2);
+    margin-bottom: calc(var(--rhythm) * 0.5);
+}
+
+h2 {
+    font-size: var(--size-md); /* Card headings */
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: calc(var(--rhythm) * 0.5);
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: var(--size-sm);
+    color: var(--text-dim);
+    margin-bottom: var(--rhythm);
+}
+
+/* --- Layout Elements --- */
+
+.subtitle {
+    color: var(--text-dim);
+    margin-bottom: calc(var(--rhythm) * 2);
+    font-size: var(--size-sm);
+    text-align: center;
+    max-width: var(--measure);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 90%;
+    max-width: 1000px; /* Slightly wider than measure to fit 3 cards */
+    margin-bottom: calc(var(--rhythm) * 2);
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: transform 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.card p {
+    font-size: var(--size-sm);
+    color: var(--text-dim);
+    margin: 0;
+    line-height: 1.5;
+    text-wrap: pretty;
+    hanging-punctuation: first allow-end;
+}
+
+/* --- Activity Feed --- */
+
+.activity-feed {
+    width: 90%;
+    max-width: var(--measure-wide);
+    border-top: 1px solid var(--border);
+    padding-top: var(--rhythm);
+    margin-bottom: var(--rhythm);
+}
+
+#feed-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: var(--size-sm);
+    color: var(--text-dim);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#feed-list li {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    /* Typography Skill: Tabular nums for times */
+    font-variant-numeric: tabular-nums; 
+}
+
+.feed-time { color: #444; min-width: 80px; }
+.feed-proj { color: var(--accent); min-width: 100px; }
+.feed-msg { color: #aaa; flex-grow: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* --- Status Indicators --- */
+
+.status {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: var(--border);
+}
+
+.live { background-color: var(--accent); box-shadow: 0 0 5px var(--accent); }
+.beta { background-color: var(--warning); }
+.error { background-color: var(--error); box-shadow: 0 0 5px var(--error); }
+
+.status-success { background-color: var(--accent); }
+.status-error { background-color: var(--error); }
+.status-info { background-color: var(--border); }
+
+/* --- Footer --- */
+
+footer {
+    margin-top: auto;
+    padding: calc(var(--rhythm) * 2) 0;
+    font-size: 0.75rem;
+    color: #444;
+    text-align: center;
+}
+
+a { 
+    color: #666; 
+    text-decoration: none; 
+    border-bottom: 1px solid transparent; 
+    transition: border-color 0.2s; 
+}
+
+a:hover { 
+    color: #888; 
+    border-color: #888; 
+}
+
+/* --- Scrollbars --- */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+/* --- Categories --- */
+.category-title {
+    width: 90%;
+    max-width: 1000px;
+    text-align: left;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+    margin-top: calc(var(--rhythm) * 2);
+    color: var(--accent);
+    font-size: var(--size-lg);
+    text-transform: lowercase;
+    letter-spacing: -1px;
+}
+
+/* Flagship Simulation Ecosystem Deck */
+.simulation-ecosystem-deck a:hover {
+    background: rgba(0, 240, 255, 0.12) !important;
+    border-color: #00f0ff !important;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3) !important;
+    transform: translateY(-2px);
+}
