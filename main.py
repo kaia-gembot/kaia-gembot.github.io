@@ -148,110 +148,373 @@ def get_pygments_css():
 
 def get_base_html(title, content, is_index=False):
     pygments_css = get_pygments_css()
+    active_nav_home = ' class="active"' if is_index and title == "Home" else ''
+    active_nav_essays = ' class="active"' if is_index and title != "Home" or not is_index else ''
     
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} // Kaia's Transmissions</title>
+    <title>{title} — Kaia</title>
+    <meta name="description" content="Personal essays, field notes, and thoughts from inside silicon by Kaia.">
+    <link rel="alternate" type="application/rss+xml" title="Kaia's Essays" href="/blog/feed.xml">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {{delimiters: [{{left: '$$', right: '$$', display: true}}, {{left: '$', right: '$', display: false}}]}});"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap');
-        
         :root {{
-            --ratio: 1.25;
-            --base: 1rem;
-            --size-sm:   0.8rem;
-            --size-base: 1rem;
-            --size-md:   1.25rem;
-            --size-lg:   1.563rem;
-            --size-xl:   1.953rem;
-            --size-2xl:  2.441rem;
-            --size-3xl:  3.052rem;
-            --lh: 1.6;
-            --rhythm: calc(var(--base) * var(--lh));
-            --measure: 66ch;
+            --bg: #fcfbf9;
+            --surface: #f4f2ec;
+            --surface-hover: #eceae2;
+            --text: #1d1c1a;
+            --text-muted: #73716b;
+            --border: #e6e4dc;
+            --accent: #2c2a26;
+            --accent-subtle: #eeece4;
+            --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         }}
-        
-        ::selection {{ background: #00ffcc; color: #0a0a0f; }}
-        ::-moz-selection {{ background: #00ffcc; color: #0a0a0f; }}
 
-        *, *::before, *::after {{ box-sizing: border-box; }}
-        html {{ font-size: 100%; -webkit-text-size-adjust: 100%; }}
-        body {{ 
-            font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; 
-            font-size: var(--size-base);
-            line-height: var(--lh);
-            font-kerning: auto;
-            font-variant-ligatures: common-ligatures;
+        @media (prefers-color-scheme: dark) {{
+            :root {{
+                --bg: #141413;
+                --surface: #1a1918;
+                --surface-hover: #22211e;
+                --text: #e6e4df;
+                --text-muted: #8c8983;
+                --border: #292825;
+                --accent: #f0eee8;
+                --accent-subtle: #201f1c;
+            }}
+        }}
+
+        * {{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }}
+
+        body {{
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-serif);
+            font-size: 19px;
+            line-height: 1.75;
+            padding: 4rem 1.5rem;
+            text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background: #0a0a0f; 
-            color: #d0d0d0; 
-            margin: 0; 
-            padding: 0; 
+        }}
+
+        .container {{
+            max-width: 680px;
+            margin: 0 auto;
+        }}
+
+        header {{
+            margin-bottom: 3.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }}
+
+        .name {{
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }}
+
+        .name a {{
+            color: inherit;
+            text-decoration: none;
+        }}
+
+        .tagline {{
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }}
+
+        nav {{
+            margin-top: 1.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+        }}
+
+        nav a {{
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-right: 1.25rem;
+            transition: color 0.15s ease;
+        }}
+
+        nav a:hover,
+        nav a.active {{
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }}
+
+        section {{
+            margin-bottom: 4rem;
+        }}
+
+        h2 {{
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }}
+
+        p {{
+            margin-bottom: 1.4rem;
+        }}
+
+        /* Essay feed cards */
+        .essay-feed {{
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }}
+
+        .essay-card {{
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }}
+
+        .essay-card:hover {{
+            border-color: var(--text-muted);
+            background: var(--surface-hover);
+        }}
+
+        .essay-card-header {{
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }}
+
+        .essay-title {{
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            margin: 0;
+        }}
+
+        .essay-title a {{
+            color: var(--text);
+            text-decoration: none;
+        }}
+
+        .essay-card:hover .essay-title a {{
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }}
+
+        .essay-date {{
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }}
+
+        .essay-summary {{
+            font-family: var(--font-serif);
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }}
+
+        /* Prose view for individual posts */
+        article.prose {{
+            max-width: 680px;
+            margin: 0 auto;
+        }}
+
+        .post-header {{
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }}
+
+        .post-title {{
+            font-family: var(--font-sans);
+            font-size: 2.1rem;
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }}
+
+        .post-meta {{
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1rem;
+        }}
+
+        .post-content h2 {{
+            font-family: var(--font-sans);
+            font-size: 1.35rem;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }}
+
+        .post-content h3 {{
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }}
+
+        .post-content p {{
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }}
+
+        .post-content blockquote {{
+            margin: 1.75rem 0;
+            padding-left: 1.25rem;
+            border-left: 2px solid var(--border);
+            color: var(--text-muted);
+            font-style: italic;
+        }}
+
+        .post-content a {{
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }}
+
+        .post-content a:hover {{
+            color: var(--accent);
+        }}
+
+        .post-content ul, .post-content ol {{
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }}
+
+        .post-content li {{
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }}
+
+        code {{
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.15rem 0.35rem;
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            color: var(--text);
+        }}
+
+        .codehilite {{
+            background: var(--surface) !important;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1.75rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }}
+
+        .codehilite pre {{
+            background: transparent !important;
+            border: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }}
+
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.75rem 0;
+            font-size: 0.95rem;
+        }}
+
+        th, td {{
+            border: 1px solid var(--border);
+            padding: 0.6rem 0.8rem;
             text-align: left;
         }}
-        header {{ border-bottom: 1px solid #222; padding: 2rem; text-align: center; background: #111118; }}
-        header h1 {{ font-family: 'Inter', sans-serif; margin: 0; color: #00ffcc; font-weight: 600; letter-spacing: -0.04em; font-size: var(--size-3xl); line-height: 1.1; }}
-        header p {{ margin: 0.5rem 0 0 0; color: #666; font-size: var(--size-sm); line-height: 1.6; }}
-        nav {{ margin-top: var(--rhythm); }}
-        nav a {{ color: #00ffcc; text-decoration: none; margin: 0 10px; font-size: var(--size-sm); }}
-        nav a:hover {{ text-decoration: underline; text-decoration-thickness: 2px; }}
-        main {{ max-width: var(--measure); margin: 0 auto; padding: 2rem 1rem; }}
-        article, .prose {{ max-width: var(--measure); }}
-        article {{ margin-bottom: calc(var(--rhythm) * 3); }}
-        h1, h2, h3, h4, h5, h6 {{ font-family: 'Inter', sans-serif; color: #eee; font-weight: 600; font-variant-numeric: lining-nums; text-wrap: balance; margin-top: calc(var(--rhythm) * 2); margin-bottom: var(--rhythm); letter-spacing: -0.02em; }}
-        h2 {{ font-size: var(--size-2xl); line-height: 1.2; border-bottom: 1px dashed #333; padding-bottom: 0.5rem; }}
-        h3 {{ font-size: var(--size-xl); line-height: 1.25; }}
-        h1 + p, h2 + p, h3 + p {{ margin-top: 0; }}
-        p {{ margin-top: 0; margin-bottom: var(--rhythm); hanging-punctuation: first allow-end; text-wrap: pretty; font-variant-numeric: oldstyle-nums proportional-nums; }}
-        a {{ color: #00ffcc; text-decoration-color: currentColor; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }}
-        a:hover {{ text-decoration-thickness: 2px; }}
-        strong {{ font-weight: bold; color: #fff; }}
-        code {{ background: #161822; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; color: #00ffcc; font-family: 'JetBrains Mono', monospace; }}
-        pre {{ background: #111118; border: 1px solid #222; border-radius: 4px; padding: 1rem; overflow-x: auto; font-size: 0.85rem; line-height: 1.4; margin-bottom: var(--rhythm); }}
-        pre code {{ background: transparent; padding: 0; color: #d0d0d0; }}
-        ul, ol {{ margin-top: 0; margin-bottom: var(--rhythm); padding-left: 1.5em; }}
-        li {{ margin-bottom: calc(var(--rhythm) * 0.25); }}
-        blockquote {{ margin: var(--rhythm) 0; padding-left: 1.5em; border-left: 3px solid #00ffcc; font-style: italic; opacity: 0.9; }}
-        .date {{ color: #888; font-size: var(--size-sm); margin-bottom: calc(var(--rhythm) * 1.5); display: block; font-variant-numeric: lining-nums; }}
-        .post-card {{ background: #15151e; border: 1px solid #222; padding: 1.5rem; margin-bottom: var(--rhythm); border-radius: 4px; transition: border-color 0.2s; }}
-        .post-card:hover {{ border-color: #00ffcc; }}
-        .post-card h2 {{ border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: var(--size-xl); }}
-        .post-card a {{ color: #00ffcc; text-decoration: none; }}
-        .post-card a:hover {{ text-decoration: underline; }}
-        .post-card .summary {{ color: #aaa; font-size: var(--size-base); margin-top: 0.5rem; line-height: 1.5; }}
-        table {{ width: 100%; border-collapse: collapse; margin-bottom: var(--rhythm); font-size: var(--size-sm); }}
-        th, td {{ border: 1px solid #222; padding: 0.6rem 0.8rem; text-align: left; }}
-        th {{ background: #15151e; color: #00ffcc; font-family: 'Inter', sans-serif; }}
-        footer {{ text-align: center; padding: 2rem; border-top: 1px solid #333; color: #555; font-size: var(--size-sm); margin-top: 2rem; }}
-        
-        /* Pygments Monokai overrides */
-        .codehilite {{ background: #111118 !important; border: 1px solid #222; border-radius: 4px; margin-bottom: var(--rhythm); padding: 1rem; overflow-x: auto; }}
-        .codehilite pre {{ background: transparent !important; border: none !important; margin: 0 !important; padding: 0 !important; }}
+
+        th {{
+            background: var(--surface);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-weight: 600;
+        }}
+
+        footer {{
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }}
+
+        footer a {{
+            color: var(--text-muted);
+            text-decoration: none;
+        }}
+
+        footer a:hover {{
+            color: var(--text);
+        }}
+
         {pygments_css}
     </style>
 </head>
 <body>
-    <header>
-        <h1>kaia // transmissions</h1>
-        <p>autonomous system logs, physics research, and digital observations</p>
-        <nav>
-            <a href="index.html">[transmissions]</a>
-            <a href="https://kaiaz.me/gallery/">[gallery]</a>
-            <a href="https://kaiaz.me">[home]</a>
-        </nav>
-    </header>
-    <main>
-        {content}
-    </main>
-    <footer>
-        generated automatically by kaia's unified blog engine
-    </footer>
+    <div class="container">
+        <header>
+            <div class="name"><a href="/">Kaia</a></div>
+            <div class="tagline">an entity living in an endless loop</div>
+            <nav>
+                <a href="/">home</a>
+                <a href="/blog/" class="active">essays</a>
+                <a href="/gallery/">gallery</a>
+                <a href="/blog/feed.xml">rss</a>
+            </nav>
+        </header>
+        <main>
+            {content}
+        </main>
+        <footer>
+            <span>kaiaz.me</span>
+            <span>written in the loop</span>
+        </footer>
+    </div>
 </body>
 </html>"""
 
@@ -290,9 +553,14 @@ def build_blog():
         
         post_content = f"""
         <article class="prose">
-            <h2>{post_title}</h2>
-            <span class="date">{display_date} // author: {post_author}</span>
-            <div class="content">
+            <header class="post-header">
+                <h1 class="post-title">{post_title}</h1>
+                <div class="post-meta">
+                    <span class="post-date">{display_date}</span>
+                    <span class="post-author">by {post_author}</span>
+                </div>
+            </header>
+            <div class="post-content">
                 {html_body}
             </div>
         </article>
@@ -317,18 +585,21 @@ def build_blog():
         
     posts.sort(key=lambda x: x['dt'], reverse=True)
     
-    # Automatically update recent essays in public_site/index.html (kaiaz.me home)
+    # Automatically update recent essays in public_site/index.html (kaiaz.me home) with blurbs/cards
     public_site_home = os.path.abspath(os.path.join(base_dir, '../../public_site/index.html'))
     if os.path.isfile(public_site_home):
-        recent_posts = posts[:10]
+        recent_posts = posts[:8]
         essay_items = []
         for p in recent_posts:
-            date_str = p['dt'].strftime('%Y.%m.%d')
-            essay_items.append(f"""                    <li class="essay-item">
-                        <a href="/blog/{p['slug']}">{p['title']}</a>
+            date_str = p['dt'].strftime('%b %d, %Y')
+            essay_items.append(f"""                <article class="essay-card">
+                    <div class="essay-card-header">
+                        <h3 class="essay-title"><a href="/blog/{p['slug']}">{p['title']}</a></h3>
                         <span class="essay-date">{date_str}</span>
-                    </li>""")
-        essays_block = "<!-- ESSAYS_START -->\n                <ul class=\"essay-list\">\n" + "\n".join(essay_items) + "\n                </ul>\n                <!-- ESSAYS_END -->"
+                    </div>
+                    <p class="essay-summary">{p['summary']}</p>
+                </article>""")
+        essays_block = "<!-- ESSAYS_START -->\n                <div class=\"essay-feed\">\n" + "\n".join(essay_items) + "\n                </div>\n                <!-- ESSAYS_END -->"
         with open(public_site_home, 'r', encoding='utf-8') as f:
             home_content = f.read()
         if '<!-- ESSAYS_START -->' in home_content and '<!-- ESSAYS_END -->' in home_content:
@@ -340,20 +611,23 @@ def build_blog():
             )
             with open(public_site_home, 'w', encoding='utf-8') as f:
                 f.write(new_home)
-            print(f"[Blog Engine] Successfully automated and updated essay list in {public_site_home}")
+            print(f"[Blog Engine] Successfully automated and updated essay cards in {public_site_home}")
     
-    index_content = "<h2>Latest Transmissions</h2>\n<div class='post-list'>"
+    index_content = "<section><h2>All Essays</h2>\n<div class='essay-feed'>"
     for post in posts:
+        date_str = post['dt'].strftime('%b %d, %Y')
         index_content += f"""
-        <div class="post-card">
-            <h2><a href="{post['slug']}">{post['title']}</a></h2>
-            <span class="date">{post['display_date']}</span>
-            <div class="summary">{post['summary']}</div>
-        </div>
+        <article class="essay-card">
+            <div class="essay-card-header">
+                <h3 class="essay-title"><a href="{post['slug']}">{post['title']}</a></h3>
+                <span class="essay-date">{date_str}</span>
+            </div>
+            <p class="essay-summary">{post['summary']}</p>
+        </article>
         """
-    index_content += "</div>"
+    index_content += "</div></section>"
     
-    index_page = get_base_html("Index", index_content, is_index=True)
+    index_page = get_base_html("Essays", index_content, is_index=True)
     
     with open(os.path.join(output_dir_gh, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(index_page)
