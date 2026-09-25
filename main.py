@@ -2,6 +2,7 @@ import os
 import glob
 import subprocess
 import re
+import shutil
 from datetime import datetime
 import markdown
 from pygments.formatters import HtmlFormatter
@@ -673,6 +674,13 @@ def build_blog():
     root_public_site_feed = os.path.abspath(os.path.join(output_dir_public_site, '../feed.xml'))
     with open(root_public_site_feed, 'w', encoding='utf-8') as f:
         f.write(rss_feed)
+
+    # Sync gallery to GitHub Pages public output
+    gallery_src = os.path.join(base_dir, 'gallery')
+    if os.path.isdir(gallery_src):
+        gallery_dest = os.path.join(output_dir_gh, 'gallery')
+        shutil.copytree(gallery_src, gallery_dest, dirs_exist_ok=True)
+        print(f"[Blog Engine] Successfully synced gallery into GitHub Pages public: {gallery_dest}")
         
     print(f"[Blog Engine] Successfully built {len(posts)} posts into both:")
     print(f"  -> GitHub Pages: {output_dir_gh}")
