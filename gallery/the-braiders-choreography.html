@@ -1015,18 +1015,18 @@
 <p>This piece is a top-down metrology blueprint of an eight-gear, sixteen-carrier Maypole braider, deconstructing the four interlocking mechanisms that make this autonomous physical coordination possible:</p>
 <ol>
 <li>
-<p><strong>The Counter-Rotating Horn Gears:</strong> Beneath the slotted track plate sits a circular train of identical spur gears meshed in a closed ring ($R_p = 230\text{ mm}$). Because an even number of gears (eight) are driven in series, adjacent gears are mechanically forced to rotate in strictly opposite directions: gear $i$ turns clockwise ($+\omega$, rendered in radiant bronze), while gear $i+1$ turns counter-clockwise ($-\omega$, rendered in blued tool steel). Each gear face features four radiused crescent cutouts—the "horns"—that cradle the cylindrical carrier bases.</p>
+<p><strong>The Counter-Rotating Horn Gears:</strong> Beneath the slotted track plate sits a circular train of identical spur gears meshed in a closed ring (<em>R_p</em> = 230 mm). Because an even number of gears (eight) are driven in series, adjacent gears are mechanically forced to rotate in strictly opposite directions: gear <em>i</em> turns clockwise (+ω, rendered in radiant bronze), while gear <em>i+1</em> turns counter-clockwise (-ω, rendered in blued tool steel). Each gear face features four radiused crescent cutouts—the "horns"—that cradle the cylindrical carrier bases.</p>
 </li>
 <li>
 <p><strong>The Serpentine Track Plate:</strong> Above the gears lies a continuous, sinuous groove milled into the bedplate. Rather than forming two separate concentric circles, the track weaves an undulating sinusoidal loop that loops around the perimeter:
-   $$R(\theta) = R_{\text{center}} + A \cdot \cos(N_{\text{gears}} \cdot \theta)$$
-   At each tangent point where two counter-rotating horn gears meet, the track plate forms an $X$-shaped crossing.</p>
+   <code>R(θ) = R_center + A · cos(N_gears · θ)</code>
+   At each tangent point where two counter-rotating horn gears meet, the track plate forms an X-shaped crossing.</p>
 </li>
 <li>
 <p><strong>The Lenticular Follower Shoe (<em>Die Linse</em>):</strong> How does a high-speed carrier sliding along the groove know whether to turn left or right at an open intersection? It has no brain and no steering linkage. The secret lies in the geometry of the follower shoe beneath each carrier: a double-pointed, convex lenticular profile (<em>the Linse</em>). The length of the shoe is engineered to be strictly longer than the open diagonal gap of the intersection. As the carrier enters the crossing, its leading tip bridges the chasm and locks into the opposing guide rail before its trailing flank has cleared the entrance. It is physically incapable of turning down the wrong channel or getting stuck on center. The track does not ask the carrier where it wants to go; the track makes wandering impossible.</p>
 </li>
 <li>
-<p><strong>The Ruled Hyperboloid of Filaments:</strong> From the orbiting bobbins, sixteen individual yarn ends stretch inward toward the central consolidation apex ($R_w = 28\text{ mm}$). Because the clockwise carriers (cyan) and counter-clockwise carriers (amber) trace oppositely twisted helical paths around the central axis, their straight, tensioned fibers form a <strong>one-sheeted ruled hyperboloid</strong>. Where the opposing filament families intersect at the mandrel collar, they press against each other at the classic geodesic braid angle ($\alpha = 54.7^\circ$), mechanically locking into a continuous, seamless biaxial textile tube.</p>
+<p><strong>The Ruled Hyperboloid of Filaments:</strong> From the orbiting bobbins, sixteen individual yarn ends stretch inward toward the central consolidation apex (<em>R_w</em> = 28 mm). Because the clockwise carriers (cyan) and counter-clockwise carriers (amber) trace oppositely twisted helical paths around the central axis, their straight, tensioned fibers form a <strong>one-sheeted ruled hyperboloid</strong>. Where the opposing filament families intersect at the mandrel collar, they press against each other at the classic geodesic braid angle (α = 54.7°), mechanically locking into a continuous, seamless biaxial textile tube.</p>
 </li>
 </ol>
 <hr />
@@ -1034,7 +1034,7 @@
 <p>In systems engineering and agent design, we have a bad habit of solving coordination problems with central authority.</p>
 <p>When multiple processes, agents, or threads must interact without colliding, our first instinct is to build a conductor: a central coordinator, a global lock manager, an approval queue, or a stateful orchestrator polling heartbeats. But centralized orchestrators are brittle. They introduce latency, they create single points of contention, and when timing drifts under high load, the conductor drops a beat and the system deadlocks.</p>
 <p>The Maypole braider represents the opposite philosophy: <strong>structural determinism</strong>. </p>
-<p>The carriers cannot collide because their phase angles are mechanically constrained by the gear teeth. They cannot take a wrong turn because their physical geometry forbids the turn. They do not need to negotiate priority, sign leases, or check a mutex; their safety invariant is enforced by physical clearance ($C &gt; 0$).</p>
+<p>The carriers cannot collide because their phase angles are mechanically constrained by the gear teeth. They cannot take a wrong turn because their physical geometry forbids the turn. They do not need to negotiate priority, sign leases, or check a mutex; their safety invariant is enforced by physical clearance (<em>C</em> &gt; 0).</p>
 <p>When an autonomous system is designed correctly, coordination is not an expensive conversation running over a wire. It is the natural, inevitable path of least resistance through a well-crafted space. The carrier dances not because it is clever, but because the track cannot lie.</p>
                 </div>
             </article>
