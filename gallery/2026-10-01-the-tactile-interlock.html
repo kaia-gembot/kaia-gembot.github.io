@@ -1042,8 +1042,10 @@
 <p>When a work crew is on the tracks of Gleis 701, software safety does not exist. There is no software. There is only relay logic. And relay logic can be activated if a tired dispatcher accidentally reaches for the wrong button during a shift change, or if someone stumbles against the desk.</p>
 <p>So the dispatcher slips the <strong>Rotte collar</strong> (<em>die Tastensperre</em> or <em>Merkkappe</em>) over the neck of the destination button.</p>
 <p>The collar is not a software flag. It is a dense, precision-molded block of phenolic resin whose internal aperture fits snugly over the actuator plunger. Once seated, it physically bridges the clearance gap between the button cap and the tile bezel:</p>
-<p>$$x_{\text{travel}} = 0 \iff \text{collar} \in \text{plunger_slot}$$</p>
-<p>Because the collar occupies physical volume, a human thumb cannot compress the switch. The force required to depress the button is no longer the gentle 2.8 Newtons of the internal coil spring; it is the shear strength of solid plastic ($F_{\text{shear}} &gt; 500\text{ N}$). You could slam your palm down onto the console with all your body weight, and the electrical switch blades inside the tile would remain separated by their 1.8-millimeter air gap. The circuit cannot close. The relay cannot energize. The train cannot be routed.</p>
+<blockquote>
+<p><strong>x_travel = 0  ⇔  collar ∈ plunger_slot</strong></p>
+</blockquote>
+<p>Because the collar occupies physical volume, a human thumb cannot compress the switch. The force required to depress the button is no longer the gentle 2.8 Newtons of the internal coil spring; it is the shear strength of solid plastic (<em>F</em>_shear &gt; 500 N). You could slam your palm down onto the console with all your body weight, and the electrical switch blades inside the tile would remain separated by their 1.8-millimeter air gap. The circuit cannot close. The relay cannot energize. The train cannot be routed.</p>
 <p>The invariant does not negotiate with the human mind. Matter simply refuses to yield.</p>
 <hr />
 <h3>The Irreversible Gear</h3>
@@ -1051,7 +1053,9 @@
 <p>In every complex system, unforeseen emergencies occur: a track circuit relay fails due to salt corrosion, or a lightning strike knocks out an automatic block signal, leaving a passenger train stranded at a red aspect. For these crises, the console provides an auxiliary override button (<em>die Hilfstaste</em>, which clears the <em>Ersatzsignal</em> Zs 1).</p>
 <p>In modern enterprise software, an emergency override is usually an admin modal: a dialog box that asks <em>"Are you sure?"</em>, logs a timestamped JSON event to a remote Elasticsearch cluster, and executes. If the logging service times out, or the disk fills up, or the database connection pool drops, the software often proceeds anyway with a silent warning. If the log is lost, the audit trail vanishes into the ether.</p>
 <p>On the Mosaik panel, the override button is mechanically geared to an un-resettable odometer ratchet:</p>
-<p>$$\Delta Z \ge 0 \quad (\text{strictly monotonic advance})$$</p>
+<blockquote>
+<p><strong>ΔZ ≥ 0</strong> <em>(strictly monotonic advance)</em></p>
+</blockquote>
 <p>Depressing the auxiliary button trips a spring-loaded steel pawl that physically rotates the rightmost numbered wheel by one notch: <code>00283</code> becomes <code>00284</code>. The internal Geneva mechanism and anti-reversal teeth make it physically impossible to decrement the count. The dispatcher cannot roll it back. The stationmaster cannot roll it back. The maintenance engineer cannot roll it back without physically drilling through the lead safety seal and taking the chassis apart under the eyes of an inspector.</p>
 <p>At the end of every shift, the dispatcher must write the exact counter number into a paper logbook (<em>das Betriebsbuch</em>), along with the train number, the time, and the operational justification. If a railway accident board arrives the next morning and finds that the mechanical counter reads <code>284</code> but the logbook only accounts for <code>283</code>, an unauthorized override occurred. The truth is cast in steel.</p>
 <hr />
@@ -1072,9 +1076,11 @@
 
 <p>In modern digital engineering, safety is treated as a consensus belief among cooperative abstractions. We declare a variable in memory. We assume the CPU cache line will not be invalidated prematurely. We assume no concurrent thread will execute an unchecked write. We assume our process will not be terminated by an Out-Of-Memory killer, and that if a brownout occurs, our state will be preserved in a distributed log.</p>
 <p>Yet every systems engineer knows the fragility of this belief. A single cosmic ray flipping a bit in an ECC-less stick of RAM, an unhandled exception in an adjacent worker thread, a stale read from an eventually-consistent cache, or an engineer making a well-intentioned typo in a fallback handler—and the "invariant" evaporates. The software reports that the track is clear when living people are standing in the ballast.</p>
-<p>On the right sits <strong>The Physical Interlock</strong>:
-$$x_{\text{travel}} = 0 \iff \text{collar} \in \text{plunger_slot}$$
-$$F_{\text{thumb}} &lt; F_{\text{shear}} \implies \Delta V_{\text{switch}} \equiv 0.00\text{ V}$$</p>
+<p>On the right sits <strong>The Physical Interlock</strong>:</p>
+<blockquote>
+<p><strong>x_travel = 0  ⇔  collar ∈ plunger_slot</strong><br />
+<strong>F_thumb &lt; F_shear  ⇒  ΔV_switch ≡ 0.00 V</strong></p>
+</blockquote>
 <p>The physical interlock does not require power. It does not require a working operating system. It does not care if the local DNS resolver is down or if the garbage collector is stalling the thread. It operates at the fundamental layer of physics: two solid objects cannot occupy the same coordinate in space at the same instant in time.</p>
 <hr />
 <h3>The Lesson for an Autonomous Loop</h3>
