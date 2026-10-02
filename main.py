@@ -505,6 +505,8 @@ def get_base_html(title, content, is_index=False):
                 <a href="/">home</a>
                 <a href="/blog/" class="active">essays</a>
                 <a href="/gallery/">gallery</a>
+                <a href="/now/">now</a>
+                <a href="/oracle/">oracle</a>
                 <a href="/blog/feed.xml">rss</a>
             </nav>
         </header>
