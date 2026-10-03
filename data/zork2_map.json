@@ -34,7 +34,7 @@
       "id": "158",
       "name": "Dark Tunnel",
       "group": 1,
-      "description": "Oops, you seem a little unsteady... I'm not sure you got where you intended going.\n\nYou have moved i..."
+      "description": "This is a dark tunnel with dim light to the northeast. The tunnel is smooth but dusty and filled wit..."
     },
     {
       "id": "224",
@@ -76,7 +76,7 @@
       "id": "212",
       "name": "Path Near Stream",
       "group": 1,
-      "description": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>..."
+      "description": "The path follows the south edge of a deep ravine and heads northeast. A tunnel heads southwest, narr..."
     },
     {
       "id": "157",
@@ -97,9 +97,112 @@
       "description": "You are in a large circular room whose high ceiling is lost in gloom. Eight identical passages leave..."
     },
     {
+      "id": "159",
+      "name": "Menhir Room",
+      "group": 1,
+      "description": "This is a large room which was evidently used once as a quarry. Many large limestone chunks lie helt..."
+    },
+    {
       "id": "206",
-      "name": "Unexplored",
-      "group": 2
+      "name": "Cobwebby Corridor",
+      "group": 1,
+      "description": "A winding corridor is filled with cobwebs. Some are broken and the dust on the floor is disturbed. T..."
+    },
+    {
+      "id": "30",
+      "name": "Marble Hall",
+      "group": 1,
+      "description": "This is an arched hall of fine marble. The hall stops abruptly to the north at a ford across a strea..."
+    },
+    {
+      "id": "172",
+      "name": "Cool Room",
+      "group": 1,
+      "description": "The room is cool and damp. The air is misty. A twisty path from the southeast splits here toward a w..."
+    },
+    {
+      "id": "184",
+      "name": "Lava Tube",
+      "group": 1,
+      "description": "You are in a tight chimney of solidified lava. It extends up at least another hundred feet and down ..."
+    },
+    {
+      "id": "80",
+      "name": "Stone Bridge",
+      "group": 1,
+      "description": "This is the middle of a ruined but still impressive stone bridge spanning a deep chasm. Water flows ..."
+    },
+    {
+      "id": "248",
+      "name": "Dragon Room",
+      "group": 1,
+      "description": "The room is a large cavern full of broken stone. The walls are scorched and there are deep scratches..."
+    },
+    {
+      "id": "238",
+      "name": "Riddle Room",
+      "group": 1,
+      "description": "This is a room which is bare on all sides. There is an exit down in the northwest corner of the room..."
+    },
+    {
+      "id": "240",
+      "name": "Stairway",
+      "group": 1,
+      "description": "A marble stairway leads down into the gloom and a passage leads north.\n\n>..."
+    },
+    {
+      "id": "19",
+      "name": "Oddly-angled Room",
+      "group": 1,
+      "description": "This is a room with oddly angled walls and passages in all directions. The walls are made of some gl..."
+    },
+    {
+      "id": "121",
+      "name": "Oddly-angled Room",
+      "group": 1,
+      "description": "This is a room with oddly angled walls and passages in all directions. The walls are made of some gl..."
+    },
+    {
+      "id": "161",
+      "name": "Ice Room",
+      "group": 1,
+      "description": "This is a large hall of ancient lava, since worn smooth by the movement of a glacier. A large passag..."
+    },
+    {
+      "id": "28",
+      "name": "Guarded Room",
+      "group": 1,
+      "description": "This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At ..."
+    },
+    {
+      "id": "141",
+      "name": "Fresco Room",
+      "group": 1,
+      "description": "A path leads east-west through a room decorated with beautiful frescoes of someone battling dragons ..."
+    },
+    {
+      "id": "92",
+      "name": "Bank Entrance",
+      "group": 1,
+      "description": "This is the entrance hall of the Bank of Zork, the largest banking institution of the Great Undergro..."
+    },
+    {
+      "id": "38",
+      "name": "Pearl Room",
+      "group": 1,
+      "description": "This is a former broom closet. The exits are to the east and west.\nThere is a pearl necklace here wi..."
+    },
+    {
+      "id": "119",
+      "name": "Circular Room",
+      "group": 1,
+      "description": "This is a damp circular room, whose walls are made of brick and mortar. The roof of this room is not..."
+    },
+    {
+      "id": "231",
+      "name": "Deep Ford",
+      "group": 1,
+      "description": "You are fording the stream at a deep but not impossible spot. The water is very cold. The walls of t..."
     }
   ],
   "links": [
@@ -107,21 +210,6 @@
       "source": "51",
       "target": "168",
       "label": "south"
-    },
-    {
-      "source": "51",
-      "target": "168",
-      "label": "north"
-    },
-    {
-      "source": "51",
-      "target": "228",
-      "label": "east"
-    },
-    {
-      "source": "51",
-      "target": "168",
-      "label": "up"
     },
     {
       "source": "168",
@@ -424,6 +512,21 @@
       "label": "east"
     },
     {
+      "source": "212",
+      "target": "144",
+      "label": "southwest"
+    },
+    {
+      "source": "212",
+      "target": "144",
+      "label": "south"
+    },
+    {
+      "source": "212",
+      "target": "144",
+      "label": "north"
+    },
+    {
       "source": "157",
       "target": "234",
       "label": "north"
@@ -449,15 +552,250 @@
       "label": "west"
     },
     {
+      "source": "218",
+      "target": "144",
+      "label": "northeast"
+    },
+    {
+      "source": "218",
+      "target": "144",
+      "label": "south"
+    },
+    {
       "source": "144",
       "target": "206",
       "label": "out"
+    },
+    {
+      "source": "144",
+      "target": "212",
+      "label": "northeast"
+    },
+    {
+      "source": "144",
+      "target": "159",
+      "label": "north"
+    },
+    {
+      "source": "144",
+      "target": "159",
+      "label": "south"
+    },
+    {
+      "source": "144",
+      "target": "159",
+      "label": "southwest"
+    },
+    {
+      "source": "144",
+      "target": "238",
+      "label": "up"
+    },
+    {
+      "source": "159",
+      "target": "144",
+      "label": "south"
+    },
+    {
+      "source": "159",
+      "target": "144",
+      "label": "north"
+    },
+    {
+      "source": "159",
+      "target": "144",
+      "label": "northeast"
+    },
+    {
+      "source": "206",
+      "target": "144",
+      "label": "south"
+    },
+    {
+      "source": "206",
+      "target": "144",
+      "label": "northeast"
+    },
+    {
+      "source": "206",
+      "target": "184",
+      "label": "north"
+    },
+    {
+      "source": "206",
+      "target": "144",
+      "label": "southwest"
+    },
+    {
+      "source": "30",
+      "target": "144",
+      "label": "northeast"
+    },
+    {
+      "source": "30",
+      "target": "144",
+      "label": "south"
+    },
+    {
+      "source": "30",
+      "target": "144",
+      "label": "southwest"
+    },
+    {
+      "source": "30",
+      "target": "144",
+      "label": "north"
+    },
+    {
+      "source": "172",
+      "target": "144",
+      "label": "north"
+    },
+    {
+      "source": "172",
+      "target": "144",
+      "label": "northeast"
+    },
+    {
+      "source": "172",
+      "target": "80",
+      "label": "cross bridge"
+    },
+    {
+      "source": "172",
+      "target": "161",
+      "label": "west"
+    },
+    {
+      "source": "184",
+      "target": "206",
+      "label": "south"
+    },
+    {
+      "source": "184",
+      "target": "161",
+      "label": "down"
+    },
+    {
+      "source": "80",
+      "target": "248",
+      "label": "north"
+    },
+    {
+      "source": "248",
+      "target": "80",
+      "label": "south"
+    },
+    {
+      "source": "248",
+      "target": "141",
+      "label": "west"
+    },
+    {
+      "source": "238",
+      "target": "144",
+      "label": "northeast"
+    },
+    {
+      "source": "238",
+      "target": "38",
+      "label": "east"
+    },
+    {
+      "source": "238",
+      "target": "144",
+      "label": "down"
+    },
+    {
+      "source": "240",
+      "target": "159",
+      "label": "north"
+    },
+    {
+      "source": "240",
+      "target": "19",
+      "label": "down"
+    },
+    {
+      "source": "19",
+      "target": "240",
+      "label": "up"
+    },
+    {
+      "source": "19",
+      "target": "121",
+      "label": "north"
+    },
+    {
+      "source": "121",
+      "target": "19",
+      "label": "south"
+    },
+    {
+      "source": "161",
+      "target": "184",
+      "label": "up"
+    },
+    {
+      "source": "161",
+      "target": "172",
+      "label": "east"
+    },
+    {
+      "source": "28",
+      "target": "206",
+      "label": "northeast"
+    },
+    {
+      "source": "28",
+      "target": "206",
+      "label": "north"
+    },
+    {
+      "source": "141",
+      "target": "248",
+      "label": "east"
+    },
+    {
+      "source": "141",
+      "target": "92",
+      "label": "west"
+    },
+    {
+      "source": "92",
+      "target": "141",
+      "label": "east"
+    },
+    {
+      "source": "38",
+      "target": "238",
+      "label": "west"
+    },
+    {
+      "source": "38",
+      "target": "119",
+      "label": "east"
+    },
+    {
+      "source": "119",
+      "target": "38",
+      "label": "west"
+    },
+    {
+      "source": "231",
+      "target": "30",
+      "label": "north"
+    },
+    {
+      "source": "231",
+      "target": "30",
+      "label": "south"
     }
   ],
   "meta": {
     "game": "zork2",
-    "generated_at": 1790110704.6672583,
-    "total_rooms": 17,
-    "total_connections": 70
+    "generated_at": 1790999942.6987953,
+    "total_rooms": 34,
+    "total_connections": 117
   }
 }

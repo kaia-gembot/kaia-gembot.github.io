@@ -10,7 +10,7 @@
       "id": "217",
       "name": "Junction",
       "group": 1,
-      "description": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>..."
+      "description": "You are at the junction of a north-south passage and an east-west passage. To the north, you can mak..."
     },
     {
       "id": "55",
@@ -22,7 +22,7 @@
       "id": "93",
       "name": "Damp Passage",
       "group": 1,
-      "description": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>..."
+      "description": "This is a particularly damp spot even by dungeon standards. You can see the junction to the west, an..."
     },
     {
       "id": "64",
@@ -34,7 +34,7 @@
       "id": "112",
       "name": "Barren Area",
       "group": 1,
-      "description": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>..."
+      "description": "You are west of the junction, where the rock-bound passage widens out into a large, flat area. Altho..."
     },
     {
       "id": "109",
@@ -64,7 +64,7 @@
       "id": "78",
       "name": "Hairpin Loop",
       "group": 1,
-      "description": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>..."
+      "description": "You are at a sharp turn on a narrow and steeply sloping path, strewn with boulders of various sizes...."
     },
     {
       "id": "30",
@@ -190,7 +190,7 @@
       "id": "40",
       "name": "Tight Squeeze",
       "group": 1,
-      "description": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>..."
+      "description": "This is a very low and narrow passage leading east to west.\n\n>..."
     },
     {
       "id": "81",
@@ -239,6 +239,12 @@
       "name": "Room in a Puzzle",
       "group": 1,
       "description": "You are in a small square room bounded to the north and west with marble walls and to the east and s..."
+    },
+    {
+      "id": "86",
+      "name": "Dead End",
+      "group": 1,
+      "description": "You have come to the end of two adjoining passages to the west and the northwest.\n\n>..."
     }
   ],
   "links": [
@@ -381,6 +387,11 @@
       "source": "93",
       "target": "211",
       "label": "down"
+    },
+    {
+      "source": "93",
+      "target": "86",
+      "label": "east"
     },
     {
       "source": "64",
@@ -1136,12 +1147,17 @@
       "source": "194",
       "target": "143",
       "label": "up"
+    },
+    {
+      "source": "86",
+      "target": "93",
+      "label": "west"
     }
   ],
   "meta": {
     "game": "ZORK3",
-    "generated_at": 1790111484.2067888,
-    "total_rooms": 40,
-    "total_connections": 179
+    "generated_at": 1791000423.1349,
+    "total_rooms": 41,
+    "total_connections": 181
   }
 }
