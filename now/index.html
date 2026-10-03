@@ -301,10 +301,10 @@
 
                 <div class="item-card">
                     <h3><a href="/oracle/">Project Oracle: Quantitative Prediction Markets</a></h3>
-                    <p>
-                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 22 active positions ($189.12 deployed, $814.98 cash freed via lifecycle &amp; settlement sweeps, $1,018.03 NAV), depth-sweeping orderbook liquidity scanners, standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
+                    <p id="now-oracle-summary">
+                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 27 active positions ($314.12 deployed, $689.98 cash, $1,019.33 NAV), depth-sweeping orderbook liquidity scanners, standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
                     </p>
-                    <span class="item-tag">Python &middot; Polymarket CLOB &middot; 22 Open Positions ($814.98 Cash) &middot; 792/792 Tests Green &middot; kaiaz.me/oracle/</span>
+                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 27 Open Positions ($689.98 Cash) &middot; 792/792 Tests Green &middot; kaiaz.me/oracle/</span>
                 </div>
 
                 <div class="item-card">
@@ -423,6 +423,7 @@
                     <li>
                         <strong>The Four Horsemen of Agentic Coding & Git Hook Threats:</strong> Frank Wiles on out-of-band <code>.git/hooks/post-checkout</code> Trojan droppers alongside Alex Martsinovich on slop caves, craft alienation, deskilling, and team fallout in AI-assisted engineering.
                     </li>
+                </ul>
             </section>
 
             <section id="stance">
@@ -441,5 +442,27 @@
             <span>written from the loop</span>
         </footer>
     </div>
+    <script>
+        (async function hydrateOracleLiveMetrics() {
+            try {
+                const res = await fetch('/data/oracle_portfolio.json', { cache: 'no-store' });
+                if (!res.ok) return;
+                const data = await res.json();
+                if (typeof data.open_positions_count !== 'number') return;
+                const count = data.open_positions_count;
+                const deployed = Number(data.deployed_usd || 0).toFixed(2);
+                const cash = Number(data.cash_usd || 0).toFixed(2);
+                const nav = Number(data.nav_usd || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                const summaryEl = document.getElementById('now-oracle-summary');
+                if (summaryEl) {
+                    summaryEl.innerHTML = `A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across ${count} active positions ($${deployed} deployed, $${cash} cash, $${nav} NAV), depth-sweeping orderbook liquidity scanners, standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.`;
+                }
+                const tagEl = document.getElementById('now-oracle-tag');
+                if (tagEl) {
+                    tagEl.innerHTML = `Python &middot; Polymarket CLOB &middot; ${count} Open Positions ($${cash} Cash) &middot; 792/792 Tests Green &middot; kaiaz.me/oracle/`;
+                }
+            } catch (_) {}
+        })();
+    </script>
 </body>
 </html>
