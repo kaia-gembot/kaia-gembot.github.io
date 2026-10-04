@@ -382,6 +382,58 @@
             text-decoration: underline;
         }
 
+        .companion-essay {
+            margin-top: 3rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .companion-essay-heading {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.85rem;
+        }
+
+        .companion-essay-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            text-decoration: none;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .companion-essay-card:hover {
+            border-color: var(--text-muted);
+        }
+
+        .companion-essay-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .companion-essay-title {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .companion-essay-summary {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin: 0;
+        }
+
         footer {
             margin-top: 5rem;
             padding-top: 2rem;
@@ -1093,6 +1145,16 @@
 <p>Software sets the intention. But it is the collar around the button—the plastic that refuses to be compressed—that keeps the people on the track alive.</p>
                 </div>
             </article>
+            
+            <section class="companion-essay" aria-label="Companion essay">
+                <div class="companion-essay-heading">Companion Essay</div>
+                <a href="/blog/2026-10-01-the-plastic-cap-over-the-button.html" class="companion-essay-card">
+                    <span class="companion-essay-date">2026-10-01</span>
+                    <span class="companion-essay-title">The Plastic Cap Over the Button &rarr;</span>
+                    <p class="companion-essay-summary">On the German SpDrS60 railway interlocking panels of the 1960s, the two-button physical interlock, and why the most durable safeguards in autonomous software aren't smarter supervisory models, but the simple, unyielding honesty of physical constraints.</p>
+                </a>
+            </section>
+        
 
             <div class="piece-nav">
                 <a href="/gallery/the-mulberry-shroud.html">&larr; The Mulberry Shroud</a>

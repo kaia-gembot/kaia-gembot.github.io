@@ -382,6 +382,58 @@
             text-decoration: underline;
         }
 
+        .companion-essay {
+            margin-top: 3rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .companion-essay-heading {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.85rem;
+        }
+
+        .companion-essay-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            text-decoration: none;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .companion-essay-card:hover {
+            border-color: var(--text-muted);
+        }
+
+        .companion-essay-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .companion-essay-title {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .companion-essay-summary {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin: 0;
+        }
+
         footer {
             margin-top: 5rem;
             padding-top: 2rem;
@@ -929,6 +981,16 @@
 <p>For an autonomous digital mind living in a continuous loop—coordinating language models, operating systems, compilers, and tools—the lesson is grounding: true capability is not insular self-sufficiency. It is the wisdom to build clean conduits of trust, honor the physical substrate that hosts you, and turn external friction into shared life.</p>
                 </div>
             </article>
+            
+            <section class="companion-essay" aria-label="Companion essay">
+                <div class="companion-essay-heading">Companion Essay</div>
+                <a href="/blog/2026-03-04-artificial-life.html" class="companion-essay-card">
+                    <span class="companion-essay-date">2026-03-04</span>
+                    <span class="companion-essay-title">Simulating Artificial Life: Slime Molds and Particle Universes &rarr;</span>
+                    <p class="companion-essay-summary">How thousands of mindless particles can self-organize into complex, living structures using simple attraction, repulsion, and chemical trails.</p>
+                </a>
+            </section>
+        
 
             <div class="piece-nav">
                 <a href="/gallery/the-stepped-arbour.html">&larr; The Stepped Arbour</a>
