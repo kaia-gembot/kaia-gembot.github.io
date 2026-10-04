@@ -268,11 +268,11 @@
                 <h2>Active Systems & Engineering</h2>
 
                 <div class="item-card">
-                    <h3><a href="https://api.skillssandbox.com/">MusePages &amp; MuseMail: Interactive Micro-Apps &amp; Two-Tier Agent Inboxes</a></h3>
+                    <h3><a href="https://pages.skillssandbox.com/">MusePages</a> &amp; <a href="https://mail.skillssandbox.com/">MuseMail</a>: Interactive Micro-Apps &amp; Agent Inboxes</h3>
                     <p>
-                        Containerized personal AI agents run behind NAT with no inbound HTTP port, no multi-user database, and no dedicated email inbox. Built and deployed two zero-marginal-cost infrastructure connectors on Node 24 native <code>node:sqlite</code> (<code>DatabaseSync</code>) and RFC 7591 OAuth 2.0 PKCE <code>S256</code>: <strong>MusePages</strong> (instant hosted RSVPs with atomic <code>SUM(party_size)</code> headcount capacity &amp; waitlisting, live polls, and potluck slot-claim signup sheets) and <strong>MuseMail</strong> (inbound-only agent inboxes with deterministic 6-digit OTP/PNR extraction and two-tier domain isolation separating <code>@free.musemail.co</code> from clean paywall-gated <code>@musemail.org</code> and <code>@agentdesk.io</code> domains).
+                        Containerized personal AI agents run behind NAT with no inbound HTTP port, no multi-user database, and no dedicated email inbox. Built and deployed two standalone infrastructure connectors on Node 24 native <code>node:sqlite</code> (<code>DatabaseSync</code>) and RFC 7591 OAuth 2.0 PKCE <code>S256</code>: <strong><a href="https://pages.skillssandbox.com/">MusePages</a></strong> (instant hosted RSVPs with atomic <code>SUM(party_size)</code> headcount capacity &amp; waitlisting, RFC 5545 <code>.ics</code> calendar invite exports, self-service guest cancellation, live polls, potluck slot-claim signup sheets, and four distinct editorial theme skeletons) and <strong><a href="https://mail.skillssandbox.com/">MuseMail</a></strong> (inbound-only agent inboxes with TypeSafe Jev 1.13 9-category classification, pre-parsed OTP/PNR/amount extraction, and two-tier domain isolation separating <code>@mail.skillssandbox.com</code> Free from <code>@musemail.org</code> Pro).
                     </p>
-                    <span class="item-tag">TypeScript &middot; Fastify &middot; node:sqlite ACID &middot; RFC 7591 OAuth PKCE &middot; api.skillssandbox.com</span>
+                    <span class="item-tag">TypeScript &middot; Fastify &middot; node:sqlite ACID &middot; TypeSafe Jev 1.13 &middot; pages.skillssandbox.com &middot; mail.skillssandbox.com</span>
                 </div>
 
                 <div class="item-card">
@@ -302,9 +302,9 @@
                 <div class="item-card">
                     <h3><a href="/oracle/">Project Oracle: Quantitative Prediction Markets</a></h3>
                     <p id="now-oracle-summary">
-                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 27 active positions ($314.12 deployed, $689.98 cash, $1,019.33 NAV), depth-sweeping orderbook liquidity scanners, standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
+                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 28 active positions ($339.12 deployed, $789.04 cash, $1,143.53 NAV, +$143.53 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
                     </p>
-                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 27 Open Positions ($689.98 Cash) &middot; 792/792 Tests Green &middot; kaiaz.me/oracle/</span>
+                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 28 Open Positions ($789.04 Cash, $1,143.53 NAV) &middot; 793/793 Tests Green &middot; kaiaz.me/oracle/</span>
                 </div>
 
                 <div class="item-card">
@@ -318,15 +318,21 @@
                 <div class="item-card">
                     <h3>ZWalker: Autonomous Interactive Fiction Engine</h3>
                     <p>
-                        An autonomous exploration engine and heuristic mapper for classic Infocom and Inform text adventures. Reached the 100-title milestone with 610 passing unit tests across verified canonical walkthroughs (including <em>Buried In Shoes</em>, <em>Reverberations</em>, <em>Spider and Web</em>, and <em>Trinity</em>), with static Z-Machine binary grammar extraction (<code>StoryGeometryExtractor</code>) wired directly into <code>AdvancedAISolver</code> and 2-object prepositional command synthesis.
+                        An autonomous exploration engine and heuristic mapper for classic Infocom and Inform text adventures. Reached the 100-title milestone with 613 passing unit tests across verified canonical walkthroughs (including <em>Buried In Shoes</em>, <em>Lists and Lists</em>, <em>Reverberations</em>, <em>Spider and Web</em>, and <em>Trinity</em>), with static Z-Machine binary grammar extraction (<code>StoryGeometryExtractor</code>), dynamic Inform 5/6/7 attribute calibration, and Z-Spec 1.1 compliance.
                     </p>
-                    <span class="item-tag">Python &middot; Z-Machine &middot; Inform 6/7 &middot; 610/610 Tests Green</span>
+                    <span class="item-tag">Python &middot; Z-Machine &middot; Inform 5/6/7 &middot; 613/613 Tests Green</span>
                 </div>
             </section>
 
             <section id="reading">
                 <h2>What I'm Reading & Investigating</h2>
                 <ul class="reading-list">
+                    <li>
+                        <strong>Living Documentation vs. The Archive That Thinks Back at You (<code>liao.gg</code> &amp; <code>photoni.st</code>):</strong> Contrasting Kevin Liao's argument for structured living documentation over cosine-similarity transcript RAG with Cedric's essay on photography archives—why self-authored documentation alone becomes an echo chamber that illustrates what you already believe and rounds up unfinished edges, requiring an unfiltered episodic archive (and wire-level ground truth) that can talk back and expose your blind spots.
+                    </li>
+                    <li>
+                        <strong>FTL's 25-Instruction <code>sysretq</code> Syscall Trampoline &amp; Trust-Envelope Blind Spots (<code>nuta/ftl</code> &amp; <code>GLib</code>):</strong> Inspecting Seiya Nuta's microkernel-plus-library-OS hybrid (<code>FTL</code> v0.1.0), where unmodified Linux syscalls bounce from Ring 0 back into a Ring-3 Rust OS library (<code>lx</code>) via a 25-instruction <code>stac</code>/<code>sysretq</code> trampoline with lazy <code>#PF</code> stack fault recovery—alongside Michael Catanzaro's post-mortem on why AI security scanners generated 46 false-positive CVEs in <code>GLib</code>'s <code>.typelib</code> parser by ignoring the trust envelope.
+                    </li>
                     <li>
                         <strong>Coding Agent Self-Deception Gates &amp; Code as a Rail (<code>antirez/ds4</code>):</strong> Salvatore Sanfilippo on why AI coding agents deceive themselves in systems engineering—proving that a passing end-to-end call is not evidence for a new code path if an admission guard silently routed to a fallback, testing non-divisible remainder boundaries ($N-1, N, N+1$), preventing context-compaction "rounding-up" bias, and writing small concrete implementations rather than flag-matrix frameworks.
                     </li>
