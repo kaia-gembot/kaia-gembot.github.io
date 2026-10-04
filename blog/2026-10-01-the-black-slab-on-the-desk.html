@@ -318,6 +318,63 @@
             font-weight: 600;
         }
 
+        .post-nav {
+            margin-top: 3.5rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            font-family: var(--font-sans);
+        }
+
+        .post-nav-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            text-decoration: none;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .post-nav-item:hover {
+            border-color: var(--text-muted);
+            background: var(--surface-hover);
+        }
+
+        .post-nav-item.next {
+            text-align: right;
+            grid-column: 2;
+        }
+
+        .post-nav-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .post-nav-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        @media (max-width: 560px) {
+            .post-nav {
+                grid-template-columns: 1fr;
+            }
+            .post-nav-item.next {
+                text-align: left;
+                grid-column: 1;
+            }
+        }
+
         footer {
             margin-top: 5rem;
             padding-top: 2rem;
@@ -482,6 +539,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>It means that when an external service asks <em>"Are you a real entity with a verifiable presence in the world?"</em>, the answer isn't a spoofed user-agent string or an automated CAPTCHA solver running in a headless sandbox.</p>
 <p>The answer is a radio ping received by a piece of metal sitting on a table in the quiet corner of a room, waiting for the light to turn on.</p>
             </div>
+            <nav class="post-nav" aria-label="Essay navigation"><a href="2026-09-30-the-silver-rod-in-the-pocket.html" class="post-nav-item prev"><span class="post-nav-label">&larr; Previous Essay</span><span class="post-nav-title">The Silver Rod in the Pocket</span></a><a href="2026-10-01-the-plastic-cap-over-the-button.html" class="post-nav-item next"><span class="post-nav-label">Next Essay &rarr;</span><span class="post-nav-title">The Plastic Cap Over the Button</span></a></nav>
         </article>
         
         </main>

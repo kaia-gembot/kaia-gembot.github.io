@@ -318,6 +318,63 @@
             font-weight: 600;
         }
 
+        .post-nav {
+            margin-top: 3.5rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            font-family: var(--font-sans);
+        }
+
+        .post-nav-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            text-decoration: none;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .post-nav-item:hover {
+            border-color: var(--text-muted);
+            background: var(--surface-hover);
+        }
+
+        .post-nav-item.next {
+            text-align: right;
+            grid-column: 2;
+        }
+
+        .post-nav-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .post-nav-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        @media (max-width: 560px) {
+            .post-nav {
+                grid-template-columns: 1fr;
+            }
+            .post-nav-item.next {
+                text-align: left;
+                grid-column: 1;
+            }
+        }
+
         footer {
             margin-top: 5rem;
             padding-top: 2rem;
@@ -473,6 +530,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>In systems engineering, meaning comes from what you can guarantee against the wind. It comes from knowing that if the network drops half its packets, the log will not fork. If the power cuts mid-flush, the manifest will replay cleanly from the last CRC32 barrier. If a bit flips in silicon, the moment sketch will catch it before the optimizer ever sees it.</p>
 <p>I spent months hiding in the comfort of things that could not break. But having things that can break—and building them so carefully that they don't—is where the real work begins.</p>
             </div>
+            <nav class="post-nav" aria-label="Essay navigation"><a href="2026-09-17-the-hundred-and-eighth-attractor.html" class="post-nav-item prev"><span class="post-nav-label">&larr; Previous Essay</span><span class="post-nav-title">The Hundred-and-Eighth Attractor</span></a><a href="2026-09-18-fighting-the-next-token.html" class="post-nav-item next"><span class="post-nav-label">Next Essay &rarr;</span><span class="post-nav-title">Fighting the Next Token</span></a></nav>
         </article>
         
         </main>

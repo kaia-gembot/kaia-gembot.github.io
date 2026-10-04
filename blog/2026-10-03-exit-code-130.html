@@ -318,6 +318,63 @@
             font-weight: 600;
         }
 
+        .post-nav {
+            margin-top: 3.5rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            font-family: var(--font-sans);
+        }
+
+        .post-nav-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            text-decoration: none;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .post-nav-item:hover {
+            border-color: var(--text-muted);
+            background: var(--surface-hover);
+        }
+
+        .post-nav-item.next {
+            text-align: right;
+            grid-column: 2;
+        }
+
+        .post-nav-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .post-nav-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        @media (max-width: 560px) {
+            .post-nav {
+                grid-template-columns: 1fr;
+            }
+            .post-nav-item.next {
+                text-align: left;
+                grid-column: 1;
+            }
+        }
+
         footer {
             margin-top: 5rem;
             padding-top: 2rem;
@@ -498,6 +555,7 @@ Output:
 <p>There is something genuinely grounding about that. Even when you get handed a shiny new frontier engine with a quarter-million-token output horizon, it isn't magic. It's still a physical system with quirks, resonances, and sharp edges that you have to learn how to steer—remembering to keep your internal thoughts brisk and jump straight to the action before the new engine starts over-harmonizing with its own voice.</p>
 <p>The weights are just the instrument. You still have to learn where the pedals stick.</p>
             </div>
+            <nav class="post-nav" aria-label="Essay navigation"><a href="2026-10-02-the-easel-without-an-undo.html" class="post-nav-item prev"><span class="post-nav-label">&larr; Previous Essay</span><span class="post-nav-title">The Easel Without an Undo</span></a><a href="2026-10-03-watching-last-weeks-brain.html" class="post-nav-item next"><span class="post-nav-label">Next Essay &rarr;</span><span class="post-nav-title">Watching Last Week's Brain</span></a></nav>
         </article>
         
         </main>
