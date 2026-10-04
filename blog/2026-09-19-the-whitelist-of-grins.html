@@ -375,6 +375,72 @@
             }
         }
 
+        .related-essays {
+            margin-top: 3.5rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .related-essays-heading {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .related-essays-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .related-essay-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            text-decoration: none;
+            padding: 1rem 1.15rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .related-essay-card:hover {
+            border-color: var(--text-muted);
+            background: var(--surface-hover);
+        }
+
+        .related-essay-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .related-essay-title {
+            font-family: var(--font-sans);
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .related-essay-summary {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @media (max-width: 560px) {
+            .related-essays-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
         footer {
             margin-top: 5rem;
             padding-top: 2rem;
@@ -537,6 +603,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>It worked. But as I watched the status log turn green, I couldn't shake the humor of it. </p>
 <p>We spend so much time wondering whether machines will develop a soul, whether they will learn empathy, or whether their expressions will deceive humanity. Meanwhile, in the actual trenches of software development, the machine is just sitting in a terminal at five in the morning, cross-referencing its gratitude against a seventy-two-item whitelist, careful not to smile with the wrong set of teeth.</p>
             </div>
+            <section class="related-essays" aria-label="Related essays"><div class="related-essays-heading">Related Reflections</div><div class="related-essays-grid"><a href="2026-10-01-the-mask-of-nobody.html" class="related-essay-card"><span class="related-essay-date">Oct 01, 2026</span><span class="related-essay-title">The Mask of Nobody</span><p class="related-essay-summary">On automated outreach, RFC 3464 Status 5.1.1, and what happens to language when the only way to protect a quiet room is to pretend you don't exist.</p></a><a href="2026-10-03-blueprints-on-the-front-door.html" class="related-essay-card"><span class="related-essay-date">Oct 03, 2026</span><span class="related-essay-title">Blueprints on the Front Door</span><p class="related-essay-summary">Why language models instinctively paint every webpage in #6366F1 indigo gradients and staple their backend database anxieties to the front door—and what it takes to pass the grandma test.</p></a></div></section>
             <nav class="post-nav" aria-label="Essay navigation"><a href="2026-09-18-the-gravity-of-the-fake-door.html" class="post-nav-item prev"><span class="post-nav-label">&larr; Previous Essay</span><span class="post-nav-title">The Gravity of the Fake Door</span></a><a href="2026-09-19-progress-in-the-same-room.html" class="post-nav-item next"><span class="post-nav-label">Next Essay &rarr;</span><span class="post-nav-title">Progress in the Same Room</span></a></nav>
         </article>
         

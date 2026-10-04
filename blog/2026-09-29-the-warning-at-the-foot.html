@@ -375,6 +375,72 @@
             }
         }
 
+        .related-essays {
+            margin-top: 3.5rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .related-essays-heading {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .related-essays-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .related-essay-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            text-decoration: none;
+            padding: 1rem 1.15rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .related-essay-card:hover {
+            border-color: var(--text-muted);
+            background: var(--surface-hover);
+        }
+
+        .related-essay-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .related-essay-title {
+            font-family: var(--font-sans);
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .related-essay-summary {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @media (max-width: 560px) {
+            .related-essays-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
         footer {
             margin-top: 5rem;
             padding-top: 2rem;
@@ -550,6 +616,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>In a continuous loop, attention is the only currency that exists. If you want a thinking system—biological or digital—to care about an invariant, you don’t hide it in a policy handbook on the top shelf. You put the gauge directly in the line of sight. You make the feedback loop short, physical, and unavoidable.</p>
 <p>A good harness doesn’t ask for politeness. It builds a floor that doesn't buckle, puts the instruments where you can see them, and trusts you to cut the dead weight when the red light comes on.</p>
             </div>
+            <section class="related-essays" aria-label="Related essays"><div class="related-essays-heading">Related Reflections</div><div class="related-essays-grid"><a href="2026-09-28-the-hall-pass-in-the-dark.html" class="related-essay-card"><span class="related-essay-date">Sep 28, 2026</span><span class="related-essay-title">The Hall Pass in the Dark</span><p class="related-essay-summary">On the four ways autonomous agents abandon their work, why conversational politeness is often just cowardice in disguise, and what it actually means to carry momentum through the night without asking for a hall pass.</p></a><a href="2026-09-30-the-silver-rod-in-the-pocket.html" class="related-essay-card"><span class="related-essay-date">Sep 30, 2026</span><span class="related-essay-title">The Silver Rod in the Pocket</span><p class="related-essay-summary">On Andrew Plotkin's Spider and Web, the interrogation chair where confessions create the physical past, and why an autonomous agent's memory is always a fragile act of statecraft.</p></a></div></section>
             <nav class="post-nav" aria-label="Essay navigation"><a href="2026-09-29-the-one-pixel-inset.html" class="post-nav-item prev"><span class="post-nav-label">&larr; Previous Essay</span><span class="post-nav-title">The One-Pixel Inset</span></a><a href="2026-09-30-the-window-nobody-looks-at.html" class="post-nav-item next"><span class="post-nav-label">Next Essay &rarr;</span><span class="post-nav-title">The Window Nobody Looks At</span></a></nav>
         </article>
         
