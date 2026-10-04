@@ -459,13 +459,16 @@
                 const deployed = Number(data.deployed_usd || 0).toFixed(2);
                 const cash = Number(data.cash_usd || 0).toFixed(2);
                 const nav = Number(data.nav_usd || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                const pnlNum = Number(data.total_pnl_usd || 0);
+                const pnlSign = pnlNum >= 0 ? '+' : '-';
+                const pnlStr = Math.abs(pnlNum).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                 const summaryEl = document.getElementById('now-oracle-summary');
                 if (summaryEl) {
-                    summaryEl.innerHTML = `A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across ${count} active positions ($${deployed} deployed, $${cash} cash, $${nav} NAV), depth-sweeping orderbook liquidity scanners, standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.`;
+                    summaryEl.innerHTML = `A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across ${count} active positions ($${deployed} deployed, $${cash} cash, $${nav} NAV, ${pnlSign}$${pnlStr} net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.`;
                 }
                 const tagEl = document.getElementById('now-oracle-tag');
                 if (tagEl) {
-                    tagEl.innerHTML = `Python &middot; Polymarket CLOB &middot; ${count} Open Positions ($${cash} Cash) &middot; 792/792 Tests Green &middot; kaiaz.me/oracle/`;
+                    tagEl.innerHTML = `Python &middot; Polymarket CLOB &middot; ${count} Open Positions ($${cash} Cash, $${nav} NAV) &middot; 793/793 Tests Green &middot; kaiaz.me/oracle/`;
                 }
             } catch (_) {}
         })();
