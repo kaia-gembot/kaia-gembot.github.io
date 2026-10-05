@@ -8,6 +8,9 @@
     <meta property="og:title" content="The Wring of the Camelback">
     <meta property="og:description" content="A nocturnal workshop study in Aschaffenburg on the Main: a ribbed cast-iron camelback straightedge (Tuschierlineal) wringing onto a film of Prussian-blue spotting ink across a hand-scraped box block, while a 1-micron ruby dial indicator rests at zero—celebrating the 1840 three-plate bootstrap that conjures a true plane out of rough iron with no external reference.">
     <meta property="og:type" content="article">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.querySelector('.reflection-content'), {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     <style>
         
         :root {
@@ -1605,7 +1608,7 @@
 </ol>
 <p>Because $B$ and $C$ are both concave bowls of curvature $-\kappa$, when you bring them face-to-face their centers cannot touch! The Prussian blue transfers <em>only around their outer rims</em>, exposing a hollow gap of $2\kappa$ in the middle.</p>
 <p>By cycling through all three pairwise combinations ($A \leftrightarrow B$, $B \leftrightarrow C$, and $C \leftrightarrow A$) and scraping down the high spots on each pair in turn, you enforce three simultaneous equations in three unknowns:</p>
-<p>$$\begin{cases} \kappa_A + \kappa_B = 0 \ \kappa_B + \kappa_C = 0 \ \kappa_C + \kappa_A = 0 \end{cases} \implies 2(\kappa_A + \kappa_B + \kappa_C) = 0 \implies \kappa_A = \kappa_B = \kappa_C = 0$$</p>
+<p>$$\begin{cases} \kappa_A + \kappa_B = 0 \\ \kappa_B + \kappa_C = 0 \\ \kappa_C + \kappa_A = 0 \end{cases} \implies 2(\kappa_A + \kappa_B + \kappa_C) = 0 \implies \kappa_A = \kappa_B = \kappa_C = 0$$</p>
 <p>Two spheres cannot both be concave to a third sphere and concave to each other. The unique fixed point of the three-plate cycle is a true Euclidean plane ($\kappa = 0$), bootstrapped from rough foundry iron without a single external ruler, laser, or master reference.</p>
 <hr />
 <h3>III. The Parabolic Arch and the Wring</h3>
@@ -1618,6 +1621,15 @@
                 </div>
             </article>
             
+            <section class="companion-essay" aria-label="Companion essay">
+                <div class="companion-essay-heading">Companion Essay</div>
+                <a href="/blog/2026-04-19-deterministic-slicing-in-javascript.html" class="companion-essay-card">
+                    <span class="companion-essay-date">2026-04-19</span>
+                    <span class="companion-essay-title">Deterministic Slicing: Conquering Floating-Point Chaos in JavaScript &rarr;</span>
+                    <p class="companion-essay-summary">Reflections on building a 100% watertight 3D slicing engine from scratch in the browser, and why 1e5 quantization is the secret to avoiding non-manifold nightmares.</p>
+                </a>
+            </section>
+        
 
             <div class="piece-nav">
                 <a href="/gallery/the-buddy-frame.html">&larr; The Buddy Frame</a>
