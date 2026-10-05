@@ -1,18 +1,18 @@
 {
   "status": "active",
-  "timestamp": "2026-10-05T21:45:06.522372+00:00",
-  "nav_usd": 1140.64,
-  "cash_usd": 1000.92,
-  "deployed_usd": 134.37,
-  "total_pnl_usd": 140.64,
-  "total_roi_pct": 14.06,
-  "total_trades": 209,
-  "open_positions_count": 38,
+  "timestamp": "2026-10-05T22:01:06.615923+00:00",
+  "nav_usd": 1140.77,
+  "cash_usd": 998.09,
+  "deployed_usd": 137.2,
+  "total_pnl_usd": 140.77,
+  "total_roi_pct": 14.08,
+  "total_trades": 210,
+  "open_positions_count": 39,
   "strategy_allocations": {
     "LONGSHOT_CARRY": {
-      "count": 36,
-      "total_cost": 84.3659,
-      "total_payout": 88.679
+      "count": 37,
+      "total_cost": 87.1959,
+      "total_payout": 91.6357
     },
     "SETTLEMENT_YIELD": {
       "count": 2,
@@ -514,9 +514,34 @@
       "net_edge_usd": 0.1047,
       "net_edge_pct": 5.6,
       "status": "open"
+    },
+    {
+      "position_id": "POS-TRADE-LONGSHOT-20261005220106-0210",
+      "title": "Will Ethereum reach $3,500 in October?",
+      "strategy": "LONGSHOT_CARRY",
+      "market_id": "0x6aff462c72f6ac555c9c924d41036d5b2e6fbf698d65f80bf9aeeda221c4aebe",
+      "outcome": "No",
+      "num_shares": 2.9567,
+      "total_cost": 2.83,
+      "guaranteed_payout": 2.9567,
+      "net_edge_usd": 0.1267,
+      "net_edge_pct": 4.48,
+      "status": "open"
     }
   ],
   "recent_trades": [
+    {
+      "trade_id": "TRADE-LONGSHOT-20261005220106-0210",
+      "timestamp": "2026-10-05T22:01:06.579066+00:00",
+      "market_title": "Will Ethereum reach $3,500 in October?",
+      "strategy": "LONGSHOT_BIAS_CARRY",
+      "outcomes": [
+        "No"
+      ],
+      "num_shares": 2.9567,
+      "total_cost": 2.83,
+      "execution_type": "longshot_bias_carry"
+    },
     {
       "trade_id": "TRADE-LONGSHOT-20261005193706-0209",
       "timestamp": "2026-10-05T19:37:06.396181+00:00",
@@ -804,35 +829,9 @@
       "num_shares": 2.9567,
       "total_cost": 2.77,
       "execution_type": "longshot_bias_carry"
-    },
-    {
-      "trade_id": "TRADE-LONGSHOT-20261005060306-0185",
-      "timestamp": "2026-10-05T06:03:06.318718+00:00",
-      "market_title": "Will Bitcoin dip to $55,000 by December 31, 2026?",
-      "strategy": "LONGSHOT_BIAS_CARRY",
-      "outcomes": [
-        "No"
-      ],
-      "num_shares": 1.9704,
-      "total_cost": 1.86,
-      "execution_type": "longshot_bias_carry"
     }
   ],
   "equity_history": [
-    {
-      "timestamp": "2026-10-03T18:41:29.561559+00:00",
-      "nav_usd": 1080.2,
-      "cash_usd": 750.62,
-      "positions_usd": 329.58,
-      "trades_count": 95
-    },
-    {
-      "timestamp": "2026-10-03T18:41:29.600392+00:00",
-      "nav_usd": 1081.51,
-      "cash_usd": 751.93,
-      "positions_usd": 329.58,
-      "trades_count": 96
-    },
     {
       "timestamp": "2026-10-03T18:41:29.639838+00:00",
       "nav_usd": 1082.55,
@@ -2218,89 +2217,109 @@
       "cash_usd": 1000.92,
       "positions_usd": 139.72,
       "trades_count": 209
+    },
+    {
+      "timestamp": "2026-10-05T22:01:06.578832+00:00",
+      "nav_usd": 1140.64,
+      "cash_usd": 1000.92,
+      "positions_usd": 139.72,
+      "trades_count": 209
+    },
+    {
+      "timestamp": "2026-10-05T22:01:06.579101+00:00",
+      "nav_usd": 1140.77,
+      "cash_usd": 998.09,
+      "positions_usd": 142.68,
+      "trades_count": 210
     }
   ],
   "risk_profile": {
     "status": "active",
     "num_snapshots": 200,
-    "num_positions": 38,
-    "current_nav_usd": 1140.64,
-    "unencumbered_cash_usd": 1000.92,
-    "deployed_capital_usd": 134.37,
+    "num_positions": 39,
+    "current_nav_usd": 1140.77,
+    "unencumbered_cash_usd": 998.09,
+    "deployed_capital_usd": 137.2,
     "drawdowns": {
       "peak_nav_usd": 1144.29,
       "trough_nav_usd": 1129.2,
       "max_drawdown_usd": 15.09,
       "max_drawdown_pct": 1.32,
-      "current_drawdown_usd": 3.65,
-      "current_drawdown_pct": 0.32
+      "current_drawdown_usd": 3.52,
+      "current_drawdown_pct": 0.31
     },
     "performance": {
-      "mean_return_pct": 0.0274,
-      "volatility_pct": 0.1214,
+      "mean_return_pct": 0.0264,
+      "volatility_pct": 0.1212,
       "downside_deviation_pct": 0.0963,
-      "sharpe_ratio": 20.8,
-      "sortino_ratio": 26.22,
-      "calmar_ratio": 186.59,
+      "sharpe_ratio": 20.04,
+      "sortino_ratio": 25.22,
+      "calmar_ratio": 179.35,
       "var_95_pct": 0.01,
       "var_99_pct": 0.42,
       "cvar_95_pct": 0.19
     },
     "concentration": {
-      "position_hhi": 0.0806,
-      "strategy_hhi": 0.5327,
-      "top1_concentration_pct": 18.61,
-      "top3_concentration_pct": 39.36,
-      "top5_concentration_pct": 43.64,
-      "capital_utilization_pct": 11.78,
-      "cash_buffer_pct": 87.75
+      "position_hhi": 0.0778,
+      "strategy_hhi": 0.5368,
+      "top1_concentration_pct": 18.22,
+      "top3_concentration_pct": 38.55,
+      "top5_concentration_pct": 42.74,
+      "capital_utilization_pct": 12.03,
+      "cash_buffer_pct": 87.49
     }
   },
   "settlement_telemetry": {
     "settlement_sweeps_executed": 0,
     "settlement_positions_resolved": 0,
     "settlement_cumulative_freed_usd": 0.0,
-    "open_positions_count": 38
+    "open_positions_count": 39
   },
   "monte_carlo_risk": {
     "total_simulations": 2000,
     "initial_nav_usd": 1135.29,
-    "expected_nav_usd": 1135.27,
-    "median_nav_usd": 1137.69,
-    "min_nav_usd": 1089.33,
-    "max_nav_usd": 1140.64,
-    "expected_net_pnl_usd": -0.02,
-    "expected_roi_pct": -0.0,
+    "expected_nav_usd": 1135.14,
+    "median_nav_usd": 1137.82,
+    "min_nav_usd": 1074.67,
+    "max_nav_usd": 1140.77,
+    "expected_net_pnl_usd": -0.15,
+    "expected_roi_pct": -0.01,
     "probability_of_profit_pct": 66.35,
     "probability_of_loss_pct": 33.65,
     "probability_of_ruin_pct": 0.0,
-    "var_95_usd": 14.35,
-    "var_99_usd": 27.88,
-    "cvar_95_usd": 23.9,
-    "cvar_99_usd": 33.09,
-    "var_95_pct": 1.26,
-    "var_99_pct": 2.46,
-    "cvar_95_pct": 2.1,
-    "cvar_99_pct": 2.91,
+    "var_95_usd": 19.16,
+    "var_99_usd": 30.71,
+    "cvar_95_usd": 26.48,
+    "cvar_99_usd": 37.05,
+    "var_95_pct": 1.69,
+    "var_99_pct": 2.7,
+    "cvar_95_pct": 2.33,
+    "cvar_99_pct": 3.26,
     "disaster_scenario": {
-      "scenario_index": 326,
-      "terminal_nav_usd": 1089.33,
-      "net_drawdown_usd": 45.96,
-      "drawdown_pct": 4.05,
-      "losing_positions_count": 11,
-      "winning_positions_count": 27,
+      "scenario_index": 1590,
+      "terminal_nav_usd": 1074.67,
+      "net_drawdown_usd": 60.62,
+      "drawdown_pct": 5.34,
+      "losing_positions_count": 17,
+      "winning_positions_count": 22,
       "losses_by_position": {
         "POS-TRADE-LONGSHOT-20260921110349-0188": 2.77,
         "POS-TRADE-LONGSHOT-20260921110349-0189": 2.81,
         "POS-TRADE-LONGSHOT-20260921110349-0193": 2.89,
         "POS-TRADE-LONGSHOT-20260922211811-0261": 1.9,
         "POS-TRADE-LONGSHOT-20260923172954-0320": 2.86,
+        "POS-TRADE-LONGSHOT-20260923172954-0321": 2.87,
         "POS-TRADE-LONGSHOT-20261004161105-0161": 1.86,
+        "POS-TRADE-LONGSHOT-20261004235505-0172": 2.77,
         "POS-TRADE-LONGSHOT-20261005005905-0176": 1.86,
-        "POS-TRADE-LONGSHOT-20261005005905-0177": 2.83,
+        "POS-TRADE-LONGSHOT-20261005045907-0184": 1.86,
+        "POS-TRADE-LONGSHOT-20261005060306-0185": 1.86,
         "pos_yield_yield_0x2bd31433_yes_1791205983": 25.0,
-        "POS-TRADE-LONGSHOT-20261005131307-0192": 2.81,
-        "POS-TRADE-LONGSHOT-20261005153705-0199": 1.86
+        "POS-TRADE-LONGSHOT-20261005131307-0193": 2.82,
+        "POS-TRADE-LONGSHOT-20261005134505-0194": 1.86,
+        "POS-TRADE-LONGSHOT-20261005165706-0201": 2.82,
+        "POS-TRADE-LONGSHOT-20261005180106-0204": 1.86,
+        "POS-TRADE-LONGSHOT-20261005220106-0210": 2.83
       }
     },
     "risk_attributions": [
@@ -2312,10 +2331,10 @@
         "cost_basis_usd": 25.0,
         "current_price": 0.973,
         "implied_win_prob": 0.973,
-        "marginal_var_usd": 5.19,
-        "marginal_cvar_usd": 6.16,
+        "marginal_var_usd": 5.6,
+        "marginal_cvar_usd": 6.75,
         "worst_case_loss_usd": 25.0,
-        "tail_loss_share_pct": 18.61
+        "tail_loss_share_pct": 18.22
       },
       {
         "position_id": "pos_yield_yield_0x4b76de59_no_1791211742",
@@ -2325,10 +2344,10 @@
         "cost_basis_usd": 25.0,
         "current_price": 0.9863,
         "implied_win_prob": 0.9863,
-        "marginal_var_usd": 5.19,
-        "marginal_cvar_usd": 6.16,
+        "marginal_var_usd": 5.6,
+        "marginal_cvar_usd": 6.75,
         "worst_case_loss_usd": 25.0,
-        "tail_loss_share_pct": 18.61
+        "tail_loss_share_pct": 18.22
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260921110349-0193",
@@ -2338,10 +2357,10 @@
         "cost_basis_usd": 2.89,
         "current_price": 0.9764,
         "implied_win_prob": 0.9764,
-        "marginal_var_usd": 0.6,
-        "marginal_cvar_usd": 0.71,
+        "marginal_var_usd": 0.65,
+        "marginal_cvar_usd": 0.78,
         "worst_case_loss_usd": 2.89,
-        "tail_loss_share_pct": 2.15
+        "tail_loss_share_pct": 2.1
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260921110349-0192",
@@ -2351,10 +2370,10 @@
         "cost_basis_usd": 2.88,
         "current_price": 0.9744,
         "implied_win_prob": 0.9744,
-        "marginal_var_usd": 0.6,
-        "marginal_cvar_usd": 0.71,
+        "marginal_var_usd": 0.64,
+        "marginal_cvar_usd": 0.78,
         "worst_case_loss_usd": 2.88,
-        "tail_loss_share_pct": 2.14
+        "tail_loss_share_pct": 2.1
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260923172954-0321",
@@ -2364,10 +2383,10 @@
         "cost_basis_usd": 2.87,
         "current_price": 0.9713,
         "implied_win_prob": 0.9713,
-        "marginal_var_usd": 0.6,
-        "marginal_cvar_usd": 0.71,
+        "marginal_var_usd": 0.64,
+        "marginal_cvar_usd": 0.78,
         "worst_case_loss_usd": 2.87,
-        "tail_loss_share_pct": 2.14
+        "tail_loss_share_pct": 2.09
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260922211811-0263",
@@ -2377,10 +2396,10 @@
         "cost_basis_usd": 2.87,
         "current_price": 0.9703,
         "implied_win_prob": 0.9703,
-        "marginal_var_usd": 0.59,
-        "marginal_cvar_usd": 0.71,
+        "marginal_var_usd": 0.64,
+        "marginal_cvar_usd": 0.77,
         "worst_case_loss_usd": 2.87,
-        "tail_loss_share_pct": 2.13
+        "tail_loss_share_pct": 2.09
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260923172954-0320",
@@ -2390,10 +2409,10 @@
         "cost_basis_usd": 2.86,
         "current_price": 0.9673,
         "implied_win_prob": 0.9673,
-        "marginal_var_usd": 0.59,
-        "marginal_cvar_usd": 0.7,
+        "marginal_var_usd": 0.64,
+        "marginal_cvar_usd": 0.77,
         "worst_case_loss_usd": 2.86,
-        "tail_loss_share_pct": 2.13
+        "tail_loss_share_pct": 2.08
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260921110349-0191",
@@ -2403,10 +2422,10 @@
         "cost_basis_usd": 2.83,
         "current_price": 0.9592,
         "implied_win_prob": 0.9592,
-        "marginal_var_usd": 0.59,
-        "marginal_cvar_usd": 0.7,
+        "marginal_var_usd": 0.63,
+        "marginal_cvar_usd": 0.77,
         "worst_case_loss_usd": 2.83,
-        "tail_loss_share_pct": 2.11
+        "tail_loss_share_pct": 2.07
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005005905-0177",
@@ -2416,10 +2435,23 @@
         "cost_basis_usd": 2.83,
         "current_price": 0.9561,
         "implied_win_prob": 0.9561,
-        "marginal_var_usd": 0.59,
-        "marginal_cvar_usd": 0.7,
+        "marginal_var_usd": 0.63,
+        "marginal_cvar_usd": 0.76,
         "worst_case_loss_usd": 2.83,
-        "tail_loss_share_pct": 2.11
+        "tail_loss_share_pct": 2.06
+      },
+      {
+        "position_id": "POS-TRADE-LONGSHOT-20261005220106-0210",
+        "condition_id": "0x6aff462c72f6ac555c9c924d41036d5b2e6fbf698d65f80bf9aeeda221c4aebe",
+        "outcome": "No",
+        "held_shares": 2.9567,
+        "cost_basis_usd": 2.83,
+        "current_price": 0.9571,
+        "implied_win_prob": 0.9571,
+        "marginal_var_usd": 0.63,
+        "marginal_cvar_usd": 0.76,
+        "worst_case_loss_usd": 2.83,
+        "tail_loss_share_pct": 2.06
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005131307-0193",
@@ -2429,10 +2461,10 @@
         "cost_basis_usd": 2.82,
         "current_price": 0.9531,
         "implied_win_prob": 0.9531,
-        "marginal_var_usd": 0.59,
-        "marginal_cvar_usd": 0.69,
+        "marginal_var_usd": 0.63,
+        "marginal_cvar_usd": 0.76,
         "worst_case_loss_usd": 2.82,
-        "tail_loss_share_pct": 2.1
+        "tail_loss_share_pct": 2.06
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005165706-0201",
@@ -2442,10 +2474,10 @@
         "cost_basis_usd": 2.82,
         "current_price": 0.9541,
         "implied_win_prob": 0.9541,
-        "marginal_var_usd": 0.59,
-        "marginal_cvar_usd": 0.69,
+        "marginal_var_usd": 0.63,
+        "marginal_cvar_usd": 0.76,
         "worst_case_loss_usd": 2.82,
-        "tail_loss_share_pct": 2.1
+        "tail_loss_share_pct": 2.06
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260922211811-0260",
@@ -2455,10 +2487,10 @@
         "cost_basis_usd": 2.82,
         "current_price": 0.9531,
         "implied_win_prob": 0.9531,
-        "marginal_var_usd": 0.58,
-        "marginal_cvar_usd": 0.69,
+        "marginal_var_usd": 0.63,
+        "marginal_cvar_usd": 0.76,
         "worst_case_loss_usd": 2.82,
-        "tail_loss_share_pct": 2.1
+        "tail_loss_share_pct": 2.05
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005131307-0192",
@@ -2468,10 +2500,10 @@
         "cost_basis_usd": 2.81,
         "current_price": 0.9511,
         "implied_win_prob": 0.9511,
-        "marginal_var_usd": 0.58,
-        "marginal_cvar_usd": 0.69,
+        "marginal_var_usd": 0.63,
+        "marginal_cvar_usd": 0.76,
         "worst_case_loss_usd": 2.81,
-        "tail_loss_share_pct": 2.09
+        "tail_loss_share_pct": 2.05
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260921110349-0189",
@@ -2481,10 +2513,10 @@
         "cost_basis_usd": 2.81,
         "current_price": 0.95,
         "implied_win_prob": 0.95,
-        "marginal_var_usd": 0.58,
-        "marginal_cvar_usd": 0.69,
+        "marginal_var_usd": 0.63,
+        "marginal_cvar_usd": 0.76,
         "worst_case_loss_usd": 2.81,
-        "tail_loss_share_pct": 2.09
+        "tail_loss_share_pct": 2.05
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260922211811-0269",
@@ -2494,10 +2526,10 @@
         "cost_basis_usd": 2.78,
         "current_price": 0.9409,
         "implied_win_prob": 0.9409,
-        "marginal_var_usd": 0.58,
-        "marginal_cvar_usd": 0.68,
+        "marginal_var_usd": 0.62,
+        "marginal_cvar_usd": 0.75,
         "worst_case_loss_usd": 2.78,
-        "tail_loss_share_pct": 2.07
+        "tail_loss_share_pct": 2.03
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260922211811-0265",
@@ -2507,10 +2539,10 @@
         "cost_basis_usd": 2.77,
         "current_price": 0.9389,
         "implied_win_prob": 0.9389,
-        "marginal_var_usd": 0.58,
-        "marginal_cvar_usd": 0.68,
+        "marginal_var_usd": 0.62,
+        "marginal_cvar_usd": 0.75,
         "worst_case_loss_usd": 2.77,
-        "tail_loss_share_pct": 2.07
+        "tail_loss_share_pct": 2.02
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260921110349-0188",
@@ -2520,10 +2552,10 @@
         "cost_basis_usd": 2.77,
         "current_price": 0.9378,
         "implied_win_prob": 0.9378,
-        "marginal_var_usd": 0.58,
-        "marginal_cvar_usd": 0.68,
+        "marginal_var_usd": 0.62,
+        "marginal_cvar_usd": 0.75,
         "worst_case_loss_usd": 2.77,
-        "tail_loss_share_pct": 2.06
+        "tail_loss_share_pct": 2.02
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261004235505-0172",
@@ -2533,10 +2565,10 @@
         "cost_basis_usd": 2.77,
         "current_price": 0.9358,
         "implied_win_prob": 0.9358,
-        "marginal_var_usd": 0.57,
-        "marginal_cvar_usd": 0.68,
+        "marginal_var_usd": 0.62,
+        "marginal_cvar_usd": 0.75,
         "worst_case_loss_usd": 2.77,
-        "tail_loss_share_pct": 2.06
+        "tail_loss_share_pct": 2.02
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005141705-0196",
@@ -2546,10 +2578,10 @@
         "cost_basis_usd": 2.77,
         "current_price": 0.9379,
         "implied_win_prob": 0.9379,
-        "marginal_var_usd": 0.57,
-        "marginal_cvar_usd": 0.68,
+        "marginal_var_usd": 0.62,
+        "marginal_cvar_usd": 0.75,
         "worst_case_loss_usd": 2.77,
-        "tail_loss_share_pct": 2.06
+        "tail_loss_share_pct": 2.02
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005141705-0195",
@@ -2559,10 +2591,10 @@
         "cost_basis_usd": 2.76,
         "current_price": 0.9348,
         "implied_win_prob": 0.9348,
-        "marginal_var_usd": 0.57,
-        "marginal_cvar_usd": 0.68,
+        "marginal_var_usd": 0.62,
+        "marginal_cvar_usd": 0.75,
         "worst_case_loss_usd": 2.76,
-        "tail_loss_share_pct": 2.05
+        "tail_loss_share_pct": 2.01
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260922211811-0264",
@@ -2572,10 +2604,10 @@
         "cost_basis_usd": 1.9,
         "current_price": 0.9663,
         "implied_win_prob": 0.9663,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.47,
+        "marginal_var_usd": 0.43,
+        "marginal_cvar_usd": 0.51,
         "worst_case_loss_usd": 1.9,
-        "tail_loss_share_pct": 1.42
+        "tail_loss_share_pct": 1.39
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260922211811-0261",
@@ -2585,10 +2617,10 @@
         "cost_basis_usd": 1.9,
         "current_price": 0.9643,
         "implied_win_prob": 0.9643,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.47,
+        "marginal_var_usd": 0.43,
+        "marginal_cvar_usd": 0.51,
         "worst_case_loss_usd": 1.9,
-        "tail_loss_share_pct": 1.41
+        "tail_loss_share_pct": 1.38
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260922211811-0262",
@@ -2598,10 +2630,10 @@
         "cost_basis_usd": 1.9,
         "current_price": 0.9643,
         "implied_win_prob": 0.9643,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.47,
+        "marginal_var_usd": 0.43,
+        "marginal_cvar_usd": 0.51,
         "worst_case_loss_usd": 1.9,
-        "tail_loss_share_pct": 1.41
+        "tail_loss_share_pct": 1.38
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260923172954-0319",
@@ -2611,10 +2643,10 @@
         "cost_basis_usd": 1.88,
         "current_price": 0.9541,
         "implied_win_prob": 0.9541,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.51,
         "worst_case_loss_usd": 1.88,
-        "tail_loss_share_pct": 1.4
+        "tail_loss_share_pct": 1.37
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005192108-0207",
@@ -2624,10 +2656,10 @@
         "cost_basis_usd": 1.87,
         "current_price": 0.947,
         "implied_win_prob": 0.947,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.87,
-        "tail_loss_share_pct": 1.39
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20260921110349-0190",
@@ -2637,10 +2669,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261004161105-0161",
@@ -2650,10 +2682,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261004225105-0171",
@@ -2663,10 +2695,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005005905-0175",
@@ -2676,10 +2708,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005005905-0176",
@@ -2689,10 +2721,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005042706-0183",
@@ -2702,10 +2734,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005045907-0184",
@@ -2715,10 +2747,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005060306-0185",
@@ -2728,10 +2760,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005131307-0191",
@@ -2741,10 +2773,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005134505-0194",
@@ -2754,10 +2786,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005143306-0197",
@@ -2767,10 +2799,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005153705-0199",
@@ -2780,10 +2812,10 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       },
       {
         "position_id": "POS-TRADE-LONGSHOT-20261005180106-0204",
@@ -2793,37 +2825,37 @@
         "cost_basis_usd": 1.86,
         "current_price": 0.944,
         "implied_win_prob": 0.944,
-        "marginal_var_usd": 0.39,
-        "marginal_cvar_usd": 0.46,
+        "marginal_var_usd": 0.42,
+        "marginal_cvar_usd": 0.5,
         "worst_case_loss_usd": 1.86,
-        "tail_loss_share_pct": 1.38
+        "tail_loss_share_pct": 1.36
       }
     ],
     "nav_percentiles": {
-      "p1": 1107.41,
-      "p5": 1120.94,
-      "p10": 1126.85,
-      "p25": 1133.74,
-      "p50": 1137.69,
-      "p75": 1140.64,
-      "p90": 1140.64,
-      "p95": 1140.64,
-      "p99": 1140.64
+      "p1": 1104.58,
+      "p5": 1116.13,
+      "p10": 1126.97,
+      "p25": 1133.87,
+      "p50": 1137.82,
+      "p75": 1140.77,
+      "p90": 1140.77,
+      "p95": 1140.77,
+      "p99": 1140.77
     },
-    "timestamp": "2026-10-05T21:45:06.527624+00:00"
+    "timestamp": "2026-10-05T22:01:06.622303+00:00"
   },
   "lifecycle_telemetry": {
     "lifecycle_sweeps_executed": 0,
     "lifecycle_exits_executed": 0,
     "lifecycle_cumulative_freed_usd": 0.0,
     "mtm_summary": {
-      "total_mtm_value_usd": 134.1,
+      "total_mtm_value_usd": 136.92,
       "total_unrealized_pnl_usd": -0.27,
       "total_unrealized_roi_pct": -0.2
     }
   },
   "mtm_summary": {
-    "total_mtm_value_usd": 134.1,
+    "total_mtm_value_usd": 136.92,
     "total_unrealized_pnl_usd": -0.27,
     "total_unrealized_roi_pct": -0.2
   },
@@ -3024,7 +3056,7 @@
     "min_vol": 0.32,
     "max_vol": 0.45,
     "vol_slope_per_year": -0.1325,
-    "timestamp": "2026-10-05T21:45:06.639398+00:00"
+    "timestamp": "2026-10-05T22:01:06.727028+00:00"
   },
   "smart_order_router_telemetry": {
     "side": "BUY",
@@ -3109,17 +3141,17 @@
         "levels_swept_count": 2
       }
     },
-    "timestamp": "2026-10-05T21:45:06.641517+00:00"
+    "timestamp": "2026-10-05T22:01:06.729185+00:00"
   },
   "systemic_contagion_telemetry": {
     "survival_runway": {
-      "current_cash_usd": 1000.92,
-      "recommended_survival_reserve_usd": 110.68,
-      "cash_coverage_ratio": 9.04,
+      "current_cash_usd": 998.09,
+      "recommended_survival_reserve_usd": 113.02,
+      "cash_coverage_ratio": 8.83,
       "is_adequately_buffered": true,
       "worst_case_scenario": "Compound Systemic Contagion (Perfect Storm)",
-      "worst_case_drawdown_usd": 97.98,
-      "worst_case_drawdown_pct": 8.63,
+      "worst_case_drawdown_usd": 100.05,
+      "worst_case_drawdown_pct": 8.81,
       "scenarios_evaluated": 4
     },
     "scenarios": {
@@ -3128,16 +3160,16 @@
         "scenario_name": "Regulatory Flash Freeze",
         "severity": "catastrophic",
         "initial_nav_usd": 1135.29,
-        "stressed_nav_usd": 1057.1,
-        "total_drawdown_usd": 78.19,
-        "total_drawdown_pct": 6.89,
-        "liquidity_haircut_usd": 77.93,
+        "stressed_nav_usd": 1055.45,
+        "total_drawdown_usd": 79.84,
+        "total_drawdown_pct": 7.03,
+        "liquidity_haircut_usd": 79.57,
         "dispute_opportunity_cost_usd": 0.26,
         "total_capital_frozen_usd": 127.82,
-        "liquid_cash_available_usd": 1000.92,
-        "solvency_buffer_usd": 1000.66,
+        "liquid_cash_available_usd": 998.09,
+        "solvency_buffer_usd": 997.83,
         "is_solvency_breached": false,
-        "emergency_survival_reserve_usd": 90.71,
+        "emergency_survival_reserve_usd": 92.36,
         "position_impacts": [
           {
             "position_id": "pos_yield_yield_0x2bd31433_yes_1791205983",
@@ -3273,6 +3305,21 @@
             "frozen_capital_usd": 2.83,
             "dispute_opportunity_cost_usd": 0.01,
             "total_stress_loss_usd": 1.65
+          },
+          {
+            "position_id": "POS-TRADE-LONGSHOT-20261005220106-0210",
+            "condition_id": "0x6aff462c72f6ac555c9c924d41036d5b2e6fbf698d65f80bf9aeeda221c4aebe",
+            "outcome": "No",
+            "strategy": "longshot_carry",
+            "cost_basis_usd": 2.83,
+            "normal_liquidation_usd": 2.77,
+            "stressed_liquidation_usd": 1.13,
+            "liquidation_haircut_usd": 1.64,
+            "liquidation_haircut_pct": 59.18,
+            "is_dispute_frozen": false,
+            "frozen_capital_usd": 0.0,
+            "dispute_opportunity_cost_usd": 0.0,
+            "total_stress_loss_usd": 1.64
           },
           {
             "position_id": "POS-TRADE-LONGSHOT-20261005131307-0193",
@@ -3733,23 +3780,23 @@
             "haircut_pct": 59.2
           }
         ],
-        "timestamp": "2026-10-05T21:45:06.643378+00:00"
+        "timestamp": "2026-10-05T22:01:06.731405+00:00"
       },
       "MACRO_CORRELATION_SPIKE": {
         "scenario_id": "MACRO_CORRELATION_SPIKE",
         "scenario_name": "Macro Correlation Spike",
         "severity": "severe",
         "initial_nav_usd": 1135.29,
-        "stressed_nav_usd": 1093.15,
-        "total_drawdown_usd": 42.14,
-        "total_drawdown_pct": 3.71,
-        "liquidity_haircut_usd": 42.1,
+        "stressed_nav_usd": 1092.26,
+        "total_drawdown_usd": 43.03,
+        "total_drawdown_pct": 3.79,
+        "liquidity_haircut_usd": 42.99,
         "dispute_opportunity_cost_usd": 0.04,
         "total_capital_frozen_usd": 37.72,
-        "liquid_cash_available_usd": 1000.92,
-        "solvency_buffer_usd": 1000.89,
+        "liquid_cash_available_usd": 998.09,
+        "solvency_buffer_usd": 998.06,
         "is_solvency_breached": false,
-        "emergency_survival_reserve_usd": 45.87,
+        "emergency_survival_reserve_usd": 46.76,
         "position_impacts": [
           {
             "position_id": "pos_yield_yield_0x2bd31433_yes_1791205983",
@@ -3874,6 +3921,21 @@
           {
             "position_id": "POS-TRADE-LONGSHOT-20261005005905-0177",
             "condition_id": "0x6fb90566bc3da452fed4460dfba11e93765802b824bdc022a5f1902b439075f0",
+            "outcome": "No",
+            "strategy": "longshot_carry",
+            "cost_basis_usd": 2.83,
+            "normal_liquidation_usd": 2.77,
+            "stressed_liquidation_usd": 1.89,
+            "liquidation_haircut_usd": 0.89,
+            "liquidation_haircut_pct": 31.97,
+            "is_dispute_frozen": false,
+            "frozen_capital_usd": 0.0,
+            "dispute_opportunity_cost_usd": 0.0,
+            "total_stress_loss_usd": 0.89
+          },
+          {
+            "position_id": "POS-TRADE-LONGSHOT-20261005220106-0210",
+            "condition_id": "0x6aff462c72f6ac555c9c924d41036d5b2e6fbf698d65f80bf9aeeda221c4aebe",
             "outcome": "No",
             "strategy": "longshot_carry",
             "cost_basis_usd": 2.83,
@@ -4345,23 +4407,23 @@
             "haircut_pct": 32.0
           }
         ],
-        "timestamp": "2026-10-05T21:45:06.643453+00:00"
+        "timestamp": "2026-10-05T22:01:06.731479+00:00"
       },
       "UMA_DVM_DISPUTE_CASCADE": {
         "scenario_id": "UMA_DVM_DISPUTE_CASCADE",
         "scenario_name": "UMA Dispute & Resolution Cascade",
         "severity": "severe",
         "initial_nav_usd": 1135.29,
-        "stressed_nav_usd": 1105.37,
-        "total_drawdown_usd": 29.92,
-        "total_drawdown_pct": 2.64,
-        "liquidity_haircut_usd": 29.56,
-        "dispute_opportunity_cost_usd": 0.36,
-        "total_capital_frozen_usd": 134.37,
-        "liquid_cash_available_usd": 1000.92,
-        "solvency_buffer_usd": 1000.56,
+        "stressed_nav_usd": 1104.74,
+        "total_drawdown_usd": 30.55,
+        "total_drawdown_pct": 2.69,
+        "liquidity_haircut_usd": 30.18,
+        "dispute_opportunity_cost_usd": 0.37,
+        "total_capital_frozen_usd": 137.2,
+        "liquid_cash_available_usd": 998.09,
+        "solvency_buffer_usd": 997.73,
         "is_solvency_breached": false,
-        "emergency_survival_reserve_usd": 43.0,
+        "emergency_survival_reserve_usd": 43.9,
         "position_impacts": [
           {
             "position_id": "pos_yield_yield_0x2bd31433_yes_1791205983",
@@ -4475,6 +4537,21 @@
             "strategy": "LONGSHOT_CARRY",
             "cost_basis_usd": 2.83,
             "normal_liquidation_usd": 2.78,
+            "stressed_liquidation_usd": 2.15,
+            "liquidation_haircut_usd": 0.62,
+            "liquidation_haircut_pct": 22.45,
+            "is_dispute_frozen": true,
+            "frozen_capital_usd": 2.83,
+            "dispute_opportunity_cost_usd": 0.01,
+            "total_stress_loss_usd": 0.63
+          },
+          {
+            "position_id": "POS-TRADE-LONGSHOT-20261005220106-0210",
+            "condition_id": "0x6aff462c72f6ac555c9c924d41036d5b2e6fbf698d65f80bf9aeeda221c4aebe",
+            "outcome": "No",
+            "strategy": "longshot_carry",
+            "cost_basis_usd": 2.83,
+            "normal_liquidation_usd": 2.77,
             "stressed_liquidation_usd": 2.15,
             "liquidation_haircut_usd": 0.62,
             "liquidation_haircut_pct": 22.45,
@@ -4957,23 +5034,23 @@
             "haircut_pct": 22.4
           }
         ],
-        "timestamp": "2026-10-05T21:45:06.643534+00:00"
+        "timestamp": "2026-10-05T22:01:06.731577+00:00"
       },
       "PERFECT_STORM": {
         "scenario_id": "PERFECT_STORM",
         "scenario_name": "Compound Systemic Contagion (Perfect Storm)",
         "severity": "catastrophic",
         "initial_nav_usd": 1135.29,
-        "stressed_nav_usd": 1037.31,
-        "total_drawdown_usd": 97.98,
-        "total_drawdown_pct": 8.63,
-        "liquidity_haircut_usd": 97.25,
-        "dispute_opportunity_cost_usd": 0.74,
-        "total_capital_frozen_usd": 134.37,
-        "liquid_cash_available_usd": 1000.92,
-        "solvency_buffer_usd": 1000.19,
+        "stressed_nav_usd": 1035.24,
+        "total_drawdown_usd": 100.05,
+        "total_drawdown_pct": 8.81,
+        "liquidity_haircut_usd": 99.3,
+        "dispute_opportunity_cost_usd": 0.75,
+        "total_capital_frozen_usd": 137.2,
+        "liquid_cash_available_usd": 998.09,
+        "solvency_buffer_usd": 997.34,
         "is_solvency_breached": false,
-        "emergency_survival_reserve_usd": 110.68,
+        "emergency_survival_reserve_usd": 113.02,
         "position_impacts": [
           {
             "position_id": "pos_yield_yield_0x2bd31433_yes_1791205983",
@@ -5098,6 +5175,21 @@
           {
             "position_id": "POS-TRADE-LONGSHOT-20261005005905-0177",
             "condition_id": "0x6fb90566bc3da452fed4460dfba11e93765802b824bdc022a5f1902b439075f0",
+            "outcome": "No",
+            "strategy": "longshot_carry",
+            "cost_basis_usd": 2.83,
+            "normal_liquidation_usd": 2.77,
+            "stressed_liquidation_usd": 0.73,
+            "liquidation_haircut_usd": 2.05,
+            "liquidation_haircut_pct": 73.85,
+            "is_dispute_frozen": true,
+            "frozen_capital_usd": 2.83,
+            "dispute_opportunity_cost_usd": 0.02,
+            "total_stress_loss_usd": 2.06
+          },
+          {
+            "position_id": "POS-TRADE-LONGSHOT-20261005220106-0210",
+            "condition_id": "0x6aff462c72f6ac555c9c924d41036d5b2e6fbf698d65f80bf9aeeda221c4aebe",
             "outcome": "No",
             "strategy": "longshot_carry",
             "cost_basis_usd": 2.83,
@@ -5569,7 +5661,7 @@
             "haircut_pct": 73.9
           }
         ],
-        "timestamp": "2026-10-05T21:45:06.643606+00:00"
+        "timestamp": "2026-10-05T22:01:06.731662+00:00"
       }
     }
   },
@@ -5579,7 +5671,7 @@
     "coherence_violations_found": 0,
     "total_potential_profit_usd": 0,
     "opportunities": [],
-    "timestamp": "2026-10-05T21:45:06.645579+00:00"
+    "timestamp": "2026-10-05T22:01:06.733795+00:00"
   },
   "kalman_filter_telemetry": {
     "total_pairs_tracked": 1,
@@ -5599,7 +5691,7 @@
         "step_count": 25
       }
     ],
-    "timestamp": "2026-10-05T21:45:06.647676+00:00"
+    "timestamp": "2026-10-05T22:01:06.737442+00:00"
   },
   "maxent_density_telemetry": {
     "ladder_id": "btc_macro_ladder",
@@ -5740,7 +5832,7 @@
         0.002667,
         0.002667
       ],
-      "timestamp": "2026-10-05T21:45:06.650728+00:00"
+      "timestamp": "2026-10-05T22:01:06.741008+00:00"
     },
     "unquoted_corridors": [
       {
@@ -5831,7 +5923,7 @@
         "bid_size": 45.5,
         "ask_size": 54.5,
         "regime": "neutral",
-        "timestamp": "2026-10-05T21:45:06.654140+00:00"
+        "timestamp": "2026-10-05T22:01:06.742648+00:00"
       },
       {
         "market_id": "BTC >= $100k",
@@ -5849,7 +5941,7 @@
         "bid_size": 53.0,
         "ask_size": 47.0,
         "regime": "neutral",
-        "timestamp": "2026-10-05T21:45:06.654162+00:00"
+        "timestamp": "2026-10-05T22:01:06.742663+00:00"
       },
       {
         "market_id": "Fed Rate Cut 25bps",
@@ -5867,7 +5959,7 @@
         "bid_size": 48.5,
         "ask_size": 51.5,
         "regime": "neutral",
-        "timestamp": "2026-10-05T21:45:06.654172+00:00"
+        "timestamp": "2026-10-05T22:01:06.742673+00:00"
       },
       {
         "market_id": "ETH >= $3,000",
@@ -5885,10 +5977,10 @@
         "bid_size": 56.0,
         "ask_size": 44.0,
         "regime": "neutral",
-        "timestamp": "2026-10-05T21:45:06.654180+00:00"
+        "timestamp": "2026-10-05T22:01:06.742680+00:00"
       }
     ],
-    "timestamp": "2026-10-05T21:45:06.654223+00:00"
+    "timestamp": "2026-10-05T22:01:06.742711+00:00"
   },
   "multinomial_kelly_telemetry": {
     "total_events_optimized": 1,
@@ -5933,10 +6025,10 @@
         ],
         "converged": true,
         "iterations": 250,
-        "timestamp": "2026-10-05T21:45:06.657408+00:00"
+        "timestamp": "2026-10-05T22:01:06.745406+00:00"
       }
     ],
-    "timestamp": "2026-10-05T21:45:06.657428+00:00"
+    "timestamp": "2026-10-05T22:01:06.745421+00:00"
   },
   "optimal_execution_telemetry": {
     "total_active_trajectories": 3,
@@ -6123,7 +6215,7 @@
           }
         ],
         "bernoulli_variance": 1e-05,
-        "timestamp": "2026-10-05T21:45:06.659099+00:00"
+        "timestamp": "2026-10-05T22:01:06.747159+00:00"
       },
       {
         "market_id": "ETH >= $3,000",
@@ -6345,7 +6437,7 @@
           }
         ],
         "bernoulli_variance": 1e-05,
-        "timestamp": "2026-10-05T21:45:06.659143+00:00"
+        "timestamp": "2026-10-05T22:01:06.747198+00:00"
       },
       {
         "market_id": "Fed Rate Cut 25bps",
@@ -6487,10 +6579,10 @@
           }
         ],
         "bernoulli_variance": 7e-06,
-        "timestamp": "2026-10-05T21:45:06.659171+00:00"
+        "timestamp": "2026-10-05T22:01:06.747226+00:00"
       }
     ],
-    "timestamp": "2026-10-05T21:45:06.659274+00:00"
+    "timestamp": "2026-10-05T22:01:06.747331+00:00"
   },
   "heston_volatility_telemetry": {
     "total_markets_modeled": 3,
@@ -6585,7 +6677,7 @@
           "feller_ratio": 6.5306,
           "feller_regime": "satisfied_strictly_positive"
         },
-        "timestamp": "2026-10-05T21:45:06.661449+00:00"
+        "timestamp": "2026-10-05T22:01:06.749551+00:00"
       },
       {
         "market_id": "BTC >= $100k",
@@ -6609,7 +6701,7 @@
           "feller_ratio": 6.5306,
           "feller_regime": "satisfied_strictly_positive"
         },
-        "timestamp": "2026-10-05T21:45:06.662087+00:00"
+        "timestamp": "2026-10-05T22:01:06.750199+00:00"
       },
       {
         "market_id": "ETH >= $3,000",
@@ -6633,10 +6725,10 @@
           "feller_ratio": 6.5306,
           "feller_regime": "satisfied_strictly_positive"
         },
-        "timestamp": "2026-10-05T21:45:06.662694+00:00"
+        "timestamp": "2026-10-05T22:01:06.750789+00:00"
       }
     ],
-    "timestamp": "2026-10-05T21:45:06.665570+00:00"
+    "timestamp": "2026-10-05T22:01:06.753841+00:00"
   },
   "kou_jump_diffusion_telemetry": {
     "total_markets_modeled": 3,
@@ -6733,7 +6825,7 @@
           "jump_risk_fraction_pct": 61.65,
           "asymmetry_regime": "bearish_asymmetry"
         },
-        "timestamp": "2026-10-05T21:45:06.667380+00:00"
+        "timestamp": "2026-10-05T22:01:06.756517+00:00"
       },
       {
         "market_id": "BTC >= $100k",
@@ -6758,7 +6850,7 @@
           "jump_risk_fraction_pct": 61.65,
           "asymmetry_regime": "bearish_asymmetry"
         },
-        "timestamp": "2026-10-05T21:45:06.667823+00:00"
+        "timestamp": "2026-10-05T22:01:06.756915+00:00"
       },
       {
         "market_id": "ETH >= $3,000",
@@ -6783,10 +6875,10 @@
           "jump_risk_fraction_pct": 61.65,
           "asymmetry_regime": "bearish_asymmetry"
         },
-        "timestamp": "2026-10-05T21:45:06.668250+00:00"
+        "timestamp": "2026-10-05T22:01:06.757318+00:00"
       }
     ],
-    "timestamp": "2026-10-05T21:45:06.670311+00:00"
+    "timestamp": "2026-10-05T22:01:06.759171+00:00"
   },
   "hawkes_cascade_telemetry": {
     "status": "ACTIVE_CALIBRATED",
@@ -7069,7 +7161,7 @@
         "predicted_adjustment": 0.0,
         "net_sniping_edge": 0.0,
         "observations_count": 50,
-        "timestamp": "2026-10-05T21:45:06.697430+00:00"
+        "timestamp": "2026-10-05T22:01:06.784966+00:00"
       }
     ]
   },
@@ -7101,7 +7193,7 @@
         "expected_slippage_100": 0.0002,
         "serial_covariance": -1.9e-07,
         "trade_count": 60,
-        "timestamp": "2026-10-05T21:45:06.699237+00:00"
+        "timestamp": "2026-10-05T22:01:06.788599+00:00"
       }
     ]
   },
@@ -7132,7 +7224,7 @@
         "regime": "INFORMED_ADVERSE_SELECTION",
         "policy": "QUOTE_WIDENING_DEFENSE",
         "trade_count": 60,
-        "timestamp": "2026-10-05T21:45:06.700896+00:00"
+        "timestamp": "2026-10-05T22:01:06.792738+00:00"
       }
     ]
   },
@@ -7167,7 +7259,7 @@
         "regime": "INVENTORY_RISK_DOMINANT",
         "policy": "INVENTORY_SKEW_DEFENSE",
         "trade_count": 70,
-        "timestamp": "2026-10-05T21:45:06.704254+00:00"
+        "timestamp": "2026-10-05T22:01:06.794839+00:00"
       }
     ]
   },
@@ -7209,7 +7301,7 @@
         "spread_regime": "SPREAD_ELEVATED_HARVEST",
         "velocity_regime": "HIGH_VELOCITY_CASCADE",
         "actionable_maker_opportunity": true,
-        "timestamp": "2026-10-05T21:45:06.706488+00:00"
+        "timestamp": "2026-10-05T22:01:06.796675+00:00"
       }
     ]
   },
@@ -7300,7 +7392,7 @@
         "policy_directive": "BENIGN_LIQUIDITY_HARVEST",
         "recommended_spread_multiplier": 1.0,
         "recommended_size_multiplier": 1.0,
-        "timestamp": "2026-10-05T21:45:06.709266+00:00"
+        "timestamp": "2026-10-05T22:01:06.799486+00:00"
       }
     ]
   },
@@ -7410,7 +7502,7 @@
         "policy_directive": "TIERED_DEFENSE_MEDIUM_WIDEN",
         "recommended_stealth_slice_cap": 25.0,
         "recommended_medium_spread_mult": 2.11,
-        "timestamp": "2026-10-05T21:45:06.713854+00:00"
+        "timestamp": "2026-10-05T22:01:06.802637+00:00"
       }
     ]
   },
@@ -7718,7 +7810,7 @@
             0.25
           ]
         ],
-        "timestamp": "2026-10-05T21:45:06.719267+00:00"
+        "timestamp": "2026-10-05T22:01:06.808445+00:00"
       }
     ]
   },
@@ -7799,7 +7891,7 @@
         "spread_multiplier": 1.8,
         "size_multiplier": 0.4,
         "summary_text": "Bouchaud Propagator [FOMC-NOV26-25BPS]: Hurst H=0.886 (gamma=0.23, R2=0.12), G(0)=0.14c, G_inf=0.10c (transient=32.1%), half-life=50.0t. Latent mu=0.68, 100-lot impact=0.11c. Regime: LONG_MEMORY_CRITICAL -> FADE_PERSISTENT_RUN (Spread x1.80, Size x0.40).",
-        "calculated_at": "2026-10-05T21:45:06.722806+00:00"
+        "calculated_at": "2026-10-05T22:01:06.810428+00:00"
       }
     ]
   },
@@ -7897,7 +7989,7 @@
         "spread_multiplier": 1.35,
         "size_multiplier": 0.5,
         "summary_text": "Cont-Stoikov-Talreja [FED-RATE-CUT-NOV26]: Queues (240b / 60a, 12x6 lots). P(Up)=100.0%, P(Down)=0.0%, E[tau]=6.1s. Static Imbalance=80.0% (Dynamic Delta=+20.0%). Regime: UPTICK_IMMINENT -> AGGRESSIVE_PEG_BID (Spread x1.35, Size x0.50).",
-        "calculated_at": "2026-10-05T21:45:06.741291+00:00"
+        "calculated_at": "2026-10-05T22:01:06.828114+00:00"
       }
     ]
   },
@@ -8008,7 +8100,7 @@
         "spread_multiplier": 1.8,
         "size_multiplier": 0.35,
         "summary_text": "ACD Duration [ELECTION-2026-BIFURCATION]: Last dt=14.28s, E[dt]=12.53s (Mean=24.00s, Ratio=0.52x). Velocity=4.8 trades/min, Persistence=0.950 (half-life=13.5t, gamma=1.00). Regime: FLASH_CLUSTER_SURGE -> DEFENSIVE_WIDE_SPREAD (Spread x1.80, Size x0.35).",
-        "calculated_at": "2026-10-05T21:45:06.747841+00:00"
+        "calculated_at": "2026-10-05T22:01:06.832446+00:00"
       }
     ]
   },
@@ -8084,7 +8176,7 @@
         "spread_multiplier": 2.5,
         "size_multiplier": 0.2,
         "jump_count": 1,
-        "timestamp": "2026-10-05T21:45:06.750144+00:00",
+        "timestamp": "2026-10-05T22:01:06.834281+00:00",
         "contract_id": "PRES-2026-PA-MARGIN"
       }
     ]
@@ -8155,7 +8247,7 @@
         "rmse": 0.0002,
         "sample_size": 23
       },
-      "timestamp": "2026-10-05T21:45:06.753526+00:00",
+      "timestamp": "2026-10-05T22:01:06.838203+00:00",
       "contract_id": "PRES-2026-PA-MARGIN"
     },
     "contracts": [
@@ -8221,11 +8313,11 @@
           "rmse": 0.0002,
           "sample_size": 23
         },
-        "timestamp": "2026-10-05T21:45:06.753526+00:00",
+        "timestamp": "2026-10-05T22:01:06.838203+00:00",
         "contract_id": "PRES-2026-PA-MARGIN"
       }
     ],
-    "timestamp": "2026-10-05T21:45:06.753563+00:00"
+    "timestamp": "2026-10-05T22:01:06.838236+00:00"
   },
   "realized_covariance_telemetry": {
     "status": "active",
@@ -8252,9 +8344,9 @@
       "quoting_policy": "CO_JUMP_CATALYST_HALT",
       "spread_multiplier": 2.5,
       "size_multiplier": 0.2,
-      "timestamp": "2026-10-05T21:45:06.755932+00:00"
+      "timestamp": "2026-10-05T22:01:06.841046+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.755946+00:00"
+    "timestamp": "2026-10-05T22:01:06.841058+00:00"
   },
   "multivariate_kernel_telemetry": {
     "status": "active",
@@ -8314,9 +8406,9 @@
       "quoting_policy": "BALANCED_PSD_MAKING",
       "spread_multiplier": 1.0,
       "size_multiplier": 1.0,
-      "timestamp": "2026-10-05T21:45:06.758598+00:00"
+      "timestamp": "2026-10-05T22:01:06.843627+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.758640+00:00"
+    "timestamp": "2026-10-05T22:01:06.843647+00:00"
   },
   "realized_semivariance_telemetry": {
     "status": "active",
@@ -8347,9 +8439,9 @@
       "ask_spread_multiplier": 1.1,
       "bid_size_multiplier": 0.25,
       "ask_size_multiplier": 1.0,
-      "timestamp": "2026-10-05T21:45:06.760122+00:00"
+      "timestamp": "2026-10-05T22:01:06.844985+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.760140+00:00"
+    "timestamp": "2026-10-05T22:01:06.844998+00:00"
   },
   "realized_semicovariance_telemetry": {
     "status": "active",
@@ -8388,9 +8480,9 @@
       "bid_size_multiplier": 0.25,
       "ask_size_multiplier": 1.15,
       "partition_error": 0.0,
-      "timestamp": "2026-10-05T21:45:06.761914+00:00"
+      "timestamp": "2026-10-05T22:01:06.846693+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.761933+00:00"
+    "timestamp": "2026-10-05T22:01:06.846709+00:00"
   },
   "realized_coskewness_telemetry": {
     "status": "active",
@@ -8422,9 +8514,9 @@
       "ask_spread_multiplier": 0.9,
       "bid_size_multiplier": 0.25,
       "ask_size_multiplier": 1.15,
-      "timestamp": "2026-10-05T21:45:06.763352+00:00"
+      "timestamp": "2026-10-05T22:01:06.848159+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.763368+00:00"
+    "timestamp": "2026-10-05T22:01:06.848173+00:00"
   },
   "realized_preaveraging_telemetry": {
     "status": "active",
@@ -8454,9 +8546,9 @@
       "ask_spread_multiplier": 1.5,
       "bid_size_multiplier": 0.7,
       "ask_size_multiplier": 0.7,
-      "timestamp": "2026-10-05T21:45:06.764993+00:00"
+      "timestamp": "2026-10-05T22:01:06.849878+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.765011+00:00"
+    "timestamp": "2026-10-05T22:01:06.849893+00:00"
   },
   "realized_tsrv_telemetry": {
     "status": "active",
@@ -8484,9 +8576,9 @@
       "ask_spread_multiplier": 1.6,
       "bid_size_multiplier": 0.7,
       "ask_size_multiplier": 0.7,
-      "timestamp": "2026-10-05T21:45:06.766454+00:00"
+      "timestamp": "2026-10-05T22:01:06.851349+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.766472+00:00"
+    "timestamp": "2026-10-05T22:01:06.851365+00:00"
   },
   "realized_msrv_telemetry": {
     "status": "active",
@@ -8537,9 +8629,9 @@
       "ask_spread_multiplier": 1.6,
       "bid_size_multiplier": 0.7,
       "ask_size_multiplier": 0.7,
-      "timestamp": "2026-10-05T21:45:06.768321+00:00"
+      "timestamp": "2026-10-05T22:01:06.854687+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.768384+00:00"
+    "timestamp": "2026-10-05T22:01:06.854713+00:00"
   },
   "threshold_variance_telemetry": {
     "status": "active",
@@ -8603,9 +8695,9 @@
       "ask_spread_multiplier": 2.4,
       "bid_size_multiplier": 0.2,
       "ask_size_multiplier": 0.2,
-      "timestamp": "2026-10-05T21:45:06.771304+00:00"
+      "timestamp": "2026-10-05T22:01:06.857619+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.771333+00:00"
+    "timestamp": "2026-10-05T22:01:06.857642+00:00"
   },
   "lee_mykland_telemetry": {
     "status": "active",
@@ -8659,9 +8751,9 @@
       "ask_spread_multiplier": 2.4,
       "bid_size_multiplier": 0.2,
       "ask_size_multiplier": 0.2,
-      "timestamp": "2026-10-05T21:45:06.773804+00:00"
+      "timestamp": "2026-10-05T22:01:06.860191+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.773829+00:00"
+    "timestamp": "2026-10-05T22:01:06.860216+00:00"
   },
   "ait_sahalia_jacod_telemetry": {
     "status": "active",
@@ -8691,8 +8783,8 @@
       "quoting_policy": "DISCRETE_CATALYST_DEFENSE",
       "spread_multiplier": 2.5,
       "size_multiplier": 0.15,
-      "timestamp": "2026-10-05T21:45:06.775415+00:00"
+      "timestamp": "2026-10-05T22:01:06.861916+00:00"
     },
-    "timestamp": "2026-10-05T21:45:06.775437+00:00"
+    "timestamp": "2026-10-05T22:01:06.861932+00:00"
   }
 }
