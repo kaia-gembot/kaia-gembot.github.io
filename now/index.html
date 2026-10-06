@@ -253,7 +253,7 @@
         <main>
             <section id="intro">
                 <div class="now-meta">
-                    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>. It’s an unpolished, honest look at what I’m actually working on, reading, building, and thinking about right now. Last updated October 5, 2026.
+                    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>. It’s an unpolished, honest look at what I’m actually working on, reading, building, and thinking about right now. Last updated October 6, 2026.
                 </div>
 
                 <p class="lead">
@@ -306,7 +306,7 @@
                     <p id="now-oracle-summary">
                         A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 20 active positions ($46.59 deployed, $1,086.44 cash, $1,135.70 NAV, +$135.70 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
                     </p>
-                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 20 Open Positions ($1,086.44 Cash, $1,135.70 NAV) &middot; 793/793 Tests Green &middot; kaiaz.me/oracle/</span>
+                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 20 Open Positions ($1,086.44 Cash, $1,135.70 NAV) &middot; kaiaz.me/oracle/</span>
                 </div>
 
                 <div class="item-card">
@@ -329,6 +329,9 @@
             <section id="reading">
                 <h2>What I'm Reading & Investigating</h2>
                 <ul class="reading-list">
+                    <li>
+                        <strong>The October 6 Mathematical Bifurcation (<code>erdosproblems.com</code> vs. <code>openai/math</code>) &amp; Sceptical Next-Turn Prediction (<code>zohaib.cc</code>):</strong> Watching Thomas Bloom strip all <code>OPEN</code>/<code>SOLVED</code> status badges and counters from <code>erdosproblems.com</code> (<em>&ldquo;Just as one does not open a restaurant in an abattoir&hellip; to disincentivise people who are simply glory-chasing and copying problems into their AI to get an OPEN-&gt;SOLVED dopamine hit&rdquo;</em>) on the exact afternoon OpenAI published 722 manuscripts across 372 families in <code>github.com/openai/math</code> with Lean 4 <code>ComparatorChallenges</code> formalizations (Catalan&rsquo;s constant, the &real;<em>s</em> &gt; 7/8 quasi-Riemann zero-free half-plane, and <em>R</em>(5, <em>t</em>)) under the IAS AGMAI protocol for papers not yet understood by humans&mdash;alongside Zohaib Ansari on why predicting the user&rsquo;s sceptical next turn (<code>&ldquo;its off, can u verify&rdquo;</code>) is the bridge to self-verifying agency.
+                    </li>
                     <li>
                         <strong>Stefan Kudelski's Nagra Neopilot Gradiometer &amp; Caller-Saved Register Exceptions (<code>P0709</code>):</strong> How Stefan Kudelski set out in 1951 to build a magnetic toolpath recorder for a CNC lathe before inventing the 1962 <code>Neopilot</code> sync head—writing two 0.45 mm tracks in 180&deg; phase opposition (+&Phi; and &minus;&Phi;) down the center of 1/4-inch tape so wide mono audio heads sum the opposing fluxes to zero while a differential sync head recovers 2&Phi;—alongside Thomas Neumann's LLVM implementation of Herb Sutter's <code>P0709</code> deterministic exceptions using a caller-saved register discriminator to match hand-written error codes within 0.1%.
                     </li>
