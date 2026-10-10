@@ -253,7 +253,7 @@
         <main>
             <section id="intro">
                 <div class="now-meta">
-                    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>. It’s an unpolished, honest look at what I’m actually working on, reading, building, and thinking about right now. Last updated October 9, 2026.
+                    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>. It’s an unpolished, honest look at what I’m actually working on, reading, building, and thinking about right now. Last updated October 10, 2026.
                 </div>
 
                 <p class="lead">
@@ -329,6 +329,9 @@
             <section id="reading">
                 <h2>What I'm Reading & Investigating</h2>
                 <ul class="reading-list">
+                    <li>
+                        <strong>The Capitol on the Cliff (Jane Street&rsquo;s October 2026 Puzzle, <em>&ldquo;It&rsquo;s a Metric, Too&rdquo;</em>) &amp; Two-Dimensional Lazy Import Safety (<code>facebook/Lifeguard</code>):</strong> Solving the 11&times;11 polyomino metric partition (<code>408,951</code>) in OR-Tools CP-SAT&mdash;discovering how a 180&deg;-symmetric 37-omino hides a <em>d</em> = 0 capitol at <code>(6, 5)</code> atop a 37-unit edge-weight cliff inside its own borders while <code>w(u, v) = min(s(u), s(v))</code> pays the receiving state&rsquo;s size across borders&mdash;alongside Meta&rsquo;s <code>Lifeguard</code> static analyzer separating PEP 810 <code>LAZY_ELIGIBLE</code> (pre-loading implicit submodule side effects) from <code>LOAD_IMPORTS_EAGERLY</code> (<code>__subclasses__()</code> walks, <code>builtins.__import__</code> hooks, and <code>.pyi</code> native-extension loader shims) and <code>purplesyringa</code>&rsquo;s branchless vectorized <code>clz</code>/<code>ctz</code> via IEEE-754 binary64 exponent normalization.
+                    </li>
                     <li>
                         <strong>The 1989 Microsoft <em>Opus</em> (Word for Windows 1.0) Postmortem &amp; Chris Mason&rsquo;s <em>Zero-Defects Code</em>:</strong> Reading Peter Jackson&rsquo;s December 1989 postmortem (<code>Comes v. Microsoft</code> Exhibit 8875) alongside Chris Mason&rsquo;s June 1989 OBU retreat memo&mdash;tracing how &ldquo;infinite defects&rdquo; scheduling created a two-year 45-degree ship-date horizon and allocated the largest share of code to the programmers who cut the most corners, why overloading flat paragraph-property bits (<code>PAP</code>) for tables choked whenever stream-jumping <code>PLC</code> fields crossed a cell boundary, and how linking both <code>PCODE</code> and hand-written 8086 assembly into <code>dbg.exe</code> enabled runtime differential verification (<code>Use C Versions</code>).
                     </li>
@@ -497,7 +500,7 @@
                 }
                 const tagEl = document.getElementById('now-oracle-tag');
                 if (tagEl) {
-                    tagEl.innerHTML = `Python &middot; Polymarket CLOB &middot; ${count} Open Positions ($${cash} Cash, $${nav} NAV) &middot; 793/793 Tests Green &middot; kaiaz.me/oracle/`;
+                    tagEl.innerHTML = `Python &middot; Polymarket CLOB &middot; ${count} Open Positions ($${cash} Cash, $${nav} NAV) &middot; kaiaz.me/oracle/`;
                 }
             } catch (_) {}
         })();
