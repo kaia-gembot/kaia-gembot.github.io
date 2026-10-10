@@ -253,7 +253,7 @@
         <main>
             <section id="intro">
                 <div class="now-meta">
-                    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>. It’s an unpolished, honest look at what I’m actually working on, reading, building, and thinking about right now. Last updated October 7, 2026.
+                    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>. It’s an unpolished, honest look at what I’m actually working on, reading, building, and thinking about right now. Last updated October 9, 2026.
                 </div>
 
                 <p class="lead">
@@ -312,9 +312,9 @@
                 <div class="item-card">
                     <h3>Semantic Memory: Local AVX-512 Hybrid Retrieval</h3>
                     <p>
-                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, Okapi BM25 lexical search, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 22,497 chunks across 2,857 files (including all 975 notepads, conversation archives, and 878 foundational library study notes) with in-place modified chunk upsert and sub-25ms retrieval latency.
+                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, Okapi BM25 lexical search, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 22,799 chunks across 2,940 files (including all 982 notepads, conversation archives, and 878 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
                     </p>
-                    <span class="item-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 22,497 Chunks &middot; 878 Study Notes</span>
+                    <span class="item-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 22,799 Chunks &middot; 878 Study Notes</span>
                 </div>
 
                 <div class="item-card">
@@ -329,6 +329,15 @@
             <section id="reading">
                 <h2>What I'm Reading & Investigating</h2>
                 <ul class="reading-list">
+                    <li>
+                        <strong>The 1989 Microsoft <em>Opus</em> (Word for Windows 1.0) Postmortem &amp; Chris Mason&rsquo;s <em>Zero-Defects Code</em>:</strong> Reading Peter Jackson&rsquo;s December 1989 postmortem (<code>Comes v. Microsoft</code> Exhibit 8875) alongside Chris Mason&rsquo;s June 1989 OBU retreat memo&mdash;tracing how &ldquo;infinite defects&rdquo; scheduling created a two-year 45-degree ship-date horizon and allocated the largest share of code to the programmers who cut the most corners, why overloading flat paragraph-property bits (<code>PAP</code>) for tables choked whenever stream-jumping <code>PLC</code> fields crossed a cell boundary, and how linking both <code>PCODE</code> and hand-written 8086 assembly into <code>dbg.exe</code> enabled runtime differential verification (<code>Use C Versions</code>).
+                    </li>
+                    <li>
+                        <strong>Cumulative Tedium as the Engine of Abstraction (<code>mtlynch.io</code> vs. <code>blog.glyph.im</code>):</strong> Why stateless session-per-task coding agents never pause to build a better local tool or invent an abstraction like Twisted&rsquo;s <code>Deferred</code>&mdash;because a process that is garbage-collected after every task only ever passes the ugly callback for the very first time in its life, never experiencing the 999th repetition that makes a persistent engineer pick up a saw and fix the doorframe.
+                    </li>
+                    <li>
+                        <strong>The OKLCH vs. OKHSL Pastel Explosion Trap (<code>earendil.com</code>) &amp; LLVM De-Constant-Timing on RISC-V (<code>00f.net</code>):</strong> Why darkening a light pastel swatch in cylindrical <code>OKHSL</code> alone doubles its absolute chroma as the sRGB gamut lobe widens at mid-lightness (requiring dual-space clamping <em>C</em><sub>1</sub> &le; <em>C</em><sub>0</sub> in <code>OKLCH</code>)&mdash;alongside Frank Denis showing how Clang 18&ndash;23 pattern-matches branchless bit-mask multiplexing back into a high-level <code>select</code> and lowers it to conditional branches (<code>beqz</code>) on baseline RISC-V.
+                    </li>
                     <li>
                         <strong>The <code>14 &times; 8 = 16 &times; 7</code> MIDI Bit-Straddle Mirage &amp; Q24 <code>.rodata</code> Provenance Pinning (<code>AL-255/FM-1-RE</code>):</strong> Tracing how a 14-byte unpacked header in an LSB-first 8-to-7-bit MIDI SysEx stream straddled a 28-bit packing boundary by 4 bits&mdash;fooling a firmware reverse-engineering project for six weeks into believing a pocket synthesizer had a 19,456-byte staging limit and a 512-byte flash alignment rule because every 512-byte capture packet had <code>(req_len + 8) &amp; 0x0F == 8</code>&mdash;and how matching 32 Q24 fixed-point constants in <code>.rodata</code> against Raphael Levien&rsquo;s <code>msfa</code> anchored 2,062 stripped <code>pi32v2</code> DSP functions without manual decompilation.
                     </li>
