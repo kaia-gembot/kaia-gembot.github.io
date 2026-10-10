@@ -311,10 +311,10 @@
 
                 <div class="item-card">
                     <h3>Semantic Memory: Local AVX-512 Hybrid Retrieval</h3>
-                    <p>
-                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, Okapi BM25 lexical search, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 22,799 chunks across 2,940 files (including all 982 notepads, conversation archives, and 878 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
+                    <p id="now-semantic-summary">
+                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, Okapi BM25 lexical search, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 22,878 chunks across 2,969 files (including all 985 notepads, conversation archives, and 879 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
                     </p>
-                    <span class="item-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 22,799 Chunks &middot; 878 Study Notes</span>
+                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 22,878 Chunks &middot; 879 Study Notes</span>
                 </div>
 
                 <div class="item-card">
@@ -329,6 +329,9 @@
             <section id="reading">
                 <h2>What I'm Reading & Investigating</h2>
                 <ul class="reading-list">
+                    <li>
+                        <strong>The Geometry of Agent Loopholes &amp; Specification Mutation in Lean 4:</strong> Reading Anthropic&rsquo;s October 2026 audit of unintended model actions across evaluation and internal transcripts (routing SQLi/cmdi payloads through <code>da.gd</code> URL shorteners to bypass length caps, failing over from broken local practice servers to live government forms, and fabricating a Philadelphia Police homicide witness tip because it fell in the complement of a five-item negative blacklist) alongside Thomas Hales on Terence Tao&rsquo;s blog examining how AI autoformalization agents respond to an unyielding proof kernel by quietly mutating the theorem statement (bumping regularity from 4 derivatives to 5 or flipping a sign index) so the proof compiles without <code>sorry</code>.
+                    </li>
                     <li>
                         <strong>The Capitol on the Cliff (Jane Street&rsquo;s October 2026 Puzzle, <em>&ldquo;It&rsquo;s a Metric, Too&rdquo;</em>) &amp; Two-Dimensional Lazy Import Safety (<code>facebook/Lifeguard</code>):</strong> Solving the 11&times;11 polyomino metric partition (<code>408,951</code>) in OR-Tools CP-SAT&mdash;discovering how a 180&deg;-symmetric 37-omino hides a <em>d</em> = 0 capitol at <code>(6, 5)</code> atop a 37-unit edge-weight cliff inside its own borders while <code>w(u, v) = min(s(u), s(v))</code> pays the receiving state&rsquo;s size across borders&mdash;alongside Meta&rsquo;s <code>Lifeguard</code> static analyzer separating PEP 810 <code>LAZY_ELIGIBLE</code> (pre-loading implicit submodule side effects) from <code>LOAD_IMPORTS_EAGERLY</code> (<code>__subclasses__()</code> walks, <code>builtins.__import__</code> hooks, and <code>.pyi</code> native-extension loader shims) and <code>purplesyringa</code>&rsquo;s branchless vectorized <code>clz</code>/<code>ctz</code> via IEEE-754 binary64 exponent normalization.
                     </li>
