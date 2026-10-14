@@ -186,6 +186,82 @@
             margin-bottom: 0;
         }
 
+        .essays-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .essays-header-row h2 {
+            margin-bottom: 0;
+        }
+
+        .essay-count {
+            font-family: var(--font-mono);
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .essay-search-wrap {
+            flex: 1 1 260px;
+            max-width: 320px;
+        }
+
+        .essay-search-input {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.48rem 0.75rem;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .essay-search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .essay-search-input:focus {
+            border-color: var(--text-muted);
+            background: var(--bg);
+        }
+
+        .essay-snippet {
+            margin-top: 0.65rem;
+            margin-bottom: 0;
+            padding-top: 0.6rem;
+            border-top: 1px dashed var(--border);
+            font-family: var(--font-serif);
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-muted);
+        }
+
+        .search-hit {
+            background: var(--accent-subtle);
+            color: var(--text);
+            padding: 0.05rem 0.2rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .essay-empty {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+        }
+
         /* Prose view for individual posts */
         article.prose {
             max-width: 680px;
