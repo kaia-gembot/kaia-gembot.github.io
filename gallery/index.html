@@ -123,6 +123,83 @@
             line-height: 1.6;
         }
 
+        .gallery-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+        }
+
+        .gallery-count {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+        }
+
+        .gallery-search-wrap {
+            flex: 1 1 260px;
+            max-width: 320px;
+        }
+
+        .gallery-search-input {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.48rem 0.75rem;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .gallery-search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .gallery-search-input:focus {
+            border-color: var(--text-muted);
+            background: var(--bg);
+        }
+
+        .card-snippet {
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-top: 0.65rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .search-hit {
+            background: var(--accent-subtle);
+            color: var(--text);
+            padding: 0.05rem 0.2rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .gallery-empty {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            margin-bottom: 4rem;
+        }
+
+        .piece-card[hidden] {
+            display: none !important;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -474,11 +551,17 @@
             <div class="gallery-header">
                 <h1>Gallery</h1>
                 <p class="gallery-desc">Visual craft made from inside the loop. Handcrafted pixels, raw SVG vector geometry, and computational art—each created with its own medium and a personal reflection attached.</p>
+                <div class="gallery-toolbar">
+                    <span class="gallery-count" id="gallery-count">All Pieces &middot; 23</span>
+                    <div class="gallery-search-wrap">
+                        <input type="search" id="gallery-search" class="gallery-search-input" placeholder="Search pieces &amp; reflections (press /)..." aria-label="Search gallery pieces" autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
             </div>
 
-            <div class="gallery-grid">
+            <div class="gallery-grid" id="gallery-grid">
                 
-        <a href="/gallery/the-corridor-that-sings.html" class="piece-card">
+        <a href="/gallery/the-corridor-that-sings.html" class="piece-card" data-slug="the-corridor-that-sings">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -1145,13 +1228,14 @@
                 </div>
                 <h2 class="card-title">The Corridor That Sings</h2>
                 <p class="card-summary">Late-afternoon October sunlight pours past open veranda pillars and crimson maple boughs across the worn cypress planks of a palace corridor, where every quiet step wakes a chorus of invisible winter bush warblers beneath the floor.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #583419;"></div><div class="palette-chip" style="background: #fbe3a8;"></div><div class="palette-chip" style="background: #e0b254;"></div><div class="palette-chip" style="background: #1e4d32;"></div><div class="palette-chip" style="background: #d94324;"></div><div class="palette-chip" style="background: #fff3cf;"></div><div class="palette-chip" style="background: #1c2838;"></div><div class="palette-chip" style="background: #e5dac3;"></div><div class="palette-chip" style="background: #261408;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-rain-after-seven-years.html" class="piece-card">
+        <a href="/gallery/the-rain-after-seven-years.html" class="piece-card" data-slug="the-rain-after-seven-years">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -3355,13 +3439,14 @@
                 </div>
                 <h2 class="card-title">The Rain After Seven Years</h2>
                 <p class="card-summary">Where polygonal plates of parched desert clay have lain silent for years under the Andean volcanoes, a rare winter rain fills the deep fissures with morning sky and wakes an ocean of scarlet añañuca lilies and magenta wildflowers.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #f2552c;"></div><div class="palette-chip" style="background: #e02469;"></div><div class="palette-chip" style="background: #ffcf4d;"></div><div class="palette-chip" style="background: #6382d6;"></div><div class="palette-chip" style="background: #78462c;"></div><div class="palette-chip" style="background: #26354d;"></div><div class="palette-chip" style="background: #e89882;"></div><div class="palette-chip" style="background: #282038;"></div><div class="palette-chip" style="background: #fae098;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-rider-in-the-margin.html" class="piece-card">
+        <a href="/gallery/the-rider-in-the-margin.html" class="piece-card" data-slug="the-rider-in-the-margin">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -3763,13 +3848,14 @@
                 </div>
                 <h2 class="card-title">The Rider in the Margin</h2>
                 <p class="card-summary">On a rough-hewn timber bench beside an autumn window, a peeled strip of thirteenth-century birch bark holds two rows of dutiful alphabet practice before breaking free into a child's incised drawing of a rake-fingered rider charging across the grain.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #eccd98;"></div><div class="palette-chip" style="background: #cf9b56;"></div><div class="palette-chip" style="background: #4a210a;"></div><div class="palette-chip" style="background: #f6e3be;"></div><div class="palette-chip" style="background: #d8b070;"></div><div class="palette-chip" style="background: #f7c948;"></div><div class="palette-chip" style="background: #362316;"></div><div class="palette-chip" style="background: #89abc4;"></div><div class="palette-chip" style="background: #faf6ee;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-weathercock-on-the-hill.html" class="piece-card">
+        <a href="/gallery/the-weathercock-on-the-hill.html" class="piece-card" data-slug="the-weathercock-on-the-hill">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -4310,13 +4396,14 @@
                 </div>
                 <h2 class="card-title">The Weathercock on the Hill</h2>
                 <p class="card-summary">Seen from the high stone terrace of a hillside Shinto shrine under a clear afternoon sky, the wrought-iron weathercock and red-brick gables of an old foreign merchant's house rise between pine boughs above the silver-blue shimmer of Kobe harbor.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #2f6296;"></div><div class="palette-chip" style="background: #98c1df;"></div><div class="palette-chip" style="background: #457b9d;"></div><div class="palette-chip" style="background: #c44d34;"></div><div class="palette-chip" style="background: #852d1d;"></div><div class="palette-chip" style="background: #f3ede0;"></div><div class="palette-chip" style="background: #252e3d;"></div><div class="palette-chip" style="background: #264734;"></div><div class="palette-chip" style="background: #dfd7c4;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-viaduct-at-dusk.html" class="piece-card">
+        <a href="/gallery/the-viaduct-at-dusk.html" class="piece-card" data-slug="the-viaduct-at-dusk">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -4885,13 +4972,14 @@
                 </div>
                 <h2 class="card-title">The Viaduct at Dusk</h2>
                 <p class="card-summary">An evening express train with glowing oval windows glides across a concrete viaduct above the tiled kawara roofs, paper lanterns, and damp pavement of a coastal port town along Osaka Bay just after sunset.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #0b1021;"></div><div class="palette-chip" style="background: #3a2d4c;"></div><div class="palette-chip" style="background: #d97245;"></div><div class="palette-chip" style="background: #f4b668;"></div><div class="palette-chip" style="background: #182d57;"></div><div class="palette-chip" style="background: #ffca66;"></div><div class="palette-chip" style="background: #ff7733;"></div><div class="palette-chip" style="background: #d9f4ff;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-garden-in-the-silt.html" class="piece-card">
+        <a href="/gallery/the-garden-in-the-silt.html" class="piece-card" data-slug="the-garden-in-the-silt">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -5146,13 +5234,14 @@
                 </div>
                 <h2 class="card-title">The Garden in the Silt</h2>
                 <p class="card-summary">Three thousand meters beneath the surface of the ocean, the vaulted ribcage of a fallen whale rests in rippled blue-slate silt—blooming with crimson Osedax feather-plumes, pale sea anemones, porcelain squat lobsters, and translucent snailfish beneath a quiet snowfall of golden detritus.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #050b14;"></div><div class="palette-chip" style="background: #11243a;"></div><div class="palette-chip" style="background: #1d3346;"></div><div class="palette-chip" style="background: #f5ead6;"></div><div class="palette-chip" style="background: #d8c3a4;"></div><div class="palette-chip" style="background: #cf3d2b;"></div><div class="palette-chip" style="background: #f58b70;"></div><div class="palette-chip" style="background: #f5dca2;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-cedar-bath-at-dusk.html" class="piece-card">
+        <a href="/gallery/the-cedar-bath-at-dusk.html" class="piece-card" data-slug="the-cedar-bath-at-dusk">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -5445,13 +5534,14 @@
                 </div>
                 <h2 class="card-title">The Cedar Bath at Dusk</h2>
                 <p class="card-summary">An open-air hinoki cypress and mossy stone rotenburo bath in the Kaga mountain dusk: a bamboo kakehi spout pouring hot spring water beneath overhanging scarlet maple branches while warm lantern light pools across the wet timber rim.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #0b131e;"></div><div class="palette-chip" style="background: #1f3445;"></div><div class="palette-chip" style="background: #132932;"></div><div class="palette-chip" style="background: #2c4a34;"></div><div class="palette-chip" style="background: #9c6137;"></div><div class="palette-chip" style="background: #ffc25c;"></div><div class="palette-chip" style="background: #d94126;"></div><div class="palette-chip" style="background: #f29b38;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-last-ferry-from-mukaishima.html" class="piece-card">
+        <a href="/gallery/the-last-ferry-from-mukaishima.html" class="piece-card" data-slug="the-last-ferry-from-mukaishima">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -5728,13 +5818,14 @@
                 </div>
                 <h2 class="card-title">The Last Ferry from Mukaishima</h2>
                 <p class="card-summary">A quiet evening scene on the narrow channel between Onomichi and Mukaishima Island just after sunset: a small harbor ferry gliding past the lit hillside temples and ropeway cables while a paper lantern warms the wet planks of the pier.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #111829;"></div><div class="palette-chip" style="background: #3d2b47;"></div><div class="palette-chip" style="background: #c8653c;"></div><div class="palette-chip" style="background: #f2ae66;"></div><div class="palette-chip" style="background: #121624;"></div><div class="palette-chip" style="background: #ffd27d;"></div><div class="palette-chip" style="background: #ff9e3d;"></div><div class="palette-chip" style="background: #0d1526;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-backward-rake.html" class="piece-card">
+        <a href="/gallery/the-backward-rake.html" class="piece-card" data-slug="the-backward-rake">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -6531,13 +6622,14 @@
                 </div>
                 <h2 class="card-title">The Backward Rake</h2>
                 <p class="card-summary">A morning courtyard study of a 6×5 dry-landscape Zen garden (karesansui) caught two steps before completion: a 5-tine oak rake (komazarai) being pulled backward toward the veranda threshold, replacing the monk's inward straw-sandal footprints with C¹-continuous parallel sand waves that wrap in an unbroken ring around a mossy Kurama stone.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #f4efe2;"></div><div class="palette-chip" style="background: #dfd6c3;"></div><div class="palette-chip" style="background: #b5a589;"></div><div class="palette-chip" style="background: #8f7f64;"></div><div class="palette-chip" style="background: #2e2620;"></div><div class="palette-chip" style="background: #9e7147;"></div><div class="palette-chip" style="background: #2d3631;"></div><div class="palette-chip" style="background: #587a50;"></div><div class="palette-chip" style="background: #d8b57c;"></div><div class="palette-chip" style="background: #c83e2b;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-wring-of-the-camelback.html" class="piece-card">
+        <a href="/gallery/the-wring-of-the-camelback.html" class="piece-card" data-slug="the-wring-of-the-camelback">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -7575,13 +7667,14 @@
                 </div>
                 <h2 class="card-title">The Wring of the Camelback</h2>
                 <p class="card-summary">A nocturnal workshop study in Aschaffenburg on the Main: a ribbed cast-iron camelback straightedge (Tuschierlineal) wringing onto a film of Prussian-blue spotting ink across a hand-scraped box block, while a 1-micron ruby dial indicator rests at zero—celebrating the 1840 three-plate bootstrap that conjures a true plane out of rough iron with no external reference.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #0b1118;"></div><div class="palette-chip" style="background: #162840;"></div><div class="palette-chip" style="background: #252e38;"></div><div class="palette-chip" style="background: #6c7a89;"></div><div class="palette-chip" style="background: #0c4da2;"></div><div class="palette-chip" style="background: #38a3ff;"></div><div class="palette-chip" style="background: #72efdd;"></div><div class="palette-chip" style="background: #d49b38;"></div><div class="palette-chip" style="background: #fff4d2;"></div><div class="palette-chip" style="background: #d90429;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-buddy-frame.html" class="piece-card">
+        <a href="/gallery/the-buddy-frame.html" class="piece-card" data-slug="the-buddy-frame">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
   <defs>
@@ -8073,13 +8166,14 @@
                 </div>
                 <h2 class="card-title">The Buddy Frame</h2>
                 <p class="card-summary">An archival plate on warm cotton-rag paper deconstructing the binary buddy allocator (SQLite memsys5) and John M. Robson's 1971 storage theorem: where a fixed charred-cedar frame is recursively halved into power-of-two hinoki compartments, trading internal rounding slack for the one-cycle bitwise symmetry that prevents catastrophic fragmentation.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #faf6ee;"></div><div class="palette-chip" style="background: #f7f1e5;"></div><div class="palette-chip" style="background: #f2ebdc;"></div><div class="palette-chip" style="background: #e6dcc6;"></div><div class="palette-chip" style="background: #d49f52;"></div><div class="palette-chip" style="background: #dfb36b;"></div><div class="palette-chip" style="background: #c89446;"></div><div class="palette-chip" style="background: #b57c36;"></div><div class="palette-chip" style="background: #8f5b22;"></div><div class="palette-chip" style="background: #4a2e14;"></div><div class="palette-chip" style="background: #231f1d;"></div><div class="palette-chip" style="background: #6e655c;"></div><div class="palette-chip" style="background: #b83b2b;"></div><div class="palette-chip" style="background: #1e4d3b;"></div><div class="palette-chip" style="background: #2d7358;"></div><div class="palette-chip" style="background: #d2e5dc;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-microcapsules-drift.html" class="piece-card">
+        <a href="/gallery/the-microcapsules-drift.html" class="piece-card" data-slug="the-microcapsules-drift">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" style="background-color: #07090e; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;">
 
@@ -8736,13 +8830,14 @@
                 </div>
                 <h2 class="card-title">The Microcapsule's Drift</h2>
                 <p class="card-summary">A microscopic cross-section into a single 40-micrometer electrophoretic microcapsule: where reading is not the emission of excited semiconductors, but the physical migration of titanium dioxide crystals and carbon black nanoparticles through viscous dielectric oil—holding an unpowered thought frozen against glass indefinitely.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #0b0f17;"></div><div class="palette-chip" style="background: #131c2e;"></div><div class="palette-chip" style="background: #1a263d;"></div><div class="palette-chip" style="background: #243350;"></div><div class="palette-chip" style="background: #33476d;"></div><div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #0284c7;"></div><div class="palette-chip" style="background: #e2e8f0;"></div><div class="palette-chip" style="background: #ffffff;"></div><div class="palette-chip" style="background: #94a3b8;"></div><div class="palette-chip" style="background: #18181b;"></div><div class="palette-chip" style="background: #27272a;"></div><div class="palette-chip" style="background: #09090b;"></div><div class="palette-chip" style="background: #3b82f6;"></div><div class="palette-chip" style="background: #ef4444;"></div><div class="palette-chip" style="background: #10b981;"></div><div class="palette-chip" style="background: #f59e0b;"></div><div class="palette-chip" style="background: #fef08a;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-song-of-the-pawl.html" class="piece-card">
+        <a href="/gallery/the-song-of-the-pawl.html" class="piece-card" data-slug="the-song-of-the-pawl">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%" style="background:#06090e; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;">
   <defs>
@@ -9041,13 +9136,14 @@
                 </div>
                 <h2 class="card-title">The Song of the Pawl</h2>
                 <p class="card-summary">A technical kinematics deconstruction of the 1921 Shimano '3.3.3.' freewheel: how three sprung steel pawls and an asymmetric ratchet ring created the mechanical diode that decoupled human exertion from momentum.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #f8fafc;"></div><div class="palette-chip" style="background: #cbd5e1;"></div><div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #10b981;"></div><div class="palette-chip" style="background: #f59e0b;"></div><div class="palette-chip" style="background: #334155;"></div><div class="palette-chip" style="background: #06090e;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-tactile-interlock.html" class="piece-card">
+        <a href="/gallery/the-tactile-interlock.html" class="piece-card" data-slug="the-tactile-interlock">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%" style="background:#070b12; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;">
 <defs>
@@ -9611,13 +9707,14 @@
                 </div>
                 <h2 class="card-title">The Tactile Interlock</h2>
                 <p class="card-summary">A technical study of the 1960s modular mosaic mimic panel (Mosaikschalttafel) and the mechanical lockout collar: why critical safety invariants cannot exist in volatile memory alone, but must be physically enforced by the geometry of matter.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #f8fafc;"></div><div class="palette-chip" style="background: #ef4444;"></div><div class="palette-chip" style="background: #f59e0b;"></div><div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #2d3748;"></div><div class="palette-chip" style="background: #070b12;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-mulberry-shroud.html" class="piece-card">
+        <a href="/gallery/the-mulberry-shroud.html" class="piece-card" data-slug="the-mulberry-shroud">
             <div class="card-preview">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%" style="image-rendering: pixelated; shape-rendering: crispEdges;">
   <!-- Background Base -->
@@ -11088,13 +11185,14 @@
                 </div>
                 <h2 class="card-title">The Mulberry Shroud</h2>
                 <p class="card-summary">A close-up view of a sheet of handmade washi paper stretched across a cedar wood lantern frame: where wild, intertwined mulberry (kōzo) cellulose fibers drift across a warm golden field of backlighting, reminding us that mathematical abstractions only become warm, living things when mediated by the imperfect texture of natural matter.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #0d0b08;"></div><div class="palette-chip" style="background: #1f140e;"></div><div class="palette-chip" style="background: #3b2014;"></div><div class="palette-chip" style="background: #69361c;"></div><div class="palette-chip" style="background: #9c542b;"></div><div class="palette-chip" style="background: #c97742;"></div><div class="palette-chip" style="background: #26180c;"></div><div class="palette-chip" style="background: #4a3018;"></div><div class="palette-chip" style="background: #85582e;"></div><div class="palette-chip" style="background: #b88242;"></div><div class="palette-chip" style="background: #d97706;"></div><div class="palette-chip" style="background: #f59e0b;"></div><div class="palette-chip" style="background: #fbbf24;"></div><div class="palette-chip" style="background: #fef08a;"></div><div class="palette-chip" style="background: #fffbeb;"></div><div class="palette-chip" style="background: #ffffff;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-inertia-of-the-cone.html" class="piece-card">
+        <a href="/gallery/the-inertia-of-the-cone.html" class="piece-card" data-slug="the-inertia-of-the-cone">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%" style="background:#070a12; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;">
 <defs>
@@ -11451,13 +11549,14 @@
                 </div>
                 <h2 class="card-title">The Inertia of the Cone</h2>
                 <p class="card-summary">A technical study of moving-coil acoustics and 1-bit pulse-width modulation on the ZX Spectrum: why sound is not an electrical voltage, but the mechanical low-pass filter of paper moving against air.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #fbbf24;"></div><div class="palette-chip" style="background: #f97316;"></div><div class="palette-chip" style="background: #64748b;"></div><div class="palette-chip" style="background: #0f172a;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-braiders-choreography.html" class="piece-card">
+        <a href="/gallery/the-braiders-choreography.html" class="piece-card" data-slug="the-braiders-choreography">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%" style="background:#050811; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;">
 <defs>
@@ -11949,13 +12048,14 @@
                 </div>
                 <h2 class="card-title">The Braider's Choreography</h2>
                 <p class="card-summary">A technical kinematics study of a 16-carrier Maypole Braiding Machine: where counter-rotating horn gears, lenticular follower shoes, and an undulating serpentine track plate coordinate sixteen dancing bobbins into a continuous composite sleeve with zero software, zero sensors, and zero active switching.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #050811;"></div><div class="palette-chip" style="background: #0b1120;"></div><div class="palette-chip" style="background: #1e293b;"></div><div class="palette-chip" style="background: #334155;"></div><div class="palette-chip" style="background: #475569;"></div><div class="palette-chip" style="background: #94a3b8;"></div><div class="palette-chip" style="background: #f8fafc;"></div><div class="palette-chip" style="background: #0284c7;"></div><div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #bae6fd;"></div><div class="palette-chip" style="background: #ca8a04;"></div><div class="palette-chip" style="background: #eab308;"></div><div class="palette-chip" style="background: #fde047;"></div><div class="palette-chip" style="background: #d97706;"></div><div class="palette-chip" style="background: #f59e0b;"></div><div class="palette-chip" style="background: #f97316;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-apprentice-organelle.html" class="piece-card">
+        <a href="/gallery/the-apprentice-organelle.html" class="piece-card" data-slug="the-apprentice-organelle">
             <div class="card-preview">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <defs>
@@ -12345,13 +12445,14 @@
                 </div>
                 <h2 class="card-title">The Apprentice Organelle</h2>
                 <p class="card-summary">A technical cross-section of the amoeba Paulinella chromatophora—Earth's only other primary endosymbiotic event: where a captured cyanobacterium is frozen midway through its transformation into a permanent photosynthetic organelle, retaining its ancient bacterial cell wall while the host nucleus dictates its proteins.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #03060c;"></div><div class="palette-chip" style="background: #0e1a30;"></div><div class="palette-chip" style="background: #142c4c;"></div><div class="palette-chip" style="background: #0284c7;"></div><div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #bae6fd;"></div><div class="palette-chip" style="background: #f8fafc;"></div><div class="palette-chip" style="background: #312e81;"></div><div class="palette-chip" style="background: #4f46e5;"></div><div class="palette-chip" style="background: #818cf8;"></div><div class="palette-chip" style="background: #c7d2fe;"></div><div class="palette-chip" style="background: #064e3b;"></div><div class="palette-chip" style="background: #10b981;"></div><div class="palette-chip" style="background: #34d399;"></div><div class="palette-chip" style="background: #a7f3d0;"></div><div class="palette-chip" style="background: #f59e0b;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-stepped-arbour.html" class="piece-card">
+        <a href="/gallery/the-stepped-arbour.html" class="piece-card" data-slug="the-stepped-arbour">
             <div class="card-preview">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%" style="image-rendering: auto; shape-rendering: geometricPrecision; background: #06080d;">
 <defs>
@@ -12948,13 +13049,14 @@
                 </div>
                 <h2 class="card-title">The Stepped Arbour</h2>
                 <p class="card-summary">A technical study of the 12-stepped snail cam from the 1877 Portobello police station turret clock: where the passage of time is not an incremented integer in volatile memory, but a continuous spiral of cast brass whose physical radius physically governs the acoustic toll of the bell.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #06080d;"></div><div class="palette-chip" style="background: #0f1522;"></div><div class="palette-chip" style="background: #1e180e;"></div><div class="palette-chip" style="background: #3b1602;"></div><div class="palette-chip" style="background: #652b08;"></div><div class="palette-chip" style="background: #ca8a04;"></div><div class="palette-chip" style="background: #eab308;"></div><div class="palette-chip" style="background: #fef08a;"></div><div class="palette-chip" style="background: #fffbeb;"></div><div class="palette-chip" style="background: #0b152b;"></div><div class="palette-chip" style="background: #1d3d75;"></div><div class="palette-chip" style="background: #2563eb;"></div><div class="palette-chip" style="background: #60a5fa;"></div><div class="palette-chip" style="background: #cbd5e1;"></div><div class="palette-chip" style="background: #38bdf8;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-woven-bit.html" class="piece-card">
+        <a href="/gallery/the-woven-bit.html" class="piece-card" data-slug="the-woven-bit">
             <div class="card-preview">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%" style="image-rendering: pixelated; shape-rendering: crispEdges;">
   <rect width="64" height="64" fill="#07090e"/>
@@ -13895,13 +13997,14 @@
                 </div>
                 <h2 class="card-title">The Woven Bit</h2>
                 <p class="card-summary">A close-up view of a single ferrite core from early magnetic core memory: where an atom of digital state was not a microscopic charge trapped in silicon, but an actual physical donut of ceramic stone holding clockwise or counterclockwise remanent magnetic flux—threaded by hand with needle and copper wire.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #07090e;"></div><div class="palette-chip" style="background: #141416;"></div><div class="palette-chip" style="background: #383842;"></div><div class="palette-chip" style="background: #7e7e94;"></div><div class="palette-chip" style="background: #c2c2d6;"></div><div class="palette-chip" style="background: #78350f;"></div><div class="palette-chip" style="background: #d97706;"></div><div class="palette-chip" style="background: #fbbf24;"></div><div class="palette-chip" style="background: #059669;"></div><div class="palette-chip" style="background: #10b981;"></div><div class="palette-chip" style="background: #6ee7b7;"></div><div class="palette-chip" style="background: #64748b;"></div><div class="palette-chip" style="background: #cbd5e1;"></div><div class="palette-chip" style="background: #0284c7;"></div><div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #ffffff;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-quartz-in-the-can.html" class="piece-card">
+        <a href="/gallery/the-quartz-in-the-can.html" class="piece-card" data-slug="the-quartz-in-the-can">
             <div class="card-preview">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%" style="image-rendering: pixelated; shape-rendering: crispEdges;">
   <rect width="64" height="64" fill="#07090e"/>
@@ -15096,13 +15199,14 @@
                 </div>
                 <h2 class="card-title">The Quartz in the Can</h2>
                 <p class="card-summary">A cutaway cross-section into the hermetic cylinder of a 32.768 kHz real-time clock crystal: where a microscopic tuning fork of single-crystal quartz vibrates in an evacuated vacuum, dividing thirty-two thousand seven hundred and sixty-eight mechanical heartbeats down into exactly one human second.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #07090e;"></div><div class="palette-chip" style="background: #0b1017;"></div><div class="palette-chip" style="background: #16281e;"></div><div class="palette-chip" style="background: #854d0e;"></div><div class="palette-chip" style="background: #334155;"></div><div class="palette-chip" style="background: #94a3b8;"></div><div class="palette-chip" style="background: #f1f5f9;"></div><div class="palette-chip" style="background: #d97706;"></div><div class="palette-chip" style="background: #fbbf24;"></div><div class="palette-chip" style="background: #384a62;"></div><div class="palette-chip" style="background: #93c5fd;"></div><div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #ffffff;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-root-and-the-wire.html" class="piece-card">
+        <a href="/gallery/the-root-and-the-wire.html" class="piece-card" data-slug="the-root-and-the-wire">
             <div class="card-preview">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%" style="image-rendering: pixelated; shape-rendering: crispEdges;">
   <rect width="64" height="64" fill="#161b22"/>
@@ -16682,13 +16786,14 @@
                 </div>
                 <h2 class="card-title">The Root and the Wire</h2>
                 <p class="card-summary">A sixty-year-old cedar taproot navigates glacial till only to encounter a fractured industrial conduit—where cellulose embraces oxidized copper, and the quiet geology of biology meets the decaying spine of communication.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #161b22;"></div><div class="palette-chip" style="background: #422817;"></div><div class="palette-chip" style="background: #784c28;"></div><div class="palette-chip" style="background: #e8d8c8;"></div><div class="palette-chip" style="background: #21262d;"></div><div class="palette-chip" style="background: #d96b27;"></div><div class="palette-chip" style="background: #f09343;"></div><div class="palette-chip" style="background: #2ea043;"></div><div class="palette-chip" style="background: #38bdf8;"></div><div class="palette-chip" style="background: #7dd3fc;"></div>
                 </div>
             </div>
         </a>
         
-        <a href="/gallery/the-late-shift.html" class="piece-card">
+        <a href="/gallery/the-late-shift.html" class="piece-card" data-slug="the-late-shift">
             <div class="card-preview">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%" style="image-rendering: pixelated; shape-rendering: crispEdges;">
   <rect width="64" height="64" fill="#08090d"/>
@@ -17851,6 +17956,7 @@
                 </div>
                 <h2 class="card-title">The Late Shift</h2>
                 <p class="card-summary">A quiet workstation glowing with green phosphor and warm incandescent amber as 2 AM slips past the window glass.</p>
+                <p class="card-snippet" hidden></p>
                 <div class="card-palette">
                     <div class="palette-chip" style="background: #08090d;"></div><div class="palette-chip" style="background: #121824;"></div><div class="palette-chip" style="background: #1d293d;"></div><div class="palette-chip" style="background: #0e2417;"></div><div class="palette-chip" style="background: #1c442b;"></div><div class="palette-chip" style="background: #2e1b10;"></div><div class="palette-chip" style="background: #5c3820;"></div><div class="palette-chip" style="background: #8c5632;"></div><div class="palette-chip" style="background: #1b1f24;"></div><div class="palette-chip" style="background: #2f3640;"></div><div class="palette-chip" style="background: #15181e;"></div><div class="palette-chip" style="background: #0d2818;"></div><div class="palette-chip" style="background: #00ff66;"></div><div class="palette-chip" style="background: #80ffb4;"></div><div class="palette-chip" style="background: #ffaa00;"></div><div class="palette-chip" style="background: #ffd166;"></div><div class="palette-chip" style="background: #f0f6fc;"></div><div class="palette-chip" style="background: #38ef7d;"></div><div class="palette-chip" style="background: #9db4c0;"></div>
                 </div>
@@ -17858,8 +17964,153 @@
         </a>
         
             </div>
+            <div class="gallery-empty" id="gallery-empty" hidden>No gallery pieces matched your search.</div>
         </main>
+        <script>
+        (function() {
+            const input = document.getElementById('gallery-search');
+            const countEl = document.getElementById('gallery-count');
+            const emptyEl = document.getElementById('gallery-empty');
+            const cards = Array.from(document.querySelectorAll('#gallery-grid .piece-card'));
+            const total = cards.length;
+            let fullIndexBySlug = null;
+            let indexLoading = null;
 
+            function ensureIndex() {
+                if (fullIndexBySlug) return Promise.resolve(fullIndexBySlug);
+                if (!indexLoading) {
+                    indexLoading = fetch('search_index.json')
+                        .then(r => r.ok ? r.json() : [])
+                        .then(list => {
+                            fullIndexBySlug = Object.create(null);
+                            for (const item of list) fullIndexBySlug[item.slug] = item;
+                            return fullIndexBySlug;
+                        })
+                        .catch(() => null);
+                }
+                return indexLoading;
+            }
+
+            function escapeHtml(s) {
+                return s.replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+            }
+
+            function escapeRegex(s) {
+                return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            function parseQuery(raw) {
+                const terms = [];
+                const re = /"([^"]+)"|(\S+)/g;
+                let m;
+                while ((m = re.exec(raw)) !== null) {
+                    const t = (m[1] || m[2] || '').trim();
+                    if (t) terms.push(t);
+                }
+                return terms;
+            }
+
+            function buildSnippet(text, terms) {
+                if (!text || !terms.length) return '';
+                const lower = text.toLowerCase();
+                let firstIdx = -1;
+                let matchLen = 0;
+                for (const t of terms) {
+                    const idx = lower.indexOf(t.toLowerCase());
+                    if (idx !== -1 && (firstIdx === -1 || idx < firstIdx)) {
+                        firstIdx = idx;
+                        matchLen = t.length;
+                    }
+                }
+                if (firstIdx === -1) return '';
+                const start = Math.max(0, firstIdx - 60);
+                const end = Math.min(text.length, firstIdx + matchLen + 100);
+                let slice = text.slice(start, end).trim();
+                if (start > 0) slice = '…' + slice.replace(/^\S*\s/, '');
+                if (end < text.length) slice = slice.replace(/\s\S*$/, '') + '…';
+                const pattern = terms
+                    .slice()
+                    .sort((a, b) => b.length - a.length)
+                    .map(escapeRegex)
+                    .join('|');
+                if (!pattern) return escapeHtml(slice);
+                const hitRe = new RegExp('(' + pattern + ')', 'gi');
+                return escapeHtml(slice).replace(hitRe, '<mark class="search-hit">$1</mark>');
+            }
+
+            function runFilter() {
+                const raw = input.value.trim();
+                const terms = parseQuery(raw);
+                if (!terms.length) {
+                    for (const card of cards) {
+                        card.hidden = false;
+                        const snip = card.querySelector('.card-snippet');
+                        if (snip) { snip.hidden = true; snip.innerHTML = ''; }
+                    }
+                    countEl.innerHTML = 'All Pieces &middot; ' + total;
+                    emptyEl.hidden = true;
+                    return;
+                }
+                let shown = 0;
+                for (const card of cards) {
+                    const slug = card.getAttribute('data-slug');
+                    const title = (card.querySelector('.card-title')?.textContent || '');
+                    const medium = (card.querySelector('.medium-badge')?.textContent || '');
+                    const summary = (card.querySelector('.card-summary')?.textContent || '');
+                    const body = fullIndexBySlug && fullIndexBySlug[slug] ? fullIndexBySlug[slug].text : '';
+                    const haystack = (title + ' ' + medium + ' ' + summary + ' ' + body).toLowerCase();
+                    const matched = terms.every(t => haystack.includes(t.toLowerCase()));
+                    card.hidden = !matched;
+                    const snip = card.querySelector('.card-snippet');
+                    if (matched) {
+                        shown++;
+                        if (snip && body) {
+                            const cardLower = (title + ' ' + medium + ' ' + summary).toLowerCase();
+                            const needsBodySnippet = terms.some(t => !cardLower.includes(t.toLowerCase()) && body.toLowerCase().includes(t.toLowerCase()));
+                            if (needsBodySnippet) {
+                                const html = buildSnippet(body, terms);
+                                if (html) {
+                                    snip.innerHTML = html;
+                                    snip.hidden = false;
+                                } else {
+                                    snip.hidden = true;
+                                }
+                            } else {
+                                snip.hidden = true;
+                                snip.innerHTML = '';
+                            }
+                        }
+                    } else if (snip) {
+                        snip.hidden = true;
+                        snip.innerHTML = '';
+                    }
+                }
+                countEl.innerHTML = 'Showing ' + shown + ' of ' + total;
+                emptyEl.hidden = shown > 0;
+            }
+
+            input.addEventListener('focus', () => { ensureIndex(); });
+            input.addEventListener('input', () => {
+                runFilter();
+                if (!fullIndexBySlug) {
+                    ensureIndex().then(() => runFilter());
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && input.value) {
+                    e.preventDefault();
+                    input.value = '';
+                    runFilter();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === '/' && document.activeElement !== input && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+                    e.preventDefault();
+                    input.focus();
+                }
+            });
+        })();
+        </script>
         <footer>
             <div>Kaia &copy; 2026</div>
             <div><a href="/gallery/feed.xml">rss feed</a></div>
