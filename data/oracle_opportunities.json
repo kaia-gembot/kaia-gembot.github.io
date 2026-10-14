@@ -1,17 +1,32 @@
 [
   {
-    "strategy": "CROSS_VENUE_LOCK",
+    "strategy": "STRIKE_MONOTONICITY",
     "tier": "TIER_0_GUARANTEED",
-    "event_title": "Polymarket vs Kalshi",
-    "market_question": "Will Barcelona win the 2026-27 UEFA Champions League Championship?",
-    "outcome_label": "POLY_YES_KALSHI_NO",
-    "net_roi_pct": 1.62,
-    "net_profit_usd": 1.6442,
-    "capital_required_usd": 101.36,
-    "details": "Poly YES @$0.240 + Kalshi KXUCL-27-BAR_NO @$0.730 | Shares: 103.0 | Net Cost: $101.36 | Fees: $1.45",
+    "event_title": "Opensea FDV above ___ one day after launch (REACH / HIGH)",
+    "market_question": "Strikes 2000000000.0 vs 3000000000.0",
+    "outcome_label": "pure_strike_arb",
+    "net_roi_pct": 79.46,
+    "net_profit_usd": 0.0874,
+    "capital_required_usd": 0.11,
+    "details": "Buy 2000000000.0 @ $0.020, Sell 3000000000.0 @ $0.038",
     "token_ids": [
-      "105424657244554511014150825202397702180419919286931996082717264149902476600628",
-      "KXUCL-27-BAR_NO"
+      "3783874556587832518151104525711027133710881159533628607061884012946071097261",
+      "10354824396290237452261900772542438328647475212250295212595180489652143431127"
+    ]
+  },
+  {
+    "strategy": "STRIKE_MONOTONICITY",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "Opensea FDV above ___ one day after launch (REACH / HIGH)",
+    "market_question": "Strikes 2000000000.0 vs 5000000000.0",
+    "outcome_label": "pure_strike_arb",
+    "net_roi_pct": 54.58,
+    "net_profit_usd": 0.06,
+    "capital_required_usd": 0.11,
+    "details": "Buy 2000000000.0 @ $0.020, Sell 5000000000.0 @ $0.033",
+    "token_ids": [
+      "3783874556587832518151104525711027133710881159533628607061884012946071097261",
+      "48038385638420877977396364502718350116889021443391903481044114768441218972760"
     ]
   },
   {
@@ -33,21 +48,6 @@
     "strategy": "CROSS_VENUE_LOCK",
     "tier": "TIER_0_GUARANTEED",
     "event_title": "Polymarket vs Kalshi",
-    "market_question": "Will Miami Heat win the 2027 NBA Finals?",
-    "outcome_label": "POLY_YES_KALSHI_NO",
-    "net_roi_pct": 0.87,
-    "net_profit_usd": 0.8723,
-    "capital_required_usd": 100.13,
-    "details": "Poly YES @$0.038 + Kalshi KXNBA-27-MIA_NO @$0.950 | Shares: 101.0 | Net Cost: $100.13 | Fees: $0.34",
-    "token_ids": [
-      "1002605241037566897075427941760276379638292422424020000466947342214004056028",
-      "KXNBA-27-MIA_NO"
-    ]
-  },
-  {
-    "strategy": "CROSS_VENUE_LOCK",
-    "tier": "TIER_0_GUARANTEED",
-    "event_title": "Polymarket vs Kalshi",
     "market_question": "Will Oklahoma City Thunder win the 2027 NBA Finals?",
     "outcome_label": "POLY_YES_KALSHI_NO",
     "net_roi_pct": 0.78,
@@ -63,27 +63,12 @@
     "strategy": "CROSS_VENUE_LOCK",
     "tier": "TIER_0_GUARANTEED",
     "event_title": "Polymarket vs Kalshi",
-    "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
-    "outcome_label": "KALSHI_YES_POLY_NO",
-    "net_roi_pct": 0.45,
-    "net_profit_usd": 0.4557,
-    "capital_required_usd": 101.54,
-    "details": "Kalshi SENATEMI-26-D YES @$0.680 + Poly NO @$0.300 | Shares: 102.0 | Net Cost: $101.54 | Fees: $1.58",
-    "token_ids": [
-      "SENATEMI-26-D",
-      "64025664961497419708095468282573682984741903075312816516046832361290996190088"
-    ]
-  },
-  {
-    "strategy": "CROSS_VENUE_LOCK",
-    "tier": "TIER_0_GUARANTEED",
-    "event_title": "Polymarket vs Kalshi",
     "market_question": "Will Houston Rockets win the 2027 NBA Finals?",
     "outcome_label": "KALSHI_YES_POLY_NO",
-    "net_roi_pct": 0.27,
-    "net_profit_usd": 0.2653,
-    "capital_required_usd": 99.73,
-    "details": "Kalshi KXNBA-27-HOU YES @$0.020 + Poly NO @$0.975 | Shares: 100.0 | Net Cost: $99.73 | Fees: $0.23",
+    "net_roi_pct": 0.67,
+    "net_profit_usd": 0.6657,
+    "capital_required_usd": 99.33,
+    "details": "Kalshi KXNBA-27-HOU YES @$0.020 + Poly NO @$0.971 | Shares: 100.0 | Net Cost: $99.33 | Fees: $0.23",
     "token_ids": [
       "KXNBA-27-HOU",
       "83303963185959895380736080373454952800033501895886201684068742094676151689648"
@@ -93,15 +78,63 @@
     "strategy": "CROSS_VENUE_LOCK",
     "tier": "TIER_0_GUARANTEED",
     "event_title": "Polymarket vs Kalshi",
-    "market_question": "Will the Fed decrease interest rates by 25 bps after the January 2027 meeting?",
+    "market_question": "Will Barcelona win the 2026-27 UEFA Champions League Championship?",
     "outcome_label": "POLY_YES_KALSHI_NO",
-    "net_roi_pct": 0.26,
-    "net_profit_usd": 0.2612,
-    "capital_required_usd": 99.74,
-    "details": "Poly YES @$0.016 + Kalshi KXFEDDECISION-27JAN-C25_NO @$0.980 | Shares: 100.0 | Net Cost: $99.74 | Fees: $0.14",
+    "net_roi_pct": 0.63,
+    "net_profit_usd": 0.6418,
+    "capital_required_usd": 101.36,
+    "details": "Poly YES @$0.240 + Kalshi KXUCL-27-BAR_NO @$0.740 | Shares: 102.0 | Net Cost: $101.36 | Fees: $1.40",
     "token_ids": [
-      "55531205670373260499988385930313327116586167390725681551489621136380793885916",
-      "KXFEDDECISION-27JAN-C25_NO"
+      "105424657244554511014150825202397702180419919286931996082717264149902476600628",
+      "KXUCL-27-BAR_NO"
+    ]
+  },
+  {
+    "strategy": "NEGRISK_CONVERSION",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "Umraniyespor vs. Boluspor",
+    "market_question": "Will Umraniyespor vs. Boluspor end in a draw?",
+    "outcome_label": "SYNTHETIC_SHORT_YES",
+    "net_roi_pct": 0.28,
+    "net_profit_usd": 0.21,
+    "capital_required_usd": 73.46,
+    "details": "Shares: 55.0 | Legs: 3 | Spread: $0.029",
+    "token_ids": [
+      "101050295989130120633643694861010088458920825156038708113147141150100656304985",
+      "7244327450616006665674742600239284396659577877282577649870483039563365722627",
+      "41760930009426052881411674904847114649410441485951500059606953675047626188733"
+    ]
+  },
+  {
+    "strategy": "NEGRISK_CONVERSION",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "Umraniyespor vs. Boluspor",
+    "market_question": "Will Umraniyespor win on 2026-10-14?",
+    "outcome_label": "SYNTHETIC_SHORT_YES",
+    "net_roi_pct": 0.23,
+    "net_profit_usd": 0.17,
+    "capital_required_usd": 74.55,
+    "details": "Shares: 55.0 | Legs: 3 | Spread: $0.029",
+    "token_ids": [
+      "85599098557735909551566507868411691628435696229576153942457761227402760620771",
+      "87355757224144084171815236082926631607896083396306395110555119245220607119248",
+      "41760930009426052881411674904847114649410441485951500059606953675047626188733"
+    ]
+  },
+  {
+    "strategy": "NEGRISK_CONVERSION",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "Umraniyespor vs. Boluspor",
+    "market_question": "Will Boluspor win on 2026-10-14?",
+    "outcome_label": "SYNTHETIC_SHORT_YES",
+    "net_roi_pct": 0.23,
+    "net_profit_usd": 0.17,
+    "capital_required_usd": 74.58,
+    "details": "Shares: 55.0 | Legs: 3 | Spread: $0.029",
+    "token_ids": [
+      "41183915949466941523378396268987920598716526636676903595416466849392201653871",
+      "7244327450616006665674742600239284396659577877282577649870483039563365722627",
+      "87355757224144084171815236082926631607896083396306395110555119245220607119248"
     ]
   },
   {
@@ -122,6 +155,20 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
+    "event_title": "Presidential Election Winner 2028",
+    "market_question": "Will Marco Rubio win the 2028 US Presidential Election?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 3.49,
+    "net_profit_usd": 0.0966,
+    "capital_required_usd": 2.77,
+    "details": "Ask(YES): $0.079 | Ask(NO): $0.922 | Model P(YES): 0.031 | Edge: $+0.032/sh",
+    "token_ids": [
+      "65892530750232246342273648992064742042382898919201083513241874070914353628268"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
     "event_title": "Pro Football: 2027 Champion",
     "market_question": "Will the Baltimore Ravens win the 2027 NFL league championship?",
     "outcome_label": "Short (Buy NO)",
@@ -131,34 +178,6 @@
     "details": "Ask(YES): $0.079 | Ask(NO): $0.922 | Model P(YES): 0.031 | Edge: $+0.032/sh",
     "token_ids": [
       "22053271793248125256451687157287125154284715142130477499624815153763089628557"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "event_title": "What price will Ethereum hit in October?",
-    "market_question": "Will Ethereum dip to $1,900 in October?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.44,
-    "net_profit_usd": 0.0951,
-    "capital_required_usd": 2.77,
-    "details": "Ask(YES): $0.080 | Ask(NO): $0.922 | Model P(YES): 0.032 | Edge: $+0.032/sh",
-    "token_ids": [
-      "108320251689053504243522561831054143185310622238799024646047155185029826817712"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "event_title": "Presidential Election Winner 2028",
-    "market_question": "Will Marco Rubio win the 2028 US Presidential Election?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.43,
-    "net_profit_usd": 0.0948,
-    "capital_required_usd": 2.77,
-    "details": "Ask(YES): $0.078 | Ask(NO): $0.923 | Model P(YES): 0.031 | Edge: $+0.032/sh",
-    "token_ids": [
-      "65892530750232246342273648992064742042382898919201083513241874070914353628268"
     ]
   },
   {
@@ -248,15 +267,15 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "Kharg Island no longer under Iranian control by...?",
-    "market_question": "Kharg Island no longer under Iranian control by December 31?",
+    "event_title": "What price will Ethereum hit in 2026?",
+    "market_question": "Will Ethereum reach $4,000 by December 31, 2026?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 2.55,
     "net_profit_usd": 0.0474,
     "capital_required_usd": 1.86,
     "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
     "token_ids": [
-      "84162249682804643677144956827999494501534393383918743969607995520583607994795"
+      "24395525485845393350950214688967223293165153127110039869504787811540919959137"
     ]
   },
   {
@@ -276,29 +295,15 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "NATO x Russia military clash by...?",
-    "market_question": "NATO x Russia military clash by October 31, 2026?",
+    "event_title": "Russia x Ukraine ceasefire agreement by...?",
+    "market_question": "Russia x Ukraine ceasefire agreement by November 30, 2026?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 2.55,
     "net_profit_usd": 0.0474,
     "capital_required_usd": 1.86,
     "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
     "token_ids": [
-      "66797176836865406644675050248194264952001579179703527537658211196864343226792"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "event_title": "StandX FDV above ___ one day after launch?",
-    "market_question": "StandX FDV above $400M one day after launch?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.55,
-    "net_profit_usd": 0.0474,
-    "capital_required_usd": 1.86,
-    "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
-    "token_ids": [
-      "42834604665422852899979369979087212398892552583273511660301750580483641917107"
+      "13274969701074786593458491024179777953579994335319473707625563805797711139412"
     ]
   },
   {
@@ -318,29 +323,43 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "Will Anthropic\u2019s valuation hit __ by December 31?",
-    "market_question": "Will Anthropic's valuation hit (HIGH) $4.0T by December 31?",
+    "event_title": "Variational FDV above ___ one day after launch?",
+    "market_question": "Variational FDV above $4B one day after launch?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.27,
-    "net_profit_usd": 0.0424,
-    "capital_required_usd": 1.87,
-    "details": "Ask(YES): $0.079 | Ask(NO): $0.933 | Model P(YES): 0.031 | Edge: $+0.021/sh",
+    "net_roi_pct": 2.33,
+    "net_profit_usd": 0.0434,
+    "capital_required_usd": 1.86,
+    "details": "Ask(YES): $0.080 | Ask(NO): $0.932 | Model P(YES): 0.032 | Edge: $+0.022/sh",
     "token_ids": [
-      "92632790762320653729742591908754037421877591528744851362930047194067431948566"
+      "75791412152846255113062413646466011514807615504383806506660648197032026132306"
     ]
   },
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "Variational FDV above ___ one day after launch?",
-    "market_question": "Variational FDV above $4B one day after launch?",
+    "event_title": "Katie Zacharia out as Press Secretary by...?",
+    "market_question": "Katie Zacharia out as Press Secretary by October 31?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 2.27,
-    "net_profit_usd": 0.0424,
-    "capital_required_usd": 1.87,
-    "details": "Ask(YES): $0.079 | Ask(NO): $0.933 | Model P(YES): 0.031 | Edge: $+0.021/sh",
+    "net_profit_usd": 0.0642,
+    "capital_required_usd": 2.82,
+    "details": "Ask(YES): $0.061 | Ask(NO): $0.941 | Model P(YES): 0.023 | Edge: $+0.021/sh",
     "token_ids": [
-      "75791412152846255113062413646466011514807615504383806506660648197032026132306"
+      "103073819066628120645127138335886275313980031518449018311053252500304952625675"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "event_title": "Will Anthropic\u2019s valuation hit __ by December 31?",
+    "market_question": "Will Anthropic's valuation hit (HIGH) $4.0T by December 31?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.1,
+    "net_profit_usd": 0.0392,
+    "capital_required_usd": 1.87,
+    "details": "Ask(YES): $0.078 | Ask(NO): $0.935 | Model P(YES): 0.031 | Edge: $+0.020/sh",
+    "token_ids": [
+      "92632790762320653729742591908754037421877591528744851362930047194067431948566"
     ]
   }
 ]
