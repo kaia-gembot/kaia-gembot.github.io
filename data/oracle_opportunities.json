@@ -1,5 +1,20 @@
 [
   {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "Polymarket vs Kalshi",
+    "market_question": "Will Barcelona win the 2026-27 UEFA Champions League Championship?",
+    "outcome_label": "POLY_YES_KALSHI_NO",
+    "net_roi_pct": 1.62,
+    "net_profit_usd": 0.25,
+    "capital_required_usd": 15.41,
+    "details": "Poly YES @$0.240 + Kalshi KXUCL-27-BAR_NO @$0.730 | Shares: 15.7 | Net Cost: $15.41 | Fees: $0.22",
+    "token_ids": [
+      "105424657244554511014150825202397702180419919286931996082717264149902476600628",
+      "KXUCL-27-BAR_NO"
+    ]
+  },
+  {
     "strategy": "STRIKE_MONOTONICITY",
     "tier": "TIER_0_GUARANTEED",
     "event_title": "Opensea FDV above ___ one day after launch (REACH / HIGH)",
@@ -75,18 +90,18 @@
     ]
   },
   {
-    "strategy": "CROSS_VENUE_LOCK",
+    "strategy": "STRIKE_MONOTONICITY",
     "tier": "TIER_0_GUARANTEED",
-    "event_title": "Polymarket vs Kalshi",
-    "market_question": "Will Barcelona win the 2026-27 UEFA Champions League Championship?",
-    "outcome_label": "POLY_YES_KALSHI_NO",
-    "net_roi_pct": 0.63,
-    "net_profit_usd": 0.6418,
-    "capital_required_usd": 101.36,
-    "details": "Poly YES @$0.240 + Kalshi KXUCL-27-BAR_NO @$0.740 | Shares: 102.0 | Net Cost: $101.36 | Fees: $1.40",
+    "event_title": "StandX FDV above ___ one day after launch (REACH / HIGH)",
+    "market_question": "Strikes 800000000.0 vs 2000000000.0",
+    "outcome_label": "pure_strike_arb",
+    "net_roi_pct": 0.69,
+    "net_profit_usd": 0.6894,
+    "capital_required_usd": 100.02,
+    "details": "Buy 800000000.0 @ $0.002, Sell 2000000000.0 @ $0.009",
     "token_ids": [
-      "105424657244554511014150825202397702180419919286931996082717264149902476600628",
-      "KXUCL-27-BAR_NO"
+      "27593724022764100685887234049256040746913331911665804076211692878748328505706",
+      "70022541992120536775187637479128313929126330883371579437223345309025930694214"
     ]
   },
   {
@@ -180,15 +195,29 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "Who wins the Senate pending Hormuz Agreement before the midterms?",
-    "market_question": "Will there be a Hormuz agreement and the Democrats win the Senate?",
+    "event_title": "Who wins the Senate pending oil above or below $80 before the midterms?",
+    "market_question": "Will oil be below $80 on November 2 and the Republicans win the Senate?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.49,
-    "net_profit_usd": 0.0966,
+    "net_roi_pct": 3.43,
+    "net_profit_usd": 0.0948,
     "capital_required_usd": 2.77,
-    "details": "Ask(YES): $0.079 | Ask(NO): $0.922 | Model P(YES): 0.031 | Edge: $+0.032/sh",
+    "details": "Ask(YES): $0.078 | Ask(NO): $0.923 | Model P(YES): 0.031 | Edge: $+0.032/sh",
     "token_ids": [
-      "81313478095568308915211647886364310798063904533081666413501163404156011706842"
+      "73250829062913413193539470557911236329033207421279595386921063308884659129464"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "event_title": "\"Whalefall\" Opening Weekend Box Office",
+    "market_question": "Will \"Whalefall\" Opening Weekend Box Office be between 10m and 12m?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 3.15,
+    "net_profit_usd": 0.0876,
+    "capital_required_usd": 2.78,
+    "details": "Ask(YES): $0.079 | Ask(NO): $0.925 | Model P(YES): 0.031 | Edge: $+0.029/sh",
+    "token_ids": [
+      "449486517337099268448646112351426719759347836123370861215259045247616444139"
     ]
   },
   {
@@ -231,6 +260,20 @@
     "details": "Ask(YES): $0.064 | Ask(NO): $0.937 | Model P(YES): 0.024 | Edge: $+0.024/sh",
     "token_ids": [
       "1019464674824788112941249365648103007297111978509753698576898452113043283833"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "event_title": "What price will Bitcoin hit in 2026?",
+    "market_question": "Will Bitcoin dip to $50,000 by December 31, 2026?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.55,
+    "net_profit_usd": 0.0474,
+    "capital_required_usd": 1.86,
+    "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
+    "token_ids": [
+      "41832664285845832459030640969891483663884721696292020563915305291791682631668"
     ]
   },
   {
@@ -287,6 +330,20 @@
     "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
     "token_ids": [
       "93005816152191260293132159797980311704928812536002232096918376460419193046331"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "event_title": "Next US-Iran senior diplomatic meeting by...?",
+    "market_question": "Next US-Iran senior diplomatic meeting by October 31, 2026? (copy)",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.55,
+    "net_profit_usd": 0.0474,
+    "capital_required_usd": 1.86,
+    "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
+    "token_ids": [
+      "51947156511897363246930308148723848189395294302449690254709519803140044037930"
     ]
   },
   {
