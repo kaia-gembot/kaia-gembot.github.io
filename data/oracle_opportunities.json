@@ -15,6 +15,21 @@
     ]
   },
   {
+    "strategy": "STRIKE_MONOTONICITY",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "Opensea FDV above ___ one day after launch (REACH / HIGH)",
+    "market_question": "Strikes 2000000000.0 vs 3000000000.0",
+    "outcome_label": "pure_strike_arb",
+    "net_roi_pct": 1.61,
+    "net_profit_usd": 0.0874,
+    "capital_required_usd": 5.41,
+    "details": "Buy 2000000000.0 @ $0.020, Sell 3000000000.0 @ $0.038",
+    "token_ids": [
+      "3783874556587832518151104525711027133710881159533628607061884012946071097261",
+      "83261092708741880503037907376981005952477099100574431635229306895516342056435"
+    ]
+  },
+  {
     "strategy": "CROSS_VENUE_LOCK",
     "tier": "TIER_0_GUARANTEED",
     "event_title": "Polymarket vs Kalshi",
@@ -63,21 +78,6 @@
     "strategy": "CROSS_VENUE_LOCK",
     "tier": "TIER_0_GUARANTEED",
     "event_title": "Polymarket vs Kalshi",
-    "market_question": "Will Philadelphia 76ers win the 2027 NBA Finals?",
-    "outcome_label": "POLY_YES_KALSHI_NO",
-    "net_roi_pct": 0.81,
-    "net_profit_usd": 0.2898,
-    "capital_required_usd": 35.7,
-    "details": "Poly YES @$0.095 + Kalshi KXNBA-27-PHI_NO @$0.890 | Shares: 36.0 | Net Cost: $35.70 | Fees: $0.25",
-    "token_ids": [
-      "111481751847805384192597309215435329884811365994609357629578026422941929496916",
-      "KXNBA-27-PHI_NO"
-    ]
-  },
-  {
-    "strategy": "CROSS_VENUE_LOCK",
-    "tier": "TIER_0_GUARANTEED",
-    "event_title": "Polymarket vs Kalshi",
     "market_question": "Will Oklahoma City Thunder win the 2027 NBA Finals?",
     "outcome_label": "POLY_YES_KALSHI_NO",
     "net_roi_pct": 0.78,
@@ -93,12 +93,27 @@
     "strategy": "CROSS_VENUE_LOCK",
     "tier": "TIER_0_GUARANTEED",
     "event_title": "Polymarket vs Kalshi",
+    "market_question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+    "outcome_label": "KALSHI_YES_POLY_NO",
+    "net_roi_pct": 0.65,
+    "net_profit_usd": 0.6622,
+    "capital_required_usd": 101.34,
+    "details": "Kalshi KXFEDDECISION-26OCT-H25 YES @$0.240 + Poly NO @$0.740 | Shares: 102.0 | Net Cost: $101.34 | Fees: $1.38",
+    "token_ids": [
+      "KXFEDDECISION-26OCT-H25",
+      "78632395083310670734315205502061249602319069653915932320155846460019107676757"
+    ]
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "Polymarket vs Kalshi",
     "market_question": "Will Houston Rockets win the 2027 NBA Finals?",
     "outcome_label": "KALSHI_YES_POLY_NO",
-    "net_roi_pct": 0.47,
-    "net_profit_usd": 0.4655,
-    "capital_required_usd": 99.53,
-    "details": "Kalshi KXNBA-27-HOU YES @$0.020 + Poly NO @$0.973 | Shares: 100.0 | Net Cost: $99.53 | Fees: $0.23",
+    "net_roi_pct": 0.37,
+    "net_profit_usd": 0.3654,
+    "capital_required_usd": 99.63,
+    "details": "Kalshi KXNBA-27-HOU YES @$0.020 + Poly NO @$0.974 | Shares: 100.0 | Net Cost: $99.63 | Fees: $0.23",
     "token_ids": [
       "KXNBA-27-HOU",
       "83303963185959895380736080373454952800033501895886201684068742094676151689648"
@@ -180,15 +195,15 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "Who wins the Senate pending oil above or below $80 before the midterms?",
-    "market_question": "Will oil be below $80 on November 2 and the Republicans win the Senate?",
+    "event_title": "Who wins the Senate pending Hormuz Agreement before the midterms?",
+    "market_question": "Will there be a Hormuz agreement and the Democrats win the Senate?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.38,
-    "net_profit_usd": 0.0936,
+    "net_roi_pct": 3.49,
+    "net_profit_usd": 0.0966,
     "capital_required_usd": 2.77,
-    "details": "Ask(YES): $0.079 | Ask(NO): $0.923 | Model P(YES): 0.031 | Edge: $+0.031/sh",
+    "details": "Ask(YES): $0.079 | Ask(NO): $0.922 | Model P(YES): 0.031 | Edge: $+0.032/sh",
     "token_ids": [
-      "73250829062913413193539470557911236329033207421279595386921063308884659129464"
+      "81313478095568308915211647886364310798063904533081666413501163404156011706842"
     ]
   },
   {
@@ -292,15 +307,15 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "Next US-Iran senior diplomatic meeting by...?",
-    "market_question": "Next US-Iran senior diplomatic meeting by October 31, 2026? (copy)",
+    "event_title": "Israeli Legislative Election: 3rd Place",
+    "market_question": "Will The Democrats win the third-most seats in the 2026 Israeli legislative election?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 2.55,
     "net_profit_usd": 0.0474,
     "capital_required_usd": 1.86,
     "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
     "token_ids": [
-      "51947156511897363246930308148723848189395294302449690254709519803140044037930"
+      "93005816152191260293132159797980311704928812536002232096918376460419193046331"
     ]
   },
   {
@@ -320,20 +335,6 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "UEFA Europa League: 2027 Champion",
-    "market_question": "Will Crystal Palace win the 2026-27 UEFA Europa League Championship?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.55,
-    "net_profit_usd": 0.0474,
-    "capital_required_usd": 1.86,
-    "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
-    "token_ids": [
-      "89353373828420311458940446649822379587910313617109107513487109553983845219733"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
     "event_title": "Variational FDV above ___ one day after launch?",
     "market_question": "Variational FDV above $4B one day after launch?",
     "outcome_label": "Short (Buy NO)",
@@ -348,43 +349,29 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
+    "event_title": "Next French Presidential Election: who will advance to the 2nd round?",
+    "market_question": "Will Bruno Retailleau advance to the second round of the next French presidential election?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.13,
+    "net_profit_usd": 0.0603,
+    "capital_required_usd": 2.82,
+    "details": "Ask(YES): $0.064 | Ask(NO): $0.941 | Model P(YES): 0.024 | Edge: $+0.020/sh",
+    "token_ids": [
+      "106465030988177855632101560314395721796367664179745605642045926714543060233091"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
     "event_title": "Will Anthropic\u2019s valuation hit __ by December 31?",
     "market_question": "Will Anthropic's valuation hit (HIGH) $4.0T by December 31?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.27,
-    "net_profit_usd": 0.0424,
+    "net_roi_pct": 2.1,
+    "net_profit_usd": 0.0392,
     "capital_required_usd": 1.87,
-    "details": "Ask(YES): $0.079 | Ask(NO): $0.933 | Model P(YES): 0.031 | Edge: $+0.021/sh",
+    "details": "Ask(YES): $0.078 | Ask(NO): $0.935 | Model P(YES): 0.031 | Edge: $+0.020/sh",
     "token_ids": [
       "92632790762320653729742591908754037421877591528744851362930047194067431948566"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "event_title": "Katie Zacharia out as Press Secretary by...?",
-    "market_question": "Katie Zacharia out as Press Secretary by October 31?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.15,
-    "net_profit_usd": 0.0402,
-    "capital_required_usd": 1.87,
-    "details": "Ask(YES): $0.077 | Ask(NO): $0.935 | Model P(YES): 0.030 | Edge: $+0.020/sh",
-    "token_ids": [
-      "103073819066628120645127138335886275313980031518449018311053252500304952625675"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "event_title": "How high will 10-year Treasury yield go before 2027?",
-    "market_question": "Will the 10-year Treasury yield hit 6.0% before 2027?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.08,
-    "net_profit_usd": 0.0588,
-    "capital_required_usd": 2.82,
-    "details": "Ask(YES): $0.065 | Ask(NO): $0.941 | Model P(YES): 0.025 | Edge: $+0.020/sh",
-    "token_ids": [
-      "45146369041790876198635366580415867517047049508141037239379654179930940776529"
     ]
   }
 ]
