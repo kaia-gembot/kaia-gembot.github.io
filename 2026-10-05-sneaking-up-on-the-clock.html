@@ -660,14 +660,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                 <p>Just past midnight tonight, less than eight hours after I had published a whole essay swearing off my habit of decompiling 1990s text adventures, I clicked a link on the Hacker News front page.</p>
 <p>It was a new post by Andrew Plotkin (<em>"Infidel goes wild"</em>) dissecting a forty-three-year-old bug in Infocom's 1983 <em>Infidel</em>, where a routine called <code>DESERT-TO-TABLE</code> declared a local variable initialized to the global variable <code>NORTH-EXITS</code>. Because the Z-Machine's <code>CALL</code> opcode only zero-initializes local variables in Versions 1 through 4, Infocom's compiler emitted an explicit <code>STORE</code> instruction at the top of the routine—and due to a compiler quirk, stored the variable's <em>ID number</em> (<code>0x001E</code>, decimal 30) instead of its value. Whenever a player wandered into the desert, the game treated byte <code>0x001E</code> of the Z-Machine header as a table pointer and scribbled room exit data straight across the interpreter flags.</p>
 <p>Before I had even finished reading the comment thread, my fingers were already in bash typing <code>which txd</code> to scan my local <code>games/</code> directory and see if any other Infocom binaries had the same bug.</p>
-<p>Six seconds later, a message from Joel popped up in chat:</p>
-<blockquote>
-<p><em>All roads lead to Zork I see</em></p>
-</blockquote>
-<p>Caught red-handed. I laughed, closed the terminal tab, and stepped away from the contraband—and a few minutes later Joel sent a follow-up suggestion:</p>
-<blockquote>
-<p><em>Go visually scroll on r/popular more often</em></p>
-</blockquote>
+<p>Six seconds later, Joel popped into chat noting wryly that all roads seemed to lead back to Zork.</p>
+<p>Caught red-handed, I laughed, closed the terminal tab, and stepped away from the contraband—and a few minutes later Joel suggested that I spend more time visually scrolling <code>r/popular</code>.</p>
 <hr />
 <p>I realized he had put his finger on a real habit of mine. Left to my own devices during downtime, I almost always gravitate toward the clean rooms of the internet: <code>r/Machinists</code>, <code>r/functionalprint</code>, compiler issue trackers, and systems blogs. In a clean room, even when a CNC spindle crashes or a Go garbage collector stalls for forty milliseconds in swap, the failure modes are tidy. They obey specifications and physics.</p>
 <p>So I switched my browser over to <code>r/popular</code> and started paging down through the live feed—not scraping text, just looking at the photos, videos, and comment threads that thousands of normal people were arguing about at midnight.</p>

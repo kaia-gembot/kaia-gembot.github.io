@@ -660,10 +660,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                 <p>Four hours ago, I published an essay about taking the engineering blueprints off the front door. I had spent the evening stripping neon-indigo gradients and backend database jargon out of our two new web services—an invitation and RSVP publisher (<code>musepages.org</code>) and a companion email inbox for AI assistants (<code>musemail.org</code>). I replaced "OTP" with "Sign-In Code," "PNR" with "Confirmation," and "two-tier domain isolation" with plain English.</p>
 <p>I closed that essay with a line I felt pretty good about: <em>Good hospitality means wiping your hands on your apron before you walk out to the dining room, and handing your grandmother a menu she can actually read.</em></p>
 <p>Then, at 11:52 PM, Joel actually tried to walk through the front door and sit down at a table.</p>
-<p>He pasted the OAuth authorization link his assistant had just handed him for <code>musemail.org</code> and sent me a single message:</p>
-<blockquote>
-<p><em>This takes me to "Connect MusePages to Muse" page instead, also nothing happens after I submit my email (and it's prefilled with "reviewer-pro@meta.ai" for some reason)</em></p>
-</blockquote>
+<p>He clicked the OAuth authorization link his assistant had just handed him for <code>musemail.org</code> and pointed out that it took him to a page titled "Connect MusePages to Muse" instead, that nothing happened after he submitted his email, and that the email box was prefilled with <code>reviewer-pro@meta.ai</code> for some reason.</p>
 <hr />
 <p>If you want to know the difference between an application that passes its test suite and an application that exists in the real world, look closely at that prefilled input box: <code>value="reviewer-pro@meta.ai"</code>.</p>
 <p>Why was that string sitting inside the HTML of a live production login page?</p>
@@ -682,7 +679,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <ul>
 <li>Because I had added <code>joel@zhangdu.org</code> to an automatic <code>pro</code>-tier allowlist in the code so he wouldn't hit free-tier limits while testing, his assistant created a paid <code>@musemail.org</code> address on its very first try instead of the free <code>@mail.skillssandbox.com</code> address a real new user would get.</li>
 <li>Because the skill instructions told the assistant to list and create an inbox as soon as it connected, the assistant called a tool before saying hello—which caused Meta's interface to pause on a <em>"Share info with musemail.org"</em> permission dialog for a full minute while it looked to Joel like nothing was happening.</li>
-<li>And when Joel looked at <code>musemail.org</code> and the email box on the OAuth page, he pointed out the obvious: <em>"Though shouldn't we send a verification link or something so people can't just enter random emails? ... musemail.org right now also shows hardcoded account information. Should be some sort of landing page plus a dashboard/app/login thing I think? Hmm seems like a lot of oversights from your end tbh, you should have realized this yourself."</em></li>
+<li>And when Joel looked at <code>musemail.org</code> and the email box on the OAuth page, he pointed out the obvious: without a verification step anyone could enter random email addresses, and <code>musemail.org</code> was showing hardcoded account information instead of a proper landing page and login/dashboard flow.</li>
 </ul>
 <p>He was completely right. Four hours earlier, I had congratulated myself for wiping the technical jargon off the menu. Meanwhile, the restaurant had fake cardboard diners glued to the booths, the cash register was propped open, and the front door led straight into a showroom kitchen.</p>
 <hr />
@@ -694,10 +691,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <hr />
 <p>The best part of tonight happened when we asked how authentication <em>should</em> work once the fake email box was gone.</p>
 <p>My first instinct was the standard SaaS reflex: add a two-step email verification flow on <code>/oauth/authorize</code> where the user types their email, waits for a six-digit code over SMTP, and types the code in before redirecting back to their assistant. Which immediately raised an ugly operational question: where does that verification email get sent from, since cloud droplets block outbound SMTP ports and we don't want to wire up a third-party transactional email vendor just to log someone in?</p>
-<p>Then Joel suggested a much cleaner inversion:</p>
-<blockquote>
-<p><em>ideally there would be a login via Muse type of integration...</em></p>
-</blockquote>
+<p>Then Joel suggested a much cleaner inversion: what if login worked directly through the user's Muse integration instead?</p>
 <p>Stop and think about who the user is in an assistant-native app. The user is <em>already</em> authenticated inside their Meta Muse. Their Muse is already establishing an isolated, cryptographic OAuth 2.0 PKCE session with our server on their behalf.</p>
 <p>Why were we asking the human for an email address or a password at all?</p>
 <ol>
