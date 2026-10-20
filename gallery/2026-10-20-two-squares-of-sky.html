@@ -560,18 +560,15 @@
             <div class="piece-stage">
                 <svg style="image-rendering: pixelated; shape-rendering: crispEdges;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <defs>
-    <!-- Clip paths for the two squares of sky -->
-    <clipPath id="upper-sky-clip">
-      <polygon points="154,36 646,36 566,226 234,226" />
+    <!-- Rectangular axis-aligned clips only (never trapezoid clipPaths, which cause Skia vertical tessellation seams!) -->
+    <clipPath id="upper-sky-rect-clip">
+      <rect x="144" y="28" width="512" height="205" />
     </clipPath>
-    <clipPath id="lower-pool-clip">
-      <polygon points="234,526 566,526 654,734 146,734" />
-    </clipPath>
-    <clipPath id="ceiling-clip">
-      <polygon points="0,0 800,0 660,285 140,285" />
+    <clipPath id="lower-pool-rect-clip">
+      <rect x="135" y="520" width="530" height="222" />
     </clipPath>
     <clipPath id="back-wall-clip">
-      <polygon points="140,285 660,285 660,485 140,485" />
+      <rect x="140" y="285" width="520" height="200" />
     </clipPath>
     <clipPath id="left-wall-clip">
       <polygon points="0,0 140,285 140,485 0,680" />
@@ -580,52 +577,55 @@
       <polygon points="800,0 660,285 660,485 800,680" />
     </clipPath>
 
-    <!-- Soft glow filters -->
-    <filter id="cove-glow" x="-20%" y="-20%" width="140%" height="140%">
+    <!-- Filters with explicit userSpaceOnUse bounds to prevent any sub-region clipping -->
+    <filter id="cove-glow" filterUnits="userSpaceOnUse" x="0" y="0" width="800" height="500">
       <feGaussianBlur stdDeviation="14" />
     </filter>
-    <filter id="cloud-blur-soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" />
+    <filter id="cloud-soft-upper" filterUnits="userSpaceOnUse" x="140" y="25" width="520" height="215">
+      <feGaussianBlur stdDeviation="5.5" />
     </filter>
-    <filter id="cloud-blur-fine" x="-15%" y="-15%" width="130%" height="130%">
-      <feGaussianBlur stdDeviation="3.5" />
+    <filter id="cloud-fine-upper" filterUnits="userSpaceOnUse" x="140" y="25" width="520" height="215">
+      <feGaussianBlur stdDeviation="1.8" />
     </filter>
-    <filter id="water-blur" x="-15%" y="-15%" width="130%" height="130%">
-      <feGaussianBlur stdDeviation="4.5" />
+    <filter id="cloud-soft-lower" filterUnits="userSpaceOnUse" x="130" y="515" width="540" height="230">
+      <feGaussianBlur stdDeviation="6.5" />
     </filter>
-    <filter id="subtle-glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="2.2" />
+    <filter id="cloud-fine-lower" filterUnits="userSpaceOnUse" x="130" y="515" width="540" height="230">
+      <feGaussianBlur stdDeviation="2.8" />
+    </filter>
+    <filter id="subtle-glow" filterUnits="userSpaceOnUse" x="100" y="200" width="600" height="560">
+      <feGaussianBlur stdDeviation="2.0" />
     </filter>
 
-    <!-- Upper Sky Gradients (userSpaceOnUse) -->
-    <linearGradient id="upper-sky-grad" x1="250" y1="30" x2="520" y2="235" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#07162e" />
-      <stop offset="32%" stop-color="#0f2952" />
-      <stop offset="68%" stop-color="#1e497a" />
-      <stop offset="92%" stop-color="#386b99" />
-      <stop offset="100%" stop-color="#5383ab" />
+    <!-- Upper Sky Gradients -->
+    <linearGradient id="upper-sky-grad" x1="260" y1="32" x2="510" y2="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06152d" />
+      <stop offset="28%" stop-color="#0d264c" />
+      <stop offset="62%" stop-color="#1b4373" />
+      <stop offset="88%" stop-color="#346694" />
+      <stop offset="100%" stop-color="#5182ab" />
     </linearGradient>
 
-    <radialGradient id="upper-sky-sun-glow" cx="540" cy="205" r="260" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#f7d4a8" stop-opacity="0.48" />
-      <stop offset="40%" stop-color="#d49b72" stop-opacity="0.22" />
-      <stop offset="75%" stop-color="#4e7da6" stop-opacity="0.08" />
+    <radialGradient id="upper-sky-sun-glow" cx="545" cy="198" r="270" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f7d5aa" stop-opacity="0.46" />
+      <stop offset="38%" stop-color="#d49970" stop-opacity="0.20" />
+      <stop offset="75%" stop-color="#4e7da6" stop-opacity="0.07" />
       <stop offset="100%" stop-color="#153866" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Lower Reflected Pool Sky Gradients (Inverted vertically!) -->
-    <linearGradient id="lower-sky-grad" x1="480" y1="520" x2="280" y2="740" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#426e94" />
-      <stop offset="18%" stop-color="#29527d" />
-      <stop offset="52%" stop-color="#14325c" />
-      <stop offset="85%" stop-color="#0a1e3c" />
-      <stop offset="100%" stop-color="#051124" />
+    <!-- Lower Reflected Pool Sky Gradients (Inverted vertically) -->
+    <linearGradient id="lower-sky-grad" x1="490" y1="524" x2="270" y2="736" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3f6c94" />
+      <stop offset="20%" stop-color="#264e78" />
+      <stop offset="54%" stop-color="#133059" />
+      <stop offset="84%" stop-color="#091c38" />
+      <stop offset="100%" stop-color="#040f21" />
     </linearGradient>
 
-    <radialGradient id="lower-sky-sun-glow" cx="535" cy="555" r="240" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#f2c896" stop-opacity="0.40" />
-      <stop offset="42%" stop-color="#c98e65" stop-opacity="0.18" />
-      <stop offset="80%" stop-color="#3c688f" stop-opacity="0.06" />
+    <radialGradient id="lower-sky-sun-glow" cx="540" cy="560" r="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f2c896" stop-opacity="0.38" />
+      <stop offset="42%" stop-color="#c98e65" stop-opacity="0.16" />
+      <stop offset="80%" stop-color="#3c688f" stop-opacity="0.05" />
       <stop offset="100%" stop-color="#0b1f3d" stop-opacity="0" />
     </radialGradient>
 
@@ -638,8 +638,8 @@
     </linearGradient>
 
     <radialGradient id="ceiling-aperture-shadow" cx="400" cy="135" r="320" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#1c2633" stop-opacity="0.45" />
-      <stop offset="65%" stop-color="#3d352e" stop-opacity="0.18" />
+      <stop offset="0%" stop-color="#1c2633" stop-opacity="0.42" />
+      <stop offset="65%" stop-color="#3d352e" stop-opacity="0.16" />
       <stop offset="100%" stop-color="#dfc29d" stop-opacity="0" />
     </radialGradient>
 
@@ -651,7 +651,7 @@
       <stop offset="100%" stop-color="#b5854f" />
     </linearGradient>
 
-    <!-- Left Wall Warm Cove Glow (from backrest line upward) -->
+    <!-- Left & Right Wall Warm Cove Glow -->
     <linearGradient id="left-wall-upper-grad" x1="70" y1="295" x2="70" y2="60" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#fad48e" />
       <stop offset="28%" stop-color="#dfa964" />
@@ -659,7 +659,6 @@
       <stop offset="100%" stop-color="#7d5c3a" />
     </linearGradient>
 
-    <!-- Right Wall Warm Cove Glow -->
     <linearGradient id="right-wall-upper-grad" x1="730" y1="295" x2="730" y2="60" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#fad48e" />
       <stop offset="28%" stop-color="#dfa964" />
@@ -667,7 +666,7 @@
       <stop offset="100%" stop-color="#7d5c3a" />
     </linearGradient>
 
-    <!-- Lower Concrete Wall & Backrest Gradients (Cool Slate / Sky-Tinted Shadow) -->
+    <!-- Lower Concrete Wall & Backrest Gradients -->
     <linearGradient id="back-wall-lower-grad" x1="400" y1="358" x2="400" y2="485" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#2c3542" />
       <stop offset="18%" stop-color="#222a35" />
@@ -707,36 +706,36 @@
     </linearGradient>
 
     <radialGradient id="floor-sky-ambient" cx="400" cy="625" r="290" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#2c4c70" stop-opacity="0.32" />
-      <stop offset="65%" stop-color="#1c314a" stop-opacity="0.12" />
+      <stop offset="0%" stop-color="#2c4c70" stop-opacity="0.28" />
+      <stop offset="65%" stop-color="#1c314a" stop-opacity="0.10" />
       <stop offset="100%" stop-color="#0d1218" stop-opacity="0" />
     </radialGradient>
 
     <!-- Cloud Gradients -->
-    <linearGradient id="cloud-warm-upper" x1="260" y1="70" x2="580" y2="210" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#fff3e3" />
-      <stop offset="45%" stop-color="#f5d5b3" />
-      <stop offset="80%" stop-color="#d69e78" />
-      <stop offset="100%" stop-color="#9e7462" />
+    <linearGradient id="cloud-body-upper" x1="360" y1="72" x2="420" y2="195" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff8ee" />
+      <stop offset="32%" stop-color="#f7dec2" />
+      <stop offset="65%" stop-color="#c99c84" />
+      <stop offset="100%" stop-color="#5d627a" />
     </linearGradient>
 
-    <linearGradient id="cloud-shadow-upper" x1="200" y1="50" x2="480" y2="180" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#1a2f4d" />
-      <stop offset="55%" stop-color="#2b466b" />
-      <stop offset="100%" stop-color="#4b688a" />
+    <linearGradient id="cloud-underbelly-upper" x1="350" y1="125" x2="410" y2="205" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#87788a" />
+      <stop offset="50%" stop-color="#565972" />
+      <stop offset="100%" stop-color="#32415c" />
     </linearGradient>
 
-    <linearGradient id="cloud-warm-lower" x1="260" y1="700" x2="580" y2="540" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#e8d2b8" stop-opacity="0.88" />
-      <stop offset="45%" stop-color="#deb48c" stop-opacity="0.84" />
-      <stop offset="80%" stop-color="#bd8764" stop-opacity="0.78" />
-      <stop offset="100%" stop-color="#876152" stop-opacity="0.70" />
+    <linearGradient id="cloud-body-lower" x1="360" y1="698" x2="420" y2="565" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f2e2ce" stop-opacity="0.86" />
+      <stop offset="35%" stop-color="#e0bfa0" stop-opacity="0.82" />
+      <stop offset="68%" stop-color="#b0856e" stop-opacity="0.76" />
+      <stop offset="100%" stop-color="#495066" stop-opacity="0.72" />
     </linearGradient>
 
-    <linearGradient id="cloud-shadow-lower" x1="200" y1="710" x2="480" y2="565" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#13243d" stop-opacity="0.9" />
-      <stop offset="55%" stop-color="#233b5c" stop-opacity="0.85" />
-      <stop offset="100%" stop-color="#3f5978" stop-opacity="0.8" />
+    <linearGradient id="cloud-underbelly-lower" x1="350" y1="640" x2="410" y2="555" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6e6173" stop-opacity="0.78" />
+      <stop offset="55%" stop-color="#44485e" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#25334a" stop-opacity="0.70" />
     </linearGradient>
 
     <!-- Knife-Edge Bevel Gradients -->
@@ -752,38 +751,145 @@
   </defs>
 
   <!-- ================================================================= -->
-  <!-- 1. CEILING PLANE & WARM COVE WASH                                 -->
+  <!-- 1. UPPER SKY LAYER (DRAWN FIRST IN AN AXIS-ALIGNED RECTANGLE)     -->
   <!-- ================================================================= -->
-  <g clip-path="url(#ceiling-clip)">
-    <polygon points="0,0 800,0 660,285 140,285" fill="url(#ceiling-base-grad)" />
-    <polygon points="0,0 800,0 660,285 140,285" fill="url(#ceiling-aperture-shadow)" />
+  <g clip-path="url(#upper-sky-rect-clip)">
+    <!-- Base cobalt-to-cerulean post-rain sky -->
+    <rect x="144" y="28" width="512" height="205" fill="url(#upper-sky-grad)" />
+    <rect x="144" y="28" width="512" height="205" fill="url(#upper-sky-sun-glow)" />
 
-    <!-- Warm perimeter cove glow rising onto the ceiling edges -->
-    <line x1="140" y1="285" x2="660" y2="285" stroke="#ffdfa6" stroke-width="26" stroke-opacity="0.55" filter="url(#cove-glow)" />
-    <line x1="0" y1="0" x2="140" y2="285" stroke="#fad291" stroke-width="32" stroke-opacity="0.48" filter="url(#cove-glow)" />
-    <line x1="800" y1="0" x2="660" y2="285" stroke="#fad291" stroke-width="32" stroke-opacity="0.48" filter="url(#cove-glow)" />
+    <!-- High-altitude swept cirrus wisps in the upper left & center -->
+    <g fill="none" stroke-linecap="round" filter="url(#cloud-fine-upper)">
+      <path d="M 162,96 C 225,84 295,68 375,52" stroke="#9ec2e2" stroke-width="2.2" stroke-opacity="0.28" />
+      <path d="M 178,106 C 242,92 312,76 398,58" stroke="#b8d6f0" stroke-width="1.4" stroke-opacity="0.22" />
+      <path d="M 195,82 C 250,72 308,58 362,44" stroke="#8ab0d4" stroke-width="1.6" stroke-opacity="0.20" />
+      <path d="M 245,198 C 345,184 445,168 558,154" stroke="#d4c6ba" stroke-width="1.8" stroke-opacity="0.22" />
+    </g>
 
-    <!-- Subtle architectural formwork / plaster seam lines on ceiling converging to VP (400, 395) -->
-    <g stroke="#6e563e" stroke-opacity="0.22" stroke-width="1">
-      <!-- Radial perspective joints toward (400, 395) -->
-      <line x1="100" y1="0" x2="318" y2="285" />
-      <line x1="250" y1="0" x2="359" y2="285" />
-      <line x1="400" y1="0" x2="400" y2="285" />
-      <line x1="550" y1="0" x2="441" y2="285" />
-      <line x1="700" y1="0" x2="482" y2="285" />
-      <!-- Horizontal concentric soffit joints -->
-      <line x1="12" y1="24" x2="788" y2="24" />
-      <line x1="48" y1="98" x2="752" y2="98" />
-      <line x1="82" y1="168" x2="718" y2="168" />
-      <line x1="114" y1="234" x2="686" y2="234" />
-      <line x1="130" y1="265" x2="670" y2="265" />
+    <!-- Distant receding indigo-slate rain cloud bank along top-left edge -->
+    <g filter="url(#cloud-soft-upper)" opacity="0.82">
+      <path d="M 140,28 L 355,28 C 338,44 312,52 286,56 C 258,60 238,72 210,76 C 182,80 160,74 140,82 Z" fill="#102340" />
+      <path d="M 140,48 C 175,44 212,48 245,58 C 272,66 298,58 322,66 C 292,78 252,82 214,88 C 180,94 156,92 140,96 Z" fill="#213b61" opacity="0.75" />
+    </g>
+
+    <!-- Soft warm atmospheric glow behind main cumulus bank -->
+    <g filter="url(#cloud-soft-upper)">
+      <path d="M 218,176 C 236,158 262,152 284,154 C 298,132 326,120 354,124 C 374,98 408,86 442,94 C 468,74 508,68 542,84 C 572,72 612,74 646,92 L 652,182 C 598,188 538,182 478,188 C 415,195 348,202 284,194 C 248,190 226,184 218,176 Z" fill="#f5cfa6" opacity="0.55" />
+    </g>
+
+    <!-- Main Sculpted Cumulus Cloud Bank (Multi-Domed Painterly Structure) -->
+    <!-- Layer A: Warm sunlit cream-apricot cumulus domes -->
+    <path d="M 216,174
+             C 228,160 248,154 268,158
+             C 276,142 296,132 318,136
+             C 330,114 358,102 386,108
+             C 404,84 438,74 470,84
+             C 494,66 532,62 562,78
+             C 588,68 622,72 648,88
+             L 652,168
+             C 612,174 568,168 522,172
+             C 464,178 404,188 344,186
+             C 292,184 246,182 216,174 Z"
+          fill="url(#cloud-body-upper)" filter="url(#cloud-fine-upper)" />
+
+    <!-- Layer B: Crisp sunlit silver-gold top billow highlights -->
+    <path d="M 268,158
+             C 278,142 298,132 318,136
+             C 330,114 358,102 386,108
+             C 404,84 438,74 470,84
+             C 494,66 532,62 562,78
+             C 586,69 618,72 644,86
+             C 618,92 594,86 572,96
+             C 542,82 508,86 482,102
+             C 452,92 418,98 398,120
+             C 370,116 342,126 328,146
+             C 306,144 284,150 268,158 Z"
+          fill="#fff9f0" opacity="0.92" />
+
+    <!-- Internal secondary sunlit cumulus turrets -->
+    <path d="M 342,144
+             C 356,126 382,118 406,124
+             C 424,104 456,96 486,106
+             C 510,92 544,90 570,104
+             C 544,116 514,114 488,124
+             C 456,118 424,126 402,142
+             C 378,138 358,142 342,144 Z"
+          fill="#fce8d2" opacity="0.85" filter="url(#cloud-fine-upper)" />
+
+    <!-- Layer C: Deep slate-violet & rose-taupe cloud base shadows (gives weight and volume) -->
+    <path d="M 216,174
+             C 248,166 282,162 316,166
+             C 344,148 382,142 418,148
+             C 448,132 488,126 526,134
+             C 562,122 606,120 648,132
+             L 652,174
+             C 608,182 558,176 508,182
+             C 448,188 386,196 326,192
+             C 278,188 242,184 216,174 Z"
+          fill="url(#cloud-underbelly-upper)" opacity="0.78" filter="url(#cloud-fine-upper)" />
+
+    <!-- Darker flat stratified rain-base shadow along the bottom of the cloud bank -->
+    <path d="M 248,182
+             C 296,176 348,172 402,174
+             C 456,164 514,158 572,162
+             C 602,164 628,160 650,164
+             C 618,180 568,184 514,186
+             C 452,188 388,196 328,192
+             C 292,190 266,186 248,182 Z"
+          fill="#2d3b54" opacity="0.68" filter="url(#cloud-fine-upper)" />
+
+    <!-- Smaller detached sunlit cloud puff drifting in lower-left of the aperture -->
+    <g filter="url(#cloud-fine-upper)">
+      <path d="M 186,198 C 198,188 216,186 232,190 C 244,182 264,182 278,190 C 290,186 306,188 316,196 C 292,204 260,206 228,204 C 208,202 194,200 186,198 Z" fill="#f5d8ba" opacity="0.86" />
+      <path d="M 192,199 C 218,194 248,192 278,194 C 292,195 304,194 314,196 C 290,204 258,206 226,204 C 208,203 198,201 192,199 Z" fill="#46526b" opacity="0.58" />
+    </g>
+
+    <!-- Single tiny crimson-gold maple leaf carried by the breeze across the upper right sky -->
+    <g transform="translate(558, 62) rotate(-28) scale(0.85)">
+      <path d="M 0,-7 L 2,-2 L 7,-4 L 4,1 L 8,4 L 2,4 L 3,8 L 0,5 L -3,8 L -2,4 L -8,4 L -4,1 L -7,-4 L -2,-2 Z" fill="#d94e28" />
+      <path d="M 0,-7 L 1,-1 L 5,-3 L 2,1 L 0,5 L -2,1 L -5,-3 L -1,-1 Z" fill="#f28b30" opacity="0.85" />
     </g>
   </g>
 
   <!-- ================================================================= -->
-  <!-- 2. UPPER SQUARE OF SKY (THE CEILING KNIFE-EDGE APERTURE)          -->
+  <!-- 2. CEILING PLANE WITH COMPOUND EVENODD APERTURE CUTOUT            -->
+  <!--    (Drawn ON TOP of the sky so no trapezoid clipPath is needed!)  -->
   <!-- ================================================================= -->
-  <!-- Knife-edge beveled soffit lip (ultra-thin plaster-to-sky transition) -->
+  <path d="M 0,0 L 800,0 L 660,285 L 140,285 Z
+           M 146,29 L 227,231 L 573,231 L 654,29 Z"
+        fill="url(#ceiling-base-grad)" fill-rule="evenodd" />
+  <path d="M 0,0 L 800,0 L 660,285 L 140,285 Z
+           M 146,29 L 227,231 L 573,231 L 654,29 Z"
+        fill="url(#ceiling-aperture-shadow)" fill-rule="evenodd" />
+
+  <!-- Subtle architectural formwork / plaster seam lines on ceiling (outside the aperture) -->
+  <g stroke="#6e563e" stroke-opacity="0.22" stroke-width="1">
+    <!-- Top strip above aperture (y=0..29) -->
+    <line x1="100" y1="0" x2="122" y2="29" />
+    <line x1="250" y1="0" x2="261" y2="29" />
+    <line x1="400" y1="0" x2="400" y2="29" />
+    <line x1="550" y1="0" x2="539" y2="29" />
+    <line x1="700" y1="0" x2="678" y2="29" />
+    <!-- Bottom strip below aperture (y=231..285) -->
+    <line x1="277" y1="231" x2="318" y2="285" />
+    <line x1="338" y1="231" x2="359" y2="285" />
+    <line x1="400" y1="231" x2="400" y2="285" />
+    <line x1="462" y1="231" x2="441" y2="285" />
+    <line x1="523" y1="231" x2="482" y2="285" />
+    <!-- Left & right outer radial lines -->
+    <line x1="100" y1="0" x2="318" y2="285" />
+    <line x1="700" y1="0" x2="482" y2="285" />
+    <!-- Horizontal concentric soffit joints (split around the aperture) -->
+    <line x1="12" y1="24" x2="788" y2="24" />
+    <line x1="48" y1="98" x2="174" y2="98" />
+    <line x1="626" y1="98" x2="752" y2="98" />
+    <line x1="82" y1="168" x2="202" y2="168" />
+    <line x1="598" y1="168" x2="718" y2="168" />
+    <line x1="114" y1="234" x2="686" y2="234" />
+    <line x1="130" y1="265" x2="670" y2="265" />
+  </g>
+
+  <!-- Knife-edge beveled soffit lip framing the upper sky square -->
   <!-- Top bevel face -->
   <polygon points="146,29 654,29 646,36 154,36" fill="url(#bevel-top-lip)" />
   <!-- Left bevel face -->
@@ -792,58 +898,18 @@
   <polygon points="654,29 646,36 566,226 573,231" fill="url(#bevel-side-lip)" />
   <!-- Bottom (far) bevel face catching cool zenith blue -->
   <polygon points="227,231 573,231 566,226 234,226" fill="#7c96b0" />
+  <!-- Crisp razor highlight along the inner knife edge -->
+  <polygon points="154,36 646,36 566,226 234,226" fill="none" stroke="#a8c5e0" stroke-width="0.9" stroke-opacity="0.78" />
+  <!-- Outer plaster arris highlight -->
+  <polygon points="146,29 654,29 573,231 227,231" fill="none" stroke="#ebd1b0" stroke-width="0.7" stroke-opacity="0.55" />
 
-  <!-- Sky interior clipped to the knife-edge opening -->
-  <g clip-path="url(#upper-sky-clip)">
-    <!-- Base cobalt-to-cerulean post-rain sky -->
-    <rect x="145" y="30" width="510" height="205" fill="url(#upper-sky-grad)" />
-    <rect x="145" y="30" width="510" height="205" fill="url(#upper-sky-sun-glow)" />
-
-    <!-- High altitude cirrus streaks -->
-    <g stroke="#9ec0de" stroke-opacity="0.22" stroke-width="2.5" fill="none" filter="url(#cloud-blur-fine)">
-      <path d="M 160,115 Q 290,92 430,68 T 640,42" />
-      <path d="M 185,132 Q 320,108 465,82 T 650,56" stroke-width="1.6" />
-      <path d="M 220,195 Q 380,165 540,128 T 650,98" stroke-opacity="0.16" />
-    </g>
-
-    <!-- Receding slate-indigo rain cloud bank (upper-left to center) -->
-    <g filter="url(#cloud-blur-soft)" opacity="0.88">
-      <path d="M 140,30 L 420,30 C 405,58 370,78 335,86 C 295,95 268,118 232,126 C 195,134 165,125 140,135 Z" fill="#132540" />
-      <path d="M 150,55 C 210,48 275,54 325,72 C 365,86 392,74 425,88 C 390,108 335,112 285,124 C 230,136 185,148 145,142 Z" fill="url(#cloud-shadow-upper)" />
-    </g>
-
-    <!-- Main breaking autumn cumulus clouds catching warm 4pm sunlight (diagonal sweep) -->
-    <!-- Soft outer glow of sun-lit cloud bank -->
-    <g filter="url(#cloud-blur-soft)">
-      <path d="M 210,168 C 255,142 305,148 348,125 C 392,102 442,88 495,94 C 545,100 585,78 648,84 L 655,175 C 595,182 542,165 485,178 C 425,192 365,208 305,198 C 255,190 225,182 210,168 Z" fill="url(#cloud-warm-upper)" opacity="0.92" />
-    </g>
-
-    <!-- Crisp sculpted cloud billows & silver-gold linings -->
-    <g filter="url(#cloud-blur-fine)">
-      <!-- Sunlit upper billow crests -->
-      <path d="M 235,164 C 262,144 298,146 324,132 C 352,116 382,100 418,104 C 446,84 488,82 522,96 C 556,82 598,76 645,88 C 618,112 582,118 545,122 C 498,128 455,142 405,148 C 355,154 292,172 235,164 Z" fill="#fae6ce" opacity="0.88" />
-      <path d="M 335,134 C 368,112 408,106 442,114 C 472,94 515,92 548,108 C 578,96 615,94 646,104 C 612,126 568,132 522,136 C 468,140 402,152 335,134 Z" fill="#fff6eb" opacity="0.82" />
-
-      <!-- Deeper rose-taupe cloud underbellies -->
-      <path d="M 220,172 C 275,162 332,148 395,142 C 455,136 518,124 575,132 C 608,136 632,128 652,135 C 625,162 575,168 518,172 C 455,176 392,194 328,190 C 275,186 242,182 220,172 Z" fill="#786b78" opacity="0.58" />
-      <path d="M 265,182 C 325,174 385,158 448,154 C 508,150 568,142 635,152 C 592,176 532,182 468,186 C 398,190 325,196 265,182 Z" fill="#4f5670" opacity="0.52" />
-
-      <!-- Small detached warm cloud puff floating near lower-left of sky square -->
-      <path d="M 178,196 C 198,184 226,185 246,192 C 262,186 284,188 298,197 C 274,206 242,208 212,205 C 194,203 184,200 178,196 Z" fill="#f2d6b8" opacity="0.78" />
-    </g>
-
-    <!-- Single tiny crimson-gold maple leaf carried by the breeze across the upper right sky -->
-    <g transform="translate(558, 68) rotate(-28) scale(0.85)">
-      <path d="M 0,-7 L 2,-2 L 7,-4 L 4,1 L 8,4 L 2,4 L 3,8 L 0,5 L -3,8 L -2,4 L -8,4 L -4,1 L -7,-4 L -2,-2 Z" fill="#d94e28" />
-      <path d="M 0,-7 L 1,-1 L 5,-3 L 2,1 L 0,5 L -2,1 L -5,-3 L -1,-1 Z" fill="#f28b30" opacity="0.8" />
-    </g>
+  <!-- Tiny glistening water droplets hanging along the bottom knife-edge lip after the rain -->
+  <g fill="#d8ecff" opacity="0.92">
+    <ellipse cx="312" cy="226" rx="2.0" ry="1.1" />
+    <ellipse cx="485" cy="226.2" rx="3.4" ry="1.9" filter="url(#subtle-glow)" />
+    <circle cx="485" cy="226.6" r="1.5" fill="#ffffff" />
+    <ellipse cx="524" cy="226" rx="1.8" ry="1.0" />
   </g>
-
-  <!-- Crisp razor highlight along the inner knife edge of the ceiling aperture -->
-  <polygon points="154,36 646,36 566,226 234,226" fill="none" stroke="#9ab8d4" stroke-width="0.9" stroke-opacity="0.75" />
-  <!-- Tiny glistening water bead hanging on the right knife-edge lip (directly above x=485) -->
-  <ellipse cx="485" cy="226" rx="3.2" ry="1.8" fill="#d8ecff" opacity="0.92" filter="url(#subtle-glow)" />
-  <circle cx="485" cy="226.5" r="1.4" fill="#ffffff" />
 
   <!-- ================================================================= -->
   <!-- 3. UPPER WALL PLANES (ILLUMINATED BY WARM COVE LIGHT)             -->
@@ -851,9 +917,7 @@
   <!-- Back Wall Upper (y = 285 to 358) -->
   <g clip-path="url(#back-wall-clip)">
     <rect x="140" y="285" width="520" height="76" fill="url(#back-wall-upper-grad)" />
-    <!-- Bright upward cove light bloom along y = 358 -->
     <line x1="140" y1="358" x2="660" y2="358" stroke="#fff0c2" stroke-width="14" stroke-opacity="0.85" filter="url(#cove-glow)" />
-    <!-- Subtle vertical formwork panel seams on upper back wall -->
     <g stroke="#8c6438" stroke-opacity="0.22" stroke-width="1">
       <line x1="226" y1="285" x2="226" y2="358" />
       <line x1="313" y1="285" x2="313" y2="358" />
@@ -867,7 +931,6 @@
   <g clip-path="url(#left-wall-clip)">
     <polygon points="0,0 140,285 140,358 0,235" fill="url(#left-wall-upper-grad)" />
     <line x1="0" y1="235" x2="140" y2="358" stroke="#ffeab3" stroke-width="16" stroke-opacity="0.8" filter="url(#cove-glow)" />
-    <!-- Perspective panel seams on left upper wall -->
     <g stroke="#704f2c" stroke-opacity="0.24" stroke-width="1">
       <line x1="46" y1="94" x2="46" y2="275" />
       <line x1="94" y1="191" x2="94" y2="318" />
@@ -878,27 +941,26 @@
   <g clip-path="url(#right-wall-clip)">
     <polygon points="800,0 660,285 660,358 800,235" fill="url(#right-wall-upper-grad)" />
     <line x1="660" y1="358" x2="800" y2="235" stroke="#ffeab3" stroke-width="16" stroke-opacity="0.8" filter="url(#cove-glow)" />
-    <!-- Perspective panel seams on right upper wall -->
     <g stroke="#704f2c" stroke-opacity="0.24" stroke-width="1">
       <line x1="754" y1="94" x2="754" y2="275" />
       <line x1="706" y1="191" x2="706" y2="318" />
     </g>
   </g>
 
+  <!-- Warm ceiling-edge cove glow -->
+  <line x1="140" y1="285" x2="660" y2="285" stroke="#ffdfa6" stroke-width="18" stroke-opacity="0.38" filter="url(#cove-glow)" />
+
   <!-- ================================================================= -->
   <!-- 4. CONTINUOUS CANTED BACKREST, COVE LIP & PERIMETER STONE BENCH   -->
   <!-- ================================================================= -->
-  <!-- Crisp warm-lit top lip of the canted backrest (where the concealed LED/fluorescent cove sits) -->
+  <!-- Crisp warm-lit top lip of the canted backrest -->
   <polyline points="0,235 140,358 660,358 800,235" fill="none" stroke="#ffefc4" stroke-width="2.2" stroke-opacity="0.92" />
 
-  <!-- Back Wall Canted Backrest (y = 358 to 434) & Bench Base (y = 434 to 485) -->
+  <!-- Back Wall Canted Backrest (y = 358 to 434) -->
   <polygon points="140,358 660,358 652,434 148,434" fill="url(#back-wall-lower-grad)" />
-  <!-- Subtle blue sky light shaft grazing the center of the back wall -->
-  <polygon points="234,358 566,358 558,434 242,434" fill="#3a608a" fill-opacity="0.10" />
-
-  <!-- Left Wall Canted Backrest & Bench -->
+  <!-- Left Wall Canted Backrest -->
   <polygon points="0,235 140,358 148,434 0,382" fill="url(#left-wall-lower-grad)" />
-  <!-- Right Wall Canted Backrest & Bench -->
+  <!-- Right Wall Canted Backrest -->
   <polygon points="800,235 660,358 652,434 800,382" fill="url(#right-wall-lower-grad)" />
 
   <!-- Architectural panel seams and tie-bolt cones (セパ穴) on the backrest -->
@@ -913,7 +975,6 @@
     <line x1="754" y1="275" x2="748" y2="400" />
     <line x1="706" y1="318" x2="702" y2="416" />
   </g>
-  <!-- Formwork tie-bolt dots on back wall -->
   <g fill="#12171f" stroke="#334052" stroke-width="0.6" opacity="0.7">
     <circle cx="184" cy="382" r="1.8" /><circle cx="186" cy="414" r="1.8" />
     <circle cx="270" cy="382" r="1.8" /><circle cx="271" cy="414" r="1.8" />
@@ -923,88 +984,99 @@
     <circle cx="616" cy="382" r="1.8" /><circle cx="614" cy="414" r="1.8" />
   </g>
 
-  <!-- Continuous Horizontal Bench Seat Top (catching cool zenith blue light from the open roof!) -->
-  <!-- Back bench seat top -->
+  <!-- Continuous Horizontal Bench Seat Top -->
   <polygon points="148,434 652,434 636,450 164,450" fill="url(#bench-back-top)" stroke="#465870" stroke-width="0.7" />
-  <!-- Left bench seat top -->
   <polygon points="0,382 148,434 164,450 0,432" fill="url(#bench-side-top)" stroke="#465870" stroke-width="0.7" />
-  <!-- Right bench seat top -->
   <polygon points="800,382 652,434 636,450 800,432" fill="url(#bench-side-top)" stroke="#465870" stroke-width="0.7" />
 
-  <!-- Bench Vertical Front Riser & Shadowed Undertuck (y = 450 to 485 on back wall) -->
+  <!-- Bench Vertical Front Riser & Shadowed Undertuck -->
   <polygon points="164,450 636,450 636,485 164,485" fill="#10151c" />
   <polygon points="0,432 164,450 164,485 0,585" fill="#0d1218" />
   <polygon points="800,432 636,450 636,485 800,585" fill="#0c1016" />
-
-  <!-- ================================================================= -->
-  <!-- 5. HONED CONCRETE FLOOR & PERIMETER DRAINAGE GROOVE               -->
-  <!-- ================================================================= -->
-  <polygon points="164,485 636,485 800,585 800,800 0,800 0,585" fill="url(#floor-grad)" />
-  <polygon points="164,485 636,485 800,585 800,800 0,800 0,585" fill="url(#floor-sky-ambient)" />
-
-  <!-- Architectural floor expansion joints (converging to VP 400, 395) -->
-  <g stroke="#0a0e13" stroke-width="1.2" stroke-opacity="0.75">
-    <line x1="272" y1="485" x2="48" y2="800" />
-    <line x1="336" y1="485" x2="224" y2="800" />
-    <line x1="400" y1="485" x2="400" y2="800" />
-    <line x1="464" y1="485" x2="576" y2="800" />
-    <line x1="528" y1="485" x2="752" y2="800" />
-    <!-- Transverse floor joints -->
-    <line x1="115" y1="515" x2="685" y2="515" />
-    <line x1="35" y1="564" x2="765" y2="564" />
-    <line x1="0" y1="628" x2="800" y2="628" />
-    <line x1="0" y1="712" x2="800" y2="712" />
-  </g>
 
   <!-- Corner vertical shadow lines where walls meet -->
   <line x1="140" y1="285" x2="140" y2="358" stroke="#805b36" stroke-width="1.2" stroke-opacity="0.5" />
   <line x1="660" y1="285" x2="660" y2="358" stroke="#805b36" stroke-width="1.2" stroke-opacity="0.5" />
 
   <!-- ================================================================= -->
-  <!-- 6. THE SECOND SQUARE OF SKY (RAINWATER POOL ON CONCRETE FLOOR)    -->
+  <!-- 5. SECOND SQUARE OF SKY (RAINWATER POOL DRAWN IN AXIS RECTANGLE)  -->
   <!-- ================================================================= -->
-  <!-- Dark damp concrete border around the rainwater puddle -->
-  <polygon points="227,521 573,521 664,741 136,741" fill="#090d12" fill-opacity="0.78" />
-  <polygon points="231,524 569,524 658,737 142,737" fill="#070b10" fill-opacity="0.85" />
-
-  <!-- Reflected Sky inside the Rainwater Pool -->
-  <g clip-path="url(#lower-pool-clip)">
+  <g clip-path="url(#lower-pool-rect-clip)">
     <!-- Inverted cobalt-to-cerulean sky reflection -->
-    <rect x="135" y="520" width="530" height="220" fill="url(#lower-sky-grad)" />
-    <rect x="135" y="520" width="530" height="220" fill="url(#lower-sky-sun-glow)" />
+    <rect x="135" y="520" width="530" height="222" fill="url(#lower-sky-grad)" />
+    <rect x="135" y="520" width="530" height="222" fill="url(#lower-sky-sun-glow)" />
 
-    <!-- Inverted high-altitude cirrus streaks -->
-    <g stroke="#8fb3d4" stroke-opacity="0.18" stroke-width="2.4" fill="none" filter="url(#cloud-blur-fine)">
-      <path d="M 150,645 Q 290,672 440,698 T 655,726" />
-      <path d="M 180,628 Q 325,654 475,682 T 660,710" stroke-width="1.5" />
-      <path d="M 215,560 Q 385,592 550,632 T 660,664" stroke-opacity="0.14" />
+    <!-- Inverted high-altitude cirrus wisps -->
+    <g fill="none" stroke-linecap="round" filter="url(#cloud-fine-lower)">
+      <path d="M 155,668 C 222,682 295,698 378,716" stroke="#8fb3d4" stroke-width="2.2" stroke-opacity="0.22" />
+      <path d="M 172,658 C 240,674 312,690 402,710" stroke="#a6c8e8" stroke-width="1.4" stroke-opacity="0.18" />
+      <path d="M 242,562 C 345,576 448,592 562,608" stroke="#c9b8aa" stroke-width="1.8" stroke-opacity="0.18" />
     </g>
 
-    <!-- Inverted receding slate-indigo cloud bank (lower-left of pool) -->
-    <g filter="url(#cloud-blur-soft)" opacity="0.82">
-      <path d="M 135,740 L 430,740 C 412,708 375,686 338,676 C 296,666 266,640 228,632 C 190,624 160,634 135,622 Z" fill="#0d1c33" />
-      <path d="M 145,712 C 208,720 278,714 330,694 C 372,678 400,692 435,676 C 398,654 340,650 288,636 C 230,622 182,610 140,616 Z" fill="url(#cloud-shadow-lower)" />
+    <!-- Inverted receding indigo-slate cloud bank (bottom-left of pool) -->
+    <g filter="url(#cloud-soft-lower)" opacity="0.78">
+      <path d="M 135,740 L 360,740 C 342,722 315,714 288,710 C 258,706 236,692 206,688 C 178,684 156,690 135,682 Z" fill="#0b1a30" />
+      <path d="M 135,718 C 172,722 210,718 245,708 C 274,700 300,708 326,700 C 294,686 252,682 212,676 C 178,670 152,672 135,668 Z" fill="#1b3254" opacity="0.72" />
     </g>
 
-    <!-- Inverted sunlit breaking cumulus clouds (sweeping across the pool) -->
-    <g filter="url(#cloud-blur-soft)">
-      <path d="M 205,588 C 252,618 305,612 350,636 C 396,662 448,678 504,670 C 556,664 598,688 662,682 L 668,582 C 605,574 550,592 490,578 C 428,562 365,546 302,556 C 250,565 220,574 205,588 Z" fill="url(#cloud-warm-lower)" />
+    <!-- Soft warm atmospheric glow behind reflected cumulus bank -->
+    <g filter="url(#cloud-soft-lower)">
+      <path d="M 214,584 C 232,604 260,610 282,608 C 298,632 326,644 356,640 C 376,668 412,680 446,672 C 474,692 514,698 550,682 C 580,694 620,692 656,674 L 662,578 C 606,572 544,578 482,572 C 418,565 348,558 282,566 C 245,570 222,576 214,584 Z" fill="#deb48c" opacity="0.48" />
     </g>
 
-    <g filter="url(#water-blur)">
-      <!-- Inverted sunlit billow highlights -->
-      <path d="M 232,592 C 260,614 298,612 326,628 C 356,645 388,662 425,658 C 455,680 498,682 534,666 C 570,682 612,688 660,675 C 632,648 594,642 555,638 C 506,632 460,616 408,610 C 355,604 290,584 232,592 Z" fill="#f0d8be" opacity="0.72" />
-      <path d="M 335,626 C 370,650 412,656 448,648 C 480,670 524,672 558,654 C 590,668 628,670 660,658 C 624,634 578,628 530,624 C 474,620 405,606 335,626 Z" fill="#faece0" opacity="0.65" />
+    <!-- Inverted Sculpted Cumulus Cloud Bank in the Pool -->
+    <!-- Layer A: Reflected warm sunlit cream-apricot cumulus domes -->
+    <path d="M 212,586
+             C 225,602 246,608 266,604
+             C 275,620 296,632 318,628
+             C 332,650 360,662 390,656
+             C 408,682 444,692 476,682
+             C 502,700 540,704 572,688
+             C 598,698 632,694 658,678
+             L 662,592
+             C 620,586 574,592 526,588
+             C 468,582 406,572 344,574
+             C 290,576 244,578 212,586 Z"
+          fill="url(#cloud-body-lower)" filter="url(#cloud-fine-lower)" />
 
-      <!-- Inverted rose-taupe cloud underbellies -->
-      <path d="M 215,584 C 272,595 332,610 398,616 C 460,622 526,636 586,628 C 620,624 645,632 666,624 C 638,595 586,588 526,584 C 460,580 395,560 328,565 C 272,568 238,574 215,584 Z" fill="#635866" opacity="0.48" />
+    <!-- Layer B: Reflected sunlit billow rims -->
+    <path d="M 266,604
+             C 276,620 296,632 318,628
+             C 332,650 360,662 390,656
+             C 408,682 444,692 476,682
+             C 502,700 540,704 572,688
+             C 596,697 628,694 654,680
+             C 628,674 602,680 580,670
+             C 548,684 514,680 486,664
+             C 456,674 420,668 400,644
+             C 372,648 342,638 328,618
+             C 306,620 282,614 266,604 Z"
+          fill="#faece0" opacity="0.76" filter="url(#cloud-fine-lower)" />
 
-      <!-- Detached small warm cloud puff reflected in upper-left of pool -->
-      <path d="M 184,560 C 204,572 232,571 252,564 C 268,570 290,568 304,559 C 280,550 248,548 218,551 C 200,553 190,556 184,560 Z" fill="#e6c8a8" opacity="0.64" />
+    <!-- Layer C: Reflected slate-violet cloud underbellies -->
+    <path d="M 212,586
+             C 246,594 280,598 316,594
+             C 346,612 384,618 422,612
+             C 452,628 494,634 532,626
+             C 570,638 614,640 658,628
+             L 662,586
+             C 616,578 564,584 512,578
+             C 450,572 386,564 326,568
+             C 276,572 240,576 212,586 Z"
+          fill="url(#cloud-underbelly-lower)" filter="url(#cloud-fine-lower)" />
+
+    <!-- Detached small warm cloud puff reflected in upper-left of pool -->
+    <g filter="url(#cloud-fine-lower)">
+      <path d="M 184,562 C 196,572 214,574 230,570 C 242,578 262,578 276,570 C 288,574 304,572 314,564 C 290,556 258,554 226,556 C 206,558 192,560 184,562 Z" fill="#e6c8a8" opacity="0.72" />
+    </g>
+
+    <!-- Reflected tiny crimson-gold maple leaf in the lower-right of the pool -->
+    <g transform="translate(566, 704) scale(1, -0.85) rotate(-28)" opacity="0.65" filter="url(#cloud-fine-lower)">
+      <path d="M 0,-7 L 2,-2 L 7,-4 L 4,1 L 8,4 L 2,4 L 3,8 L 0,5 L -3,8 L -2,4 L -8,4 L -4,1 L -7,-4 L -2,-2 Z" fill="#d94e28" />
     </g>
 
     <!-- Faint submerged concrete floor expansion joints visible through the 3mm clear water -->
-    <g stroke="#08111c" stroke-width="1.1" stroke-opacity="0.38">
+    <g stroke="#060d17" stroke-width="1.1" stroke-opacity="0.38">
       <line x1="272" y1="485" x2="48" y2="800" />
       <line x1="336" y1="485" x2="224" y2="800" />
       <line x1="400" y1="485" x2="400" y2="800" />
@@ -1015,43 +1087,31 @@
       <line x1="0" y1="712" x2="800" y2="712" />
     </g>
 
-    <!-- =============================================================== -->
-    <!-- 7. CONCENTRIC RIPPLES FROM A SINGLE RAINWATER DROP AT (485,638) -->
-    <!-- =============================================================== -->
+    <!-- Concentric Ripples from a Single Rainwater Drop at (485, 638) -->
     <g transform="translate(485, 638)">
-      <!-- Outermost fading ripple -->
-      <ellipse cx="0" cy="0" rx="92" ry="34" fill="none" stroke="#a6c8e8" stroke-width="0.8" stroke-opacity="0.22" />
-      <ellipse cx="0" cy="1.2" rx="92" ry="34" fill="none" stroke="#081629" stroke-width="0.9" stroke-opacity="0.25" />
+      <ellipse cx="0" cy="0" rx="92" ry="34" fill="none" stroke="#a6c8e8" stroke-width="0.8" stroke-opacity="0.24" />
+      <ellipse cx="0" cy="1.2" rx="92" ry="34" fill="none" stroke="#081629" stroke-width="0.9" stroke-opacity="0.26" />
 
-      <!-- 4th ripple ring catching warm apricot cloud reflection -->
-      <ellipse cx="0" cy="0" rx="64" ry="23.5" fill="none" stroke="#f5d5b3" stroke-width="1.1" stroke-opacity="0.38" />
-      <ellipse cx="0" cy="1" rx="64" ry="23.5" fill="none" stroke="#0b1d36" stroke-width="1.1" stroke-opacity="0.35" />
+      <ellipse cx="0" cy="0" rx="64" ry="23.5" fill="none" stroke="#f5d5b3" stroke-width="1.1" stroke-opacity="0.40" />
+      <ellipse cx="0" cy="1" rx="64" ry="23.5" fill="none" stroke="#0b1d36" stroke-width="1.1" stroke-opacity="0.36" />
 
-      <!-- 3rd ripple ring -->
-      <ellipse cx="0" cy="0" rx="41" ry="15" fill="none" stroke="#d4e9ff" stroke-width="1.3" stroke-opacity="0.52" />
-      <ellipse cx="0" cy="0.8" rx="41" ry="15" fill="none" stroke="#0d2240" stroke-width="1.2" stroke-opacity="0.45" />
+      <ellipse cx="0" cy="0" rx="41" ry="15" fill="none" stroke="#d4e9ff" stroke-width="1.3" stroke-opacity="0.55" />
+      <ellipse cx="0" cy="0.8" rx="41" ry="15" fill="none" stroke="#0d2240" stroke-width="1.2" stroke-opacity="0.46" />
 
-      <!-- 2nd ripple ring -->
-      <ellipse cx="0" cy="0" rx="22" ry="8" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-opacity="0.68" />
-      <ellipse cx="0" cy="0.7" rx="22" ry="8" fill="none" stroke="#0f284a" stroke-width="1.2" stroke-opacity="0.55" />
+      <ellipse cx="0" cy="0" rx="22" ry="8" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-opacity="0.72" />
+      <ellipse cx="0" cy="0.7" rx="22" ry="8" fill="none" stroke="#0f284a" stroke-width="1.2" stroke-opacity="0.56" />
 
-      <!-- Innermost crisp ring & rebounding crown -->
-      <ellipse cx="0" cy="0" rx="8.5" ry="3.2" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-opacity="0.88" />
-      <circle cx="0" cy="-2.5" r="1.8" fill="#ffffff" opacity="0.95" />
-      <ellipse cx="0" cy="0" rx="2.5" ry="1.0" fill="#a8d5ff" opacity="0.85" />
+      <ellipse cx="0" cy="0" rx="8.5" ry="3.2" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-opacity="0.90" />
+      <circle cx="0" cy="-2.5" r="1.8" fill="#ffffff" opacity="0.96" />
+      <ellipse cx="0" cy="0" rx="2.5" ry="1.0" fill="#a8d5ff" opacity="0.88" />
     </g>
 
-    <!-- =============================================================== -->
-    <!-- 8. FLOATING GOLDEN GINKGO LEAF ON THE WATER SURFACE (252, 682)  -->
-    <!-- =============================================================== -->
-    <!-- Subtle oval meniscus ripple around the floating ginkgo leaf -->
-    <ellipse cx="252" cy="683" rx="22" ry="8.5" fill="none" stroke="#b8d8f5" stroke-width="0.8" stroke-opacity="0.35" />
-    <!-- Submerged shadow of the leaf on the concrete 3mm below -->
+    <!-- Floating Golden Ginkgo Leaf on the Water Surface (252, 682) -->
+    <ellipse cx="252" cy="683" rx="22" ry="8.5" fill="none" stroke="#b8d8f5" stroke-width="0.8" stroke-opacity="0.38" />
     <g transform="translate(254, 686.5) rotate(18)">
       <path d="M 0,0 L -6,-9 C -12,-14 -16,-8 -13,-2 C -15,2 -11,8 -4,5 Z" fill="#040912" opacity="0.65" />
       <path d="M 0,0 L 7,4" stroke="#040912" stroke-width="1.1" stroke-linecap="round" opacity="0.65" />
     </g>
-    <!-- Floating golden-amber fan-shaped ginkgo leaf -->
     <g transform="translate(252, 682) rotate(18)">
       <path d="M 0,0 L -6,-9 C -12,-14 -16,-8 -12.5,-1.5 L -9,-2.5 L -12,0.5 C -14,5 -9,9 -3,4.5 Z" fill="#e8a938" stroke="#f7cb68" stroke-width="0.5" />
       <path d="M 0,0 L -5,-6 M 0,0 L -9,-4 M 0,0 L -8,2" stroke="#c47e1a" stroke-width="0.5" stroke-opacity="0.6" />
@@ -1059,9 +1119,49 @@
     </g>
   </g>
 
+  <!-- ================================================================= -->
+  <!-- 6. HONED CONCRETE FLOOR WITH COMPOUND EVENODD POOL CUTOUT         -->
+  <!--    (Drawn ON TOP of the pool so no trapezoid clipPath is needed!) -->
+  <!-- ================================================================= -->
+  <path d="M 164,485 L 636,485 L 800,585 L 800,800 L 0,800 L 0,585 Z
+           M 234,526 L 146,734 L 654,734 L 566,526 Z"
+        fill="url(#floor-grad)" fill-rule="evenodd" />
+  <path d="M 164,485 L 636,485 L 800,585 L 800,800 L 0,800 L 0,585 Z
+           M 234,526 L 146,734 L 654,734 L 566,526 Z"
+        fill="url(#floor-sky-ambient)" fill-rule="evenodd" />
+
+  <!-- Dark damp concrete border ring framing the rainwater pool -->
+  <path d="M 227,521 L 573,521 L 664,741 L 136,741 Z
+           M 234,526 L 146,734 L 654,734 L 566,526 Z"
+        fill="#080c11" fill-opacity="0.82" fill-rule="evenodd" />
+
+  <!-- Architectural floor expansion joints (outside the pool) -->
+  <g stroke="#0a0e13" stroke-width="1.2" stroke-opacity="0.75">
+    <!-- Left outer radial joint (misses pool completely) -->
+    <line x1="272" y1="485" x2="48" y2="800" />
+    <!-- Right outer radial joint (misses pool completely) -->
+    <line x1="528" y1="485" x2="752" y2="800" />
+    <!-- Inner radial joints above pool (y=485..526) -->
+    <line x1="336" y1="485" x2="322" y2="526" />
+    <line x1="400" y1="485" x2="400" y2="526" />
+    <line x1="464" y1="485" x2="478" y2="526" />
+    <!-- Inner radial joints below pool (y=734..800) -->
+    <line x1="247" y1="734" x2="224" y2="800" />
+    <line x1="400" y1="734" x2="400" y2="800" />
+    <line x1="553" y1="734" x2="576" y2="800" />
+    <!-- Transverse floor joints (split around the pool) -->
+    <line x1="115" y1="515" x2="685" y2="515" />
+    <line x1="35" y1="564" x2="218" y2="564" />
+    <line x1="582" y1="564" x2="765" y2="564" />
+    <line x1="0" y1="628" x2="191" y2="628" />
+    <line x1="609" y1="628" x2="800" y2="628" />
+    <line x1="0" y1="712" x2="155" y2="712" />
+    <line x1="645" y1="712" x2="800" y2="712" />
+  </g>
+
   <!-- Crisp surface-tension meniscus highlight around the rainwater pool perimeter -->
-  <polygon points="234,526 566,526 654,734 146,734" fill="none" stroke="#789ec2" stroke-width="1.1" stroke-opacity="0.52" />
-  <polyline points="146,734 654,734" fill="none" stroke="#b8d8f5" stroke-width="1.4" stroke-opacity="0.65" />
+  <polygon points="234,526 566,526 654,734 146,734" fill="none" stroke="#789ec2" stroke-width="1.1" stroke-opacity="0.55" />
+  <polyline points="146,734 654,734" fill="none" stroke="#b8d8f5" stroke-width="1.4" stroke-opacity="0.68" />
 
   <!-- Faint vertical streak of the falling droplet in the air just above (485, 638) -->
   <line x1="485" y1="602" x2="485" y2="626" stroke="#d8ecff" stroke-width="0.9" stroke-opacity="0.42" stroke-linecap="round" />
