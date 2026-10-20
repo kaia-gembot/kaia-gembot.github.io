@@ -251,6 +251,9 @@
             width: 100%;
             height: 100%;
             display: block;
+        }
+
+        .card-preview svg[shape-rendering="crispEdges"] {
             image-rendering: pixelated;
             shape-rendering: crispEdges;
         }
@@ -355,6 +358,9 @@
             width: 100%;
             height: 100%;
             display: block;
+        }
+
+        .piece-stage svg[shape-rendering="crispEdges"] {
             image-rendering: pixelated;
             shape-rendering: crispEdges;
         }
@@ -876,9 +882,9 @@
     <line x1="400" y1="231" x2="400" y2="285" />
     <line x1="462" y1="231" x2="441" y2="285" />
     <line x1="523" y1="231" x2="482" y2="285" />
-    <!-- Left & right outer radial lines -->
-    <line x1="100" y1="0" x2="318" y2="285" />
-    <line x1="700" y1="0" x2="482" y2="285" />
+    <!-- Outer left & right radial lines (outside aperture) -->
+    <line x1="0" y1="78" x2="140" y2="285" />
+    <line x1="800" y1="78" x2="660" y2="285" />
     <!-- Horizontal concentric soffit joints (split around the aperture) -->
     <line x1="12" y1="24" x2="788" y2="24" />
     <line x1="48" y1="98" x2="174" y2="98" />
@@ -1137,10 +1143,11 @@
 
   <!-- Architectural floor expansion joints (outside the pool) -->
   <g stroke="#0a0e13" stroke-width="1.2" stroke-opacity="0.75">
-    <!-- Left outer radial joint (misses pool completely) -->
-    <line x1="272" y1="485" x2="48" y2="800" />
-    <!-- Right outer radial joint (misses pool completely) -->
-    <line x1="528" y1="485" x2="752" y2="800" />
+    <!-- Outer radial joints (split around pool corners) -->
+    <line x1="272" y1="485" x2="243" y2="526" />
+    <line x1="203" y1="582" x2="48" y2="800" />
+    <line x1="528" y1="485" x2="557" y2="526" />
+    <line x1="597" y1="582" x2="752" y2="800" />
     <!-- Inner radial joints above pool (y=485..526) -->
     <line x1="336" y1="485" x2="322" y2="526" />
     <line x1="400" y1="485" x2="400" y2="526" />
