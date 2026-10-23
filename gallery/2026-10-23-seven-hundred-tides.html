@@ -686,13 +686,13 @@
   <stop offset="55%" stop-color="#DFE8EE"/>
   <stop offset="100%" stop-color="#B9C8D4"/>
 </linearGradient>
-<filter id="softShadow" filterUnits="userSpaceOnUse" x="0" y="0" width="800" height="800">
+<filter id="softShadow" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1000" height="1000">
   <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
   <feOffset dx="0" dy="6" result="offsetblur"/>
   <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
   <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
 </filter>
-<filter id="waterGlow" filterUnits="userSpaceOnUse" x="0" y="0" width="800" height="800">
+<filter id="waterGlow" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1000" height="1000">
   <feGaussianBlur stdDeviation="3.5" result="blur"/>
   <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
 </filter>
@@ -1023,10 +1023,12 @@
 <circle cx="440" cy="675" r="3.5" fill="#FFF7F9"/>
 <ellipse cx="472" cy="666" rx="9" ry="3.2" transform="rotate(-12 472 666)" fill="#FFFFFF" opacity="0.78"/>
 </g>
-<g id="kisago-shell" transform="translate(612, 668)" filter="url(#softShadow)">
-<circle cx="0" cy="0" r="16" fill="#C97A63" stroke="#F4D8C6" stroke-width="1.0"/>
-<path d="M 0 0 m -12 0 a 12 12 0 1 0 24 0 a 9 9 0 1 0 -18 0 a 6 6 0 1 0 12 0 a 3 3 0 1 0 -6 0" fill="none" stroke="#5E352B" stroke-width="1.8" stroke-linecap="round"/>
-<circle cx="-4" cy="-5" r="3.2" fill="#FFF7E8" opacity="0.82"/>
+<g id="kisago-shell" filter="url(#softShadow)">
+<circle cx="612" cy="668" r="14" fill="#C97A63" stroke="#F4D8C6" stroke-width="1.0"/>
+<circle cx="612" cy="668" r="10.2" fill="none" stroke="#6E3D31" stroke-width="1.6"/>
+<circle cx="612.8" cy="667.5" r="6.4" fill="none" stroke="#582E24" stroke-width="1.5"/>
+<circle cx="613.4" cy="667.0" r="3.0" fill="#47231B"/>
+<circle cx="608.5" cy="663.5" r="2.8" fill="#FFF7E8" opacity="0.85"/>
 </g>
 <circle cx="308" cy="444" r="2.2" fill="#FFF9E6" opacity="0.88"/>
 <path d="M 301.8 444 L 314.2 444 M 308 439.2 L 308 448.8" stroke="#FFF9E6" stroke-width="0.9" stroke-linecap="round" opacity="0.65"/>
