@@ -36,9 +36,9 @@
     "market_question": "Will Gavin Newsom win the 2028 US Presidential Election?",
     "outcome_label": "POLY_YES_KALSHI_NO",
     "net_roi_pct": 1.37,
-    "net_profit_usd": 0.6275,
-    "capital_required_usd": 45.82,
-    "details": "Poly YES @$0.099 + Kalshi KXPRESPERSON-28-GNEWS_NO @$0.880 | Shares: 46.5 | Net Cost: $45.82 | Fees: $0.35",
+    "net_profit_usd": 0.6321,
+    "capital_required_usd": 46.16,
+    "details": "Poly YES @$0.099 + Kalshi KXPRESPERSON-28-GNEWS_NO @$0.880 | Shares: 46.8 | Net Cost: $46.16 | Fees: $0.35",
     "token_ids": [
       "98250445447699368679516529207365255018790721464590833209064266254238063117329",
       "KXPRESPERSON-28-GNEWS_NO"
@@ -315,6 +315,21 @@
     ]
   },
   {
+    "strategy": "STRIKE_MONOTONICITY",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "What price will Bitcoin hit in 2026 (REACH / HIGH)",
+    "market_question": "Strikes 150000.0 vs 160000.0",
+    "outcome_label": "pure_strike_arb",
+    "net_roi_pct": 0.67,
+    "net_profit_usd": 0.3676,
+    "capital_required_usd": 54.63,
+    "details": "Buy 150000.0 @ $0.010, Sell 160000.0 @ $0.017",
+    "token_ids": [
+      "9408196828451163378822245032645030045707991112669125056198742225498158094445",
+      "76803677654662369423401526996593319593052274118670807871700313758063944314185"
+    ]
+  },
+  {
     "strategy": "CROSS_VENUE_LOCK",
     "tier": "TIER_0_GUARANTEED",
     "event_title": "Polymarket vs Kalshi",
@@ -351,9 +366,9 @@
     "market_question": "Will Bernie Sanders win the 2028 Democratic presidential nomination?",
     "outcome_label": "KALSHI_YES_POLY_NO",
     "net_roi_pct": 0.6,
-    "net_profit_usd": 0.0135,
-    "capital_required_usd": 2.23,
-    "details": "Kalshi KXPRESNOMD-28-BS YES @$0.005 + Poly NO @$0.987 | Shares: 2.2 | Net Cost: $2.23 | Fees: $0.00",
+    "net_profit_usd": 0.6013,
+    "capital_required_usd": 99.4,
+    "details": "Kalshi KXPRESNOMD-28-BS YES @$0.005 + Poly NO @$0.987 | Shares: 100.0 | Net Cost: $99.40 | Fees: $0.20",
     "token_ids": [
       "KXPRESNOMD-28-BS",
       "3444964147133304300560138317203877470064591148213906708394693248804691192318"
@@ -387,6 +402,21 @@
     "token_ids": [
       "KXNHL-27-VGK",
       "17254671987039320825544908792406414426487223322112681826665432356932509078158"
+    ]
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "event_title": "Polymarket vs Kalshi",
+    "market_question": "Will the Minnesota Wild be named the 2026-27 NHL Stanley Cup Champion?",
+    "outcome_label": "POLY_YES_KALSHI_NO",
+    "net_roi_pct": 0.5,
+    "net_profit_usd": 0.5001,
+    "capital_required_usd": 99.5,
+    "details": "Poly YES @$0.051 + Kalshi KXNHL-27-MIN_NO @$0.940 | Shares: 100.0 | Net Cost: $99.50 | Fees: $0.40",
+    "token_ids": [
+      "69745104469403333020160244614646844450531941226002369026044461018822036189329",
+      "KXNHL-27-MIN_NO"
     ]
   },
   {
@@ -546,9 +576,9 @@
     "market_question": "Will Marco Rubio win the 2028 US Presidential Election?",
     "outcome_label": "POLY_YES_KALSHI_NO",
     "net_roi_pct": 0.27,
-    "net_profit_usd": 0.0068,
-    "capital_required_usd": 2.49,
-    "details": "Poly YES @$0.089 + Kalshi KXPRESPERSON-28-MRUB_NO @$0.902 | Shares: 2.5 | Net Cost: $2.49 | Fees: $0.02",
+    "net_profit_usd": 0.2513,
+    "capital_required_usd": 92.03,
+    "details": "Poly YES @$0.089 + Kalshi KXPRESPERSON-28-MRUB_NO @$0.902 | Shares: 92.3 | Net Cost: $92.03 | Fees: $0.58",
     "token_ids": [
       "11171618905857319805355893398009978356002287408842633593535559412449299952250",
       "KXPRESPERSON-28-MRUB_NO"
@@ -649,12 +679,26 @@
     "event_title": "Nobel Peace Prize Winner 2027",
     "market_question": "Will Sudan's Emergency Response Rooms win the Nobel Peace Prize in 2027?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.14,
-    "net_profit_usd": 0.0873,
+    "net_roi_pct": 3.15,
+    "net_profit_usd": 0.0876,
     "capital_required_usd": 2.78,
-    "details": "Ask(YES): $0.077 | Ask(NO): $0.926 | Model P(YES): 0.030 | Edge: $+0.029/sh",
+    "details": "Ask(YES): $0.079 | Ask(NO): $0.925 | Model P(YES): 0.031 | Edge: $+0.029/sh",
     "token_ids": [
       "77848459960702863977246408788860641708549465181147734015572668114502260315346"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "event_title": "What price will Bitcoin hit in October?",
+    "market_question": "Will Bitcoin dip to $72,500 in October?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 3.12,
+    "net_profit_usd": 0.087,
+    "capital_required_usd": 2.78,
+    "details": "Ask(YES): $0.073 | Ask(NO): $0.928 | Model P(YES): 0.028 | Edge: $+0.029/sh",
+    "token_ids": [
+      "72624341280159472994524480084115312651813992006632059407465419165722353069536"
     ]
   },
   {
@@ -688,15 +732,15 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "What price will Bitcoin hit in October?",
-    "market_question": "Will Bitcoin dip to $72,500 in October?",
+    "event_title": "US-Canada diplomatic agreement to lower tariffs by...?",
+    "market_question": "US-Canada diplomatic agreement to lower tariffs by October 31?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.06,
-    "net_profit_usd": 0.0852,
-    "capital_required_usd": 2.79,
-    "details": "Ask(YES): $0.072 | Ask(NO): $0.929 | Model P(YES): 0.028 | Edge: $+0.028/sh",
+    "net_roi_pct": 2.88,
+    "net_profit_usd": 0.0804,
+    "capital_required_usd": 2.8,
+    "details": "Ask(YES): $0.069 | Ask(NO): $0.932 | Model P(YES): 0.027 | Edge: $+0.027/sh",
     "token_ids": [
-      "72624341280159472994524480084115312651813992006632059407465419165722353069536"
+      "65649520046452759158800009579029640919660500322571062465319367177825126496484"
     ]
   },
   {
@@ -716,20 +760,6 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "US-Canada diplomatic agreement to lower tariffs by...?",
-    "market_question": "US-Canada diplomatic agreement to lower tariffs by October 31?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.78,
-    "net_profit_usd": 0.0777,
-    "capital_required_usd": 2.8,
-    "details": "Ask(YES): $0.071 | Ask(NO): $0.932 | Model P(YES): 0.028 | Edge: $+0.026/sh",
-    "token_ids": [
-      "65649520046452759158800009579029640919660500322571062465319367177825126496484"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
     "event_title": "Democratic Presidential Nominee 2028",
     "market_question": "Will Kamala Harris win the 2028 Democratic presidential nomination?",
     "outcome_label": "Short (Buy NO)",
@@ -739,6 +769,20 @@
     "details": "Ask(YES): $0.066 | Ask(NO): $0.935 | Model P(YES): 0.025 | Edge: $+0.025/sh",
     "token_ids": [
       "26930844951471612827925270830087046333229637930899178134435055616497220846773"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "event_title": "What price will Ethereum hit in October?",
+    "market_question": "Will Ethereum dip to $2,000 in October?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.63,
+    "net_profit_usd": 0.0738,
+    "capital_required_usd": 2.81,
+    "details": "Ask(YES): $0.065 | Ask(NO): $0.936 | Model P(YES): 0.025 | Edge: $+0.025/sh",
+    "token_ids": [
+      "51972977550529908718878676759390494563647955011461429104529971797196543454856"
     ]
   },
   {
@@ -772,20 +816,6 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "What price will Ethereum hit in October?",
-    "market_question": "Will Ethereum reach $2,700 in October?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.55,
-    "net_profit_usd": 0.0474,
-    "capital_required_usd": 1.86,
-    "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
-    "token_ids": [
-      "91961959481824680210986597394029542936906133094571511765805599659917881081672"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
     "event_title": "Oscars 2027: Best Picture Winner",
     "market_question": "Will Dune: Part Three win Best Picture at the 99th Academy Awards?",
     "outcome_label": "Short (Buy NO)",
@@ -809,6 +839,20 @@
     "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
     "token_ids": [
       "41721041026870607028575681788940355978229045642094586500562747855544548109895"
+    ]
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "event_title": "Next French Presidential Election: who will advance to the 2nd round?",
+    "market_question": "Will Jordan Bardella advance to the second round of the next French presidential election?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.55,
+    "net_profit_usd": 0.0474,
+    "capital_required_usd": 1.86,
+    "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | Model P(YES): 0.032 | Edge: $+0.024/sh",
+    "token_ids": [
+      "72021097927534289022361341011450053983269008762704582663082298122723324133671"
     ]
   },
   {
@@ -856,27 +900,13 @@
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
-    "event_title": "Next French Presidential Election: who will advance to the 2nd round?",
-    "market_question": "Will Bruno Retailleau advance to the second round of the next French presidential election?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.17,
-    "net_profit_usd": 0.0612,
-    "capital_required_usd": 2.83,
-    "details": "Ask(YES): $0.061 | Ask(NO): $0.942 | Model P(YES): 0.023 | Edge: $+0.020/sh",
-    "token_ids": [
-      "106465030988177855632101560314395721796367664179745605642045926714543060233091"
-    ]
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
     "event_title": "Which company has best AI model end of 2026?",
     "market_question": "Will OpenAI have the best AI model at the end of December 2026?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.06,
-    "net_profit_usd": 0.0582,
+    "net_roi_pct": 2.1,
+    "net_profit_usd": 0.0594,
     "capital_required_usd": 2.83,
-    "details": "Ask(YES): $0.061 | Ask(NO): $0.943 | Model P(YES): 0.023 | Edge: $+0.019/sh",
+    "details": "Ask(YES): $0.060 | Ask(NO): $0.943 | Model P(YES): 0.022 | Edge: $+0.020/sh",
     "token_ids": [
       "46139126981840754805284654909166478580319063560175200352549484585453210508880"
     ]
