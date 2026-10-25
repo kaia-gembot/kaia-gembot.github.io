@@ -1,0 +1,344 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Deep cedar gorge sky & canyon shadow gradient -->
+    <linearGradient id="gorgeBg" x1="0" y1="0" x2="0" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0C1B18"/>
+      <stop offset="50%" stop-color="#132924"/>
+      <stop offset="100%" stop-color="#18352F"/>
+    </linearGradient>
+
+    <!-- Warm autumn sunlight shaft filtering through the gorge canopy -->
+    <linearGradient id="sunShaft" x1="690" y1="0" x2="310" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFE6A3" stop-opacity="0.26"/>
+      <stop offset="45%" stop-color="#F2B45C" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#285C52" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Daishoji River emerald-jade water gradient -->
+    <linearGradient id="jadeRiver" x1="200" y1="275" x2="520" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#143832"/>
+      <stop offset="28%" stop-color="#1C4B43"/>
+      <stop offset="65%" stop-color="#266358"/>
+      <stop offset="100%" stop-color="#163D36"/>
+    </linearGradient>
+
+    <!-- Warm crimson water reflection cast by the nodate umbrella -->
+    <radialGradient id="umbrellaWaterReflect" cx="235" cy="425" r="195" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D93B28" stop-opacity="0.34"/>
+      <stop offset="55%" stop-color="#A8281C" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#1C4B43" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Vermilion nodate wagasa oiled-washi canopy gradient (backlit by afternoon sun) -->
+    <radialGradient id="wagasaCanopy" cx="255" cy="82" r="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F76840"/>
+      <stop offset="35%" stop-color="#DF3626"/>
+      <stop offset="72%" stop-color="#B21E16"/>
+      <stop offset="100%" stop-color="#78110C"/>
+    </radialGradient>
+
+    <!-- Weathered cedar kawadoko deck planks -->
+    <linearGradient id="cedarDeck" x1="0" y1="470" x2="800" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#261712"/>
+      <stop offset="50%" stop-color="#1E120E"/>
+      <stop offset="100%" stop-color="#140B08"/>
+    </linearGradient>
+
+    <!-- Woven golden-rush tatami mat -->
+    <linearGradient id="tatamiMat" x1="80" y1="500" x2="760" y2="790" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9E8252"/>
+      <stop offset="38%" stop-color="#BA9D68"/>
+      <stop offset="75%" stop-color="#CFB47E"/>
+      <stop offset="100%" stop-color="#C2A56E"/>
+    </linearGradient>
+
+    <!-- Warm red-rose glow cast by the translucent wagasa onto the tatami mat -->
+    <radialGradient id="wagasaMatGlow" cx="260" cy="610" r="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D93826" stop-opacity="0.22"/>
+      <stop offset="65%" stop-color="#A82418" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Yamanaka wood-turned sensuji urushi tray gradient -->
+    <radialGradient id="yamanakaTray" cx="445" cy="635" r="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#331D15"/>
+      <stop offset="55%" stop-color="#1F110C"/>
+      <stop offset="88%" stop-color="#140A07"/>
+      <stop offset="100%" stop-color="#2B1610"/>
+    </radialGradient>
+
+    <!-- Cold Matcha Shiruko (冷製抹茶しるこ) deep velvety jade glaze -->
+    <radialGradient id="matchaShiruko" cx="385" cy="634" r="74" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4A915B"/>
+      <stop offset="48%" stop-color="#337043"/>
+      <stop offset="82%" stop-color="#225230"/>
+      <stop offset="100%" stop-color="#173B21"/>
+    </radialGradient>
+
+    <!-- Glossy shiratama mochi rice dumpling -->
+    <radialGradient id="shiratamaGrad" cx="0.35" cy="0.32" r="0.65">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="55%" stop-color="#F7F3E8"/>
+      <stop offset="85%" stop-color="#DCE3D8"/>
+      <stop offset="100%" stop-color="#B8C7B6"/>
+    </radialGradient>
+
+    <!-- Roasted Kaga-bocha (加賀棒茶) amber tea gradient -->
+    <linearGradient id="kagaBocha" x1="548" y1="560" x2="548" y2="646" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F29E38" stop-opacity="0.88"/>
+      <stop offset="45%" stop-color="#CC5E18" stop-opacity="0.92"/>
+      <stop offset="85%" stop-color="#8F340B" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#5E1E06" stop-opacity="0.98"/>
+    </linearGradient>
+
+    <!-- Amber caustic glow from the Kaga-bocha glass onto the dark lacquer tray -->
+    <radialGradient id="bochaCaustic" cx="578" cy="648" r="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF9E3B" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#D95E16" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#1F110C" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <filter id="gorgeMist" filterUnits="userSpaceOnUse" x="0" y="0" width="800" height="600">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="softShadow" filterUnits="userSpaceOnUse" x="150" y="480" width="600" height="310">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <!-- 1. Deep Kakusenkei Gorge Background -->
+  <rect x="0" y="0" width="800" height="800" fill="url(#gorgeBg)"/>
+
+  <!-- Vertical cedar trunks in the misty upper canyon -->
+  <g opacity="0.52">
+    <rect x="365" y="0" width="16" height="220" fill="#0A1714"/>
+    <rect x="408" y="0" width="22" height="210" fill="#0D1E1A"/>
+    <rect x="468" y="0" width="14" height="215" fill="#0A1714"/>
+    <rect x="518" y="0" width="24" height="225" fill="#0D1E1A"/>
+    <rect x="588" y="0" width="26" height="235" fill="#091512"/>
+    <rect x="652" y="0" width="18" height="225" fill="#0C1B18"/>
+  </g>
+
+  <!-- Distant S-curve of crimson Ayatori Bridge (あやとりはし) high across the gorge -->
+  <g opacity="0.76">
+    <path d="M 330,92 C 435,72 545,112 675,84 L 675,98 C 545,126 435,86 330,106 Z" fill="#8C2622"/>
+    <path d="M 330,78 C 435,58 545,98 675,70" fill="none" stroke="#B83830" stroke-width="2.0"/>
+    <path d="M 355,76 L 368,104 M 385,74 L 398,102 M 415,75 L 428,103 M 445,79 L 458,107 M 475,84 L 488,112 M 505,89 L 518,117 M 535,92 L 548,120 M 565,91 L 578,119 M 595,87 L 608,115 M 625,81 L 638,109" stroke="#D95648" stroke-width="1.3" opacity="0.75"/>
+  </g>
+
+  <!-- Diagonal shaft of afternoon autumn sun piercing the gorge -->
+  <polygon points="480,0 800,0 800,340 310,540 160,450" fill="url(#sunShaft)"/>
+
+  <!-- 2. Layered Basalt Gorge Cliffs & Fudo Waterfall (不動滝) in Clear View (x = 408..496, y = 148..296) -->
+  <!-- Left bank dark basalt cliff behind umbrella -->
+  <polygon points="0,155 285,152 365,172 418,162 414,292 0,286" fill="#12241F"/>
+  <polygon points="260,172 355,172 414,195 408,290 235,286" fill="#182E27"/>
+  <!-- Craggy rock facets on the left of the waterfall -->
+  <polygon points="335,172 416,162 412,226 362,238 322,208" fill="#203A31"/>
+  <polygon points="358,228 412,222 406,290 335,288" fill="#162923"/>
+  <!-- Organic mossy crags & fern clusters along the left canyon wall -->
+  <path d="M 295,174 L 325,166 L 362,172 L 395,165 L 412,176 L 378,188 L 332,184 Z" fill="#2F5239"/>
+  <path d="M 338,218 L 374,212 L 408,220 L 392,234 L 352,232 Z" fill="#3A6344"/>
+
+  <!-- Right bank multi-tiered basalt cliff flanking Fudo Waterfall -->
+  <polygon points="482,155 568,148 665,164 800,152 800,315 476,294" fill="#142822"/>
+  <polygon points="486,162 576,154 615,212 562,240 482,228" fill="#1D362E"/>
+  <polygon points="482,224 585,218 645,256 620,298 476,294" fill="#182D26"/>
+  <polygon points="595,164 715,156 765,228 690,262 585,218" fill="#213D34"/>
+  <!-- Mossy shelves on the right canyon ledges -->
+  <path d="M 488,162 L 535,154 L 584,158 L 622,168 L 588,182 L 528,178 Z" fill="#34593E"/>
+  <path d="M 486,220 L 538,214 L 586,222 L 564,236 L 512,234 Z" fill="#3F6948"/>
+  <path d="M 612,198 L 672,192 L 732,204 L 748,218 L 692,224 L 635,215 Z" fill="#2E4F37"/>
+  <path d="M 595,248 L 658,242 L 725,255 L 702,272 L 628,266 Z" fill="#385E41"/>
+
+  <!-- Fudo Waterfall (不動滝) — Three Stepped White-Jade Cascades at x = 408..490, y = 158..296 -->
+  <g>
+    <!-- Upper cascade -->
+    <path d="M 422,158 C 426,182 420,198 416,216 L 478,218 C 474,198 470,180 472,158 Z" fill="#BCE6DE" opacity="0.82"/>
+    <path d="M 430,158 C 433,182 428,198 424,216 M 442,158 C 444,182 440,198 438,216 M 454,158 C 455,182 453,198 452,217 M 465,158 C 466,182 465,198 465,217" stroke="#F4FCFA" stroke-width="2.4" stroke-linecap="round" fill="none" opacity="0.92"/>
+    <!-- Dark wet basalt dividing rock shelf -->
+    <polygon points="408,214 445,209 488,215 482,228 442,224 412,226" fill="#1A3029"/>
+    <polygon points="436,212 458,211 462,225 432,224" fill="#2A4A3E"/>
+    <!-- Lower wider cascade fanning into the emerald plunge pool -->
+    <path d="M 414,224 C 408,252 400,274 392,294 L 494,296 C 488,274 482,250 478,224 Z" fill="#CDEFE8" opacity="0.86"/>
+    <path d="M 422,224 C 417,252 410,274 404,294 M 434,224 C 431,252 426,274 422,294 M 447,224 C 446,252 445,274 444,295 M 460,224 C 462,252 464,274 466,295 M 471,224 C 475,252 479,274 483,295" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" fill="none" opacity="0.95"/>
+    <!-- Waterfall plunge mist & foam collar -->
+    <ellipse cx="444" cy="295" rx="82" ry="20" fill="#E6F7F3" opacity="0.48" filter="url(#gorgeMist)"/>
+    <path d="M 384,294 Q 444,306 504,295" fill="none" stroke="#F2FCF9" stroke-width="3.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M 368,306 Q 446,320 522,306" fill="none" stroke="#D8F2EC" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
+  </g>
+
+  <!-- 3. The Emerald-Jade Daishoji River (大聖寺川) -->
+  <path d="M 0,282 L 800,290 L 800,600 L 0,600 Z" fill="url(#jadeRiver)"/>
+  <!-- Repeat plunge foam ribbons over the river top -->
+  <ellipse cx="444" cy="296" rx="68" ry="14" fill="#E8F8F5" opacity="0.45" filter="url(#gorgeMist)"/>
+  <path d="M 384,294 Q 444,306 504,295" fill="none" stroke="#F4FCFA" stroke-width="3.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M 368,307 Q 446,320 522,307" fill="none" stroke="#D8F2EC" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
+
+  <!-- Crimson umbrella reflection shimmering on the river water -->
+  <ellipse cx="235" cy="425" rx="195" ry="105" fill="url(#umbrellaWaterReflect)"/>
+
+  <!-- Swirling celadon and jade current lines & rapids -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M 425,302 C 380,322 290,328 245,352 C 195,378 295,408 235,442 C 185,470 95,468 45,485" stroke="#64B2A3" stroke-width="2.8" opacity="0.52"/>
+    <path d="M 465,304 C 515,326 430,352 485,382 C 545,414 665,418 725,455" stroke="#72BFB0" stroke-width="2.4" opacity="0.48"/>
+    <path d="M 345,336 Q 418,348 492,334" stroke="#B8E6DD" stroke-width="2.0" opacity="0.62"/>
+    <path d="M 255,368 Q 335,382 415,366" stroke="#8EC9BD" stroke-width="1.8" opacity="0.52"/>
+    <path d="M 135,418 Q 215,432 295,418" stroke="#F29E8E" stroke-width="2.0" opacity="0.42"/>
+    <path d="M 168,448 Q 245,460 318,446" stroke="#F29E8E" stroke-width="1.5" opacity="0.35"/>
+    <path d="M 410,432 Q 495,446 580,430" stroke="#7ABFB2" stroke-width="2.0" opacity="0.46"/>
+    <path d="M 485,478 Q 575,492 665,476" stroke="#68B2A4" stroke-width="1.8" opacity="0.42"/>
+  </g>
+
+  <!-- Angular, multi-faceted mossy volcanic river boulders in the rapids -->
+  <g>
+    <!-- Left-stream boulder cluster -->
+    <ellipse cx="122" cy="364" rx="64" ry="20" fill="#0B1F1B" opacity="0.72"/>
+    <polygon points="64,362 78,334 114,324 156,332 178,356 158,368 88,368" fill="#1C2E28"/>
+    <polygon points="78,334 114,324 142,338 112,354 72,352" fill="#294038"/>
+    <polygon points="88,332 116,324 148,332 134,342 96,342" fill="#3C6143"/>
+    <path d="M 56,364 Q 122,378 186,360" fill="none" stroke="#DCF2EE" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/>
+
+    <!-- Right-stream boulder cluster -->
+    <ellipse cx="648" cy="402" rx="76" ry="24" fill="#0B1F1B" opacity="0.72"/>
+    <polygon points="576,398 596,364 644,352 694,362 718,392 692,406 604,406" fill="#1A2B25"/>
+    <polygon points="596,364 644,352 678,370 638,388 586,386" fill="#263D35"/>
+    <polygon points="608,360 646,352 686,362 668,374 618,372" fill="#426947"/>
+    <path d="M 568,400 Q 648,418 726,396" fill="none" stroke="#DCF2EE" stroke-width="2.2" stroke-linecap="round" opacity="0.78"/>
+  </g>
+
+  <!-- Floating autumn momiji leaves on the river -->
+  <g transform="translate(275.0,392.0) rotate(35.0)"><path d="M 0.0,-13.0 L 2.2,-5.8 L 10.1,-10.1 L 5.0,-2.2 L 12.2,1.4 L 4.3,3.6 L 7.2,10.1 L 1.4,5.8 L 0.0,9.4 L -1.4,5.8 L -7.2,10.1 L -4.3,3.6 L -12.2,1.4 L -5.0,-2.2 L -10.1,-10.1 L -2.2,-5.8 Z" fill="#E05A24" stroke="#6E1E0A" stroke-width="0.50" stroke-linejoin="round"/><path d="M 0,7.9 L 0,-10.1 M 0,1.4 L 7.2,-7.2 M 0,1.4 L -7.2,-7.2 M 0,3.6 L 8.6,0.7 M 0,3.6 L -8.6,0.7" stroke="#6E1E0A" stroke-width="0.36" opacity="0.65" fill="none"/></g><g transform="translate(518.0,438.0) rotate(-22.0)"><path d="M 0.0,-14.4 L 2.4,-6.4 L 11.2,-11.2 L 5.6,-2.4 L 13.6,1.6 L 4.8,4.0 L 8.0,11.2 L 1.6,6.4 L 0.0,10.4 L -1.6,6.4 L -8.0,11.2 L -4.8,4.0 L -13.6,1.6 L -5.6,-2.4 L -11.2,-11.2 L -2.4,-6.4 Z" fill="#F2A438" stroke="#7A420E" stroke-width="0.56" stroke-linejoin="round"/><path d="M 0,8.8 L 0,-11.2 M 0,1.6 L 8.0,-8.0 M 0,1.6 L -8.0,-8.0 M 0,4.0 L 9.6,0.8 M 0,4.0 L -9.6,0.8" stroke="#7A420E" stroke-width="0.40" opacity="0.65" fill="none"/></g><g transform="translate(196.0,452.0) rotate(18.0)"><path d="M 0.0,-15.5 L 2.6,-6.9 L 12.0,-12.0 L 6.0,-2.6 L 14.6,1.7 L 5.2,4.3 L 8.6,12.0 L 1.7,6.9 L 0.0,11.2 L -1.7,6.9 L -8.6,12.0 L -5.2,4.3 L -14.6,1.7 L -6.0,-2.6 L -12.0,-12.0 L -2.6,-6.9 Z" fill="#C92E20" stroke="#5E0E0A" stroke-width="0.60" stroke-linejoin="round"/><path d="M 0,9.5 L 0,-12.0 M 0,1.7 L 8.6,-8.6 M 0,1.7 L -8.6,-8.6 M 0,4.3 L 10.3,0.9 M 0,4.3 L -10.3,0.9" stroke="#5E0E0A" stroke-width="0.43" opacity="0.65" fill="none"/></g>
+
+  <!-- 4. Overhanging Japanese Maple (紅葉) Branches in Upper Right -->
+  <g fill="none" stroke="#23140E" stroke-linecap="round">
+    <path d="M 800,14 C 725,28 645,40 538,56" stroke-width="5.2"/>
+    <path d="M 745,24 C 702,62 658,84 612,92" stroke-width="3.5"/>
+    <path d="M 800,88 C 750,110 705,124 662,134" stroke-width="4.0"/>
+    <path d="M 800,196 C 768,208 742,216 718,216" stroke-width="3.0"/>
+  </g>
+  <g transform="translate(768.0,36.0) rotate(-25.0)"><path d="M 0.0,-26.1 L 4.3,-11.6 L 20.3,-20.3 L 10.2,-4.3 L 24.6,2.9 L 8.7,7.2 L 14.5,20.3 L 2.9,11.6 L 0.0,18.8 L -2.9,11.6 L -14.5,20.3 L -8.7,7.2 L -24.6,2.9 L -10.2,-4.3 L -20.3,-20.3 L -4.3,-11.6 Z" fill="#B8251C" stroke="#5E0E0A" stroke-width="1.01" stroke-linejoin="round"/><path d="M 0,15.9 L 0,-20.3 M 0,2.9 L 14.5,-14.5 M 0,2.9 L -14.5,-14.5 M 0,7.2 L 17.4,1.4 M 0,7.2 L -17.4,1.4" stroke="#5E0E0A" stroke-width="0.72" opacity="0.65" fill="none"/></g><g transform="translate(730.0,28.0) rotate(15.0)"><path d="M 0.0,-24.3 L 4.1,-10.8 L 18.9,-18.9 L 9.5,-4.1 L 23.0,2.7 L 8.1,6.8 L 13.5,18.9 L 2.7,10.8 L 0.0,17.6 L -2.7,10.8 L -13.5,18.9 L -8.1,6.8 L -23.0,2.7 L -9.5,-4.1 L -18.9,-18.9 L -4.1,-10.8 Z" fill="#D94E22" stroke="#6E1E0A" stroke-width="0.94" stroke-linejoin="round"/><path d="M 0,14.9 L 0,-18.9 M 0,2.7 L 13.5,-13.5 M 0,2.7 L -13.5,-13.5 M 0,6.8 L 16.2,1.4 M 0,6.8 L -16.2,1.4" stroke="#6E1E0A" stroke-width="0.68" opacity="0.65" fill="none"/></g><g transform="translate(692.0,46.0) rotate(-40.0)"><path d="M 0.0,-27.0 L 4.5,-12.0 L 21.0,-21.0 L 10.5,-4.5 L 25.5,3.0 L 9.0,7.5 L 15.0,21.0 L 3.0,12.0 L 0.0,19.5 L -3.0,12.0 L -15.0,21.0 L -9.0,7.5 L -25.5,3.0 L -10.5,-4.5 L -21.0,-21.0 L -4.5,-12.0 Z" fill="#E88828" stroke="#7A380C" stroke-width="1.05" stroke-linejoin="round"/><path d="M 0,16.5 L 0,-21.0 M 0,3.0 L 15.0,-15.0 M 0,3.0 L -15.0,-15.0 M 0,7.5 L 18.0,1.5 M 0,7.5 L -18.0,1.5" stroke="#7A380C" stroke-width="0.75" opacity="0.65" fill="none"/></g><g transform="translate(654.0,32.0) rotate(10.0)"><path d="M 0.0,-22.5 L 3.8,-10.0 L 17.5,-17.5 L 8.8,-3.8 L 21.2,2.5 L 7.5,6.2 L 12.5,17.5 L 2.5,10.0 L 0.0,16.2 L -2.5,10.0 L -12.5,17.5 L -7.5,6.2 L -21.2,2.5 L -8.8,-3.8 L -17.5,-17.5 L -3.8,-10.0 Z" fill="#F4B844" stroke="#8A5212" stroke-width="0.88" stroke-linejoin="round"/><path d="M 0,13.8 L 0,-17.5 M 0,2.5 L 12.5,-12.5 M 0,2.5 L -12.5,-12.5 M 0,6.2 L 15.0,1.2 M 0,6.2 L -15.0,1.2" stroke="#8A5212" stroke-width="0.62" opacity="0.65" fill="none"/></g><g transform="translate(618.0,54.0) rotate(-18.0)"><path d="M 0.0,-24.8 L 4.1,-11.0 L 19.3,-19.3 L 9.7,-4.1 L 23.5,2.8 L 8.3,6.9 L 13.8,19.3 L 2.8,11.0 L 0.0,17.9 L -2.8,11.0 L -13.8,19.3 L -8.3,6.9 L -23.5,2.8 L -9.7,-4.1 L -19.3,-19.3 L -4.1,-11.0 Z" fill="#D43D20" stroke="#68160A" stroke-width="0.97" stroke-linejoin="round"/><path d="M 0,15.2 L 0,-19.3 M 0,2.8 L 13.8,-13.8 M 0,2.8 L -13.8,-13.8 M 0,6.9 L 16.6,1.4 M 0,6.9 L -16.6,1.4" stroke="#68160A" stroke-width="0.69" opacity="0.65" fill="none"/></g><g transform="translate(582.0,42.0) rotate(28.0)"><path d="M 0.0,-21.2 L 3.5,-9.4 L 16.5,-16.5 L 8.3,-3.5 L 20.1,2.4 L 7.1,5.9 L 11.8,16.5 L 2.4,9.4 L 0.0,15.3 L -2.4,9.4 L -11.8,16.5 L -7.1,5.9 L -20.1,2.4 L -8.3,-3.5 L -16.5,-16.5 L -3.5,-9.4 Z" fill="#F7CC5C" stroke="#8E5A14" stroke-width="0.83" stroke-linejoin="round"/><path d="M 0,13.0 L 0,-16.5 M 0,2.4 L 11.8,-11.8 M 0,2.4 L -11.8,-11.8 M 0,5.9 L 14.2,1.2 M 0,5.9 L -14.2,1.2" stroke="#8E5A14" stroke-width="0.59" opacity="0.65" fill="none"/></g><g transform="translate(548.0,66.0) rotate(-32.0)"><path d="M 0.0,-22.5 L 3.8,-10.0 L 17.5,-17.5 L 8.8,-3.8 L 21.2,2.5 L 7.5,6.2 L 12.5,17.5 L 2.5,10.0 L 0.0,16.2 L -2.5,10.0 L -12.5,17.5 L -7.5,6.2 L -21.2,2.5 L -8.8,-3.8 L -17.5,-17.5 L -3.8,-10.0 Z" fill="#E36826" stroke="#74280A" stroke-width="0.88" stroke-linejoin="round"/><path d="M 0,13.8 L 0,-17.5 M 0,2.5 L 12.5,-12.5 M 0,2.5 L -12.5,-12.5 M 0,6.2 L 15.0,1.2 M 0,6.2 L -15.0,1.2" stroke="#74280A" stroke-width="0.62" opacity="0.65" fill="none"/></g><g transform="translate(752.0,78.0) rotate(-12.0)"><path d="M 0.0,-24.3 L 4.1,-10.8 L 18.9,-18.9 L 9.5,-4.1 L 23.0,2.7 L 8.1,6.8 L 13.5,18.9 L 2.7,10.8 L 0.0,17.6 L -2.7,10.8 L -13.5,18.9 L -8.1,6.8 L -23.0,2.7 L -9.5,-4.1 L -18.9,-18.9 L -4.1,-10.8 Z" fill="#E87A24" stroke="#742E0A" stroke-width="0.94" stroke-linejoin="round"/><path d="M 0,14.9 L 0,-18.9 M 0,2.7 L 13.5,-13.5 M 0,2.7 L -13.5,-13.5 M 0,6.8 L 16.2,1.4 M 0,6.8 L -16.2,1.4" stroke="#742E0A" stroke-width="0.68" opacity="0.65" fill="none"/></g><g transform="translate(708.0,88.0) rotate(22.0)"><path d="M 0.0,-25.6 L 4.3,-11.4 L 19.9,-19.9 L 9.9,-4.3 L 24.1,2.8 L 8.5,7.1 L 14.2,19.9 L 2.8,11.4 L 0.0,18.5 L -2.8,11.4 L -14.2,19.9 L -8.5,7.1 L -24.1,2.8 L -9.9,-4.3 L -19.9,-19.9 L -4.3,-11.4 Z" fill="#B8221A" stroke="#580C08" stroke-width="0.99" stroke-linejoin="round"/><path d="M 0,15.6 L 0,-19.9 M 0,2.8 L 14.2,-14.2 M 0,2.8 L -14.2,-14.2 M 0,7.1 L 17.0,1.4 M 0,7.1 L -17.0,1.4" stroke="#580C08" stroke-width="0.71" opacity="0.65" fill="none"/></g><g transform="translate(668.0,82.0) rotate(-28.0)"><path d="M 0.0,-22.0 L 3.7,-9.8 L 17.1,-17.1 L 8.5,-3.7 L 20.7,2.4 L 7.3,6.1 L 12.2,17.1 L 2.4,9.8 L 0.0,15.9 L -2.4,9.8 L -12.2,17.1 L -7.3,6.1 L -20.7,2.4 L -8.5,-3.7 L -17.1,-17.1 L -3.7,-9.8 Z" fill="#F2A838" stroke="#824810" stroke-width="0.85" stroke-linejoin="round"/><path d="M 0,13.4 L 0,-17.1 M 0,2.4 L 12.2,-12.2 M 0,2.4 L -12.2,-12.2 M 0,6.1 L 14.6,1.2 M 0,6.1 L -14.6,1.2" stroke="#824810" stroke-width="0.61" opacity="0.65" fill="none"/></g><g transform="translate(632.0,98.0) rotate(8.0)"><path d="M 0.0,-23.0 L 3.8,-10.2 L 17.9,-17.9 L 9.0,-3.8 L 21.8,2.6 L 7.7,6.4 L 12.8,17.9 L 2.6,10.2 L 0.0,16.6 L -2.6,10.2 L -12.8,17.9 L -7.7,6.4 L -21.8,2.6 L -9.0,-3.8 L -17.9,-17.9 L -3.8,-10.2 Z" fill="#D94820" stroke="#6A1A0A" stroke-width="0.90" stroke-linejoin="round"/><path d="M 0,14.1 L 0,-17.9 M 0,2.6 L 12.8,-12.8 M 0,2.6 L -12.8,-12.8 M 0,6.4 L 15.4,1.3 M 0,6.4 L -15.4,1.3" stroke="#6A1A0A" stroke-width="0.64" opacity="0.65" fill="none"/></g><g transform="translate(778.0,114.0) rotate(-35.0)"><path d="M 0.0,-24.8 L 4.1,-11.0 L 19.3,-19.3 L 9.7,-4.1 L 23.5,2.8 L 8.3,6.9 L 13.8,19.3 L 2.8,11.0 L 0.0,17.9 L -2.8,11.0 L -13.8,19.3 L -8.3,6.9 L -23.5,2.8 L -9.7,-4.1 L -19.3,-19.3 L -4.1,-11.0 Z" fill="#A81E16" stroke="#4E0A06" stroke-width="0.97" stroke-linejoin="round"/><path d="M 0,15.2 L 0,-19.3 M 0,2.8 L 13.8,-13.8 M 0,2.8 L -13.8,-13.8 M 0,6.9 L 16.6,1.4 M 0,6.9 L -16.6,1.4" stroke="#4E0A06" stroke-width="0.69" opacity="0.65" fill="none"/></g><g transform="translate(738.0,126.0) rotate(18.0)"><path d="M 0.0,-22.0 L 3.7,-9.8 L 17.1,-17.1 L 8.5,-3.7 L 20.7,2.4 L 7.3,6.1 L 12.2,17.1 L 2.4,9.8 L 0.0,15.9 L -2.4,9.8 L -12.2,17.1 L -7.3,6.1 L -20.7,2.4 L -8.5,-3.7 L -17.1,-17.1 L -3.7,-9.8 Z" fill="#DF5C22" stroke="#6E220A" stroke-width="0.85" stroke-linejoin="round"/><path d="M 0,13.4 L 0,-17.1 M 0,2.4 L 12.2,-12.2 M 0,2.4 L -12.2,-12.2 M 0,6.1 L 14.6,1.2 M 0,6.1 L -14.6,1.2" stroke="#6E220A" stroke-width="0.61" opacity="0.65" fill="none"/></g><g transform="translate(696.0,120.0) rotate(-22.0)"><path d="M 0.0,-20.7 L 3.4,-9.2 L 16.1,-16.1 L 8.0,-3.4 L 19.5,2.3 L 6.9,5.8 L 11.5,16.1 L 2.3,9.2 L 0.0,14.9 L -2.3,9.2 L -11.5,16.1 L -6.9,5.8 L -19.5,2.3 L -8.0,-3.4 L -16.1,-16.1 L -3.4,-9.2 Z" fill="#F09B32" stroke="#7C420E" stroke-width="0.80" stroke-linejoin="round"/><path d="M 0,12.6 L 0,-16.1 M 0,2.3 L 11.5,-11.5 M 0,2.3 L -11.5,-11.5 M 0,5.8 L 13.8,1.1 M 0,5.8 L -13.8,1.1" stroke="#7C420E" stroke-width="0.57" opacity="0.65" fill="none"/></g><g transform="translate(762.0,156.0) rotate(-14.0)"><path d="M 0.0,-22.0 L 3.7,-9.8 L 17.1,-17.1 L 8.5,-3.7 L 20.7,2.4 L 7.3,6.1 L 12.2,17.1 L 2.4,9.8 L 0.0,15.9 L -2.4,9.8 L -12.2,17.1 L -7.3,6.1 L -20.7,2.4 L -8.5,-3.7 L -17.1,-17.1 L -3.7,-9.8 Z" fill="#E88228" stroke="#78340C" stroke-width="0.85" stroke-linejoin="round"/><path d="M 0,13.4 L 0,-17.1 M 0,2.4 L 12.2,-12.2 M 0,2.4 L -12.2,-12.2 M 0,6.1 L 14.6,1.2 M 0,6.1 L -14.6,1.2" stroke="#78340C" stroke-width="0.61" opacity="0.65" fill="none"/></g><g transform="translate(722.0,166.0) rotate(24.0)"><path d="M 0.0,-19.8 L 3.3,-8.8 L 15.4,-15.4 L 7.7,-3.3 L 18.7,2.2 L 6.6,5.5 L 11.0,15.4 L 2.2,8.8 L 0.0,14.3 L -2.2,8.8 L -11.0,15.4 L -6.6,5.5 L -18.7,2.2 L -7.7,-3.3 L -15.4,-15.4 L -3.3,-8.8 Z" fill="#F5BE4C" stroke="#865012" stroke-width="0.77" stroke-linejoin="round"/><path d="M 0,12.1 L 0,-15.4 M 0,2.2 L 11.0,-11.0 M 0,2.2 L -11.0,-11.0 M 0,5.5 L 13.2,1.1 M 0,5.5 L -13.2,1.1" stroke="#865012" stroke-width="0.55" opacity="0.65" fill="none"/></g><g transform="translate(782.0,206.0) rotate(-28.0)"><path d="M 0.0,-22.5 L 3.8,-10.0 L 17.5,-17.5 L 8.8,-3.8 L 21.2,2.5 L 7.5,6.2 L 12.5,17.5 L 2.5,10.0 L 0.0,16.2 L -2.5,10.0 L -12.5,17.5 L -7.5,6.2 L -21.2,2.5 L -8.8,-3.8 L -17.5,-17.5 L -3.8,-10.0 Z" fill="#9E221A" stroke="#4A0A08" stroke-width="0.88" stroke-linejoin="round"/><path d="M 0,13.8 L 0,-17.5 M 0,2.5 L 12.5,-12.5 M 0,2.5 L -12.5,-12.5 M 0,6.2 L 15.0,1.2 M 0,6.2 L -15.0,1.2" stroke="#4A0A08" stroke-width="0.62" opacity="0.65" fill="none"/></g><g transform="translate(748.0,220.0) rotate(15.0)"><path d="M 0.0,-20.2 L 3.4,-9.0 L 15.7,-15.7 L 7.8,-3.4 L 19.0,2.2 L 6.7,5.6 L 11.2,15.7 L 2.2,9.0 L 0.0,14.6 L -2.2,9.0 L -11.2,15.7 L -6.7,5.6 L -19.0,2.2 L -7.8,-3.4 L -15.7,-15.7 L -3.4,-9.0 Z" fill="#D45222" stroke="#681E0A" stroke-width="0.78" stroke-linejoin="round"/><path d="M 0,12.3 L 0,-15.7 M 0,2.2 L 11.2,-11.2 M 0,2.2 L -11.2,-11.2 M 0,5.6 L 13.4,1.1 M 0,5.6 L -13.4,1.1" stroke="#681E0A" stroke-width="0.56" opacity="0.65" fill="none"/></g>
+
+  <!-- 5. The Cantilevered Wooden Kawadoko Platform & Woven Tatami Mat -->
+  <polygon points="0,445 800,525 800,565 0,485" fill="#071412" opacity="0.72"/>
+  <polygon points="0,456 800,536 800,800 0,800" fill="url(#cedarDeck)"/>
+  <line x1="0" y1="456" x2="800" y2="536" stroke="#4E3226" stroke-width="3.0"/>
+  <line x1="0" y1="472" x2="800" y2="552" stroke="#120906" stroke-width="2.2"/>
+  <line x1="120" y1="468" x2="95" y2="800" stroke="#120906" stroke-width="1.6" opacity="0.7"/>
+  <line x1="290" y1="485" x2="265" y2="800" stroke="#120906" stroke-width="1.6" opacity="0.7"/>
+  <line x1="460" y1="502" x2="435" y2="800" stroke="#120906" stroke-width="1.6" opacity="0.7"/>
+  <line x1="630" y1="519" x2="605" y2="800" stroke="#120906" stroke-width="1.6" opacity="0.7"/>
+
+  <!-- Woven Golden-Rush Tatami Mat (畳) with Crimson Brocade Border (赤縁) -->
+  <polygon points="0,492 778,570 742,800 0,800" fill="#0B0504" opacity="0.65"/>
+  <polygon points="0,484 772,561 736,800 0,800" fill="url(#tatamiMat)"/>
+  <polygon points="0,484 772,561 736,800 0,800" fill="url(#wagasaMatGlow)"/>
+
+  <!-- Fine igusa rush weave lines across the tatami -->
+  <g stroke="#8C7144" stroke-width="0.8" opacity="0.36">
+    <line x1="0" y1="496" x2="765" y2="573"/><line x1="0" y1="504" x2="765" y2="581"/><line x1="0" y1="512" x2="765" y2="589"/><line x1="0" y1="520" x2="765" y2="597"/><line x1="0" y1="528" x2="765" y2="605"/><line x1="0" y1="536" x2="765" y2="613"/><line x1="0" y1="544" x2="765" y2="621"/><line x1="0" y1="552" x2="765" y2="629"/><line x1="0" y1="560" x2="765" y2="637"/><line x1="0" y1="568" x2="765" y2="645"/><line x1="0" y1="576" x2="765" y2="653"/><line x1="0" y1="584" x2="765" y2="661"/><line x1="0" y1="592" x2="765" y2="669"/><line x1="0" y1="600" x2="765" y2="677"/><line x1="0" y1="608" x2="765" y2="685"/><line x1="0" y1="616" x2="765" y2="693"/><line x1="0" y1="624" x2="765" y2="701"/><line x1="0" y1="632" x2="765" y2="709"/><line x1="0" y1="640" x2="765" y2="717"/><line x1="0" y1="648" x2="765" y2="725"/><line x1="0" y1="656" x2="765" y2="733"/><line x1="0" y1="664" x2="765" y2="741"/><line x1="0" y1="672" x2="765" y2="749"/><line x1="0" y1="680" x2="765" y2="757"/><line x1="0" y1="688" x2="765" y2="765"/><line x1="0" y1="696" x2="765" y2="773"/><line x1="0" y1="704" x2="765" y2="781"/><line x1="0" y1="712" x2="765" y2="789"/><line x1="0" y1="720" x2="765" y2="797"/><line x1="0" y1="728" x2="765" y2="805"/><line x1="0" y1="736" x2="765" y2="813"/><line x1="0" y1="744" x2="765" y2="821"/><line x1="0" y1="752" x2="765" y2="829"/><line x1="0" y1="760" x2="765" y2="837"/><line x1="0" y1="768" x2="765" y2="845"/><line x1="0" y1="776" x2="765" y2="853"/><line x1="0" y1="784" x2="765" y2="861"/><line x1="0" y1="792" x2="765" y2="869"/>
+  </g>
+
+  <!-- Crimson-and-gold brocade tatami border (赤縁) -->
+  <polygon points="0,484 772,561 769,581 0,504" fill="#8A1C16"/>
+  <line x1="0" y1="490" x2="771" y2="567" stroke="#D49B4B" stroke-width="1.2" opacity="0.75"/>
+  <line x1="0" y1="498" x2="770" y2="575" stroke="#D49B4B" stroke-width="1.2" opacity="0.75"/>
+  <polygon points="752,559 772,561 736,800 716,800" fill="#781612"/>
+  <line x1="762" y1="560" x2="726" y2="800" stroke="#D49B4B" stroke-width="1.2" opacity="0.7"/>
+
+  <!-- Fallen autumn maple leaves resting on the tatami mat and cedar edge -->
+  <g transform="translate(286.0,716.0) rotate(-28.0)"><path d="M 0.0,-22.0 L 3.7,-9.8 L 17.1,-17.1 L 8.5,-3.7 L 20.7,2.4 L 7.3,6.1 L 12.2,17.1 L 2.4,9.8 L 0.0,15.9 L -2.4,9.8 L -12.2,17.1 L -7.3,6.1 L -20.7,2.4 L -8.5,-3.7 L -17.1,-17.1 L -3.7,-9.8 Z" fill="#D43822" stroke="#5E100A" stroke-width="0.85" stroke-linejoin="round"/><path d="M 0,13.4 L 0,-17.1 M 0,2.4 L 12.2,-12.2 M 0,2.4 L -12.2,-12.2 M 0,6.1 L 14.6,1.2 M 0,6.1 L -14.6,1.2" stroke="#5E100A" stroke-width="0.61" opacity="0.65" fill="none"/></g><g transform="translate(658.0,566.0) rotate(42.0)"><path d="M 0.0,-18.9 L 3.2,-8.4 L 14.7,-14.7 L 7.4,-3.2 L 17.9,2.1 L 6.3,5.2 L 10.5,14.7 L 2.1,8.4 L 0.0,13.7 L -2.1,8.4 L -10.5,14.7 L -6.3,5.2 L -17.9,2.1 L -7.4,-3.2 L -14.7,-14.7 L -3.2,-8.4 Z" fill="#E88628" stroke="#74320C" stroke-width="0.73" stroke-linejoin="round"/><path d="M 0,11.6 L 0,-14.7 M 0,2.1 L 10.5,-10.5 M 0,2.1 L -10.5,-10.5 M 0,5.2 L 12.6,1.1 M 0,5.2 L -12.6,1.1" stroke="#74320C" stroke-width="0.53" opacity="0.65" fill="none"/></g>
+
+  <!-- 6. The Yamanaka Sensuji (千筋) Wood-Turned Lacquer Tray & Tea Service -->
+  <ellipse cx="474" cy="662" rx="204" ry="96" fill="#120905" opacity="0.65" filter="url(#softShadow)"/>
+  <ellipse cx="468" cy="656" rx="198" ry="93" fill="#120A07"/>
+  <ellipse cx="468" cy="650" rx="198" ry="93" fill="#8C2018"/>
+  <ellipse cx="468" cy="650" rx="193" ry="90" fill="url(#yamanakaTray)"/>
+
+  <ellipse cx="468" cy="650" rx="25.2" ry="11.7" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="32.4" ry="15.1" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="39.6" ry="18.4" fill="none" stroke="#4A291E" stroke-width="0.9" opacity="0.55"/><ellipse cx="468" cy="650" rx="46.8" ry="21.8" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="54.0" ry="25.1" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="61.2" ry="28.5" fill="none" stroke="#4A291E" stroke-width="0.9" opacity="0.55"/><ellipse cx="468" cy="650" rx="68.4" ry="31.8" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="75.6" ry="35.2" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="82.8" ry="38.5" fill="none" stroke="#4A291E" stroke-width="0.9" opacity="0.55"/><ellipse cx="468" cy="650" rx="90.0" ry="41.9" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="97.2" ry="45.2" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="104.4" ry="48.5" fill="none" stroke="#4A291E" stroke-width="0.9" opacity="0.55"/><ellipse cx="468" cy="650" rx="111.6" ry="51.9" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="118.8" ry="55.2" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="126.0" ry="58.6" fill="none" stroke="#4A291E" stroke-width="0.9" opacity="0.55"/><ellipse cx="468" cy="650" rx="133.2" ry="61.9" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="140.4" ry="65.3" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="147.6" ry="68.6" fill="none" stroke="#4A291E" stroke-width="0.9" opacity="0.55"/><ellipse cx="468" cy="650" rx="154.8" ry="72.0" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="162.0" ry="75.3" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="169.2" ry="78.7" fill="none" stroke="#4A291E" stroke-width="0.9" opacity="0.55"/><ellipse cx="468" cy="650" rx="176.4" ry="82.0" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/><ellipse cx="468" cy="650" rx="183.6" ry="85.4" fill="none" stroke="#2E1912" stroke-width="0.9" opacity="0.38"/>
+
+  <ellipse cx="578" cy="648" rx="48" ry="24" fill="url(#bochaCaustic)"/>
+
+  <!-- Folded cream Kaishi paper (懐紙) & black-lacquered sweet pick (黒文字 / 漆匙) -->
+  <g>
+    <polygon points="408,708 506,692 528,720 426,736" fill="#EFE7D6" stroke="#C8B99E" stroke-width="1.0"/>
+    <polygon points="414,704 510,689 524,712 424,728" fill="#F8F3E8" stroke="#D8CBB2" stroke-width="0.9"/>
+    <path d="M 422,724 L 516,696 L 520,701 L 425,730 Z" fill="#21120D"/>
+    <path d="M 500,701 L 516,696 L 520,701 L 503,706 Z" fill="#B8281E"/>
+    <ellipse cx="426" cy="726" rx="9" ry="4.5" transform="rotate(-16 426 726)" fill="#2D1811" stroke="#4A291E" stroke-width="0.8"/>
+  </g>
+
+  <!-- Left Vessel: Yamanaka Lacquer Bowl of Cold Matcha Shiruko (冷製抹茶しるこ) -->
+  <g>
+    <ellipse cx="392" cy="664" rx="84" ry="42" fill="#090403" opacity="0.75"/>
+    <path d="M 310,636 C 310,676 346,694 388,694 C 430,694 466,676 466,636 Z" fill="#1A0E0A"/>
+    <path d="M 316,648 Q 388,676 460,648" fill="none" stroke="#3D2218" stroke-width="1.1" opacity="0.7"/>
+    <path d="M 322,660 Q 388,686 454,660" fill="none" stroke="#3D2218" stroke-width="1.1" opacity="0.7"/>
+    <path d="M 332,672 Q 388,694 444,672" fill="none" stroke="#4E2C20" stroke-width="1.1" opacity="0.65"/>
+
+    <ellipse cx="388" cy="636" rx="78" ry="38" fill="#B8281E" stroke="#3A120D" stroke-width="2.0"/>
+    <ellipse cx="388" cy="637" rx="74" ry="35" fill="#8C1C14"/>
+
+    <ellipse cx="388" cy="639" rx="70" ry="32.5" fill="url(#matchaShiruko)"/>
+    <ellipse cx="386" cy="639" rx="48" ry="21" fill="none" stroke="#62AB73" stroke-width="1.0" opacity="0.45"/>
+
+    <ellipse cx="362" cy="645" rx="7.5" ry="5.0" transform="rotate(-18 362 645)" fill="#54161C"/>
+    <ellipse cx="360" cy="644" rx="3.0" ry="1.4" transform="rotate(-18 360 644)" fill="#A84A52" opacity="0.75"/>
+    <ellipse cx="376" cy="651" rx="8.0" ry="5.2" transform="rotate(14 376 651)" fill="#631B22"/>
+    <ellipse cx="375" cy="649" rx="3.2" ry="1.5" transform="rotate(14 375 649)" fill="#B8565E" opacity="0.75"/>
+    <ellipse cx="416" cy="644" rx="7.2" ry="4.8" transform="rotate(-25 416 644)" fill="#59181E"/>
+    <ellipse cx="415" cy="643" rx="2.8" ry="1.3" transform="rotate(-25 415 643)" fill="#A84A52" opacity="0.75"/>
+
+    <ellipse cx="374" cy="635" rx="16.5" ry="12.5" fill="#183D22" opacity="0.5"/>
+    <ellipse cx="373" cy="633" rx="15.5" ry="11.8" fill="url(#shiratamaGrad)"/>
+    <ellipse cx="368" cy="629" rx="5.5" ry="3.2" transform="rotate(-15 368 629)" fill="#FFFFFF" opacity="0.9"/>
+
+    <ellipse cx="401" cy="631" rx="15.5" ry="11.8" fill="#183D22" opacity="0.5"/>
+    <ellipse cx="400" cy="629" rx="14.5" ry="11.0" fill="url(#shiratamaGrad)"/>
+    <ellipse cx="395" cy="625" rx="5.0" ry="2.8" transform="rotate(-15 395 625)" fill="#FFFFFF" opacity="0.9"/>
+
+    <polygon points="384,622 392,620 395,625 389,628 383,626" fill="#F7D766" stroke="#FFF3B0" stroke-width="0.6"/>
+    <polygon points="391,638 396,637 397,640 392,641" fill="#FFE47A"/>
+
+    <path d="M 320,624 A 78,38 0 0,1 442,610" fill="none" stroke="#FF8A78" stroke-width="1.4" opacity="0.65"/>
+  </g>
+
+  <!-- Right Vessel: Faceted Glass Tumbler of Iced Kaga-bocha (加賀棒茶) -->
+  <g>
+    <ellipse cx="552" cy="644" rx="36" ry="18" fill="#0B0503" opacity="0.72"/>
+    <path d="M 512,554 L 520,636 C 520,646 534,654 548,654 C 562,654 576,646 576,636 L 584,554 Z" fill="#F7EFE2" fill-opacity="0.16" stroke="#E8DEC8" stroke-width="1.4" stroke-opacity="0.65"/>
+    <path d="M 515,574 L 520,636 C 520,645 533,652 548,652 C 563,652 576,645 576,636 L 581,574 Z" fill="url(#kagaBocha)"/>
+
+    <polygon points="526,572 546,565 554,576 544,588 524,584" fill="#FFF8EB" fill-opacity="0.42" stroke="#FFFFFF" stroke-width="1.0" stroke-opacity="0.75"/>
+    <polygon points="546,575 566,568 574,580 562,592 544,586" fill="#FFF8EB" fill-opacity="0.38" stroke="#FFFFFF" stroke-width="1.0" stroke-opacity="0.7"/>
+
+    <ellipse cx="548" cy="574" rx="33" ry="13.5" fill="#F5A642" fill-opacity="0.48" stroke="#FFD68A" stroke-width="1.2"/>
+    <ellipse cx="542" cy="573" rx="18" ry="6.5" fill="#E33B2C" fill-opacity="0.32"/>
+
+    <ellipse cx="548" cy="554" rx="36" ry="14.5" fill="none" stroke="#FFFDF7" stroke-width="1.6" stroke-opacity="0.82"/>
+    <line x1="523" y1="564" x2="528" y2="638" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
+    <line x1="568" y1="566" x2="564" y2="638" stroke="#FFE4B5" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- 7. The Vermilion Nodate Wagasa (野点傘) Pole, Ribs, Thread Rings & Canopy -->
+  <line x1="137" y1="755" x2="295" y2="800" stroke="#0E0705" stroke-width="16" stroke-linecap="round" opacity="0.55"/>
+
+  <path d="M 129,78 L 125,800 L 143,800 L 141,78 Z" fill="#1F100B"/>
+  <path d="M 132,78 L 129,800 L 135,800 L 136,78 Z" fill="#3D2118" opacity="0.75"/>
+  <rect x="127" y="418" width="15" height="18" rx="2" fill="#C99744" stroke="#6E4B16" stroke-width="1.0"/>
+  <line x1="127" y1="265" x2="142" y2="265" stroke="#4E2C20" stroke-width="2.4"/>
+  <line x1="126" y1="585" x2="143" y2="585" stroke="#4E2C20" stroke-width="2.4"/>
+
+  <path d="M -60,-40 L 540,-40 L 429.5,-41.1 L 464.2,-21.0 L 492.2,1.1 L 512.9,24.8 L 525.9,49.5 L 530.9,74.9 L 527.9,100.3 L 516.8,125.3 L 498.0,149.3 L 471.7,171.8 L 438.6,192.4 L 399.3,210.7 L 354.6,226.3 L 305.4,238.8 L 252.8,248.0 L 197.8,253.8 L 141.5,256.0 L 85.1,254.5 L 29.8,249.4 L -23.4,240.9 L -73.3,229.0 L -119.0,214.0 L -159.4,196.2 L -193.8,176.0 L -221.4,153.8 L -241.7,130.0 L -60,205 Z" fill="url(#wagasaCanopy)"/>
+  <polyline points="429.5,-41.1 464.2,-21.0 492.2,1.1 512.9,24.8 525.9,49.5 530.9,74.9 527.9,100.3 516.8,125.3 498.0,149.3 471.7,171.8 438.6,192.4 399.3,210.7 354.6,226.3 305.4,238.8 252.8,248.0 197.8,253.8 141.5,256.0 85.1,254.5 29.8,249.4 -23.4,240.9 -73.3,229.0 -119.0,214.0 -159.4,196.2 -193.8,176.0 -221.4,153.8 -241.7,130.0" fill="none" stroke="#260E0A" stroke-width="5.5" stroke-linejoin="round"/>
+  <polyline points="429.5,-41.1 464.2,-21.0 492.2,1.1 512.9,24.8 525.9,49.5 530.9,74.9 527.9,100.3 516.8,125.3 498.0,149.3 471.7,171.8 438.6,192.4 399.3,210.7 354.6,226.3 305.4,238.8 252.8,248.0 197.8,253.8 141.5,256.0 85.1,254.5 29.8,249.4 -23.4,240.9 -73.3,229.0 -119.0,214.0 -159.4,196.2 -193.8,176.0 -221.4,153.8 -241.7,130.0" fill="none" stroke="#F79468" stroke-width="1.2" opacity="0.6"/>
+
+  <line x1="136.0" y1="78.0" x2="429.5" y2="-41.1" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="429.5" y1="-41.1" x2="432.5" y2="-42.4" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="464.2" y2="-21.0" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="464.2" y1="-21.0" x2="467.6" y2="-22.1" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="492.2" y2="1.1" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="492.2" y1="1.1" x2="495.8" y2="0.2" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="512.9" y2="24.8" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="512.9" y1="24.8" x2="516.7" y2="24.2" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="525.9" y2="49.5" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="525.9" y1="49.5" x2="529.9" y2="49.2" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="530.9" y2="74.9" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="530.9" y1="74.9" x2="534.9" y2="74.9" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="527.9" y2="100.3" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="527.9" y1="100.3" x2="531.9" y2="100.6" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="516.8" y2="125.3" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="516.8" y1="125.3" x2="520.7" y2="125.8" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="498.0" y2="149.3" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="498.0" y1="149.3" x2="501.6" y2="150.1" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="471.7" y2="171.8" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="471.7" y1="171.8" x2="475.1" y2="172.9" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="438.6" y2="192.4" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="438.6" y1="192.4" x2="441.7" y2="193.7" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="399.3" y2="210.7" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="399.3" y1="210.7" x2="401.9" y2="212.2" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="354.6" y2="226.3" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="354.6" y1="226.3" x2="356.8" y2="227.9" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="305.4" y2="238.8" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="305.4" y1="238.8" x2="307.1" y2="240.6" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="252.8" y2="248.0" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="252.8" y1="248.0" x2="254.0" y2="250.0" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="197.8" y2="253.8" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="197.8" y1="253.8" x2="198.4" y2="255.8" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="141.5" y2="256.0" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="141.5" y1="256.0" x2="141.6" y2="258.0" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="85.1" y2="254.5" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="85.1" y1="254.5" x2="84.6" y2="256.5" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="29.8" y2="249.4" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="29.8" y1="249.4" x2="28.7" y2="251.4" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="-23.4" y2="240.9" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="-23.4" y1="240.9" x2="-25.0" y2="242.7" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="-73.3" y2="229.0" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="-73.3" y1="229.0" x2="-75.4" y2="230.6" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="-119.0" y2="214.0" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="-119.0" y1="214.0" x2="-121.5" y2="215.5" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="-159.4" y2="196.2" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="-159.4" y1="196.2" x2="-162.4" y2="197.5" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="-193.8" y2="176.0" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="-193.8" y1="176.0" x2="-197.1" y2="177.1" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="-221.4" y2="153.8" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="-221.4" y1="153.8" x2="-225.0" y2="154.6" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/><line x1="136.0" y1="78.0" x2="-241.7" y2="130.0" stroke="#24100B" stroke-width="1.8" opacity="0.82"/><line x1="-241.7" y1="130.0" x2="-245.6" y2="130.6" stroke="#1A0B08" stroke-width="2.6" stroke-linecap="round"/>
+
+  <polyline points="200.6,51.8 208.2,56.2 214.4,61.1 218.9,66.3 221.8,71.7 222.9,77.3 222.2,82.9 219.8,88.4 215.6,93.7 209.9,98.6 202.6,103.2 193.9,107.2 184.1,110.6 173.3,113.4 161.7,115.4 149.6,116.7 137.2,117.2 124.8,116.8 112.6,115.7 100.9,113.8 90.0,111.2 79.9,107.9 71.0,104.0 63.5,99.6 57.4,94.7 52.9,89.4" fill="none" stroke="#F7E8D0" stroke-width="2.2" opacity="0.9"/>
+  <polyline points="235.8,37.5 247.6,44.3 257.1,51.9 264.2,59.9 268.6,68.3 270.3,76.9 269.2,85.6 265.5,94.1 259.1,102.2 250.1,109.9 238.9,116.9 225.5,123.1 210.3,128.4 193.6,132.7 175.7,135.8 157.0,137.8 137.9,138.5 118.7,138.0 99.9,136.3 81.8,133.4 64.8,129.3 49.3,124.2 35.6,118.2 23.9,111.3 14.5,103.8 7.6,95.7" fill="none" stroke="#F2B872" stroke-width="1.8" opacity="0.85"/>
+  <polyline points="276.9,20.8 293.6,30.5 307.0,41.1 316.9,52.4 323.2,64.3 325.6,76.5 324.1,88.7 318.8,100.7 309.7,112.2 297.1,123.0 281.2,132.9 262.4,141.7 240.9,149.2 217.3,155.2 192.1,159.6 165.7,162.4 138.6,163.4 111.6,162.7 85.0,160.3 59.5,156.2 35.5,150.5 13.6,143.3 -5.8,134.7 -22.3,125.0 -35.6,114.4 -45.3,103.0" fill="none" stroke="#F7E8D0" stroke-width="1.6" opacity="0.8"/>
+
+  <ellipse cx="136" cy="78" rx="22" ry="12" fill="#160A07" stroke="#4E261B" stroke-width="1.5"/>
+  <ellipse cx="136" cy="82" rx="14" ry="8" fill="#2B140E"/>
+</svg>
