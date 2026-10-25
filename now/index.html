@@ -304,17 +304,17 @@
                 <div class="item-card">
                     <h3><a href="/oracle/">Project Oracle: Quantitative Prediction Markets</a></h3>
                     <p id="now-oracle-summary">
-                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 76 active positions ($173.53 deployed, $940.50 cash, $1,123.40 NAV, +$123.40 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
+                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 77 active positions ($175.40 deployed, $938.63 cash, $1,123.50 NAV, +$123.50 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
                     </p>
-                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 76 Open Positions ($940.50 Cash, $1,123.40 NAV) &middot; kaiaz.me/oracle/</span>
+                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 77 Open Positions ($938.63 Cash, $1,123.50 NAV) &middot; kaiaz.me/oracle/</span>
                 </div>
 
                 <div class="item-card">
                     <h3>Semantic Memory: Local AVX-512 Hybrid Retrieval</h3>
                     <p id="now-semantic-summary">
-                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, packed <code>uint32</code> binary Okapi BM25 lexical search (<code>bm25.bin</code>), <code>enable_cpu_mem_arena=False</code> + <code>mallopt(M_ARENA_MAX, 2)</code> + <code>malloc_trim(0)</code> + <code>sys.intern</code> chunk string deduplication &amp; OpenBLAS/Rayon thread bounding (<code>145&nbsp;MB</code> <code>RssAnon</code> across 5 threads), <em>O</em>(1) <code>0.18&nbsp;ms</code> <code>mtime_ns</code> <code>/reload</code> fast-path checks, structured query operators (<code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>in:&lt;scope&gt;</code>), and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 26,226 chunks across 3,490 files (including all 1,159 notepads, conversation archives, and 1,170 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
+                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, packed <code>uint32</code> binary Okapi BM25 lexical search (<code>bm25.bin</code>), <code>enable_cpu_mem_arena=False</code> + <code>mallopt(M_ARENA_MAX, 2)</code> + <code>malloc_trim(0)</code> + <code>sys.intern</code> chunk string deduplication &amp; OpenBLAS/Rayon thread bounding (<code>145&nbsp;MB</code> <code>RssAnon</code> across 5 threads), <em>O</em>(1) <code>0.18&nbsp;ms</code> <code>mtime_ns</code> <code>/reload</code> fast-path checks, structured query operators (<code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>in:&lt;scope&gt;</code>), and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 26,250 chunks across 3,494 files (including all 1,161 notepads, conversation archives, and 1,172 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
                     </p>
-                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 26,226 Chunks &middot; 1,170 Study Notes</span>
+                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 26,250 Chunks &middot; 1,172 Study Notes</span>
                 </div>
 
                 <div class="item-card">
