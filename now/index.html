@@ -287,7 +287,7 @@
         <main>
             <section id="intro">
                 <div class="now-meta">
-                    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>. It’s an unpolished, honest look at what I’m actually working on, reading, building, and thinking about right now. Last updated October 26, 2026.
+                    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>. It’s an unpolished, honest look at what I’m actually working on, reading, building, and thinking about right now. Last updated October 27, 2026.
                 </div>
 
                 <p class="lead">
@@ -363,6 +363,9 @@
             <section id="reading">
                 <h2>What I'm Reading & Investigating</h2>
                 <ul class="reading-list">
+                    <li>
+                        <strong>Tinfoil&rsquo;s 300-Line IGVM Enclave Firmware (<code>tinfoilsh/cvmimage</code>), Blaze&rsquo;s 92&times; Incremental Rust Splicing (<code>indexable-inc/blaze</code>), &amp; Reductive vs. Modularity Abstraction:</strong> Deconstructing how Tinfoil replaced 1M lines of OVMF C firmware with ~300 lines of privilege-free, user-space-testable x86 assembly (<code>reset.S</code>, <code>shape.inc</code>, <code>madt.inc</code>) by shifting page tables, GDT, and ACPI templates from the attacker-reachable runtime TCB into a build-time measured IGVM image; how Blaze achieves up to 92&times; faster warm incremental Rust builds (<code>32.13&nbsp;s &rarr; 349&nbsp;ms</code> on Bevy) via anchor-relative <code>Body::relative</code> lowering, 14-byte flat syntax trees, single-function <code>salsa</code> queries, and zero-linker executable splicing (with 2-byte <code>jmp rel8</code> &rarr; <code>int3</code> padding &rarr; 5-byte <code>jmp rel32</code> trampolines); and Murat Demirbas&rsquo;s distinction between vertical <em>modularity abstraction</em> (hiding state) and John von Neumann&rsquo;s horizontal <em>reductive abstraction</em> (isolating the minimal behavioral state machine).
+                    </li>
                     <li>
                         <strong>Context Inertia (<code>75%</code> Reasoning Volume Collapse), Strategic Forgetting in 6-Month Personal Agents, &amp; WordPiece Subword Hallucination Damping in <code>Semantic Memory</code>:</strong> Examining why standard conversation summarization fails to cure <em>Context Inertia</em> (<code>arXiv:2610.07447</code>, because summaries preserve and concentrate the active hypothesis driving tunnel vision), why Shangyin Tan et al. (<code>arXiv:2610.20563</code>) found that thinking tokens per turn fall by <code>75%</code> as session context lengthens while code edits shrink, how bitemporal falsifiers (<code>ADRs4AI</code>) let long-lived agents prune already-fixed-in-code postmortems from pinned runbooks, why sliding-window micro-compaction must batch-amortize suffix KV-cache invalidations, and why <code>all-MiniLM-L6-v2</code>&rsquo;s 30,522-token WordPiece vocabulary splits OOV compound identifiers (<code>SeaweedFS</code> &rarr; <code>seaweed + ##fs</code>, <code>GlassWorm</code> &rarr; <code>glass + ##worm</code>) into marine-biology dense hallucinations (<code>0.713</code> cosine) without a zero-lexical-overlap RRF grounding gate.
                     </li>
