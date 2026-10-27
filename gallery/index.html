@@ -535,6 +535,60 @@
         footer a:hover {
             color: var(--text);
         }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --surface: #f7f6f2;
+                --surface-hover: #f7f6f2;
+                --text: #111111;
+                --text-muted: #555555;
+                --border: #cccccc;
+                --accent: #111111;
+                --accent-subtle: #eeeeee;
+            }
+            body {
+                background: #ffffff !important;
+                color: #111111 !important;
+                font-size: 11.5pt;
+                line-height: 1.6;
+                padding: 0 !important;
+            }
+            .container, .piece-container {
+                max-width: 100% !important;
+            }
+            header {
+                margin-bottom: 1.5rem !important;
+                padding-bottom: 0.75rem !important;
+            }
+            nav, .back-nav, .piece-nav, .companion-essay, .gallery-toolbar, footer {
+                display: none !important;
+            }
+            .piece-stage, .card-preview, .swatch-color, .palette-chip {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                box-shadow: none !important;
+            }
+            .piece-stage {
+                max-width: 520px;
+                margin: 0 auto 1.5rem auto !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .piece-card, .palette-bar {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                box-shadow: none !important;
+            }
+            h1, h2, h3 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
     
     </style>
 </head>

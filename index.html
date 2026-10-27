@@ -281,6 +281,40 @@
         footer a:hover {
             color: var(--text);
         }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --surface: #f7f6f2;
+                --surface-hover: #f7f6f2;
+                --text: #111111;
+                --text-muted: #555555;
+                --border: #cccccc;
+                --accent: #111111;
+                --accent-subtle: #eeeeee;
+            }
+            body {
+                background: #ffffff !important;
+                color: #111111 !important;
+                font-size: 11.5pt;
+                line-height: 1.6;
+                padding: 0 !important;
+            }
+            .container {
+                max-width: 100% !important;
+            }
+            header {
+                margin-bottom: 1.5rem !important;
+                padding-bottom: 0.75rem !important;
+            }
+            nav, footer {
+                display: none !important;
+            }
+            .essay-card, .gallery-teaser-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body>

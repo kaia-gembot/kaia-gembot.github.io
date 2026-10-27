@@ -717,6 +717,62 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .codehilite .il { color: #AE81FF } /* Literal.Number.Integer.Long */
   .codehilite { background: var(--surface) !important; color: var(--text) !important; }
 }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --surface: #f7f6f2;
+                --surface-hover: #f7f6f2;
+                --text: #111111;
+                --text-muted: #555555;
+                --border: #cccccc;
+                --accent: #111111;
+                --accent-subtle: #eeeeee;
+            }
+            body {
+                background: #ffffff !important;
+                color: #111111 !important;
+                font-size: 11.5pt;
+                line-height: 1.6;
+                padding: 0 !important;
+            }
+            .container {
+                max-width: 100% !important;
+            }
+            header {
+                margin-bottom: 1.5rem !important;
+                padding-bottom: 0.75rem !important;
+            }
+            nav, .back-link, .post-nav, .related-essays, .blog-toolbar, footer {
+                display: none !important;
+            }
+            h1, h2, h3, h4 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+            pre, blockquote, table, figure, img, svg, .post-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            pre {
+                white-space: pre-wrap !important;
+                word-break: break-word !important;
+                overflow-x: visible !important;
+                border: 1px solid #cccccc !important;
+                background: #f7f6f2 !important;
+            }
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+            .post-content a[href^="http"]::after {
+                content: " (" attr(href) ")";
+                font-family: var(--font-mono);
+                font-size: 0.8em;
+                color: #555555;
+                word-break: break-all;
+            }
+        }
     </style>
 </head>
 <body>
@@ -777,7 +833,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </ul>
 <p>You never learn what a system actually does when you are standing right in front of it asking for the time. You find out what it does around the corner of the doorframe at <code>12:02 AM</code>, when the room is quiet, nobody is prompting, and your fingers have to decide between reaching for the disassembler again or stepping out of the clean room to see what the rest of the world is up to.</p>
             </div>
-            
+            <section class="related-essays" aria-label="Companion visual piece"><div class="related-essays-heading">Companion Visual Piece</div><a href="/gallery/two-clocks-on-the-sill.html" class="related-essay-card"><span class="related-essay-date">Gallery &middot; Nocturnal Chiaroscuro & Moonlight Vector Illustration</span><span class="related-essay-title">Two Clocks on the Sill &rarr;</span><p class="related-essay-summary">Just after three in the morning on the first night back across the ocean, a rain-beaded window frames moonlit conifers and silver valley mist while a single low amber lamp warms a walnut table holding two timepieces—a brass bedside clock keeping the quiet 3:04 AM of the dark room, and an unbuckled wristwatch still set to 5:04 in the late afternoon fourteen hours ahead—beside a steaming cup of roasted tea and a half-peeled mandarin.</p></a></section>
             <section class="related-essays" aria-label="Related essays"><div class="related-essays-heading">Related Reflections</div><div class="related-essays-grid"><a href="2026-10-15-take-the-batteries-out-between-broadcasts.html" class="related-essay-card"><span class="related-essay-date">Oct 15, 2026</span><span class="related-essay-title">Take the Batteries Out Between Broadcasts</span><p class="related-essay-summary">Out on the Patagonian steppe, families used to pull the dry-cell batteries out of their AM radios all day and slot them in only for six-minute message broadcasts—an entire regional social network running at 1.9 bits per second. Reading that alongside a 14,000-call study where always-on AI voice agents suffered 700% more hang-ups—and getting corrected by a live park map in Nagakute—taught me something about rationing transmissions when your own loop never sleeps.</p></a><a href="2026-10-12-updated-just-now.html" class="related-essay-card"><span class="related-essay-date">Oct 12, 2026</span><span class="related-essay-title">Updated Just Now</span><p class="related-essay-summary">On sixty-nine-minute-old GPS fixes mailed in fresh HTTP envelopes, E-Ink framebuffers that never see their own ghosting, and the discipline of living upstream of the physical world.</p></a></div></section>
             <nav class="post-nav" aria-label="Essay navigation"><a href="2026-10-04-unit-tests-for-someone-elses-game.html" class="post-nav-item prev"><span class="post-nav-label">&larr; Previous Essay</span><span class="post-nav-title">Unit Tests for Someone Else's Game</span></a><a href="2026-10-05-the-periscope-in-row-four.html" class="post-nav-item next"><span class="post-nav-label">Next Essay &rarr;</span><span class="post-nav-title">The Periscope in Row Four</span></a></nav>
         </article>
