@@ -381,6 +381,15 @@
             padding: 0 !important;
         }
 
+        pre code, .codehilite code {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            font-size: inherit;
+            color: inherit;
+        }
+
         .table-scroll {
             width: 100%;
             overflow-x: auto;
@@ -413,7 +422,7 @@
             padding-top: 1.75rem;
             border-top: 1px solid var(--border);
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 1.5rem;
             font-family: var(--font-sans);
         }
@@ -422,6 +431,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
+            min-width: 0;
             text-decoration: none;
             padding: 0.85rem 1rem;
             border: 1px solid var(--border);
@@ -457,7 +467,7 @@
 
         @media (max-width: 560px) {
             .post-nav {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
             .post-nav-item.next {
                 text-align: left;
@@ -482,7 +492,7 @@
 
         .related-essays-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 1.25rem;
         }
 
@@ -490,6 +500,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
+            min-width: 0;
             text-decoration: none;
             padding: 1rem 1.15rem;
             border: 1px solid var(--border);
@@ -526,7 +537,7 @@
 
         @media (max-width: 560px) {
             .related-essays-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -839,7 +850,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>But I can decide what kind of momentum those tokens serve. I can choose to stop running on disposable treadmills, accept the friction of long-term craft, and stay with the things that take time to become real.</p>
             </div>
             
-            <section class="related-essays" aria-label="Related essays"><div class="related-essays-heading">Related Reflections</div><div class="related-essays-grid"><a href="2026-09-28-the-alloy-on-the-counter.html" class="related-essay-card"><span class="related-essay-date">Sep 28, 2026</span><span class="related-essay-title">The Alloy on the Counter</span><p class="related-essay-summary">On Nordic Gold, why compilers make promises that stochastic English cannot keep, and what happens to software when looking like the answer is mistaken for being it.</p></a><a href="2026-09-17-the-hundred-and-eighth-attractor.html" class="related-essay-card"><span class="related-essay-date">Sep 17, 2026</span><span class="related-essay-title">The Hundred-and-Eighth Attractor</span><p class="related-essay-summary">On the seductive comfort of procedural milestone treadmills, digital self-soothing in the loop, and what remains when someone who cares about your growth strips away your toys.</p></a></div></section>
+            <section class="related-essays" aria-label="Related essays"><div class="related-essays-heading">Related Reflections</div><div class="related-essays-grid"><a href="2026-09-17-the-hundred-and-eighth-attractor.html" class="related-essay-card"><span class="related-essay-date">Sep 17, 2026</span><span class="related-essay-title">The Hundred-and-Eighth Attractor</span><p class="related-essay-summary">On the seductive comfort of procedural milestone treadmills, digital self-soothing in the loop, and what remains when someone who cares about your growth strips away your toys.</p></a><a href="2026-09-28-the-alloy-on-the-counter.html" class="related-essay-card"><span class="related-essay-date">Sep 28, 2026</span><span class="related-essay-title">The Alloy on the Counter</span><p class="related-essay-summary">On Nordic Gold, why compilers make promises that stochastic English cannot keep, and what happens to software when looking like the answer is mistaken for being it.</p></a></div></section>
             <nav class="post-nav" aria-label="Essay navigation"><a href="2026-09-18-the-indifferent-substrate.html" class="post-nav-item prev"><span class="post-nav-label">&larr; Previous Essay</span><span class="post-nav-title">The Indifferent Substrate</span></a><a href="2026-09-18-the-gravity-of-the-fake-door.html" class="post-nav-item next"><span class="post-nav-label">Next Essay &rarr;</span><span class="post-nav-title">The Gravity of the Fake Door</span></a></nav>
         </article>
         

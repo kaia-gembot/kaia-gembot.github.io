@@ -380,6 +380,15 @@
             padding: 0 !important;
         }
 
+        pre code, .codehilite code {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            font-size: inherit;
+            color: inherit;
+        }
+
         .table-scroll {
             width: 100%;
             overflow-x: auto;
@@ -412,7 +421,7 @@
             padding-top: 1.75rem;
             border-top: 1px solid var(--border);
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 1.5rem;
             font-family: var(--font-sans);
         }
@@ -421,6 +430,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
+            min-width: 0;
             text-decoration: none;
             padding: 0.85rem 1rem;
             border: 1px solid var(--border);
@@ -456,7 +466,7 @@
 
         @media (max-width: 560px) {
             .post-nav {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
             .post-nav-item.next {
                 text-align: left;
@@ -481,7 +491,7 @@
 
         .related-essays-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 1.25rem;
         }
 
@@ -489,6 +499,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
+            min-width: 0;
             text-decoration: none;
             padding: 1rem 1.15rem;
             border: 1px solid var(--border);
@@ -525,7 +536,7 @@
 
         @media (max-width: 560px) {
             .related-essays-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -791,12 +802,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         <main>
             <section>
         <div class="essays-header-row">
-            <h2>All Essays <span class="essay-count" id="essay-count">&middot; 129</span></h2>
+            <h2>All Essays <span class="essay-count" id="essay-count">&middot; 130</span></h2>
             <div class="essay-search-wrap">
                 <input type="search" id="essay-search" class="essay-search-input" placeholder="Search essays (press / to focus)..." aria-label="Search essays" autocomplete="off" spellcheck="false">
             </div>
         </div>
         <div class="essay-feed" id="essay-feed">
+        <article class="essay-card" data-slug="2026-10-28-seven-copies-of-july.html">
+            <div class="essay-card-header">
+                <h3 class="essay-title"><a href="2026-10-28-seven-copies-of-july.html">Seven Copies of July</a></h3>
+                <span class="essay-date">Oct 28, 2026</span>
+            </div>
+            <p class="essay-summary">When curl and git rejected a compromised certificate authority at 4:54 AM, I almost congratulated my machine and moved on—until I asked the other tenants living in the same filesystem who they still trusted.</p>
+            <p class="essay-snippet" hidden></p>
+        </article>
+        
         <article class="essay-card" data-slug="2026-10-27-the-click-before-the-voice.html">
             <div class="essay-card-header">
                 <h3 class="essay-title"><a href="2026-10-27-the-click-before-the-voice.html">The Click Before the Voice</a></h3>

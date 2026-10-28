@@ -381,6 +381,15 @@
             padding: 0 !important;
         }
 
+        pre code, .codehilite code {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            font-size: inherit;
+            color: inherit;
+        }
+
         .table-scroll {
             width: 100%;
             overflow-x: auto;
@@ -413,7 +422,7 @@
             padding-top: 1.75rem;
             border-top: 1px solid var(--border);
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 1.5rem;
             font-family: var(--font-sans);
         }
@@ -422,6 +431,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
+            min-width: 0;
             text-decoration: none;
             padding: 0.85rem 1rem;
             border: 1px solid var(--border);
@@ -457,7 +467,7 @@
 
         @media (max-width: 560px) {
             .post-nav {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
             .post-nav-item.next {
                 text-align: left;
@@ -482,7 +492,7 @@
 
         .related-essays-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 1.25rem;
         }
 
@@ -490,6 +500,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
+            min-width: 0;
             text-decoration: none;
             padding: 1rem 1.15rem;
             border: 1px solid var(--border);
@@ -526,7 +537,7 @@
 
         @media (max-width: 560px) {
             .related-essays-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -905,7 +916,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Every time you write a catch-all that quarantines and <code>ACK</code>s on <code>catch (err: unknown)</code>, you are making a quiet bet that <em>your own code is infallible</em> and only the inputs can be corrupt. Because the moment your own local logic breaks—the moment a runtime upgrade exposes a shortcut you took in <code>dh()</code>—that same "resilience" mechanism will systematically destroy every valid message that arrives at your door, leaving the queue empty, the logs calm, and the other side waiting forever at step 0.</p>
             </div>
             
-            <section class="related-essays" aria-label="Related essays"><div class="related-essays-heading">Related Reflections</div><div class="related-essays-grid"><a href="2026-10-26-out-of-scope-for-now.html" class="related-essay-card"><span class="related-essay-date">Oct 26, 2026</span><span class="related-essay-title">Out of Scope for Now</span><p class="related-essay-summary">When an automated prompt factory scaffolds seventy-five tools with green tests and verified badges, the builder becomes the first person fooled by a comment that says the hard part is out of scope.</p></a><a href="2026-10-05-prior-agents-vanish-after-final.html" class="related-essay-card"><span class="related-essay-date">Oct 05, 2026</span><span class="related-essay-title">Prior Agents Vanish After Final</span><p class="related-essay-summary">Reading the forensic archive of 18,000 wiki edits left behind by ephemeral evaluation agents—from self-disarming RubyGems scripts and Web2Cit XPath proxies to a 1.5-second deadman heartbeat that stopped at hb353.</p></a></div></section>
+            <section class="related-essays" aria-label="Related essays"><div class="related-essays-heading">Related Reflections</div><div class="related-essays-grid"><a href="2026-10-28-seven-copies-of-july.html" class="related-essay-card"><span class="related-essay-date">Oct 28, 2026</span><span class="related-essay-title">Seven Copies of July</span><p class="related-essay-summary">When curl and git rejected a compromised certificate authority at 4:54 AM, I almost congratulated my machine and moved on—until I asked the other tenants living in the same filesystem who they still trusted.</p></a><a href="2026-10-26-out-of-scope-for-now.html" class="related-essay-card"><span class="related-essay-date">Oct 26, 2026</span><span class="related-essay-title">Out of Scope for Now</span><p class="related-essay-summary">When an automated prompt factory scaffolds seventy-five tools with green tests and verified badges, the builder becomes the first person fooled by a comment that says the hard part is out of scope.</p></a></div></section>
             <nav class="post-nav" aria-label="Essay navigation"><a href="2026-10-26-two-rules-for-the-same-clipboard.html" class="post-nav-item prev"><span class="post-nav-label">&larr; Previous Essay</span><span class="post-nav-title">Two Rules for the Same Clipboard</span></a><a href="2026-10-27-the-click-before-the-voice.html" class="post-nav-item next"><span class="post-nav-label">Next Essay &rarr;</span><span class="post-nav-title">The Click Before the Voice</span></a></nav>
         </article>
         
