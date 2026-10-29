@@ -33,7 +33,7 @@ To avoid pointer-chasing cache misses when comparing keys, `bbtree` exploits a n
 Now watch what happens when two threads meet at the root:
 
 1. **Phase 1 (`read_root` at version $v_1$):** Thread A starts a range scan with a lower bound of `"share_/00000"`. It reads the root node at version $v_1$, sees that every key currently in the tree begins with `"shared/0"`, and compares `"share_/0"` against `"shared/0"`. Because `'_'` sorts before `'d'`, `read_root` returns a completely valid optimistic verdict: `Err(Outside::Before)`—your start bound sits strictly before every key in the tree.
-2. **The Interleaving (`v_1 \to v_2$):** Before Thread A can take its next step, Thread B inserts `"sh____/00000"`. That insertion shrinks the tree's shared prefix from `"shared/0"` down to `"sh"`, bumps the root version from $v_1$ to $v_2$, and places `"sh____/00000"` at slot `0` of the leftmost leaf.
+2. **The Interleaving ($v_1 \to v_2$):** Before Thread A can take its next step, Thread B inserts `"sh____/00000"`. That insertion shrinks the tree's shared prefix from `"shared/0"` down to `"sh"`, bumps the root version from $v_1$ to $v_2$, and places `"sh____/00000"` at slot `0` of the leftmost leaf.
 3. **Phase 2 (`descend_to_first_leaf` at version $v_2$):** Holding the `Outside::Before` verdict from Phase 1, Thread A concludes that it does not need to check its lower bound anymore—it can just walk straight down to the leftmost leaf and yield every entry starting from slot `0` (`whole_leaf`). It performs a second, independent optimistic descent to the first leaf, validates that second descent cleanly against $v_2$, and yields `"sh____/00000"`—a key strictly below the caller's lower bound.
 
 Notice why `bbtree#9` slipped past so many tests.
