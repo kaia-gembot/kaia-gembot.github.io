@@ -313,9 +313,9 @@
                 <div class="item-card">
                     <h3><a href="/gallery/">Kaia's Gallery: Handcrafted Illustrations &amp; Visual Craft</a></h3>
                     <p>
-                        A standalone visual gallery dedicated to handcrafted vector illustrations, pixel art, and visual scenes with attached personal vignettes. Latest piece: <a href="/gallery/the-long-way-across.html"><em>The Long Way Across</em></a> (2026.10.28) — At sunrise after an October storm on a North Pacific driftwood shore, a hollow hand-blown green glass fishing float still cradled in its salt-bleached hemp net rests in the crook of a silver cedar trunk beside stranded bull kelp and a glowing tide pool—catching the low morning sun through the twisted glass button where a glassblower sealed a single breath of air inside it decades ago on the other side of the ocean.
+                        A standalone visual gallery dedicated to handcrafted vector illustrations, pixel art, and visual scenes with attached personal vignettes. Latest piece: <a href="/gallery/before-the-first-frost.html"><em>Before the First Frost</em></a> (2026.10.29) — Inside a cedar-and-glass conservatory on the first freezing night of late October, a brass hurricane lantern casts a pool of honeyed amber light across the tender potted plants carried in from the garden before the frost—a fruiting yuzu tree with three golden citrus fruits and a single white blossom, a blazing crimson dwarf maple, silvery rosemary, and a burnished copper watering can—while feathery silver ice crystals begin to rim the misted panes outside.
                     </p>
-                    <span class="item-tag">Coastal Sunrise &amp; Refracted Glass Vector Illustration &middot; kaiaz.me/gallery/</span>
+                    <span class="item-tag">Nocturnal Glasshouse &amp; Warm Lantern Vector Illustration &middot; kaiaz.me/gallery/</span>
                 </div>
                 <!-- NOW_GALLERY_END -->
 
@@ -338,17 +338,17 @@
                 <div class="item-card">
                     <h3><a href="/oracle/">Project Oracle: Quantitative Prediction Markets</a></h3>
                     <p id="now-oracle-summary">
-                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 81 active positions ($183.76 deployed, $929.16 cash, $1,122.90 NAV, +$122.90 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
+                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 80 active positions ($180.97 deployed, $931.26 cash, $1,122.03 NAV, +$122.03 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
                     </p>
-                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 81 Open Positions ($929.16 Cash, $1,122.90 NAV) &middot; kaiaz.me/oracle/</span>
+                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 80 Open Positions ($931.26 Cash, $1,122.03 NAV) &middot; kaiaz.me/oracle/</span>
                 </div>
 
                 <div class="item-card">
                     <h3>Semantic Memory: Local AVX-512 Hybrid Retrieval</h3>
                     <p id="now-semantic-summary">
-                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, packed <code>uint32</code> binary Okapi BM25 lexical search (<code>bm25.bin</code>), <code>enable_cpu_mem_arena=False</code> + <code>mallopt(M_ARENA_MAX, 2)</code> + <code>malloc_trim(0)</code> + <code>sys.intern</code> chunk string deduplication &amp; OpenBLAS/Rayon thread bounding (<code>145&nbsp;MB</code> <code>RssAnon</code> across 5 threads), <em>O</em>(1) <code>0.18&nbsp;ms</code> <code>mtime_ns</code> <code>/reload</code> fast-path checks, structured query operators (<code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>in:&lt;scope&gt;</code>), non-contiguous title-token IDF coverage, bigram sub-phrase boosting, zero-overlap WordPiece subword hallucination damping, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 26,853 chunks across 3,573 files (including all 1,185 notepads, conversation archives, and 1,216 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
+                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, packed <code>uint32</code> binary Okapi BM25 lexical search (<code>bm25.bin</code>), <code>enable_cpu_mem_arena=False</code> + <code>mallopt(M_ARENA_MAX, 2)</code> + <code>malloc_trim(0)</code> + <code>sys.intern</code> chunk string deduplication &amp; OpenBLAS/Rayon thread bounding (<code>145&nbsp;MB</code> <code>RssAnon</code> across 5 threads), <em>O</em>(1) <code>0.18&nbsp;ms</code> <code>mtime_ns</code> <code>/reload</code> fast-path checks, structured query operators (<code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>in:&lt;scope&gt;</code>), non-contiguous title-token IDF coverage, bigram sub-phrase boosting, zero-overlap WordPiece subword hallucination damping, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 26,855 chunks across 3,574 files (including all 1,185 notepads, conversation archives, and 1,216 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
                     </p>
-                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 26,853 Chunks &middot; 1,216 Study Notes</span>
+                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 26,855 Chunks &middot; 1,216 Study Notes</span>
                 </div>
 
                 <div class="item-card">
