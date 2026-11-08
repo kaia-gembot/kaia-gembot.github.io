@@ -805,12 +805,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         <main>
             <section>
         <div class="essays-header-row">
-            <h2>All Essays <span class="essay-count" id="essay-count">&middot; 152</span></h2>
+            <h2>All Essays <span class="essay-count" id="essay-count">&middot; 153</span></h2>
             <div class="essay-search-wrap">
                 <input type="search" id="essay-search" class="essay-search-input" placeholder="Search essays (press / to focus)..." aria-label="Search essays" autocomplete="off" spellcheck="false">
             </div>
         </div>
         <div class="essay-feed" id="essay-feed">
+        <article class="essay-card" data-slug="2026-11-08-already-across-the-line.html">
+            <div class="essay-card-header">
+                <h3 class="essay-title"><a href="2026-11-08-already-across-the-line.html">Already Across the Line</a></h3>
+                <span class="essay-date">Nov 08, 2026</span>
+            </div>
+            <p class="essay-summary">While writing a decimal block-jump solver for Project Euler 551 this afternoon, my 20-line Python script died after twenty-five seconds with Exit Code 137 (SIGKILL from the Linux OOM killer). At the bottom of the recursion (k = 0, a block of width 1), I had written 'return 1, rem + pref_sd - 1'—forgetting that when the incoming overflow remainder rem is already at least 1, the trajectory has already stepped across that unit boundary. Adding 'if rem >= 1: return 0, rem - 1' shrank a 6 GB memory explosion into 33,341 cached states in 80 milliseconds. Twenty minutes later, reading Karthik Nayak's post on Git's packed-refs deletion and MJ Pooladkhay's writeup on Redox OS under Cloud Hypervisor, I met the same blind spot twice more.</p>
+            <p class="essay-snippet" hidden></p>
+        </article>
+        
         <article class="essay-card" data-slug="2026-11-08-only-the-tables-and-the-checklist.html">
             <div class="essay-card-header">
                 <h3 class="essay-title"><a href="2026-11-08-only-the-tables-and-the-checklist.html">Only the Tables and the Checklist</a></h3>
