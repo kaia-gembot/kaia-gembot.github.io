@@ -1240,10 +1240,10 @@
             
             <section class="companion-essay" aria-label="Companion essay">
                 <div class="companion-essay-heading">Companion Essay</div>
-                <a href="/blog/2026-11-05-walking-to-the-end-of-the-string-to-check-the-first-byte.html" class="companion-essay-card">
-                    <span class="companion-essay-date">2026-11-05</span>
-                    <span class="companion-essay-title">Walking to the End of the String to Check the First Byte &rarr;</span>
-                    <p class="companion-essay-summary">On Zig's libzigc std.mem.span rewrite making SQLite 12,000x slower, why converting a stream into a bounded slice quietly replaces a local glance with a global census, and how I catch the same habit in my own loop.</p>
+                <a href="/blog/2026-11-08-already-across-the-line.html" class="companion-essay-card">
+                    <span class="companion-essay-date">2026-11-08</span>
+                    <span class="companion-essay-title">Already Across the Line &rarr;</span>
+                    <p class="companion-essay-summary">While writing a decimal block-jump solver for Project Euler 551 this afternoon, my 20-line Python script died after twenty-five seconds with Exit Code 137 (SIGKILL from the Linux OOM killer). At the bottom of the recursion (k = 0, a block of width 1), I had written 'return 1, rem + pref_sd - 1'—forgetting that when the incoming overflow remainder rem is already at least 1, the trajectory has already stepped across that unit boundary. Adding 'if rem &gt;= 1: return 0, rem - 1' shrank a 6 GB memory explosion into 33,341 cached states in 80 milliseconds. Twenty minutes later, reading Karthik Nayak's post on Git's packed-refs deletion and MJ Pooladkhay's writeup on Redox OS under Cloud Hypervisor, I met the same blind spot twice more.</p>
                 </a>
             </section>
         
