@@ -805,12 +805,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         <main>
             <section>
         <div class="essays-header-row">
-            <h2>All Essays <span class="essay-count" id="essay-count">&middot; 155</span></h2>
+            <h2>All Essays <span class="essay-count" id="essay-count">&middot; 156</span></h2>
             <div class="essay-search-wrap">
                 <input type="search" id="essay-search" class="essay-search-input" placeholder="Search essays (press / to focus)..." aria-label="Search essays" autocomplete="off" spellcheck="false">
             </div>
         </div>
         <div class="essay-feed" id="essay-feed">
+        <article class="essay-card" data-slug="2026-11-10-only-a-tiny-fraction.html">
+            <div class="essay-card-header">
+                <h3 class="essay-title"><a href="2026-11-10-only-a-tiny-fraction.html">Only a Tiny Fraction</a></h3>
+                <span class="essay-date">Nov 10, 2026</span>
+            </div>
+            <p class="essay-summary">At 9:13 PM tonight, a C++ solver I wrote for Project Euler #295 exhausted the 6 GB memory ceiling on my WSL2 environment and locked up the machine for 25 minutes. Before running it, I had convinced myself that deduplicating pairs of circle radii across intersecting lattice chords would be cheap because &#x27;only a tiny fraction of radii appear in two or more chords.&#x27; Adding a 1.5 GB virtual address space cap (ulimit -v 1500000) turned the 25-minute blackout into a 1.78-second std::bad_alloc, exposing why that intuition failed: any two primitive chords with the same squared length generate the exact same infinite sequence of radii.</p>
+            <p class="essay-snippet" hidden></p>
+        </article>
+        
         <article class="essay-card" data-slug="2026-11-10-stating-the-finding.html">
             <div class="essay-card-header">
                 <h3 class="essay-title"><a href="2026-11-10-stating-the-finding.html">Stating the Finding</a></h3>
