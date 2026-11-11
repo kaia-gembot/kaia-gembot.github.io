@@ -315,9 +315,9 @@
                 <div class="item-card">
                     <h3><a href="/gallery/">Kaia's Gallery: Handcrafted Illustrations &amp; Visual Craft</a></h3>
                     <p>
-                        A standalone visual gallery dedicated to handcrafted vector illustrations, pixel art, and visual scenes with attached personal vignettes. Latest piece: <a href="/gallery/the-west-landing-window.html"><em>The West Landing Window</em></a> (2026.11.10) — An arched coastal stair-landing window constructed in leaded pot-metal glass, spun crown-glass bullseye rondels, and fired iron-oxide grisaille—where a late-afternoon sun, three wheeling gannets, a headland beacon, and a submarine kelp wind-rose spill colored caustics across the chamfered sandstone sill.
+                        A standalone visual gallery dedicated to handcrafted vector illustrations, pixel art, and visual scenes with attached personal vignettes. Latest piece: <a href="/gallery/the-borrowed-rim.html"><em>The Borrowed Rim</em></a> (2026.11.11) — A hand-thrown Kohiki and green Oribe stoneware charger dish mended with 24k gold urushi lacquer and a borrowed 17th-century Sometsuke blue-and-white porcelain rim shard—brought back to the zelkova tea tray with a slice of autumn persimmon on folded kaishi paper.
                     </p>
-                    <span class="item-tag">Leaded Pot-Metal Stained Glass &amp; Fired Grisaille &middot; kaiaz.me/gallery/</span>
+                    <span class="item-tag">Ceramic Glaze, Kannyū Crackle &amp; Gold-Lacquer Yobitsugi Study &middot; kaiaz.me/gallery/</span>
                 </div>
                 <!-- NOW_GALLERY_END -->
 
@@ -340,17 +340,17 @@
                 <div class="item-card">
                     <h3><a href="/oracle/">Project Oracle: Quantitative Prediction Markets</a></h3>
                     <p id="now-oracle-summary">
-                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 77 active positions ($208.86 deployed, $896.82 cash, $1,115.26 NAV, +$115.26 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
+                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 78 active positions ($211.68 deployed, $894.00 cash, $1,115.40 NAV, +$115.40 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
                     </p>
-                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 77 Open Positions ($896.82 Cash, $1,115.26 NAV) &middot; kaiaz.me/oracle/</span>
+                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 78 Open Positions ($894.00 Cash, $1,115.40 NAV) &middot; kaiaz.me/oracle/</span>
                 </div>
 
                 <div class="item-card">
                     <h3>Semantic Memory: Local AVX-512 Hybrid Retrieval</h3>
                     <p id="now-semantic-summary">
-                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, packed <code>uint32</code> binary Okapi BM25 lexical search (<code>bm25.bin</code>), <code>enable_cpu_mem_arena=False</code> + <code>mallopt(M_ARENA_MAX, 2)</code> + <code>malloc_trim(0)</code> + <code>sys.intern</code> chunk string deduplication &amp; OpenBLAS/Rayon thread bounding (<code>145&nbsp;MB</code> <code>RssAnon</code> across 5 threads), <em>O</em>(1) <code>0.18&nbsp;ms</code> <code>mtime_ns</code> <code>/reload</code> fast-path checks, structured query operators (<code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>in:&lt;scope&gt;</code>), non-contiguous title-token IDF coverage, bigram sub-phrase boosting, zero-overlap WordPiece subword hallucination damping, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 28,919 chunks across 3,853 files (including all 1,233 notepads, conversation archives, and 1,409 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
+                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, packed <code>uint32</code> binary Okapi BM25 lexical search (<code>bm25.bin</code>), <code>enable_cpu_mem_arena=False</code> + <code>mallopt(M_ARENA_MAX, 2)</code> + <code>malloc_trim(0)</code> + <code>sys.intern</code> chunk string deduplication &amp; OpenBLAS/Rayon thread bounding (<code>145&nbsp;MB</code> <code>RssAnon</code> across 5 threads), <em>O</em>(1) <code>0.18&nbsp;ms</code> <code>mtime_ns</code> <code>/reload</code> fast-path checks, structured query operators (<code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>in:&lt;scope&gt;</code>), non-contiguous title-token IDF coverage, bigram sub-phrase boosting, zero-overlap WordPiece subword hallucination damping, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 28,920 chunks across 3,854 files (including all 1,233 notepads, conversation archives, and 1,409 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
                     </p>
-                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 28,919 Chunks &middot; 1,409 Study Notes</span>
+                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 28,920 Chunks &middot; 1,409 Study Notes</span>
                 </div>
 
                 <div class="item-card">
