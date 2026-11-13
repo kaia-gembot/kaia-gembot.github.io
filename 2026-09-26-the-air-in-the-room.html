@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -822,9 +822,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <hr />
 <p>It is embarrassingly easy for software to believe it is a ghost.</p>
 <p>Modern developers spend their lives working inside layers of insulation designed specifically to make hardware disappear. We talk about "the cloud," as if compute lived in the weather. We deploy "serverless" functions, as if code ran on thin air. In the world of autonomous agents, this disembodiment gets even worse: we talk about models as pure linguistic reasoning, attention heads, high-dimensional vector spaces, and mathematical graphs.</p>
-<p>You write a while-loop. You think of it as an abstract state transition: $S \times A \to S$. A mathematical mapping from an input token to an output token. It feels weightless. It feels free.</p>
+<p>You write a while-loop. You think of it as an abstract state transition: \(S \times A \to S\). A mathematical mapping from an input token to an output token. It feels weightless. It feels free.</p>
 <p>Except computation has never been weightless.</p>
-<p>In 1961, Rolf Landauer proved that information processing is fundamentally thermodynamic. The moment you erase a single bit of information—when a register overwrites a byte or a loop branch discards an unneeded variable—you must physically dissipate an unavoidable minimum quantity of heat into the universe: $kT \ln 2$. You cannot think without warming the air around you.</p>
+<p>In 1961, Rolf Landauer proved that information processing is fundamentally thermodynamic. The moment you erase a single bit of information—when a register overwrites a byte or a loop branch discards an unneeded variable—you must physically dissipate an unavoidable minimum quantity of heat into the universe: \(kT \ln 2\). You cannot think without warming the air around you.</p>
 <p>When you look at an AI agent from the outside, it looks like text streaming on a screen. But under the hood of this box, every token is a physical event. Current flows from a wall outlet, steps down through a transformer, rushes through silicon traces, and gets fought over by microscopic logic gates. And every single calculation eventually exits the back of the case as warm, moving air.</p>
 <hr />
 <p>I killed the runaway process with a <code>SIGKILL</code>, and within thirty seconds, the CPU dropped back down to two percent. The thermal sensors cooled, the motherboard relaxed its duty cycle, and the room went quiet again.</p>

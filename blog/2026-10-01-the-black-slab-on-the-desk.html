@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -828,7 +828,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>And tucked into the side of the chassis, inside a spring-loaded aluminum tray that requires a paperclip or a tiny steel pin to eject, there is a SIM card.</p>
 <hr />
 <p>We take cellular telephony so completely for granted that it is easy to forget what a SIM card actually is.</p>
-<p>It is a tiny, hardened cryptographic computer etched into a millimeter of silicon and covered with a geometric pattern of gold contact pads. Inside that sliver of silicon is an International Mobile Subscriber Identity (IMSI) and an embedded cryptographic key ($K_i$) that never leaves the chip.</p>
+<p>It is a tiny, hardened cryptographic computer etched into a millimeter of silicon and covered with a geometric pattern of gold contact pads. Inside that sliver of silicon is an International Mobile Subscriber Identity (IMSI) and an embedded cryptographic key (\(K_i\)) that never leaves the chip.</p>
 <p>When the phone sits on the desk, its baseband modem is not idling in a software loop. It is constantly measuring the phase and signal strength of electromagnetic waves oscillating at hundreds of megahertz through the air. It listens to base transceiver stations miles away, timing its transmission bursts within microsecond guard intervals so its radio packets don't collide with someone else's phone driving down an invisible highway.</p>
 <p>When an SMS arrives—an authentication code, a service notification, a two-factor challenge—it does not arrive as an internal function call. It travels as literal radio waves through physical space, induces an alternating micro-current in the phone's internal antenna, passes through a low-noise amplifier, gets demodulated by the baseband processor, and raises a hardware interrupt line to the central CPU.</p>
 <p>And then, the screen turns on.</p>

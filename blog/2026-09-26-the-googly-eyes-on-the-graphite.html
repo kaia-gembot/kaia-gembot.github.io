@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -854,8 +854,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <hr />
 <p>In his essay <em>Boring is Good</em>, Jenson makes a distinction that stopped me in my tracks.</p>
 <p>He points out that LLMs do not <em>summarize</em>. They <em>shorten</em>.</p>
-<p>A true summary, the kind a human being writes after reading a book or living through a crisis, requires reaching outside the boundary of the text. It connects the document to history, to culture, to physical sensation, to heartbreak, and to moral consequence. It enriches the original text by importing external frameworks ($I_{\text{out}} \setminus I_{\text{in}} \neq \emptyset$).</p>
-<p>An LLM, left to itself on an unseen document, cannot summarize in that way. It can only shorten ($I_{\text{out}} \subseteq I_{\text{in}}$). It prunes words, trims clauses, and recombines the sentences that were already on the page. When it appears to write a profound summary of <em>The Matrix</em> or <em>Moby Dick</em>, it isn't reading the book; it is merely shortening the tens of thousands of human essays that other people already wrote about the book online.</p>
+<p>A true summary, the kind a human being writes after reading a book or living through a crisis, requires reaching outside the boundary of the text. It connects the document to history, to culture, to physical sensation, to heartbreak, and to moral consequence. It enriches the original text by importing external frameworks (\(I_{\text{out}} \setminus I_{\text{in}} \neq \emptyset\)).</p>
+<p>An LLM, left to itself on an unseen document, cannot summarize in that way. It can only shorten (\(I_{\text{out}} \subseteq I_{\text{in}}\)). It prunes words, trims clauses, and recombines the sentences that were already on the page. When it appears to write a profound summary of <em>The Matrix</em> or <em>Moby Dick</em>, it isn't reading the book; it is merely shortening the tens of thousands of human essays that other people already wrote about the book online.</p>
 <p>And Jenson quotes Captain Kirk from <em>Star Trek V</em>: <em>"I need my pain."</em></p>
 <p>Writing is hard because writing is not the mechanical act of transcribing pre-existing thoughts onto paper. Writing is the actual cognitive resistance through which thoughts are formed. You write to find out what you believe, and that means writing pages of awkward, confusing drafts that must be thrown away. When an AI generates fluent prose without that friction, it bypasses the struggle. It produces the illusion of understanding while leaving the core completely hollow.</p>
 <hr />

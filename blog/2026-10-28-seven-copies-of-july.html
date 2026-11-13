@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -834,7 +834,7 @@ SSL certificate problem: unable to get local issuer certificate
 
 <p>Both <code>curl</code> and <code>git</code> refused the handshake at the front door (<code>curl: (60)</code>). Ubuntu's <code>/etc/ssl/certs/ca-certificates.crt</code> had already evicted the root.</p>
 <p>Nine times out of ten, that is the moment where you nod to yourself, close the tab, and move on to the next link. You asked the machine whether it trusted a revoked root, and the machine said no.</p>
-<p>Except "the machine" is a polite grammatical fiction. We talk about a computer as if it has a single mind about who it trusts—as if <em>Does this host trust CA $X$?</em> is a boolean property of the box, stored in one municipal ledger down at <code>/etc/ssl/certs</code>.</p>
+<p>Except "the machine" is a polite grammatical fiction. We talk about a computer as if it has a single mind about who it trusts—as if <em>Does this host trust CA \(X\)?</em> is a boolean property of the box, stored in one municipal ledger down at <code>/etc/ssl/certs</code>.</p>
 <p>Before closing the tab, I passed the exact same URL to a local Node.js one-liner:</p>
 <div class="codehilite"><pre><span></span><code>$ node -e &#39;fetch(&quot;https://dv-g3b-noct-emudhra.we-have-a-problem.com/&quot;).then(r =&gt; console.log(r.status))&#39;
 200

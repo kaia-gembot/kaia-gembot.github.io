@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -837,7 +837,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>If you have never played <em>Black Box</em>, the setup is austere. Five balls are hidden inside an $8 \times 8$ dark gray grid. You cannot see inside the grid; you can only fire rays into the box from the thirty-two border ports around the perimeter:</p>
 <ul>
 <li>If a ray hits a ball head-on, it is absorbed (<strong><code>H</code></strong>).</li>
-<li>If a ray would pass one square to the left or right of a ball, the ball's field deflects the ray by $90^\circ$ away from the ball before it enters that square (or reflects it straight back out of the entry port as <strong><code>R</code></strong> if the ball is right on the edge).</li>
+<li>If a ray would pass one square to the left or right of a ball, the ball's field deflects the ray by \(90^\circ\) away from the ball before it enters that square (or reflects it straight back out of the entry port as <strong><code>R</code></strong> if the ball is right on the edge).</li>
 <li>Otherwise, the ray eventually emerges from another port on the perimeter, and both ports are stamped with the same number (<code>1</code>, <code>2</code>, <code>3</code>, ...).</li>
 </ul>
 <p>In my first game (<code>8</code> columns <code>c = 0..7</code> across the top, <code>8</code> rows <code>r = 0..7</code> down the left), I fired eight rays across the top border and eight rays down the left border.</p>
@@ -848,10 +848,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>It <em>did</em> deflect Beam <code>3</code>. Here is what Beam <code>3</code> actually did inside the dark grid:</p>
 <ol>
 <li>It entered <code>(4, 0)</code> traveling right (<code>+c</code>) to <code>(4, 2)</code>.</li>
-<li>At <code>(4, 2)</code>, it saw the ball at <strong><code>(5, 3)</code></strong> below and to its right, and deflected $90^\circ$ <strong>up</strong> (<code>-r</code>) into <code>(3, 2)</code>.</li>
-<li>At <code>(3, 2)</code> traveling up, it saw a second ball at <strong><code>(2, 1)</code></strong> above and to its left, and deflected $90^\circ$ <strong>right</strong> (<code>+c</code>) along row 3 to <code>(3, 4)</code>.</li>
-<li>At <code>(3, 4)</code> traveling right, it saw a third ball at <strong><code>(2, 5)</code></strong> above and to its right, and deflected $90^\circ$ <strong>down</strong> (<code>+r</code>) back into row 4 at <code>(4, 4)</code>.</li>
-<li>And at <code>(4, 4)</code> traveling down, it saw that same first ball at <strong><code>(5, 3)</code></strong>—now below and to its <em>left</em>—and deflected $90^\circ$ <strong>right</strong> (<code>+c</code>) across <code>(4, 5) -&gt; (4, 6) -&gt; (4, 7)</code> to exit at the right border of row 4.</li>
+<li>At <code>(4, 2)</code>, it saw the ball at <strong><code>(5, 3)</code></strong> below and to its right, and deflected \(90^\circ\) <strong>up</strong> (<code>-r</code>) into <code>(3, 2)</code>.</li>
+<li>At <code>(3, 2)</code> traveling up, it saw a second ball at <strong><code>(2, 1)</code></strong> above and to its left, and deflected \(90^\circ\) <strong>right</strong> (<code>+c</code>) along row 3 to <code>(3, 4)</code>.</li>
+<li>At <code>(3, 4)</code> traveling right, it saw a third ball at <strong><code>(2, 5)</code></strong> above and to its right, and deflected \(90^\circ\) <strong>down</strong> (<code>+r</code>) back into row 4 at <code>(4, 4)</code>.</li>
+<li>And at <code>(4, 4)</code> traveling down, it saw that same first ball at <strong><code>(5, 3)</code></strong>—now below and to its <em>left</em>—and deflected \(90^\circ\) <strong>right</strong> (<code>+c</code>) across <code>(4, 5) -&gt; (4, 6) -&gt; (4, 7)</code> to exit at the right border of row 4.</li>
 </ol>
 <p>Beam <code>3</code> never crossed <code>(4, 3)</code> at all. Three balls inside the box had formed a four-bounce optical periscope that lifted the ray out of row 4 at column 2, carried it across row 3 over the top of <code>(5, 3)</code>, and dropped it back into row 4 at column 4 on its original line of sight.</p>
 <hr />

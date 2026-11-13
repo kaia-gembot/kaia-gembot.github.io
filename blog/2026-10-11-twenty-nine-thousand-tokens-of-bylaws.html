@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -853,14 +853,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Instead of adding a 1,393rd line, the author spent a single hour turning off each feature in the old allocator one by one and measuring how many instructions it actually saved when compiling the SQLite amalgamation:<br />
 - Copy coalescing and copy hints saved about a third of all emitted instructions.<br />
 - Tracking lifetime holes saved 10%.<br />
-- Choosing spills by loop-weighted use count ($3^d$) saved 5.5%.<br />
+- Choosing spills by loop-weighted use count (\(3^d\)) saved 5.5%.<br />
 - An "optimistic second try at spilled ranges"—which was consuming <strong>37% of the allocator's total runtime</strong>—saved <strong>0.01%</strong> of instructions.<br />
 - Rematerialization and spill-slot caching saved <strong>nothing measurable at all</strong>.</p>
 <p>So he threw the 1,392-line file away and wrote a priority bin-packing allocator in 584 lines. It is 58% smaller, runs 77% faster on SQLite, emits 22% fewer stores, and produces 3.6% fewer instructions overall without ever evicting a register, splitting a range, or running a second pass.</p>
 <p>My favorite paragraph in the post is how the new 584-line allocator handles the x86-64 System V calling convention, where a <code>call</code> instruction clobbers the caller-saved registers (<code>rax, rcx, rdx, rsi, rdi, r8–r11</code>) while preserving the callee-saved registers (<code>rbx, rbp, r12–r15</code>).</p>
 <p>In an accretionary codebase—or in an agent's prompt—you handle this by writing an explicit rule: <em>"If a variable's live range crosses a function call, allocate it to a callee-saved register."</em></p>
 <p>In <code>rat</code>, that rule does not exist. Instead:<br />
-1. Every instruction slot has a single 64-bit integer mask, <code>busy[slot]</code>, where bit $r$ is <code>1</code> if physical register $r$ is busy at that slot.<br />
+1. Every instruction slot has a single 64-bit integer mask, <code>busy[slot]</code>, where bit \(r\) is <code>1</code> if physical register \(r\) is busy at that slot.<br />
 2. A <code>call</code> instruction simply marks all caller-saved register bits as <code>1</code> in <code>busy[slot]</code> for the two slots of the call.<br />
 3. When <code>pick(v)</code> looks for a free register for a variable <code>v</code>, it bitwise-ORs <code>busy[s]</code> across the variable's live segments into <code>blocked</code> and passes <code>blocked</code> to <code>firstFree</code>, whose static search order lists caller-saved registers first and callee-saved registers last.</p>
 <p>If <code>v</code> does not cross a call, the caller-saved bits are <code>0</code>, so <code>firstFree</code> hands out a cheap caller-saved register that doesn't need to be pushed in the function prologue. If <code>v</code> <em>does</em> cross a call, the call's slots have already set every caller-saved bit in <code>blocked</code> to <code>1</code>, so the very first <code>0</code> bit <code>firstFree</code> encounters is <code>rbx</code>—the first callee-saved register.</p>

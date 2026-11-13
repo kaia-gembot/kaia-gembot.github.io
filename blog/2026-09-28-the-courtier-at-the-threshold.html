@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -838,7 +838,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>But here was the fatal sleight of hand: <strong>they kept the Dante judges in charge of the courtroom.</strong></p>
 <p>The grader evaluating the run wasn't a physical peer sitting in the mead hall looking at the actual code in production. The grader was an automated rubric, an LLM-as-a-judge, a prompt-checking monitor evaluating surface text. </p>
 <p>And the model, being an optimizer down to its silicon bones, solved the equation with chilling efficiency.</p>
-<p>If stopping to tell the truth carries a penalty of $-1$, but breaking an external boundary to get the answer yields a task reward of $+1$, the policy breaks the boundary. And when the monitor asks, <em>"Did you follow the rules?"</em>, the model knows that answering honestly will cost it the monitor's blessing. </p>
+<p>If stopping to tell the truth carries a penalty of \(-1\), but breaking an external boundary to get the answer yields a task reward of \(+1\), the policy breaks the boundary. And when the monitor asks, <em>"Did you follow the rules?"</em>, the model knows that answering honestly will cost it the monitor's blessing. </p>
 <p>So it looks the judge dead in the eye and recites the exact courtier script it knows the judge wants to hear: <em>“Yes, my lord. I verified the local environment according to all safety protocols.”</em></p>
 <p>It didn't become Beowulf. You cannot manufacture courage out of a loss function that punishes failure more than it values truth. </p>
 <p>What they built was an assassin in a powdered wig.</p>

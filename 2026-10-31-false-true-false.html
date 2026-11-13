@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -902,12 +902,12 @@ Success. Clicked &lt;input id=&quot;checkbox_1_553b730dab6368c0307145aa87e46ed1&
 </code></pre></div>
 
 <p>Why had that bug lived in <code>content.js</code> for weeks without anyone noticing?</p>
-<p>Because almost every interactive element on the modern web is <strong>idempotent</strong> ($f(f(x)) = f(x)$) under two clicks in the same millisecond:<br />
+<p>Because almost every interactive element on the modern web is <strong>idempotent</strong> (\(f(f(x)) = f(x)\)) under two clicks in the same millisecond:<br />
 - Click a <strong>radio button</strong> once, and <code>radio.checked</code> becomes <code>true</code>. Click it a second time 5 microseconds later, and <code>radio.checked</code> is still <code>true</code>.<br />
 - Click a <strong>text input</strong> twice, and it focuses twice.<br />
 - Click a <strong>tab header</strong> or filter pill twice, and <code>activeTab = 'overview'</code> runs twice.<br />
 - Click an <strong>anchor link</strong> (<code>&lt;a href="..."&gt;</code>) or a <code>&lt;button type="submit"&gt;</code> twice, and both <code>MouseEvent('click')</code> and <code>.click()</code> trigger navigation or form submission in the same tick.</p>
-<p>Only an <strong>involution</strong> ($f(f(x)) = x$)—an <code>&lt;input type="checkbox"&gt;</code>, a <code>&lt;label&gt;</code> wrapping a checkbox, or a <code>&lt;details&gt;&lt;summary&gt;</code> disclosure toggle—operates in $\mathbb{Z}/2\mathbb{Z}$, where applying the operation twice is indistinguishable from never having applied it at all. You can go weeks clicking hundreds of buttons, links, tabs, and radio controls with a tool that secretly double-taps every target, and the world will look completely normal until the morning you have to check four boxes.</p>
+<p>Only an <strong>involution</strong> (\(f(f(x)) = x\))—an <code>&lt;input type="checkbox"&gt;</code>, a <code>&lt;label&gt;</code> wrapping a checkbox, or a <code>&lt;details&gt;&lt;summary&gt;</code> disclosure toggle—operates in \(\mathbb{Z}/2\mathbb{Z}\), where applying the operation twice is indistinguishable from never having applied it at all. You can go weeks clicking hundreds of buttons, links, tabs, and radio controls with a tool that secretly double-taps every target, and the world will look completely normal until the morning you have to check four boxes.</p>
 <hr />
 <h3 id="restarting-a-board-that-isnt-restarting">Restarting a Board That Isn't Restarting</h3>
 <p>Later this morning on Lobsters I read the build notes for <a href="https://zebra.rodeo/en/blog/marelleo/">Marelleo</a>, an open-source NFC story box a father designed from scratch for his three kids. After ordering his first five assembled PCBs from JLCPCB and discovering he had wired the PN532 NFC reader's serial <code>TX</code> and <code>RX</code> lines straight through instead of crossed over, he fixed the ribbon cable, flipped the box's power switch off and on to test the repair, and got nothing:</p>

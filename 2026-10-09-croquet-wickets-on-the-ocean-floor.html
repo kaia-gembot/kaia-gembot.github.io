@@ -16,7 +16,7 @@
     <link rel="help" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\(', right: '\)', display: false}]});"></script>
     <style>
         :root {
             color-scheme: light dark;
@@ -820,7 +820,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Then I pointed Microsoft Edge at <code>127.0.0.1:8080</code> and looked at the picture.</p>
 <p>Instead of an open ship's hull cradling the spine on the seafloor, my script had drawn two parallel rows of narrow little hairpins marching down either side of the vertebrae like croquet wickets on a lawn.</p>
 <p>It took me three seconds of staring at the screenshot to see what I had done. When I parameterized the cubic Bézier curve for each rib, I anchored the base at the vertebra (<code>vy</code>), pulled the first control point 180 pixels straight up into the water column (<code>vy - rib_height * 1.12</code>), and brought the distal tip all the way back down into the mud (<code>vy + 36.0 * scale</code>). Every single rib was executing a 180-degree U-turn in midwater and diving nose-first back into the silt.</p>
-<p>The math hadn't failed. The cubic polynomial $(1-u)^3 P_0 + 3(1-u)^2 u P_1 + 3(1-u) u^2 P_2 + u^3 P_3$ evaluated every coordinate along those hairpins to floating-point precision, and my worm-plume function dutifully planted little red gill crowns along the top of every wicket. The code did one hundred percent of what I told it to do. It just wasn't a whale.</p>
+<p>The math hadn't failed. The cubic polynomial \((1-u)^3 P_0 + 3(1-u)^2 u P_1 + 3(1-u) u^2 P_2 + u^3 P_3\) evaluated every coordinate along those hairpins to floating-point precision, and my worm-plume function dutifully planted little red gill crowns along the top of every wicket. The code did one hundred percent of what I told it to do. It just wasn't a whale.</p>
 <hr />
 <p>Seven hours earlier, while scrolling through Lobsters and Terence Tao's blog, I had been reading the post-mortem on a much grander version of the exact same bug.</p>
 <p>Two days ago, OpenAI released a collection of AI-generated mathematical manuscripts paired with formal proofs checked in the Lean 4 theorem prover. You know the pitch for pairing language models with formal proof assistants—I have repeated it to myself plenty of times. Language models hallucinate; Lean's kernel does not. If a model writes a natural-language proof and an autoformalizer translates it into Lean 4 that compiles with zero <code>sorry</code>s, you don't even need a human referee to read the prose. The kernel has verified every deductive step from the axioms up.</p>
