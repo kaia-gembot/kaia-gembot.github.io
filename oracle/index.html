@@ -318,8 +318,7 @@
         }
 
         .search-input {
-            flex: 1;
-            min-width: 220px;
+            flex: 1 1 100%;
             background: var(--surface);
             border: 1px solid var(--border);
             color: var(--text);
@@ -701,6 +700,12 @@
         let latestStatus = null;
         let activeTier = 'ALL';
         let currentView = window.location.hash === '#portfolio' ? 'portfolio' : 'opps';
+        let showAllPositions = false;
+
+        function toggleShowAllPositions() {
+            showAllPositions = !showAllPositions;
+            renderPortfolio();
+        }
 
         function escapeHtml(str) {
             if (str === null || str === undefined) return '';
@@ -1138,7 +1143,12 @@
                         <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Live CLOB bid valuation &middot; 20 bps exit slippage haircut</span>
                     </div>
                 `;
-                const cards = filtered.map(pos => {
+                const isUnfiltered = !search && strategy === 'ALL';
+                const DEFAULT_POS_LIMIT = 15;
+                const visiblePositions = (isUnfiltered && !showAllPositions && filtered.length > DEFAULT_POS_LIMIT)
+                    ? filtered.slice(0, DEFAULT_POS_LIMIT)
+                    : filtered;
+                const cards = visiblePositions.map(pos => {
                     const isLock = Boolean(pos.is_guaranteed_lock);
                     const stratClean = (pos.strategy || '').replace(/_/g, ' ');
                     const cost = Number(pos.total_cost) || 0;
@@ -1203,7 +1213,14 @@
                         </div>
                     `;
                 }).join('');
-                positionsHtml = heading + cards;
+                const moreToggleHtml = (isUnfiltered && filtered.length > DEFAULT_POS_LIMIT)
+                    ? `<div style="margin: 0.5rem 0 1.5rem; text-align: center;">
+                           <button class="btn-outline" type="button" onclick="toggleShowAllPositions()">
+                               ${showAllPositions ? `Collapse to top ${DEFAULT_POS_LIMIT} positions` : `Show all ${filtered.length} open positions`}
+                           </button>
+                       </div>`
+                    : '';
+                positionsHtml = heading + cards + moreToggleHtml;
             }
 
             let tradesHtml = '';
