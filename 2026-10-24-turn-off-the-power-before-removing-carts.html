@@ -160,12 +160,12 @@
         }
 
         .essay-card:hover,
-        .essay-card:focus-within {
+        .essay-card:has(:focus-visible) {
             border-color: var(--text-muted);
             background: var(--surface-hover);
         }
 
-        .essay-card:focus-within {
+        .essay-card:has(:focus-visible) {
             outline: 2px solid var(--text-muted);
             outline-offset: 2px;
         }
