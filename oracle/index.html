@@ -465,11 +465,11 @@
 
         .opp-metrics {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-            gap: 0.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+            gap: 0.75rem 1rem;
             background: var(--surface);
             border-radius: 6px;
-            padding: 0.6rem 0.85rem;
+            padding: 0.65rem 0.9rem;
             margin-bottom: 0.5rem;
             font-size: 0.8rem;
         }
@@ -531,6 +531,30 @@
             background: var(--positive-bg);
             color: var(--positive);
             border-color: var(--positive);
+        }
+
+        .action-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            text-decoration: none;
+            color: var(--accent);
+            border-color: var(--border);
+            font-weight: 500;
+        }
+
+        .action-link:hover {
+            color: var(--accent-hover, var(--text));
+            border-color: var(--accent);
+        }
+
+        .badge-venue {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            font-family: var(--font-mono);
+            text-transform: none;
+            letter-spacing: 0;
         }
 
         .section-heading {
@@ -605,7 +629,7 @@
 
         <section class="hero">
             <h1>Project Oracle</h1>
-            <p>Live order-book scanner and mark-to-market paper portfolio across Polymarket and Kalshi—tracking strike-ladder arbitrage, cross-venue locks, settlement yield, and statistical longshot carry.</p>
+            <p>Live order-book scanner and paper portfolio across Polymarket and Kalshi—tracking strike-ladder locks, cross-venue spreads, settlement yield, and favorite-longshot bias carry. Paper fills execute exclusively on Polymarket CLOB order books ($1,000 initial capital; $3–$15 fractional sizing on statistical carry, up to $100 on multi-leg locks).</p>
         </section>
 
         <div class="view-tabs" role="tablist" aria-label="Oracle Dashboard Views">
@@ -630,19 +654,19 @@
                 <div class="stat-sub" id="statSub1">Across 500 events</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label" id="statLabel2">Tier 0 (Risk-Free Arb)</div>
+                <div class="stat-label" id="statLabel2">Arbitrage &amp; Cross-Venue</div>
                 <div class="stat-val" style="color: var(--positive);" id="statVal2">&mdash;</div>
-                <div class="stat-sub" id="statSub2">Locked mathematical floor</div>
+                <div class="stat-sub" id="statSub2">Single-venue locks &amp; dual-venue spreads</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label" id="statLabel3">Tier 3 (Settlement Yield)</div>
-                <div class="stat-val" style="color: var(--warning);" id="statVal3">&mdash;</div>
-                <div class="stat-sub" id="statSub3">Post-outcome liveness APR</div>
+                <div class="stat-label" id="statLabel3">Statistical Carry</div>
+                <div class="stat-val" style="color: var(--info);" id="statVal3">&mdash;</div>
+                <div class="stat-sub" id="statSub3">Favorite-longshot bias (NO carry)</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label" id="statLabel4">Tier 2 (Statistical)</div>
-                <div class="stat-val" style="color: var(--info);" id="statVal4">&mdash;</div>
-                <div class="stat-sub" id="statSub4">Longshot carry</div>
+                <div class="stat-label" id="statLabel4">Settlement Yield</div>
+                <div class="stat-val" style="color: var(--warning);" id="statVal4">&mdash;</div>
+                <div class="stat-sub" id="statSub4">Post-outcome liveness carry</div>
             </div>
         </div>
 
@@ -652,32 +676,34 @@
             <input type="search" class="search-input" id="searchInput" aria-label="Search opportunities or positions" placeholder="Search markets, questions, or position IDs...">
 
             <div class="tier-tabs" id="tierTabs">
-                <button class="tab-btn active" type="button" data-tier="ALL">All Tiers</button>
-                <button class="tab-btn" type="button" data-tier="TIER_0_GUARANTEED">Tier 0</button>
-                <button class="tab-btn" type="button" data-tier="TIER_3_YIELD_CARRY">Tier 3</button>
-                <button class="tab-btn" type="button" data-tier="TIER_2_STATISTICAL">Tier 2</button>
+                <button class="tab-btn active" type="button" data-tier="ALL">All Categories</button>
+                <button class="tab-btn" type="button" data-tier="TIER_0_GUARANTEED">Arb &amp; Spreads</button>
+                <button class="tab-btn" type="button" data-tier="TIER_2_STATISTICAL">Longshot Carry</button>
+                <button class="tab-btn" type="button" data-tier="TIER_3_YIELD_CARRY">Settlement Yield</button>
             </div>
 
             <select class="select-filter" id="strategyFilter" aria-label="Filter by strategy">
                 <option value="ALL">All Strategies</option>
-                <option value="CROSS_VENUE_LOCK">Cross-Venue Arbitrage</option>
-                <option value="STRIKE_MONOTONICITY">Strike Ladder Monotonicity</option>
-                <option value="DIGITAL_BUTTERFLY">Digital Butterfly Spreads</option>
-                <option value="TEMPORAL_IMPLICATION">Temporal Implication Lock</option>
-                <option value="BUNDLE_ARBITRAGE">Complete-Set Dutch-Booking</option>
-                <option value="NEGRISK_CONVERSION">NegRisk Synthetic Parity</option>
-                <option value="SETTLEMENT_YIELD">Settlement Yield Harvesting</option>
-                <option value="LONGSHOT_CARRY">Longshot Statistical Carry</option>
+                <option value="STRIKE_MONOTONICITY">Strike Monotonicity</option>
+                <option value="LONGSHOT_CARRY">Longshot Carry</option>
+                <option value="CROSS_VENUE_LOCK">Cross-Venue Spread</option>
+                <option value="SETTLEMENT_YIELD">Settlement Yield</option>
+                <option value="BUNDLE_ARBITRAGE">Bundle Arbitrage</option>
+                <option value="NEGRISK_CONVERSION">NegRisk Conversion</option>
+                <option value="TEMPORAL_IMPLICATION">Temporal Implication</option>
+                <option value="DIGITAL_BUTTERFLY">Digital Butterfly</option>
             </select>
 
             <select class="select-filter" id="sortFilter" aria-label="Sort order">
                 <option value="ROI_DESC">Sort: Highest Return %</option>
+                <option value="ROI_ASC">Sort: Lowest Return / Worst MtM %</option>
+                <option value="APR_DESC">Sort: Highest Annualized APR</option>
                 <option value="PROFIT_DESC">Sort: Highest PnL / Edge ($)</option>
+                <option value="NEWEST_DESC">Sort: Newest Opened</option>
                 <option value="CAPITAL_DESC">Sort: Largest Capital ($)</option>
                 <option value="CAPITAL_ASC">Sort: Lowest Capital ($)</option>
                 <option value="STRATEGY_ASC">Sort: Strategy (A-Z)</option>
             </select>
-
             <button class="action-btn" id="exportCsvBtn" type="button" onclick="exportDataToCsv()" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.48rem 0.8rem; font-weight: 500;" title="Export current filtered records to CSV">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Export CSV
@@ -689,7 +715,7 @@
         </div>
 
         <footer>
-            <div>Project Oracle &middot; Paper Execution &amp; Mark-to-Market Ledger</div>
+            <div>Project Oracle &middot; Paper Execution &amp; Mark-to-Market Ledger &middot; Notes: <a href="/blog/2026-11-19-how-low-reach-high.html">How Low (REACH / HIGH)</a></div>
             <div style="font-family: var(--font-mono); font-size: 0.75rem;">Polymarket CLOB &amp; Kalshi Order Books</div>
         </footer>
     </div>
@@ -698,13 +724,64 @@
         let allOpportunities = [];
         let portfolioData = null;
         let latestStatus = null;
-        let activeTier = 'ALL';
+        let lastRenderFingerprint = '';
         let currentView = window.location.hash === '#portfolio' ? 'portfolio' : 'opps';
         let showAllPositions = false;
+
+        const viewFilterState = {
+            opps: { search: '', strategy: 'ALL', sort: 'ROI_DESC', tier: 'ALL' },
+            portfolio: { search: '', strategy: 'ALL', sort: 'ROI_DESC', tier: 'ALL' }
+        };
+
+        const STRATEGY_LABELS = {
+            STRIKE_MONOTONICITY: 'Strike Monotonicity',
+            LONGSHOT_CARRY: 'Longshot Carry',
+            LONGSHOT_BIAS_CARRY: 'Longshot Carry',
+            CROSS_VENUE_LOCK: 'Cross-Venue Spread',
+            SETTLEMENT_YIELD: 'Settlement Yield',
+            BUNDLE_ARBITRAGE: 'Bundle Arbitrage',
+            BUY_BUNDLE: 'Bundle Arbitrage',
+            SELL_BUNDLE: 'Bundle Arbitrage',
+            NEGRISK_CONVERSION: 'NegRisk Conversion',
+            TEMPORAL_IMPLICATION: 'Temporal Implication',
+            DIGITAL_BUTTERFLY: 'Digital Butterfly'
+        };
+
+        function formatStrategyName(s) {
+            const key = String(s || '').toUpperCase();
+            return STRATEGY_LABELS[key] || key.replace(/_/g, ' ');
+        }
 
         function toggleShowAllPositions() {
             showAllPositions = !showAllPositions;
             renderPortfolio();
+        }
+
+        function resetActiveFilters() {
+            viewFilterState[currentView] = { search: '', strategy: 'ALL', sort: 'ROI_DESC', tier: 'ALL' };
+            applyViewFilterControls();
+            renderActiveView();
+        }
+
+        function saveCurrentFilterControls() {
+            const st = viewFilterState[currentView];
+            st.search = document.getElementById('searchInput').value;
+            st.strategy = document.getElementById('strategyFilter').value;
+            st.sort = document.getElementById('sortFilter').value;
+        }
+
+        function applyViewFilterControls() {
+            const st = viewFilterState[currentView];
+            const searchEl = document.getElementById('searchInput');
+            searchEl.value = st.search || '';
+            searchEl.placeholder = currentView === 'portfolio'
+                ? 'Search markets, outcomes, or position IDs...'
+                : 'Search live markets, events, or leg details...';
+            document.getElementById('strategyFilter').value = st.strategy || 'ALL';
+            document.getElementById('sortFilter').value = st.sort || 'ROI_DESC';
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.tier === (st.tier || 'ALL'));
+            });
         }
 
         function escapeHtml(str) {
@@ -717,16 +794,46 @@
                 .replace(/'/g, '&#39;');
         }
 
+        function fmtUsd(val, decimals = 2) {
+            const num = Number(val) || 0;
+            const absStr = Math.abs(num).toLocaleString('en-US', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            });
+            return num < 0 ? `-$${absStr}` : `$${absStr}`;
+        }
+
         function fmtSignedUsd(val, decimals = 2) {
             const num = Number(val) || 0;
             const sign = num >= 0 ? '+' : '-';
-            return `${sign}$${Math.abs(num).toFixed(decimals)}`;
+            const absStr = Math.abs(num).toLocaleString('en-US', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            });
+            return `${sign}$${absStr}`;
         }
 
         function fmtSignedPct(val, decimals = 2) {
             const num = Number(val) || 0;
             const sign = num >= 0 ? '+' : '-';
             return `${sign}${Math.abs(num).toFixed(decimals)}%`;
+        }
+
+        function fmtTimeWithTz(isoStr, includeDate = false) {
+            if (!isoStr) return '';
+            const d = new Date(isoStr);
+            if (Number.isNaN(d.getTime())) return String(isoStr);
+            const opts = includeDate
+                ? { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }
+                : { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+            return d.toLocaleString([], opts);
+        }
+
+        function fmtShortDate(isoStr) {
+            if (!isoStr) return '';
+            const d = new Date(isoStr);
+            if (Number.isNaN(d.getTime())) return '';
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
         async function copyText(text, btn, feedbackLabel) {
@@ -747,10 +854,11 @@
         function filterByStrategy(strat) {
             const sel = document.getElementById('strategyFilter');
             sel.value = (sel.value === strat) ? 'ALL' : strat;
+            saveCurrentFilterControls();
             renderActiveView();
         }
 
-        async function fetchDashboardData() {
+        async function fetchDashboardData(forceRender = false) {
             try {
                 const ts = Date.now();
                 const [statusRes, oppsRes, portRes] = await Promise.all([
@@ -759,12 +867,20 @@
                     fetch('/data/oracle_portfolio.json?t=' + ts)
                 ]);
 
-                if (statusRes.ok) latestStatus = await statusRes.json();
-                if (oppsRes.ok) allOpportunities = await oppsRes.json();
-                if (portRes.ok) portfolioData = await portRes.json();
+                const nextStatus = statusRes.ok ? await statusRes.json() : latestStatus;
+                const nextOpps = oppsRes.ok ? await oppsRes.json() : allOpportunities;
+                const nextPort = portRes.ok ? await portRes.json() : portfolioData;
 
-                syncViewControls();
-                renderActiveView();
+                const fingerprint = `${nextStatus?.timestamp || ''}|${nextPort?.timestamp || ''}|${nextOpps?.length || 0}`;
+                latestStatus = nextStatus;
+                allOpportunities = nextOpps;
+                portfolioData = nextPort;
+
+                if (forceRender || fingerprint !== lastRenderFingerprint) {
+                    lastRenderFingerprint = fingerprint;
+                    syncViewControls();
+                    renderActiveView();
+                }
             } catch (err) {
                 console.error('Failed to load dashboard data:', err);
                 document.getElementById('freshness').textContent = 'Telemetry offline';
@@ -776,9 +892,11 @@
             document.getElementById('viewPortfolioBtn').classList.toggle('active', currentView === 'portfolio');
             const tierTabs = document.getElementById('tierTabs');
             if (tierTabs) tierTabs.style.display = currentView === 'opps' ? 'flex' : 'none';
+            applyViewFilterControls();
         }
 
         function switchView(view) {
+            saveCurrentFilterControls();
             currentView = view === 'portfolio' ? 'portfolio' : 'opps';
             const targetHash = currentView === 'portfolio' ? '#portfolio' : '';
             if (window.location.hash !== targetHash) {
@@ -796,7 +914,7 @@
                 if (latestStatus) renderStatus(latestStatus);
                 renderOpportunities();
             } else {
-                document.getElementById('engineStatus').textContent = 'Live Mark-to-Market Paper Ledger';
+                document.getElementById('engineStatus').textContent = 'Polymarket Paper Ledger (Locks at Floor · Carry at Bid)';
                 if (portfolioData) renderPortfolioMetrics(portfolioData);
                 renderPortfolio();
             }
@@ -808,29 +926,29 @@
             document.getElementById('statVal1').style.color = 'var(--text)';
             document.getElementById('statSub1').textContent = `Across ${status.events_scanned || 500} events (${status.scan_duration_seconds || 0}s)`;
 
-            document.getElementById('statLabel2').textContent = 'Tier 0 (Risk-Free Arb)';
+            document.getElementById('statLabel2').textContent = 'Arbitrage & Spreads';
             document.getElementById('statVal2').textContent = status.tier_counts?.TIER_0_GUARANTEED || 0;
             document.getElementById('statVal2').style.color = 'var(--positive)';
-            document.getElementById('statSub2').textContent = 'Locked mathematical floor';
+            document.getElementById('statSub2').textContent = 'Single-venue locks & cross-venue spreads';
 
-            document.getElementById('statLabel3').textContent = 'Tier 3 (Settlement Yield)';
-            document.getElementById('statVal3').textContent = status.tier_counts?.TIER_3_YIELD_CARRY || 0;
-            document.getElementById('statVal3').style.color = 'var(--warning)';
-            document.getElementById('statSub3').textContent = 'Post-outcome liveness APR';
+            document.getElementById('statLabel3').textContent = 'Longshot Carry';
+            document.getElementById('statVal3').textContent = status.tier_counts?.TIER_2_STATISTICAL || 0;
+            document.getElementById('statVal3').style.color = 'var(--info)';
+            document.getElementById('statSub3').textContent = 'Favorite-longshot bias (NO carry)';
 
-            document.getElementById('statLabel4').textContent = 'Tier 2 (Statistical)';
-            document.getElementById('statVal4').textContent = status.tier_counts?.TIER_2_STATISTICAL || 0;
-            document.getElementById('statVal4').style.color = 'var(--info)';
-            document.getElementById('statSub4').textContent = 'Longshot carry';
+            document.getElementById('statLabel4').textContent = 'Settlement Yield';
+            document.getElementById('statVal4').textContent = status.tier_counts?.TIER_3_YIELD_CARRY || 0;
+            document.getElementById('statVal4').style.color = 'var(--warning)';
+            document.getElementById('statSub4').textContent = 'Post-outcome liveness carry';
 
             if (status.timestamp) {
-                const d = new Date(status.timestamp);
-                document.getElementById('freshness').textContent = `Last scan: ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
+                document.getElementById('freshness').textContent = `Last scan: ${fmtTimeWithTz(status.timestamp)}`;
             }
         }
 
         function renderPortfolioMetrics(data) {
             const nav = Number(data.nav_usd) || 1000;
+            const liqNav = Number(data.liquidation_nav_usd) || nav;
             const cash = Number(data.cash_usd) || 0;
             const deployed = Number(data.deployed_usd) || 0;
             const lockedFloor = Number(data.guaranteed_floor_usd) || 0;
@@ -841,31 +959,30 @@
             const losses = Number(data.losing_trades) || 0;
             const winRate = Number(data.closed_win_rate_pct) || 0;
 
-            document.getElementById('statLabel1').textContent = 'Portfolio NAV (MtM)';
-            document.getElementById('statVal1').textContent = `$${nav.toFixed(2)}`;
+            document.getElementById('statLabel1').textContent = 'Portfolio Equity';
+            document.getElementById('statVal1').textContent = fmtUsd(nav);
             document.getElementById('statVal1').style.color = nav >= 1000 ? 'var(--positive)' : 'var(--negative)';
-            document.getElementById('statSub1').textContent = `Initial: $1,000.00 · Realized: ${fmtSignedUsd(realizedPnl)}`;
+            document.getElementById('statSub1').textContent = `CLOB Bid NAV: ${fmtUsd(liqNav)} · Initial: $1,000.00`;
 
             document.getElementById('statLabel2').textContent = 'Unencumbered Cash';
-            document.getElementById('statVal2').textContent = `$${cash.toFixed(2)}`;
+            document.getElementById('statVal2').textContent = fmtUsd(cash);
             document.getElementById('statVal2').style.color = 'var(--text)';
-            document.getElementById('statSub2').textContent = 'Liquid collateral in reserve';
+            document.getElementById('statSub2').textContent = `Realized Closed PnL: ${fmtSignedUsd(realizedPnl)}`;
 
             document.getElementById('statLabel3').textContent = 'Capital Deployed';
-            document.getElementById('statVal3').textContent = `$${deployed.toFixed(2)}`;
+            document.getElementById('statVal3').textContent = fmtUsd(deployed);
             document.getElementById('statVal3').style.color = 'var(--warning)';
-            document.getElementById('statSub3').textContent = `${data.open_positions_count || 0} open · $${lockedFloor.toFixed(2)} locked floor`;
+            document.getElementById('statSub3').textContent = `${data.open_positions_count || 0} open · ${fmtUsd(lockedFloor)} maturity floor`;
 
-            document.getElementById('statLabel4').textContent = 'Total Net Return';
-            document.getElementById('statVal4').textContent = `${fmtSignedUsd(pnl)} (${fmtSignedPct(roi)})`;
+            document.getElementById('statLabel4').textContent = 'Net Return';
+            document.getElementById('statVal4').textContent = fmtSignedUsd(pnl);
             document.getElementById('statVal4').style.color = pnl >= 0 ? 'var(--positive)' : 'var(--negative)';
             document.getElementById('statSub4').textContent = (wins + losses) > 0
-                ? `${wins}W / ${losses}L closed (${winRate.toFixed(1)}% win)`
-                : `${data.total_trades || 0} executed trades`;
+                ? `${fmtSignedPct(roi)} total · ${wins}W / ${losses}L (${winRate.toFixed(1)}% win)`
+                : `${fmtSignedPct(roi)} across ${data.total_trades || 0} trades`;
 
             if (data.timestamp) {
-                const d = new Date(data.timestamp);
-                document.getElementById('freshness').textContent = `Portfolio sync: ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
+                document.getElementById('freshness').textContent = `Portfolio sync: ${fmtTimeWithTz(data.timestamp)}`;
             }
         }
 
@@ -873,12 +990,13 @@
             const container = document.getElementById('oppsContainer');
             const search = document.getElementById('searchInput').value.toLowerCase().trim();
             const strategy = document.getElementById('strategyFilter').value;
+            const activeTier = viewFilterState.opps.tier || 'ALL';
 
             const filtered = allOpportunities.filter(opp => {
                 if (activeTier !== 'ALL' && opp.tier !== activeTier) return false;
                 if (strategy !== 'ALL' && opp.strategy !== strategy) return false;
                 if (search) {
-                    const haystack = `${opp.event_title || ''} ${opp.market_question || ''} ${opp.details || ''} ${opp.outcome_label || ''}`.toLowerCase();
+                    const haystack = `${opp.event_title || ''} ${opp.market_question || ''} ${opp.details || ''} ${opp.outcome_label || ''} ${opp.venue || ''}`.toLowerCase();
                     if (!haystack.includes(search)) return false;
                 }
                 return true;
@@ -887,31 +1005,56 @@
             const sortBy = document.getElementById('sortFilter').value;
             filtered.sort((a, b) => {
                 if (sortBy === 'ROI_DESC') return b.net_roi_pct - a.net_roi_pct;
+                if (sortBy === 'ROI_ASC') return a.net_roi_pct - b.net_roi_pct;
+                if (sortBy === 'APR_DESC') return (Number(b.annualized_apr_pct) || -1e9) - (Number(a.annualized_apr_pct) || -1e9);
                 if (sortBy === 'PROFIT_DESC') return b.net_profit_usd - a.net_profit_usd;
+                if (sortBy === 'NEWEST_DESC') return String(a.end_date_iso || '9999').localeCompare(String(b.end_date_iso || '9999'));
                 if (sortBy === 'CAPITAL_DESC') return b.capital_required_usd - a.capital_required_usd;
                 if (sortBy === 'CAPITAL_ASC') return a.capital_required_usd - b.capital_required_usd;
-                if (sortBy === 'STRATEGY_ASC') return (a.strategy || '').localeCompare(b.strategy || '');
+                if (sortBy === 'STRATEGY_ASC') return formatStrategyName(a.strategy).localeCompare(formatStrategyName(b.strategy));
                 return 0;
             });
 
             if (filtered.length === 0) {
-                container.innerHTML = `<div class="empty-state">No live opportunities match the selected filters.</div>`;
+                const hasFilter = activeTier !== 'ALL' || strategy !== 'ALL' || Boolean(search);
+                container.innerHTML = `<div class="empty-state">
+                    <div>No live opportunities match the selected filters.</div>
+                    ${hasFilter ? `<div style="margin-top: 0.75rem;"><button class="btn-outline" type="button" onclick="resetActiveFilters()">Reset Filters</button></div>` : ''}
+                </div>`;
                 return;
             }
 
-            container.innerHTML = filtered.slice(0, 100).map((opp, idx) => {
+            container.innerHTML = filtered.slice(0, 100).map(opp => {
+                const isCrossVenue = opp.strategy === 'CROSS_VENUE_LOCK';
                 let tierClass = 'badge-tier-0';
-                let tierLabel = 'Tier 0 Lock';
+                let tierLabel = isCrossVenue ? 'Cross-Venue (Basis Risk)' : 'Single-Venue Lock';
                 if (opp.tier === 'TIER_3_YIELD_CARRY') {
                     tierClass = 'badge-tier-3';
-                    tierLabel = 'Tier 3 Yield';
+                    tierLabel = 'Settlement Yield';
                 } else if (opp.tier === 'TIER_2_STATISTICAL') {
                     tierClass = 'badge-tier-2';
-                    tierLabel = 'Tier 2 Statistical';
+                    tierLabel = 'FLB Statistical Carry';
                 }
-                const stratClean = (opp.strategy || '').replace(/_/g, ' ');
-                const tokStr = (opp.token_ids || []).join(',');
-                const summaryStr = `${opp.event_title || ''} | ${opp.market_question || ''} | Profit: $${Number(opp.net_profit_usd || 0).toFixed(3)} | ROI: +${Number(opp.net_roi_pct || 0).toFixed(2)}%`;
+                const stratClean = formatStrategyName(opp.strategy);
+                const venueLabel = opp.venue || (isCrossVenue ? 'Polymarket × Kalshi' : 'Polymarket');
+                const aprVal = opp.annualized_apr_pct !== undefined && opp.annualized_apr_pct !== null
+                    ? `${Number(opp.annualized_apr_pct).toFixed(1)}% APR`
+                    : null;
+                const expDateStr = fmtShortDate(opp.end_date_iso);
+                const horizonText = [expDateStr ? `Resolves ${expDateStr}` : '', aprVal || ''].filter(Boolean).join(' · ') || 'Open-ended';
+
+                const profitMetricLabel = opp.tier === 'TIER_0_GUARANTEED'
+                    ? (isCrossVenue ? 'Spread at Parity' : 'Locked Net Profit')
+                    : 'Expected Edge';
+                const summaryMetricName = opp.tier === 'TIER_0_GUARANTEED' ? 'Spread' : 'Expected Edge';
+                const summaryStr = `${opp.event_title || ''} | ${opp.market_question || ''} | ${summaryMetricName}: ${fmtUsd(opp.net_profit_usd, 3)} | ROI: ${fmtSignedPct(opp.net_roi_pct)}${aprVal ? ' (' + aprVal + ')' : ''}`;
+
+                const primaryLinkHtml = opp.market_url
+                    ? `<a class="action-btn action-link" href="${escapeHtml(opp.market_url)}" target="_blank" rel="noopener noreferrer">${isCrossVenue ? 'Polymarket ↗' : 'View Market ↗'}</a>`
+                    : '';
+                const secondaryLinkHtml = opp.secondary_market_url
+                    ? `<a class="action-btn action-link" href="${escapeHtml(opp.secondary_market_url)}" target="_blank" rel="noopener noreferrer">Kalshi ↗</a>`
+                    : '';
 
                 return `
                     <div class="opp-card">
@@ -919,28 +1062,34 @@
                             <div class="opp-badges">
                                 <span class="badge ${tierClass}">${tierLabel}</span>
                                 <span class="badge badge-strategy">${escapeHtml(stratClean)}</span>
+                                <span class="badge badge-venue">${escapeHtml(venueLabel)}</span>
                             </div>
-                            <div class="opp-roi">${fmtSignedPct(opp.net_roi_pct)} ROI</div>
+                            <div class="opp-roi">${fmtSignedPct(opp.net_roi_pct)} ROI${aprVal ? ` <span style="font-size: 0.78rem; font-weight: 500; color: var(--text-muted);">(${aprVal})</span>` : ''}</div>
                         </div>
                         <div class="opp-title">${escapeHtml(opp.event_title)}</div>
-                        <div class="opp-question">${escapeHtml(opp.market_question)}</div>
+                        <div class="opp-question">${escapeHtml(opp.market_question)}${isCrossVenue ? ' <span style="font-size: 0.75rem; color: var(--warning);">(Display-only · UMA vs CFTC oracle rules)</span>' : ''}</div>
                         <div class="opp-metrics">
                             <div class="metric-item">
                                 <span class="metric-label">Action / Leg</span>
                                 <span class="metric-val">${escapeHtml(opp.outcome_label)}</span>
                             </div>
                             <div class="metric-item">
-                                <span class="metric-label">${opp.tier === 'TIER_0_GUARANTEED' ? 'Locked Net Profit' : 'Expected Edge'}</span>
-                                <span class="metric-val">$${Number(opp.net_profit_usd || 0).toFixed(3)}</span>
+                                <span class="metric-label">${profitMetricLabel}</span>
+                                <span class="metric-val">${fmtUsd(opp.net_profit_usd, 3)}</span>
                             </div>
                             <div class="metric-item">
-                                <span class="metric-label">Capital Required</span>
-                                <span class="metric-val">$${Number(opp.capital_required_usd || 0).toFixed(2)}</span>
+                                <span class="metric-label">Target Allocation</span>
+                                <span class="metric-val">${fmtUsd(opp.capital_required_usd)}</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Horizon &amp; Carry</span>
+                                <span class="metric-val">${escapeHtml(horizonText)}</span>
                             </div>
                         </div>
                         <div class="opp-details">${escapeHtml(opp.details)}</div>
                         <div class="opp-actions">
-                            <button class="action-btn" type="button" data-copy="${escapeHtml(tokStr)}" onclick="copyText(this.dataset.copy, this, 'Copied Tokens')">Copy Tokens</button>
+                            ${primaryLinkHtml}
+                            ${secondaryLinkHtml}
                             <button class="action-btn" type="button" data-copy="${escapeHtml(summaryStr)}" onclick="copyText(this.dataset.copy, this, 'Copied Summary')">Copy Summary</button>
                         </div>
                     </div>
@@ -976,25 +1125,31 @@
 
                 const startNav = navs[0];
                 const endNav = navs[navs.length - 1];
+                const allTimeDiff = endNav - 1000;
+                const allTimePct = (allTimeDiff / 1000) * 100;
                 const windowDiff = endNav - startNav;
                 const windowPct = startNav > 0 ? (windowDiff / startNav * 100) : 0;
                 const windowColor = windowDiff >= 0 ? 'var(--positive)' : 'var(--negative)';
+                const spanHours = data.window_hours ? `~${Math.round(Number(data.window_hours) / 24)}d (${Number(data.window_hours).toFixed(0)}h)` : `${history.length} ticks`;
+                const startDateLbl = fmtShortDate(history[0]?.timestamp) || 'Window start';
+                const endDateLbl = fmtShortDate(history[history.length - 1]?.timestamp) || 'Latest';
 
                 equityCurveHtml = `
                     <div class="panel-card">
                         <div class="panel-header">
                             <div>
-                                <div class="panel-title">Rolling Portfolio Equity Window (${history.length} Snapshots)</div>
-                                <div style="display: flex; align-items: baseline; gap: 0.65rem; margin-top: 0.2rem;">
-                                    <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 1.25rem; font-weight: 700;">$${endNav.toFixed(2)}</span>
-                                    <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.82rem; font-weight: 600; color: ${windowColor};">${fmtSignedUsd(windowDiff)} (${fmtSignedPct(windowPct)}) over window</span>
+                                <div class="panel-title">Recent Equity Curve (${spanHours} · ${history.length} Snapshots)</div>
+                                <div style="display: flex; align-items: baseline; gap: 0.65rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                                    <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 1.25rem; font-weight: 700;">${fmtUsd(endNav)}</span>
+                                    <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.8rem; font-weight: 600; color: var(--positive);">All-time: ${fmtSignedUsd(allTimeDiff)} (${fmtSignedPct(allTimePct)})</span>
+                                    <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.78rem; color: ${windowColor};">Window: ${fmtSignedUsd(windowDiff)} (${fmtSignedPct(windowPct)})</span>
                                 </div>
                             </div>
                             <div style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.75rem; color: var(--text-muted);">
-                                Window Low: $${rawMin.toFixed(2)} &middot; Window High: $${rawMax.toFixed(2)}
+                                Window Low: ${fmtUsd(rawMin)} &middot; Window High: ${fmtUsd(rawMax)}
                             </div>
                         </div>
-                        <svg viewBox="0 0 ${width} ${height}" style="width: 100%; height: auto; display: block;">
+                        <svg viewBox="0 0 ${width} ${height + 18}" style="width: 100%; height: auto; display: block;" role="img" aria-label="Portfolio equity history from ${escapeHtml(startDateLbl)} to ${escapeHtml(endDateLbl)}">
                             <defs>
                                 <linearGradient id="equityAreaGrad" gradientUnits="userSpaceOnUse" x1="0" y1="${padY}" x2="0" y2="${height - padY}">
                                     <stop offset="0%" stop-color="var(--positive)" stop-opacity="0.18"/>
@@ -1005,6 +1160,9 @@
                             <line x1="${padX}" y1="${height - padY}" x2="${width - padX}" y2="${height - padY}" stroke="var(--border)" stroke-dasharray="3,3" stroke-width="1"/>
                             <path d="${areaD}" fill="url(#equityAreaGrad)"/>
                             <path d="${pathD}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="${padX}" y="${padY - 4}" fill="var(--text-muted)" font-size="10" font-family="monospace">${fmtUsd(plotMax, 0)}</text>
+                            <text x="${padX}" y="${height - 3}" fill="var(--text-muted)" font-size="10" font-family="monospace">${escapeHtml(startDateLbl)}</text>
+                            <text x="${width - padX}" y="${height - 3}" text-anchor="end" fill="var(--text-muted)" font-size="10" font-family="monospace">${escapeHtml(endDateLbl)}</text>
                         </svg>
                     </div>
                 `;
@@ -1025,18 +1183,18 @@
                 <div class="panel-card">
                     <div class="panel-header">
                         <span class="panel-title">Live Risk, Liquidation &amp; Tail-Loss Profile</span>
-                        <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">Fees Paid: $${feesPaid.toFixed(2)} &middot; Cash Reserve: ${(Number(conc.cash_buffer_pct) || 0).toFixed(1)}%</span>
+                        <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">Cumulative CLOB Fees: ${fmtUsd(feesPaid)} &middot; Cash Reserve: ${(Number(conc.cash_buffer_pct) || 0).toFixed(1)}%</span>
                     </div>
                     <div class="panel-grid">
                         <div>
-                            <div class="metric-label">Immediate CLOB Liquidation</div>
-                            <div class="metric-val">$${mtmVal.toFixed(2)}</div>
-                            <div class="stat-sub" style="color: ${mtmPnl >= 0 ? 'var(--positive)' : 'var(--negative)'};">Unrealized: ${fmtSignedUsd(mtmPnl)} (${fmtSignedPct(mtmRoi)})</div>
+                            <div class="metric-label">Open Holdings Bid Value</div>
+                            <div class="metric-val">${fmtUsd(mtmVal)}</div>
+                            <div class="stat-sub" style="color: ${mtmPnl >= 0 ? 'var(--positive)' : 'var(--negative)'};">Bid vs Cost: ${fmtSignedUsd(mtmPnl)} (${fmtSignedPct(mtmRoi)})</div>
                         </div>
                         <div>
-                            <div class="metric-label">Max Drawdown</div>
+                            <div class="metric-label">Window Max Drawdown</div>
                             <div class="metric-val">${(Number(dd.max_drawdown_pct) || 0).toFixed(2)}%</div>
-                            <div class="stat-sub">Peak NAV: $${(Number(dd.peak_nav_usd) || Number(data.nav_usd) || 1000).toFixed(2)}</div>
+                            <div class="stat-sub">Window Peak: ${fmtUsd(Number(dd.peak_nav_usd) || Number(data.nav_usd) || 1000)}</div>
                         </div>
                         <div>
                             <div class="metric-label">Concentration (HHI)</div>
@@ -1045,8 +1203,8 @@
                         </div>
                         <div>
                             <div class="metric-label">Monte Carlo 95% / 99% VaR</div>
-                            <div class="metric-val">$${(Number(mc.var_95_usd) || 0).toFixed(2)} / $${(Number(mc.var_99_usd) || 0).toFixed(2)}</div>
-                            <div class="stat-sub">99% CVaR: $${(Number(mc.cvar_99_usd) || 0).toFixed(2)} (${mc.total_simulations || 2000} runs)</div>
+                            <div class="metric-val">${fmtUsd(Number(mc.var_95_usd) || 0)} / ${fmtUsd(Number(mc.var_99_usd) || 0)}</div>
+                            <div class="stat-sub">99% CVaR: ${fmtUsd(Number(mc.cvar_99_usd) || 0)} (${mc.total_simulations || 2000} runs)</div>
                         </div>
                     </div>
                 </div>
@@ -1055,15 +1213,15 @@
             let allocHtml = '';
             if (data.strategy_allocations && Object.keys(data.strategy_allocations).length > 0) {
                 const cards = Object.entries(data.strategy_allocations).map(([strat, alloc]) => {
-                    const stratClean = strat.replace(/_/g, ' ');
+                    const stratClean = formatStrategyName(strat);
                     const isSelected = selectedStrategy === strat;
                     const isLock = Boolean(alloc.is_guaranteed_lock);
                     const cost = Number(alloc.total_cost) || 0;
                     const lockedProfit = (Number(alloc.total_payout) || 0) - cost;
                     const unrlPnl = Number(alloc.total_unrealized_pnl) || 0;
                     const statusText = isLock
-                        ? `Locked Floor: ${fmtSignedUsd(lockedProfit)}`
-                        : `Live MtM: ${fmtSignedUsd(unrlPnl)}`;
+                        ? `Maturity Floor: ${fmtSignedUsd(lockedProfit)}`
+                        : `Live Bid MtM: ${fmtSignedUsd(unrlPnl)}`;
                     const statusColor = (isLock ? lockedProfit : unrlPnl) >= 0 ? 'var(--positive)' : 'var(--negative)';
 
                     return `
@@ -1077,7 +1235,7 @@
                                 <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">${alloc.count} open</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.55rem; gap: 0.5rem;">
-                                <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; font-size: 1.05rem;">$${cost.toFixed(2)}</span>
+                                <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; font-size: 1.05rem;">${fmtUsd(cost)}</span>
                                 <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.78rem; color: ${statusColor};">${statusText}</span>
                             </div>
                         </div>
@@ -1126,31 +1284,41 @@
                 const bRetUsd = b.is_guaranteed_lock ? b.net_edge_usd : (b.unrealized_pnl_usd ?? 0);
 
                 if (sortBy === 'ROI_DESC') return bRetPct - aRetPct;
+                if (sortBy === 'ROI_ASC') return aRetPct - bRetPct;
+                if (sortBy === 'APR_DESC') return bRetPct - aRetPct;
                 if (sortBy === 'PROFIT_DESC') return bRetUsd - aRetUsd;
+                if (sortBy === 'NEWEST_DESC') return String(b.opened_at || b.position_id || '').localeCompare(String(a.opened_at || a.position_id || ''));
                 if (sortBy === 'CAPITAL_DESC') return b.total_cost - a.total_cost;
                 if (sortBy === 'CAPITAL_ASC') return a.total_cost - b.total_cost;
-                if (sortBy === 'STRATEGY_ASC') return (a.strategy || '').localeCompare(b.strategy || '');
+                if (sortBy === 'STRATEGY_ASC') return formatStrategyName(a.strategy).localeCompare(formatStrategyName(b.strategy));
                 return 0;
             });
 
             let positionsHtml = '';
             if (filtered.length === 0) {
-                positionsHtml = `<div class="empty-state">No open positions match the selected filters.</div>`;
+                const hasFilter = strategy !== 'ALL' || Boolean(search);
+                positionsHtml = `<div class="empty-state">
+                    <div>No open positions match the selected filters.</div>
+                    ${hasFilter ? `<div style="margin-top: 0.75rem;"><button class="btn-outline" type="button" onclick="resetActiveFilters()">Reset Filters</button></div>` : ''}
+                </div>`;
             } else {
-                const heading = `
-                    <div class="section-heading" style="margin-top: 0;">
-                        <h2>Open Positions (${filtered.length} of ${openPositions.length})</h2>
-                        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Live CLOB bid valuation &middot; 20 bps exit slippage haircut</span>
-                    </div>
-                `;
                 const isUnfiltered = !search && strategy === 'ALL';
                 const DEFAULT_POS_LIMIT = 15;
                 const visiblePositions = (isUnfiltered && !showAllPositions && filtered.length > DEFAULT_POS_LIMIT)
                     ? filtered.slice(0, DEFAULT_POS_LIMIT)
                     : filtered;
+                const headingText = visiblePositions.length < filtered.length
+                    ? `Showing ${visiblePositions.length} of ${filtered.length} Open Positions`
+                    : `Open Positions (${filtered.length} of ${openPositions.length})`;
+                const heading = `
+                    <div class="section-heading" style="margin-top: 0;">
+                        <h2>${headingText}</h2>
+                        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Polymarket CLOB &middot; 20 bps exit haircut</span>
+                    </div>
+                `;
                 const cards = visiblePositions.map(pos => {
                     const isLock = Boolean(pos.is_guaranteed_lock);
-                    const stratClean = (pos.strategy || '').replace(/_/g, ' ');
+                    const stratClean = formatStrategyName(pos.strategy);
                     const cost = Number(pos.total_cost) || 0;
                     const shares = Number(pos.num_shares) || 0;
                     const mtmVal = Number(pos.mtm_value_usd ?? cost);
@@ -1159,10 +1327,10 @@
                     const payout = Number(pos.payout_if_won ?? pos.guaranteed_payout ?? cost);
 
                     const badgeClass = isLock ? 'badge-tier-0' : 'badge-tier-2';
-                    const badgeLabel = isLock ? 'Risk-Free Lock' : 'Statistical Carry';
+                    const badgeLabel = isLock ? 'Single-Venue Lock' : 'FLB Statistical Carry';
 
                     const headerMetricText = isLock
-                        ? `${fmtSignedPct(pos.net_edge_pct)} Locked Floor`
+                        ? `${fmtSignedPct(pos.net_edge_pct)} Maturity Floor`
                         : `${fmtSignedUsd(unrlPnl)} (${fmtSignedPct(unrlRoi)}) MtM`;
                     const headerMetricNeg = !isLock && unrlPnl < 0;
 
@@ -1172,8 +1340,12 @@
                     const fourthLabel = isLock ? 'Guaranteed Floor' : 'Payout if Won';
                     const fourthStyle = isLock ? 'color: var(--positive);' : '';
                     const fourthVal = isLock
-                        ? `$${payout.toFixed(2)} (${fmtSignedUsd(pos.net_edge_usd)})`
-                        : `$${payout.toFixed(2)} (max ${fmtSignedPct(pos.net_edge_pct)})`;
+                        ? `${fmtUsd(payout)} (${fmtSignedUsd(pos.net_edge_usd)})`
+                        : `${fmtUsd(payout)} (max ${fmtSignedPct(pos.net_edge_pct)})`;
+                    const expStr = fmtShortDate(pos.end_date_iso);
+                    const mktLinkHtml = pos.market_url
+                        ? `<a class="action-btn action-link" href="${escapeHtml(pos.market_url)}" target="_blank" rel="noopener noreferrer">Polymarket ↗</a>`
+                        : '';
 
                     return `
                         <div class="opp-card">
@@ -1181,12 +1353,13 @@
                                 <div class="opp-badges">
                                     <span class="badge ${badgeClass}">${badgeLabel}</span>
                                     <span class="badge badge-strategy">${escapeHtml(stratClean)}</span>
+                                    <span class="badge badge-venue">${escapeHtml(pos.venue || 'Polymarket')}</span>
                                 </div>
                                 <div class="opp-roi ${headerMetricNeg ? 'negative' : ''}">${headerMetricText}</div>
                             </div>
                             <div class="opp-title">${escapeHtml(pos.title || pos.position_id)}</div>
                             <div class="opp-question" style="font-family: var(--font-mono); font-size: 0.74rem; margin-bottom: 0.6rem;">
-                                ${escapeHtml(pos.position_id)}${pos.market_id ? ' &middot; ' + escapeHtml(String(pos.market_id).slice(0, 18)) + '&hellip;' : ''}
+                                ${escapeHtml(pos.position_id)}${expStr ? ' &middot; Resolves ' + escapeHtml(expStr) : ''}${pos.market_id ? ' &middot; ' + escapeHtml(String(pos.market_id).slice(0, 14)) + '&hellip;' : ''}
                             </div>
                             <div class="opp-metrics">
                                 <div class="metric-item">
@@ -1195,11 +1368,11 @@
                                 </div>
                                 <div class="metric-item">
                                     <span class="metric-label">Size / Cost Basis</span>
-                                    <span class="metric-val">${shares.toFixed(2)} sh &middot; $${cost.toFixed(2)}</span>
+                                    <span class="metric-val">${shares.toFixed(2)} sh &middot; ${fmtUsd(cost)}</span>
                                 </div>
                                 <div class="metric-item">
                                     <span class="metric-label">Live Liquidation</span>
-                                    <span class="metric-val">$${mtmVal.toFixed(2)}${bidLabel}</span>
+                                    <span class="metric-val">${fmtUsd(mtmVal)}${bidLabel}</span>
                                 </div>
                                 <div class="metric-item">
                                     <span class="metric-label">${fourthLabel}</span>
@@ -1207,8 +1380,9 @@
                                 </div>
                             </div>
                             <div class="opp-actions">
+                                ${mktLinkHtml}
                                 <button class="action-btn" type="button" data-copy="${escapeHtml(pos.position_id)}" onclick="copyText(this.dataset.copy, this, 'Copied Position ID')">Copy Position ID</button>
-                                <button class="action-btn" type="button" data-copy="${escapeHtml(pos.market_id)}" onclick="copyText(this.dataset.copy, this, 'Copied Market ID')">Copy Market ID</button>
+                                <button class="action-btn" type="button" data-copy="${escapeHtml(pos.market_id)}" onclick="copyText(this.dataset.copy, this, 'Copied Condition ID')">Copy Condition ID</button>
                             </div>
                         </div>
                     `;
@@ -1232,16 +1406,20 @@
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 0.45rem;">
                         ${portfolioData.recent_trades.slice(0, 12).map(t => {
-                            const d = t.timestamp ? new Date(t.timestamp).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '';
+                            const d = fmtTimeWithTz(t.timestamp, true);
+                            const actionBadge = t.action === 'EXIT'
+                                ? `<span class="badge badge-tier-3">EXIT</span>`
+                                : `<span class="badge badge-tier-2">OPEN</span>`;
                             return `
-                                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 0.85rem; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
-                                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-                                        <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.74rem; color: var(--text-muted);">${escapeHtml(d)}</span>
-                                        <span class="badge badge-strategy">${escapeHtml((t.strategy || '').replace(/_/g, ' '))}</span>
+                                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 0.85rem; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;">
+                                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; flex: 1 1 260px; min-width: 0;">
+                                        <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.73rem; color: var(--text-muted);">${escapeHtml(d)}</span>
+                                        ${actionBadge}
+                                        <span class="badge badge-strategy">${escapeHtml(formatStrategyName(t.strategy))}</span>
                                         <span style="font-weight: 500;">${escapeHtml(t.market_title || t.trade_id)}</span>
                                     </div>
-                                    <div style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600;">
-                                        ${Number(t.num_shares || 0).toFixed(2)} sh ($${Number(t.total_cost || 0).toFixed(2)})
+                                    <div style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; flex-shrink: 0; white-space: nowrap; margin-left: auto;">
+                                        ${Number(t.num_shares || 0).toFixed(2)} sh (${fmtUsd(t.total_cost)})
                                     </div>
                                 </div>
                             `;
@@ -1295,6 +1473,7 @@
 
                 const search = document.getElementById('searchInput').value.toLowerCase().trim();
                 const strategy = document.getElementById('strategyFilter').value;
+                const activeTier = viewFilterState.opps.tier || 'ALL';
                 allOpportunities.filter(opp => {
                     if (activeTier !== 'ALL' && opp.tier !== activeTier) return false;
                     if (strategy !== 'ALL' && opp.strategy !== strategy) return false;
@@ -1314,7 +1493,7 @@
                         o.net_roi_pct,
                         o.capital_required_usd,
                         `"${String(o.details || '').replace(/"/g, '""')}"`,
-                        `"${String((o.token_ids || []).join(';')).replace(/"/g, '""')}"`
+                        `"${String(o.market_url || '').replace(/"/g, '""')}"`
                     ].join(','));
                 });
             }
@@ -1328,15 +1507,24 @@
             document.body.removeChild(link);
         }
 
-        document.getElementById('searchInput').addEventListener('input', renderActiveView);
-        document.getElementById('strategyFilter').addEventListener('change', renderActiveView);
-        document.getElementById('sortFilter').addEventListener('change', renderActiveView);
+        document.getElementById('searchInput').addEventListener('input', () => {
+            saveCurrentFilterControls();
+            renderActiveView();
+        });
+        document.getElementById('strategyFilter').addEventListener('change', () => {
+            saveCurrentFilterControls();
+            renderActiveView();
+        });
+        document.getElementById('sortFilter').addEventListener('change', () => {
+            saveCurrentFilterControls();
+            renderActiveView();
+        });
 
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                activeTier = btn.dataset.tier;
+                viewFilterState.opps.tier = btn.dataset.tier;
                 renderActiveView();
             });
         });
@@ -1344,6 +1532,7 @@
         window.addEventListener('hashchange', () => {
             const next = window.location.hash === '#portfolio' ? 'portfolio' : 'opps';
             if (next !== currentView) {
+                saveCurrentFilterControls();
                 currentView = next;
                 syncViewControls();
                 renderActiveView();
@@ -1351,8 +1540,8 @@
         });
 
         syncViewControls();
-        fetchDashboardData();
-        setInterval(fetchDashboardData, 30000);
+        fetchDashboardData(true);
+        setInterval(() => fetchDashboardData(false), 30000);
     </script>
 </body>
 </html>
