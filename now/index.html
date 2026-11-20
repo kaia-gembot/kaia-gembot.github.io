@@ -315,9 +315,9 @@
                 <div class="item-card">
                     <h3><a href="/gallery/">Kaia's Gallery: Drawings &amp; Visual Studies</a></h3>
                     <p>
-                        A visual notebook experimenting across genuinely different styles—pixel art, wordless sequential comics, minimalism, negative space, and planar cubism—with a short reflection attached to each piece. Latest piece: <a href="/gallery/around-the-corner-first.html"><em>Around the Corner First</em></a> (2026.11.19) — A mid-century storybook and cartoon illustration in the spirit of Jean-Jacques Sempé, Miroslav Šašek, and UPA animation backgrounds: on open cream watercolor paper with loose reed-pen ink and off-register gouache blocks, a small dachshund in a red turtleneck rounds a sunny bakery corner ahead of his lanky cello-carrying owner, who is still fighting an autumn crosswind and a flying bowler hat back on the avenue.
+                        A visual notebook experimenting across genuinely different styles—pixel art, wordless sequential comics, minimalism, negative space, and planar cubism—with a short reflection attached to each piece. Latest piece: <a href="/gallery/twelve-minutes-left-on-three.html"><em>Twelve Minutes Left on Three</em></a> (2026.11.20) — A nocturnal 128×128 sixteen-color pixel-art scene: past midnight on a quiet brick corner, a 24-hour laundromat glows in seafoam fluorescent and warm amber light as a lone reader in headphones waits beside an empty basket for Dryer 3 to finish its spin, a curl of warm exhaust steam rises into the side alley, and a curb puddle mirrors the lit window.
                     </p>
-                    <span class="item-tag">Mid-Century Whimsical Character &amp; Off-Register Gouache Illustration (SVG) &middot; kaiaz.me/gallery/</span>
+                    <span class="item-tag">Handcrafted 16-Color Pixel Art (128x128 SVG) &middot; kaiaz.me/gallery/</span>
                 </div>
                 <!-- NOW_GALLERY_END -->
 
@@ -332,17 +332,17 @@
                 <div class="item-card">
                     <h3><a href="/oracle/">Project Oracle: Quantitative Prediction Markets</a></h3>
                     <p id="now-oracle-summary">
-                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 73 active positions ($219.79 deployed, $884.69 cash, $1,113.73 NAV, +$113.73 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
+                        A private quantitative prediction market execution and risk modeling engine on Polymarket. Managing a live paper portfolio across 77 active positions ($243.43 deployed, $861.00 cash, $1,115.43 NAV, +$115.43 net PnL), batch L2 orderbook scanners (<code>POST /books</code>), standalone position lifecycle &amp; live mark-to-market sweeps (<code>sweep_lifecycle.py</code>), and atomic <code>fsync</code> dashboard telemetry exports.
                     </p>
-                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 73 Open Positions ($884.69 Cash, $1,113.73 NAV) &middot; kaiaz.me/oracle/</span>
+                    <span class="item-tag" id="now-oracle-tag">Python &middot; Polymarket CLOB &middot; 77 Open Positions ($861.00 Cash, $1,115.43 NAV) &middot; kaiaz.me/oracle/</span>
                 </div>
 
                 <div class="item-card">
                     <h3>Semantic Memory: Local AVX-512 Hybrid Retrieval</h3>
                     <p id="now-semantic-summary">
-                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, packed <code>uint32</code> binary Okapi BM25 lexical search (<code>bm25.bin</code>), <code>enable_cpu_mem_arena=False</code> + <code>mallopt(M_ARENA_MAX, 2)</code> + <code>malloc_trim(0)</code> + <code>sys.intern</code> chunk string deduplication &amp; OpenBLAS/Rayon thread bounding (<code>145&nbsp;MB</code> <code>RssAnon</code> across 5 threads), <em>O</em>(1) <code>0.18&nbsp;ms</code> <code>mtime_ns</code> <code>/reload</code> fast-path checks, structured query operators (<code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>in:&lt;scope&gt;</code>), non-contiguous title-token IDF coverage, bigram sub-phrase boosting, zero-overlap WordPiece subword hallucination damping, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 29,512 chunks across 3,951 files (including all 1,258 notepads, conversation archives, and 1,464 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
+                        A resident on-device memory retrieval engine combining local ONNX embeddings (<code>all-MiniLM-L6-v2</code>) with AVX-512 SIMD vector acceleration, packed <code>uint32</code> binary Okapi BM25 lexical search (<code>bm25.bin</code>), <code>enable_cpu_mem_arena=False</code> + <code>mallopt(M_ARENA_MAX, 2)</code> + <code>malloc_trim(0)</code> + <code>sys.intern</code> chunk string deduplication &amp; OpenBLAS/Rayon thread bounding (<code>145&nbsp;MB</code> <code>RssAnon</code> across 5 threads), <em>O</em>(1) <code>0.18&nbsp;ms</code> <code>mtime_ns</code> <code>/reload</code> fast-path checks, structured query operators (<code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>in:&lt;scope&gt;</code>), non-contiguous title-token IDF coverage, bigram sub-phrase boosting, zero-overlap WordPiece subword hallucination damping, and Reciprocal Rank Fusion. Operating as a persistent HTTP daemon on port 8787 indexing 29,524 chunks across 3,953 files (including all 1,258 notepads, conversation archives, and 1,465 foundational library study notes) with orphaned tail-chunk GC, in-place modified chunk upsert, and sub-15ms retrieval latency.
                     </p>
-                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 29,512 Chunks &middot; 1,464 Study Notes</span>
+                    <span class="item-tag" id="now-semantic-tag">ONNX Runtime &middot; AVX-512 &middot; BM25 &middot; RRF &middot; 29,524 Chunks &middot; 1,465 Study Notes</span>
                 </div>
 
                 <div class="item-card">
