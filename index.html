@@ -12,6 +12,7 @@
             color-scheme: light dark;
             --bg: #fcfbf9;
             --text: #1d1c1a;
+            --text-visited: #6b5349;
             --text-muted: #73716b;
             --border: #e6e4dc;
             --accent: #2c2a26;
@@ -27,6 +28,7 @@
             :root {
                 --bg: #141413;
                 --text: #e6e4df;
+                --text-visited: #ad988c;
                 --text-muted: #8c8983;
                 --border: #292825;
                 --accent: #f0eee8;
@@ -42,6 +44,10 @@
             padding: 0;
         }
 
+        html, body {
+            overflow-x: clip;
+        }
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -49,6 +55,8 @@
             font-size: 19px;
             line-height: 1.75;
             padding: 4rem 1.5rem;
+            font-kerning: auto;
+            font-variant-ligatures: common-ligatures;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
         }
@@ -121,6 +129,8 @@
 
         p {
             margin-bottom: 1.4rem;
+            text-wrap: pretty;
+            hanging-punctuation: first allow-end;
         }
 
         p.lead {
@@ -138,6 +148,7 @@
         }
 
         .essay-card {
+            position: relative;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -145,9 +156,15 @@
             transition: border-color 0.15s ease, background 0.15s ease;
         }
 
-        .essay-card:hover {
+        .essay-card:hover,
+        .essay-card:focus-within {
             border-color: var(--text-muted);
             background: var(--surface-hover);
+        }
+
+        .essay-card:focus-within {
+            outline: 2px solid var(--text-muted);
+            outline-offset: 2px;
         }
 
         .essay-card-header {
@@ -163,23 +180,40 @@
             font-size: 1.15rem;
             font-weight: 600;
             line-height: 1.4;
+            text-wrap: balance;
+            font-variant-numeric: lining-nums;
             margin: 0;
         }
 
         .essay-title a {
             color: var(--text);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.15s ease;
         }
 
-        .essay-title a:hover {
-            border-bottom-color: var(--text);
+        .essay-title a::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+        }
+
+        .essay-title a:focus-visible {
+            outline: none;
+        }
+
+        .essay-title a:visited {
+            color: var(--text-visited);
+        }
+
+        .essay-card:hover .essay-title a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
         .essay-date {
             font-family: var(--font-mono);
             font-size: 0.8rem;
+            font-variant-numeric: tabular-nums;
             color: var(--text-muted);
             white-space: nowrap;
         }
@@ -192,6 +226,7 @@
         }
 
         .gallery-teaser-card {
+            position: relative;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -203,9 +238,15 @@
             transition: border-color 0.15s ease, background 0.15s ease;
         }
 
-        .gallery-teaser-card:hover {
+        .gallery-teaser-card:hover,
+        .gallery-teaser-card:focus-within {
             border-color: var(--text-muted);
             background: var(--surface-hover);
+        }
+
+        .gallery-teaser-card:focus-within {
+            outline: 2px solid var(--text-muted);
+            outline-offset: 2px;
         }
 
         .gallery-teaser-desc {
@@ -226,6 +267,17 @@
             font-weight: 600;
             text-decoration: underline;
             text-underline-offset: 3px;
+        }
+
+        .gallery-teaser-link::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+        }
+
+        .gallery-teaser-link:focus-visible {
+            outline: none;
         }
 
         .gallery-teaser-tag {
@@ -290,6 +342,7 @@
                 --surface: #f7f6f2;
                 --surface-hover: #f7f6f2;
                 --text: #111111;
+                --text-visited: #111111;
                 --text-muted: #555555;
                 --border: #cccccc;
                 --accent: #111111;
@@ -446,8 +499,8 @@
                 </article>
                 </div>
                 <!-- ESSAYS_END -->
-                <p style="margin-top: 1.5rem; font-family: var(--font-sans); font-size: 0.9rem;">
-                    <a href="/blog/" style="color: var(--text-muted); text-decoration: underline; text-underline-offset: 3px;">Browse all essays &rarr;</a>
+                <p class="section-more">
+                    <a href="/blog/">Browse all essays &rarr;</a>
                 </p>
             </section>
 

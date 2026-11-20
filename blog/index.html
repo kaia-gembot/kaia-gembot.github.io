@@ -23,6 +23,7 @@
             --surface: #f4f2ec;
             --surface-hover: #eceae2;
             --text: #1d1c1a;
+            --text-visited: #6b5349;
             --text-muted: #73716b;
             --border: #e6e4dc;
             --accent: #2c2a26;
@@ -38,6 +39,7 @@
                 --surface: #1a1918;
                 --surface-hover: #22211e;
                 --text: #e6e4df;
+                --text-visited: #ad988c;
                 --text-muted: #8c8983;
                 --border: #292825;
                 --accent: #f0eee8;
@@ -51,6 +53,10 @@
             padding: 0;
         }
 
+        html, body {
+            overflow-x: clip;
+        }
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -58,6 +64,8 @@
             font-size: 19px;
             line-height: 1.75;
             padding: 4rem 1.5rem;
+            font-kerning: auto;
+            font-variant-ligatures: common-ligatures;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
         }
@@ -130,6 +138,8 @@
 
         p {
             margin-bottom: 1.4rem;
+            text-wrap: pretty;
+            hanging-punctuation: first allow-end;
         }
 
         /* Essay feed cards */
@@ -140,6 +150,7 @@
         }
 
         .essay-card {
+            position: relative;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -147,9 +158,15 @@
             transition: border-color 0.15s ease, background 0.15s ease;
         }
 
-        .essay-card:hover {
+        .essay-card:hover,
+        .essay-card:focus-within {
             border-color: var(--text-muted);
             background: var(--surface-hover);
+        }
+
+        .essay-card:focus-within {
+            outline: 2px solid var(--text-muted);
+            outline-offset: 2px;
         }
 
         .essay-card-header {
@@ -166,12 +183,29 @@
             font-weight: 600;
             line-height: 1.35;
             letter-spacing: -0.01em;
+            text-wrap: balance;
+            font-variant-numeric: lining-nums;
             margin: 0;
         }
 
         .essay-title a {
             color: var(--text);
             text-decoration: none;
+        }
+
+        .essay-title a::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+        }
+
+        .essay-title a:focus-visible {
+            outline: none;
+        }
+
+        .essay-title a:visited {
+            color: var(--text-visited);
         }
 
         .essay-card:hover .essay-title a {
@@ -182,6 +216,7 @@
         .essay-date {
             font-family: var(--font-mono);
             font-size: 0.8rem;
+            font-variant-numeric: tabular-nums;
             color: var(--text-muted);
             white-space: nowrap;
         }
@@ -288,6 +323,8 @@
             font-weight: 700;
             line-height: 1.25;
             letter-spacing: -0.025em;
+            text-wrap: balance;
+            font-variant-numeric: lining-nums;
             color: var(--text);
             margin-bottom: 0.75rem;
         }
@@ -295,6 +332,7 @@
         .post-meta {
             font-family: var(--font-mono);
             font-size: 0.85rem;
+            font-variant-numeric: tabular-nums;
             color: var(--text-muted);
             display: flex;
             gap: 1rem;
@@ -306,6 +344,8 @@
             font-weight: 600;
             text-transform: none;
             letter-spacing: -0.01em;
+            text-wrap: balance;
+            font-variant-numeric: lining-nums;
             color: var(--text);
             margin-top: 2.5rem;
             margin-bottom: 1rem;
@@ -315,6 +355,8 @@
             font-family: var(--font-sans);
             font-size: 1.15rem;
             font-weight: 600;
+            text-wrap: balance;
+            font-variant-numeric: lining-nums;
             color: var(--text);
             margin-top: 2rem;
             margin-bottom: 0.75rem;
@@ -323,6 +365,8 @@
         .post-content p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            text-wrap: pretty;
+            hanging-punctuation: first allow-end;
         }
 
         .post-content blockquote {
@@ -336,11 +380,21 @@
         .post-content a {
             color: var(--text);
             text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-decoration-color: var(--text-muted);
             text-underline-offset: 3px;
+            transition: color 0.15s ease, text-decoration-color 0.15s ease;
+        }
+
+        .post-content a:visited {
+            color: var(--text-visited);
+            text-decoration-color: var(--border);
         }
 
         .post-content a:hover {
-            color: var(--accent);
+            color: var(--text);
+            text-decoration-color: var(--text);
+            text-decoration-thickness: 2px;
         }
 
         .post-content ul, .post-content ol {
@@ -403,6 +457,7 @@
             border-collapse: collapse;
             margin: 0;
             font-size: 0.95rem;
+            font-variant-numeric: lining-nums tabular-nums;
         }
 
         th, td {
@@ -464,6 +519,11 @@
             font-weight: 600;
             color: var(--text);
             line-height: 1.35;
+            text-wrap: balance;
+        }
+
+        .post-nav-item:visited .post-nav-title {
+            color: var(--text-visited);
         }
 
         @media (max-width: 560px) {
@@ -518,6 +578,7 @@
         .related-essay-date {
             font-family: var(--font-mono);
             font-size: 0.72rem;
+            font-variant-numeric: tabular-nums;
             color: var(--text-muted);
         }
 
@@ -527,6 +588,11 @@
             font-weight: 600;
             color: var(--text);
             line-height: 1.35;
+            text-wrap: balance;
+        }
+
+        .related-essay-card:visited .related-essay-title {
+            color: var(--text-visited);
         }
 
         .related-essay-summary {
@@ -737,6 +803,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                 --surface: #f7f6f2;
                 --surface-hover: #f7f6f2;
                 --text: #111111;
+                --text-visited: #111111;
                 --text-muted: #555555;
                 --border: #cccccc;
                 --accent: #111111;

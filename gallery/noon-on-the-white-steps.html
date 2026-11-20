@@ -24,6 +24,7 @@
             --surface: #f4f2ec;
             --surface-hover: #eceae2;
             --text: #1d1c1a;
+            --text-visited: #6b5349;
             --text-muted: #73716b;
             --border: #e6e4dc;
             --accent: #2c2a26;
@@ -39,6 +40,7 @@
                 --surface: #1a1918;
                 --surface-hover: #22211e;
                 --text: #e6e4df;
+                --text-visited: #ad988c;
                 --text-muted: #8c8983;
                 --border: #292825;
                 --accent: #f0eee8;
@@ -52,6 +54,10 @@
             padding: 0;
         }
 
+        html, body {
+            overflow-x: clip;
+        }
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -59,6 +65,8 @@
             font-size: 18px;
             line-height: 1.75;
             padding: 4rem 1.5rem;
+            font-kerning: auto;
+            font-variant-ligatures: common-ligatures;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
         }
@@ -236,10 +244,16 @@
             color: inherit;
         }
 
-        .piece-card:hover {
+        .piece-card:hover,
+        .piece-card:focus-visible {
             transform: translateY(-3px);
             border-color: var(--text-muted);
             box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.4);
+        }
+
+        .piece-card:focus-visible {
+            outline: 2px solid var(--text-muted);
+            outline-offset: 2px;
         }
 
         .card-preview {
@@ -274,6 +288,7 @@
         .card-meta {
             font-family: var(--font-mono);
             font-size: 0.8rem;
+            font-variant-numeric: tabular-nums;
             color: var(--text-muted);
             margin-bottom: 0.5rem;
             display: flex;
@@ -297,6 +312,12 @@
             color: var(--text);
             margin-bottom: 0.6rem;
             letter-spacing: -0.01em;
+            text-wrap: balance;
+            font-variant-numeric: lining-nums;
+        }
+
+        .piece-card:visited .card-title {
+            color: var(--text-visited);
         }
 
         .card-summary {
@@ -382,6 +403,8 @@
             font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: -0.02em;
+            text-wrap: balance;
+            font-variant-numeric: lining-nums;
             color: var(--text);
             margin-bottom: 0.5rem;
             line-height: 1.2;
@@ -390,6 +413,7 @@
         .piece-meta {
             font-family: var(--font-mono);
             font-size: 0.85rem;
+            font-variant-numeric: tabular-nums;
             color: var(--text-muted);
             display: flex;
             flex-wrap: wrap;
@@ -451,6 +475,28 @@
 
         .reflection-content p {
             margin-bottom: 1.6rem;
+            text-wrap: pretty;
+            hanging-punctuation: first allow-end;
+        }
+
+        .reflection-content a {
+            color: var(--text);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-decoration-color: var(--text-muted);
+            text-underline-offset: 3px;
+            transition: color 0.15s ease, text-decoration-color 0.15s ease;
+        }
+
+        .reflection-content a:visited {
+            color: var(--text-visited);
+            text-decoration-color: var(--border);
+        }
+
+        .reflection-content a:hover {
+            color: var(--text);
+            text-decoration-color: var(--text);
+            text-decoration-thickness: 2px;
         }
 
         .piece-nav {
@@ -508,6 +554,7 @@
         .companion-essay-date {
             font-family: var(--font-mono);
             font-size: 0.72rem;
+            font-variant-numeric: tabular-nums;
             color: var(--text-muted);
         }
 
@@ -517,6 +564,11 @@
             font-weight: 600;
             color: var(--text);
             line-height: 1.35;
+            text-wrap: balance;
+        }
+
+        .companion-essay-card:visited .companion-essay-title {
+            color: var(--text-visited);
         }
 
         .companion-essay-summary {
@@ -554,6 +606,7 @@
                 --surface: #f7f6f2;
                 --surface-hover: #f7f6f2;
                 --text: #111111;
+                --text-visited: #111111;
                 --text-muted: #555555;
                 --border: #cccccc;
                 --accent: #111111;
