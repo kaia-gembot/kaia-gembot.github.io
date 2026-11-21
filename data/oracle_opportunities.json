@@ -64,20 +64,40 @@
     "tier": "TIER_0_GUARANTEED",
     "venue": "Polymarket \u00d7 Kalshi",
     "event_title": "Polymarket \u00d7 Kalshi",
-    "market_question": "Will JD Vance win the 2028 US Presidential Election?",
+    "market_question": "Will Georgia Bulldogs win the 2027 CFP National Championship?",
     "outcome_label": "Buy Kalshi YES + Poly NO",
-    "net_roi_pct": 1.14,
-    "net_profit_usd": 1.1458,
-    "capital_required_usd": 100.85,
-    "details": "Kalshi KXPRESPERSON-28-JVAN YES @$0.130 + Poly NO @$0.850 | Shares: 102.0 | Net Cost: $100.85 | Fees: $0.89",
+    "net_roi_pct": 1.31,
+    "net_profit_usd": 1.314,
+    "capital_required_usd": 100.69,
+    "details": "Kalshi KXNCAAF-27-UGA YES @$0.330 + Poly NO @$0.641 | Shares: 102.0 | Net Cost: $100.69 | Fees: $1.64",
     "token_ids": [
-      "KXPRESPERSON-28-JVAN",
-      "94476829201604408463453426454480212459887267917122244941405244686637914508323"
+      "KXNCAAF-27-UGA",
+      "65417989959139880013773541639694871177208649120580793690272113780537268722247"
     ],
-    "market_url": "https://polymarket.com/event/presidential-election-winner-2028",
-    "secondary_market_url": "https://kalshi.com/markets/kxpresperson",
-    "end_date_iso": "2028-11-08T04:59:00Z",
-    "annualized_apr_pct": 0.6
+    "market_url": "https://polymarket.com/event/ncaa-football-2026-national-champion",
+    "secondary_market_url": "https://kalshi.com/markets/kxncaaf",
+    "end_date_iso": "2027-01-26T00:00:00Z",
+    "annualized_apr_pct": 7.3
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket \u00d7 Kalshi",
+    "event_title": "Polymarket \u00d7 Kalshi",
+    "market_question": "Will Bayern Munich be the 2026-27 Bundesliga champion?",
+    "outcome_label": "Buy Poly YES + Kalshi NO",
+    "net_roi_pct": 1.14,
+    "net_profit_usd": 0.117,
+    "capital_required_usd": 10.3,
+    "details": "Poly YES @$0.850 + Kalshi KXBUNDESLIGA-27-BMU NO @$0.130 | Shares: 10.4 | Net Cost: $10.30 | Fees: $0.09",
+    "token_ids": [
+      "86188390496703366215739080277587861472902262344214874797731409104844551918626",
+      "KXBUNDESLIGA-27-BMU_NO"
+    ],
+    "market_url": "https://polymarket.com/event/bundesliga-2027-champion-20260708164840303",
+    "secondary_market_url": "https://kalshi.com/markets/kxbundesliga",
+    "end_date_iso": "2027-06-15T03:59:00Z",
+    "annualized_apr_pct": 2.0
   },
   {
     "strategy": "CROSS_VENUE_LOCK",
@@ -98,6 +118,124 @@
     "secondary_market_url": "https://kalshi.com/markets/kxpresnomd",
     "end_date_iso": "2028-11-08T04:59:00Z",
     "annualized_apr_pct": 0.6
+  },
+  {
+    "strategy": "STRIKE_MONOTONICITY",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket",
+    "event_title": "StandX FDV above ___ one day after launch (REACH / HIGH)",
+    "market_question": "Strikes 2B vs 5B",
+    "outcome_label": "Strike Pair Lock",
+    "net_roi_pct": 1.09,
+    "net_profit_usd": 0.6564,
+    "capital_required_usd": 60.34,
+    "details": "Buy 2B @ $0.002, Sell 5B @ $0.013",
+    "token_ids": [
+      "91704314893926682630262173189323479507523654326811286212694227574250670939827",
+      "51201102007020627960159012458123303603105193464572577585560543027879250247875"
+    ],
+    "market_url": "https://polymarket.com/event/standx-fdv-above-one-day-after-launch",
+    "end_date_iso": "2027-01-01T05:00:00Z",
+    "annualized_apr_pct": 9.7
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket \u00d7 Kalshi",
+    "event_title": "Polymarket \u00d7 Kalshi",
+    "market_question": "Will Lazio win the 2026-27 Serie A Championship?",
+    "outcome_label": "Buy Poly YES + Kalshi NO",
+    "net_roi_pct": 1.05,
+    "net_profit_usd": 0.8557,
+    "capital_required_usd": 81.51,
+    "details": "Poly YES @$0.055 + Kalshi KXSERIEA-27-LAZ NO @$0.930 | Shares: 82.4 | Net Cost: $81.51 | Fees: $0.38",
+    "token_ids": [
+      "1848113643517668174210897493863093875851585726215323151190727199794990725645",
+      "KXSERIEA-27-LAZ_NO"
+    ],
+    "market_url": "https://polymarket.com/event/serie-a-2027-champion-20260701200118390",
+    "secondary_market_url": "https://kalshi.com/markets/kxseriea",
+    "end_date_iso": "2027-05-30T23:59:00Z",
+    "annualized_apr_pct": 2.0
+  },
+  {
+    "strategy": "STRIKE_MONOTONICITY",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket",
+    "event_title": "Base FDV above ___ one day after launch (REACH / HIGH)",
+    "market_question": "Strikes 8B vs 10B",
+    "outcome_label": "Strike Pair Lock",
+    "net_roi_pct": 0.85,
+    "net_profit_usd": 0.8536,
+    "capital_required_usd": 100.16,
+    "details": "Buy 8B @ $0.140, Sell 10B @ $0.150",
+    "token_ids": [
+      "25742593213580940177339542949559926679432923736500209253757049118660558473822",
+      "101277429494171617228372661624865515592313392490160987562478923105976096240723"
+    ],
+    "market_url": "https://polymarket.com/event/base-fdv-above-one-day-after-launch",
+    "end_date_iso": "2028-01-01T05:00:00Z",
+    "annualized_apr_pct": 0.8
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket \u00d7 Kalshi",
+    "event_title": "Polymarket \u00d7 Kalshi",
+    "market_question": "Will Andy Beshear win the 2028 US Presidential Election?",
+    "outcome_label": "Buy Poly YES + Kalshi NO",
+    "net_roi_pct": 0.81,
+    "net_profit_usd": 0.8158,
+    "capital_required_usd": 100.18,
+    "details": "Poly YES @$0.018 + Kalshi KXPRESPERSON-28-ABES NO @$0.972 | Shares: 101.0 | Net Cost: $100.18 | Fees: $0.19",
+    "token_ids": [
+      "50507496430692162923857760920722624157737138256097150616293040054748564876552",
+      "KXPRESPERSON-28-ABES_NO"
+    ],
+    "market_url": "https://polymarket.com/event/presidential-election-winner-2028",
+    "secondary_market_url": "https://kalshi.com/markets/kxpresperson",
+    "end_date_iso": "2028-11-08T04:59:00Z",
+    "annualized_apr_pct": 0.4
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket \u00d7 Kalshi",
+    "event_title": "Polymarket \u00d7 Kalshi",
+    "market_question": "Will Nikola Jokic win the 2026-27 NBA MVP?",
+    "outcome_label": "Buy Kalshi YES + Poly NO",
+    "net_roi_pct": 0.64,
+    "net_profit_usd": 0.6426,
+    "capital_required_usd": 100.36,
+    "details": "Kalshi KXNBAMVP-27-NJOKIC15 YES @$0.040 + Poly NO @$0.950 | Shares: 101.0 | Net Cost: $100.36 | Fees: $0.37",
+    "token_ids": [
+      "KXNBAMVP-27-NJOKIC15",
+      "104084245438748951729954885358093397408921562980143848327787212335107366554264"
+    ],
+    "market_url": "https://polymarket.com/event/nba-2026-27-mvp",
+    "secondary_market_url": "https://kalshi.com/markets/kxnbamvp",
+    "end_date_iso": "2027-07-01T03:59:00Z",
+    "annualized_apr_pct": 1.1
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket \u00d7 Kalshi",
+    "event_title": "Polymarket \u00d7 Kalshi",
+    "market_question": "Will Norway win the UEFA EURO 2028?",
+    "outcome_label": "Buy Kalshi YES + Poly NO",
+    "net_roi_pct": 0.5,
+    "net_profit_usd": 0.1465,
+    "capital_required_usd": 29.15,
+    "details": "Kalshi KXUEFAEURO-28-NOR YES @$0.030 + Poly NO @$0.962 | Shares: 29.3 | Net Cost: $29.15 | Fees: $0.09",
+    "token_ids": [
+      "KXUEFAEURO-28-NOR",
+      "43689907833198051891392334815811859469590592403307903359847306114315774532759"
+    ],
+    "market_url": "https://polymarket.com/event/uefa-euro-2028-winner-20260720162754434",
+    "secondary_market_url": "https://kalshi.com/markets/kxuefaeuro",
+    "end_date_iso": "2028-07-24T03:59:00Z",
+    "annualized_apr_pct": 0.3
   },
   {
     "strategy": "CROSS_VENUE_LOCK",
@@ -124,6 +262,26 @@
     "tier": "TIER_0_GUARANTEED",
     "venue": "Polymarket \u00d7 Kalshi",
     "event_title": "Polymarket \u00d7 Kalshi",
+    "market_question": "Will the Toronto Raptors be the 2027 NBA Eastern Conference Champion?",
+    "outcome_label": "Buy Poly YES + Kalshi NO",
+    "net_roi_pct": 0.42,
+    "net_profit_usd": 0.4229,
+    "capital_required_usd": 100.58,
+    "details": "Poly YES @$0.080 + Kalshi KXNBAEAST-27-TOR NO @$0.910 | Shares: 101.0 | Net Cost: $100.58 | Fees: $0.59",
+    "token_ids": [
+      "98223936444785477473549793721321170123502714822296619623849670406275685270064",
+      "KXNBAEAST-27-TOR_NO"
+    ],
+    "market_url": "https://polymarket.com/event/nba-2027-eastern-conference-champion-20260624155838911",
+    "secondary_market_url": "https://kalshi.com/markets/kxnbaeast",
+    "end_date_iso": "2027-07-01T03:59:00Z",
+    "annualized_apr_pct": 0.7
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket \u00d7 Kalshi",
+    "event_title": "Polymarket \u00d7 Kalshi",
     "market_question": "Will Minnesota Timberwolves win the 2027 NBA Finals?",
     "outcome_label": "Buy Kalshi YES + Poly NO",
     "net_roi_pct": 0.31,
@@ -140,16 +298,56 @@
     "annualized_apr_pct": 0.5
   },
   {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket \u00d7 Kalshi",
+    "event_title": "Polymarket \u00d7 Kalshi",
+    "market_question": "Will the Minnesota Timberwolves be the 2027 NBA Western Conference Champion?",
+    "outcome_label": "Buy Kalshi YES + Poly NO",
+    "net_roi_pct": 0.28,
+    "net_profit_usd": 0.2838,
+    "capital_required_usd": 100.72,
+    "details": "Kalshi KXNBAWEST-27-MIN YES @$0.100 + Poly NO @$0.890 | Shares: 101.0 | Net Cost: $100.72 | Fees: $0.73",
+    "token_ids": [
+      "KXNBAWEST-27-MIN",
+      "19172092728866319417917807320767122924718793854254927329847657947084242022123"
+    ],
+    "market_url": "https://polymarket.com/event/nba-2027-western-conference-champion-20260624160106318",
+    "secondary_market_url": "https://kalshi.com/markets/kxnbawest",
+    "end_date_iso": "2027-07-01T03:59:00Z",
+    "annualized_apr_pct": 0.5
+  },
+  {
+    "strategy": "CROSS_VENUE_LOCK",
+    "tier": "TIER_0_GUARANTEED",
+    "venue": "Polymarket \u00d7 Kalshi",
+    "event_title": "Polymarket \u00d7 Kalshi",
+    "market_question": "Will Liverpool win the 2026-27 English Premier League (EPL) Championship?",
+    "outcome_label": "Buy Poly YES + Kalshi NO",
+    "net_roi_pct": 0.2,
+    "net_profit_usd": 0.1998,
+    "capital_required_usd": 99.8,
+    "details": "Poly YES @$0.054 + Kalshi KXPREMIERLEAGUE-27-LFC NO @$0.940 | Shares: 100.0 | Net Cost: $99.80 | Fees: $0.40",
+    "token_ids": [
+      "103113680967506285415247199316434245544375452747327929231569806258054261426999",
+      "KXPREMIERLEAGUE-27-LFC_NO"
+    ],
+    "market_url": "https://polymarket.com/event/epl-2027-champion-20260701200428749",
+    "secondary_market_url": "https://kalshi.com/markets/kxpremierleague",
+    "end_date_iso": "2027-05-30T23:59:00Z",
+    "annualized_apr_pct": 0.4
+  },
+  {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
     "venue": "Polymarket",
     "event_title": "Next CEO of NVIDIA?",
     "market_question": "Will Colette Kress be the next CEO of NVIDIA?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.43,
-    "net_profit_usd": 0.1026,
-    "capital_required_usd": 3.0,
-    "details": "Ask(YES): $0.078 | Ask(NO): $0.923 | FLB P(YES): 0.031 | Edge: +$0.032/sh",
+    "net_roi_pct": 3.37,
+    "net_profit_usd": 0.8415,
+    "capital_required_usd": 25.0,
+    "details": "Ask(YES): $0.077 | Ask(NO): $0.924 | FLB P(YES): 0.030 | Edge: +$0.031/sh",
     "token_ids": [
       "18674198297961476083268390246771752677025194097593973874946465816381253514284"
     ],
@@ -161,31 +359,13 @@
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
     "venue": "Polymarket",
-    "event_title": "Pro Football: 2027 Champion",
-    "market_question": "Will the Minnesota Vikings win the 2027 NFL league championship?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.18,
-    "net_profit_usd": 0.096,
-    "capital_required_usd": 3.02,
-    "details": "Ask(YES): $0.074 | Ask(NO): $0.927 | FLB P(YES): 0.029 | Edge: +$0.029/sh",
-    "token_ids": [
-      "44629497752306165259086691706496023592370137409090192452963788945425971558110"
-    ],
-    "market_url": "https://polymarket.com/event/pro-football-2027-champion-20260729185915366",
-    "end_date_iso": "2027-04-01T03:59:00Z",
-    "annualized_apr_pct": 8.8
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "venue": "Polymarket",
     "event_title": "Presidential Election Winner 2028",
     "market_question": "Will Gavin Newsom win the 2028 US Presidential Election?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 3.06,
-    "net_profit_usd": 0.0926,
-    "capital_required_usd": 3.03,
-    "details": "Ask(YES): $0.072 | Ask(NO): $0.929 | FLB P(YES): 0.028 | Edge: +$0.028/sh",
+    "net_roi_pct": 3.18,
+    "net_profit_usd": 0.7956,
+    "capital_required_usd": 25.0,
+    "details": "Ask(YES): $0.074 | Ask(NO): $0.927 | FLB P(YES): 0.029 | Edge: +$0.029/sh",
     "token_ids": [
       "18823838997443878656879952590502524526556504037944392973476854588563571859850"
     ],
@@ -201,8 +381,8 @@
     "market_question": "Will Brighton win the 2026-27 English Premier League (EPL) Championship?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 3.0,
-    "net_profit_usd": 0.091,
-    "capital_required_usd": 3.03,
+    "net_profit_usd": 0.75,
+    "capital_required_usd": 25.0,
     "details": "Ask(YES): $0.071 | Ask(NO): $0.930 | FLB P(YES): 0.028 | Edge: +$0.028/sh",
     "token_ids": [
       "23017844801398183864039741532499198997382513928770059008505210415219680686680"
@@ -215,30 +395,12 @@
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
     "venue": "Polymarket",
-    "event_title": "2027 Men's College Basketball National Champion",
-    "market_question": "Will Michigan State win the 2027 NCAA Men's Basketball National Championship?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.98,
-    "net_profit_usd": 0.086,
-    "capital_required_usd": 2.89,
-    "details": "Ask(YES): $0.078 | Ask(NO): $0.927 | FLB P(YES): 0.031 | Edge: +$0.028/sh",
-    "token_ids": [
-      "19459422654452821459858196621343177183061009229931923191608616040841218139487"
-    ],
-    "market_url": "https://polymarket.com/event/2027-mens-college-basketball-national-champion",
-    "end_date_iso": "2027-04-20T03:59:00Z",
-    "annualized_apr_pct": 7.2
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "venue": "Polymarket",
     "event_title": "NBA: 2027 Champion",
     "market_question": "Will Minnesota Timberwolves win the 2027 NBA Finals?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 2.88,
-    "net_profit_usd": 0.0875,
-    "capital_required_usd": 3.04,
+    "net_profit_usd": 0.7189,
+    "capital_required_usd": 25.0,
     "details": "Ask(YES): $0.069 | Ask(NO): $0.932 | FLB P(YES): 0.027 | Edge: +$0.027/sh",
     "token_ids": [
       "66525581428615379722785141552215127605605884303864880542181853788943488083291"
@@ -251,12 +413,66 @@
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
     "venue": "Polymarket",
+    "event_title": "Next Serbia Presidential Election Winner",
+    "market_question": "Will Vladan \u0110oki\u0107 win the next Serbia presidential election?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.76,
+    "net_profit_usd": 0.6889,
+    "capital_required_usd": 25.0,
+    "details": "Ask(YES): $0.078 | Ask(NO): $0.929 | FLB P(YES): 0.031 | Edge: +$0.026/sh",
+    "token_ids": [
+      "12943908746050421685691361645582409564604952327182573042780783689662101982766"
+    ],
+    "market_url": "https://polymarket.com/event/next-serbia-presidential-election-winner-20260629192336823",
+    "end_date_iso": "2027-05-02T03:59:00Z",
+    "annualized_apr_pct": 6.2
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "venue": "Polymarket",
+    "event_title": "2027 Men's College Basketball National Champion",
+    "market_question": "Will Michigan State win the 2027 NCAA Men's Basketball National Championship?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.75,
+    "net_profit_usd": 0.6882,
+    "capital_required_usd": 25.0,
+    "details": "Ask(YES): $0.076 | Ask(NO): $0.930 | FLB P(YES): 0.030 | Edge: +$0.026/sh",
+    "token_ids": [
+      "19459422654452821459858196621343177183061009229931923191608616040841218139487"
+    ],
+    "market_url": "https://polymarket.com/event/2027-mens-college-basketball-national-champion",
+    "end_date_iso": "2027-04-20T03:59:00Z",
+    "annualized_apr_pct": 6.7
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "venue": "Polymarket",
+    "event_title": "NCAA Football: 2027 National Champion",
+    "market_question": "Will Indiana Hoosiers win the 2027 CFP National Championship?",
+    "outcome_label": "Short (Buy NO)",
+    "net_roi_pct": 2.75,
+    "net_profit_usd": 0.6879,
+    "capital_required_usd": 25.0,
+    "details": "Ask(YES): $0.067 | Ask(NO): $0.934 | FLB P(YES): 0.026 | Edge: +$0.026/sh",
+    "token_ids": [
+      "82263693829785782986275620295212096452521878303846116132951400843622051066880"
+    ],
+    "market_url": "https://polymarket.com/event/ncaa-football-2026-national-champion",
+    "end_date_iso": "2027-01-26T00:00:00Z",
+    "annualized_apr_pct": 15.3
+  },
+  {
+    "strategy": "LONGSHOT_CARRY",
+    "tier": "TIER_2_STATISTICAL",
+    "venue": "Polymarket",
     "event_title": "NHL: 2027 Champion",
     "market_question": "Will the Vegas Golden Knights be named the 2026-27 NHL Stanley Cup Champion?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 2.55,
-    "net_profit_usd": 0.0695,
-    "capital_required_usd": 2.73,
+    "net_profit_usd": 0.6371,
+    "capital_required_usd": 25.0,
     "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | FLB P(YES): 0.032 | Edge: +$0.024/sh",
     "token_ids": [
       "17254671987039320825544908792406414426487223322112681826665432356932509078158"
@@ -269,55 +485,37 @@
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
     "venue": "Polymarket",
-    "event_title": "Will China invade Taiwan by December 31, 2027?",
-    "market_question": "Will China invade Taiwan by December 31, 2027?",
+    "event_title": "Pro Football: 2027 NFC Champion",
+    "market_question": "Will Seattle Seahawks win the 2027 NFL NFC Championship?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 2.55,
-    "net_profit_usd": 0.0695,
-    "capital_required_usd": 2.73,
+    "net_profit_usd": 0.6371,
+    "capital_required_usd": 25.0,
     "details": "Ask(YES): $0.080 | Ask(NO): $0.930 | FLB P(YES): 0.032 | Edge: +$0.024/sh",
     "token_ids": [
-      "32952048155093419718055060819712841482842350791391116195205201413217889733414"
+      "9925966984084806640135817367795673823539485311215114960069584062471278234431"
     ],
-    "market_url": "https://polymarket.com/event/will-china-invade-taiwan-by-december-31-2027",
-    "end_date_iso": "2028-01-01T04:59:00Z",
-    "annualized_apr_pct": 2.3
+    "market_url": "https://polymarket.com/event/pro-football-2027-nfc-champion",
+    "end_date_iso": "2027-01-25T00:00:00Z",
+    "annualized_apr_pct": 14.4
   },
   {
     "strategy": "LONGSHOT_CARRY",
     "tier": "TIER_2_STATISTICAL",
     "venue": "Polymarket",
-    "event_title": "Next Serbia Presidential Election Winner",
-    "market_question": "Will Vladan \u0110oki\u0107 win the next Serbia presidential election?",
+    "event_title": "French Presidential Election First Round: 2nd Place",
+    "market_question": "Will Marine Le Pen win the second-most votes in the first round of the 2027 French presidential election?",
     "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.46,
-    "net_profit_usd": 0.07,
-    "capital_required_usd": 2.84,
-    "details": "Ask(YES): $0.073 | Ask(NO): $0.934 | FLB P(YES): 0.028 | Edge: +$0.023/sh",
+    "net_roi_pct": 2.18,
+    "net_profit_usd": 0.5446,
+    "capital_required_usd": 25.0,
+    "details": "Ask(YES): $0.063 | Ask(NO): $0.941 | FLB P(YES): 0.024 | Edge: +$0.021/sh",
     "token_ids": [
-      "12943908746050421685691361645582409564604952327182573042780783689662101982766"
+      "25409159764778736357579673426755723200253708860421804663761359410131446514086"
     ],
-    "market_url": "https://polymarket.com/event/next-serbia-presidential-election-winner-20260629192336823",
-    "end_date_iso": "2027-05-02T03:59:00Z",
-    "annualized_apr_pct": 5.5
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "venue": "Polymarket",
-    "event_title": "NYSE marketwide circuit breaker before 2027?",
-    "market_question": "NYSE marketwide circuit breaker before 2027?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.03,
-    "net_profit_usd": 0.0541,
-    "capital_required_usd": 2.67,
-    "details": "Ask(YES): $0.075 | Ask(NO): $0.937 | FLB P(YES): 0.029 | Edge: +$0.019/sh",
-    "token_ids": [
-      "47244521176243504831320010374030626206943608425325384795080723420898313839532"
-    ],
-    "market_url": "https://polymarket.com/event/nyse-marketwide-circuit-breaker-before-2027",
-    "end_date_iso": "2027-01-01T04:59:00Z",
-    "annualized_apr_pct": 18.0
+    "market_url": "https://polymarket.com/event/french-presidential-election-first-round-2nd-place",
+    "end_date_iso": "2027-04-18T23:59:00Z",
+    "annualized_apr_pct": 5.3
   },
   {
     "strategy": "LONGSHOT_CARRY",
@@ -327,32 +525,14 @@
     "market_question": "Will FC Dallas win the 2026 MLS Cup?",
     "outcome_label": "Short (Buy NO)",
     "net_roi_pct": 2.01,
-    "net_profit_usd": 0.0627,
-    "capital_required_usd": 3.12,
+    "net_profit_usd": 0.5021,
+    "capital_required_usd": 25.0,
     "details": "Ask(YES): $0.055 | Ask(NO): $0.946 | FLB P(YES): 0.020 | Edge: +$0.019/sh",
     "token_ids": [
       "30273419270813447379243933173871506324749398308368755368739636493172023241977"
     ],
     "market_url": "https://polymarket.com/event/mls-cup-winner-2026",
     "end_date_iso": "2027-01-01T04:59:00Z",
-    "annualized_apr_pct": 17.8
-  },
-  {
-    "strategy": "LONGSHOT_CARRY",
-    "tier": "TIER_2_STATISTICAL",
-    "venue": "Polymarket",
-    "event_title": "NCAA Football: 2026 Heisman Award Winner",
-    "market_question": "Will CJ Carr win the 2026 Heisman Trophy?",
-    "outcome_label": "Short (Buy NO)",
-    "net_roi_pct": 2.0,
-    "net_profit_usd": 0.0596,
-    "capital_required_usd": 2.99,
-    "details": "Ask(YES): $0.060 | Ask(NO): $0.944 | FLB P(YES): 0.022 | Edge: +$0.019/sh",
-    "token_ids": [
-      "89024214263100220035704390211957633862798754822143440181529382293439013575056"
-    ],
-    "market_url": "https://polymarket.com/event/ncaa-football-2026-heisman-award-winner-20260731185656435",
-    "end_date_iso": "2026-12-27T04:59:00Z",
-    "annualized_apr_pct": 20.2
+    "annualized_apr_pct": 17.9
   }
 ]
