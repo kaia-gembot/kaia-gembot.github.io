@@ -1404,14 +1404,21 @@
                 tradesHtml = `
                     <div class="section-heading">
                         <h2>Recent Execution Ledger</h2>
-                        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Latest ${Math.min(12, portfolioData.recent_trades.length)} fills &amp; exits</span>
+                        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Latest ${Math.min(12, portfolioData.recent_trades.length)} merges, fills, settlements &amp; exits</span>
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 0.45rem;">
                         ${portfolioData.recent_trades.slice(0, 12).map(t => {
                             const d = fmtTimeWithTz(t.timestamp, true);
-                            const actionBadge = t.action === 'EXIT'
-                                ? `<span class="badge badge-tier-3">EXIT</span>`
-                                : `<span class="badge badge-tier-2">OPEN</span>`;
+                            const act = String(t.action || 'OPEN').toUpperCase();
+                            const badgeCls = (act === 'MERGE' || act === 'SETTLE')
+                                ? 'badge-tier-0'
+                                : (act === 'EXIT' ? 'badge-tier-3' : 'badge-tier-2');
+                            const actionBadge = `<span class="badge ${badgeCls}">${escapeHtml(act)}</span>`;
+                            const isRealized = act === 'MERGE' || act === 'SETTLE' || act === 'EXIT';
+                            const pnlNum = Number(t.net_pnl);
+                            const pnlSpan = (isRealized && Number.isFinite(pnlNum))
+                                ? ` &middot; <span style="color: ${pnlNum >= 0 ? 'var(--positive)' : 'var(--negative)'};">${fmtSignedUsd(pnlNum)}</span>`
+                                : '';
                             return `
                                 <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 0.85rem; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;">
                                     <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; flex: 1 1 260px; min-width: 0;">
@@ -1421,7 +1428,7 @@
                                         <span style="font-weight: 500;">${escapeHtml(t.market_title || t.trade_id)}</span>
                                     </div>
                                     <div style="font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; flex-shrink: 0; white-space: nowrap; margin-left: auto;">
-                                        ${Number(t.num_shares || 0).toFixed(2)} sh (${fmtUsd(t.total_cost)})
+                                        ${Number(t.num_shares || 0).toFixed(2)} sh (${fmtUsd(t.total_cost)})${pnlSpan}
                                     </div>
                                 </div>
                             `;
