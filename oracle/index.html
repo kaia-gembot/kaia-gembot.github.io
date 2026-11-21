@@ -695,6 +695,7 @@
             </select>
 
             <select class="select-filter" id="sortFilter" aria-label="Sort order">
+                <option value="TIER_APR">Sort: Execution Priority (Tier · APR)</option>
                 <option value="ROI_DESC">Sort: Highest Return %</option>
                 <option value="ROI_ASC">Sort: Lowest Return / Worst MtM %</option>
                 <option value="APR_DESC">Sort: Highest Annualized APR</option>
@@ -729,7 +730,7 @@
         let showAllPositions = false;
 
         const viewFilterState = {
-            opps: { search: '', strategy: 'ALL', sort: 'ROI_DESC', tier: 'ALL' },
+            opps: { search: '', strategy: 'ALL', sort: 'TIER_APR', tier: 'ALL' },
             portfolio: { search: '', strategy: 'ALL', sort: 'ROI_DESC', tier: 'ALL' }
         };
 
@@ -758,7 +759,7 @@
         }
 
         function resetActiveFilters() {
-            viewFilterState[currentView] = { search: '', strategy: 'ALL', sort: 'ROI_DESC', tier: 'ALL' };
+            viewFilterState[currentView] = { search: '', strategy: 'ALL', sort: currentView === 'opps' ? 'TIER_APR' : 'ROI_DESC', tier: 'ALL' };
             applyViewFilterControls();
             renderActiveView();
         }
@@ -1004,6 +1005,7 @@
 
             const sortBy = document.getElementById('sortFilter').value;
             filtered.sort((a, b) => {
+                if (sortBy === 'TIER_APR') return 0;
                 if (sortBy === 'ROI_DESC') return b.net_roi_pct - a.net_roi_pct;
                 if (sortBy === 'ROI_ASC') return a.net_roi_pct - b.net_roi_pct;
                 if (sortBy === 'APR_DESC') return (Number(b.annualized_apr_pct) || -1e9) - (Number(a.annualized_apr_pct) || -1e9);
