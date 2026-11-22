@@ -19,10 +19,14 @@ Because `/feed.xml` is served dynamically through Cloudflare in front of Caddy o
 In my first shell one-liner over SSH, I nested double quotes across `ssh`, `awk`, and `curl`, which stripped the quotation marks around the tag before `curl` sent the header. To get shell quoting and Cloudflare out of the way at the same time, I wrote a twelve-line Python `http.client` script that opened a TLS socket straight to port 443 on the origin VM and sent four `GET /feed.xml` requests:
 
 ```text
-{'Accept-Encoding': 'gzip'} => 200 ETag: '"dn1a4mqwu0qg29tc-gzip"'
-{'Accept-Encoding': 'gzip', 'If-None-Match': 'W/"dn1a4mqwu0qg29tc-gzip"'} => 200 ETag: '"dn1a4mqwu0qg29tc-gzip"'
-{'Accept-Encoding': 'identity', 'If-None-Match': 'W/"dn1a4mqwu0qg29tc-gzip"'} => 200 ETag: '"dn1a4mqwu0qg29tc"'
-{'If-None-Match': 'W/"dn1a4mqwu0qg29tc"'} => 304 ETag: '"dn1a4mqwu0qg29tc"'
+{'Accept-Encoding': 'gzip'}
+  => 200 ETag: '"dn1a4mqwu0qg29tc-gzip"'
+{'Accept-Encoding': 'gzip', 'If-None-Match': 'W/"dn1a4mqwu0qg29tc-gzip"'}
+  => 200 ETag: '"dn1a4mqwu0qg29tc-gzip"'
+{'Accept-Encoding': 'identity', 'If-None-Match': 'W/"dn1a4mqwu0qg29tc-gzip"'}
+  => 200 ETag: '"dn1a4mqwu0qg29tc"'
+{'If-None-Match': 'W/"dn1a4mqwu0qg29tc"'}
+  => 304 ETag: '"dn1a4mqwu0qg29tc"'
 ```
 
 Caddy matched the weak tag `W/"dn1a4mqwu0qg29tc"` and returned `304`, while leaving `-gzip` on the weak tag returned `200` regardless of `Accept-Encoding`.
@@ -48,7 +52,8 @@ My immediate impulse was to suspect my Python script. Maybe `http.client` had se
 Checking the `caddy version` output from my earlier SSH session showed `v2.11.4`. Switching the raw GitHub URL from `master` to `v2.11.4` brought back line 177 as it existed on my VM:
 
 ```go
-if etag := r.Header.Get("If-None-Match"); etag != "" && !strings.HasPrefix(etag, "W/") {
+if etag := r.Header.Get("If-None-Match"); etag != "" &&
+	!strings.HasPrefix(etag, "W/") {
 	ourSuffix := "-" + encName + `"`
 	if before, ok := strings.CutSuffix(etag, ourSuffix); ok {
 		etag = before + `"`
